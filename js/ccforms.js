@@ -22,6 +22,9 @@ function setEvents() {
                 case 'profileRecordsTab':
                     $('#metadataRecs').removeClass('noView');
                     break;
+				case 'voyageTab':
+					$('#voyage').removeClass('noView');
+					break;
             }
         }
     });
@@ -31,6 +34,12 @@ function setEvents() {
     }).click(function () {
         window.location = home;
     });
+
+    $("#vmNew").click(
+    	function () {
+    		window.location = home + '/workspace/new_voyage';
+		}
+	)
 
     $("#vmCollapser").click(
     	function () {
@@ -46,11 +55,11 @@ function setEvents() {
 		}
 	)
 
-    $("#logout").hover(function () {
+    /*$("#logout").hover(function () {
 		$("#logout").css('cursor', 'pointer');
 	}).click(function () {
 		window.location = home + "/workspace/logout";
-	});
+	});*/
 
     $("#profileDataNavigator li").each(function () {
         $(this).hover(function () {
@@ -70,11 +79,23 @@ function hideButtons() {
 }
 
 function hideDetails() {
-    $("#profileDetails div").each(function () {
+   /* $("#profileDetails div").each(function () {
         if (!$(this).hasClass("noView"))
         {
             $(this).addClass("noView");
         }
-    });
+    });*/
+	$('#profileXML').addClass('noView');
+	$('#profileJSON').addClass('noView');
+	$('#voyage').addClass('noView');
+
+}
+
+function validateNewVoyage() {
+	if ($("#voyageSummary").val() !== "" && $("#voyageYear").val() !== "") {
+		$("#newVoyageForm").submit();
+	} else {
+		$("#formError").html(" Data missing!")
+	}
 }
 

@@ -15,7 +15,7 @@ padding: 0;
 width: auto;
 height: 28px;
 color:#444;
-background-color: #ccc;
+background-color: #ceced5;
 font-family: Arial;
 font-size: 20px;
 padding:14px 0 14px 20px;
@@ -324,6 +324,17 @@ display: table-cell;
     cursor: pointer;
 }
 
+#head_menu{
+	width:100%;
+	height:24px;
+	background-color:#5c5c6a;
+	margin:0 0 40px 0;
+	padding:6px 0 6px 12px;
+	display:block;
+}
+
+
+
 #loginForm{
 	display: table;
 	margin: 100px auto;
@@ -339,11 +350,11 @@ display: table-cell;
 }
 
 .formLabel{
-	width: 100px;
+	width: 120px;
 	font-weight: bold;
 }
 
-#loginError{
+#loginError, #formError{
 	margin-top: 20px;
 	font-weight: bold;
 	color: #b00;
@@ -360,14 +371,38 @@ display: table-cell;
 
 #voyagesMenu {
 	list-style: none;
-	margin-left: 30px;
-	margin-top: 40px;
+	margin: 40px 0 20px -34px;
 }
 
 #voyagesMenu li{
 	display: inline-block;
-	padding-right: 10px;
+	padding-right: 20px;
 	font-size: 1.2em;
 	cursor: pointer;
 }
+
+.headerLink{
+	color: #ffffff !important;
+}
+
+.appBtn{
+	color:#fff;
+	background-color: #777;
+	font-weight: bold;
+	border: 1px solid #666;
+	margin: 10px;
+	font-size: 10px;
+	padding: 6px 10px;
+	border-radius: 4px;
+	width: 54px;
+}
+
+.standardForm{
+	max-width: 800px;
+}
+
+#ccform1, #ccform2{
+	display: block;
+}
+
 

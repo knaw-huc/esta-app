@@ -64,11 +64,11 @@ function fill_cell(obj) {
 }
 
 function validate_login() {
-	if ($("#userName").val() !== "robz" || $("#passwd").val() !== "bonzo") {
-		$("#loginError").html("User name or password not correct!");
-		$("#passwd").val("");
-	} else {
+	//if ($("#userName").val() !== "robz" || $("#passwd").val() !== "bonzo") {
+	//	$("#loginError").html("User name or password not correct!");
+	//	$("#passwd").val("");
+	//} else {
 		$("#loginForm").submit();
-	}
+	//}
 }
 

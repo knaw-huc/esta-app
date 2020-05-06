@@ -9,7 +9,6 @@ class Sessions extends CI_Controller
 
 		$this->mysmarty->assign('user_name', '');
 		$this->mysmarty->assign('title', 'ESTA Editor');
-
 	}
 
 	function index() {
@@ -18,8 +17,14 @@ class Sessions extends CI_Controller
 
 	function login() {
 		if ($this->input->post("username") && $this->input->post("passwd")) {
-			$this->session->set_userdata("logged_in", 1);
-			redirect(base_url() . "workspace/");
+			$results = $this->fetch->getUser($this->input->post("username"), $this->input->post("passwd"));
+			if (count($results)) {
+				$this->session->set_userdata("logged_in", 1);
+				$this->session->set_userdata("name", $results[0]["chr_name"] . ' ' . $results[0]["name"]);
+				redirect(base_url() . "workspace");
+			} else {
+				redirect(base_url());
+			}
 		} else {
 			redirect(base_url());
 		}

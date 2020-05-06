@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-04-29 22:40:19
+/* Smarty version 3.1.32, created on 2020-04-30 08:50:03
   from '/Library/WebServer/Documents/esta/application/views/templates/voyages.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ea9e63393eca8_08957305',
+  'unifunc' => 'content_5eaa751b6c4385_79027163',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'b2b86b4e34e3eea604d2178b879c6f568a85d540' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyages.tpl',
-      1 => 1588192815,
+      1 => 1588229399,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ea9e63393eca8_08957305 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eaa751b6c4385_79027163 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7901758835ea9e6339240e8_25012492', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17572600425eaa751b6b5ce9_97929794', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_7901758835ea9e6339240e8_25012492 extends Smarty_Internal_Block
+class Block_17572600425eaa751b6b5ce9_97929794 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_7901758835ea9e6339240e8_25012492',
+    0 => 'Block_17572600425eaa751b6b5ce9_97929794',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -48,6 +48,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 		<li id="vmCollapser">Expand</li>
 		<li id="vmMyVoyages">My (sub)voyages</li>
 		<li id="vmSearch">Search</li>
+		<li id="vmNew">New voyage</li>
 	</ul>
 	<table id="resultTable">
 		<tr>
@@ -58,7 +59,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 			<th>Last edit</th>
 			<th>Mutation date</th>
 			<th></th>
-			<th>+</th>
+			<th></th>
 		</tr>
 		<tr class="voyageRow">
 			<td>23</td>
@@ -104,7 +105,7 @@ img/bin.png" height="16px" width="16px"></a>
 			<td></td>
 		</tr>
 		<tr class="voyageRow">
-			<td>233</td>
+			<td>2331</td>
 			<td>Just another summary 2</td>
 			<td>1833</td>
 			<td>Rob Zeeman</td>
@@ -137,7 +138,7 @@ img/bin.png" height="16px" width="16px"></a>
 			<td></td>
 		</tr>
 		<tr class="voyageRow">
-			<td>233</td>
+			<td>2334</td>
 			<td>This is the example</td>
 			<td>1854</td>
 			<td>Rob Zeeman</td>
@@ -205,7 +206,7 @@ img/bin.png" height="16px" width="16px"></a>
 			</td>
 		</tr>
 		<tr class="voyageRow">
-			<td>233</td>
+			<td>2334456</td>
 			<td>Just another summary 3</td>
 			<td>1833</td>
 			<td>Rob Zeeman</td>
@@ -238,7 +239,7 @@ img/bin.png" height="16px" width="16px"></a>
 			<td></td>
 		</tr>
 		<tr class="voyageRow">
-			<td>233</td>
+			<td>233234</td>
 			<td>Just another summary 4</td>
 			<td>1833</td>
 			<td>Rob Zeeman</td>
@@ -271,7 +272,7 @@ img/bin.png" height="16px" width="16px"></a>
 			<td></td>
 		</tr>
 		<tr class="voyageRow">
-			<td>233</td>
+			<td>23367</td>
 			<td>Just another summary 5</td>
 			<td>1833</td>
 			<td>Rob Zeeman</td>

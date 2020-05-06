@@ -1,0 +1,94 @@
+/* Don't touch */
+ul#jmenu
+{
+margin: 0px;
+padding: 0px;
+list-style: none;
+font-weight: bold;
+font-family: Arial;
+font-size: 14px;
+}
+ul#jmenu li
+{
+float: left;
+margin: 0px;
+padding: 0px;
+}
+ul#jmenu li a
+{
+display: block;
+white-space: nowrap;
+}
+
+ul#jmenu li ul
+{
+display: none;
+position: absolute;
+margin: 0px;
+padding: 0px;
+list-style: none;
+}
+ul#jmenu li ul li
+{
+float: none;
+}
+
+/* Styling starts here */
+ul#jmenu
+{
+width: 100%;
+height: 40px;
+}
+ul#jmenu li
+{
+padding: 2px 10px 0 10px;
+}
+ul#jmenu li a:link, ul#jmenu li a:visited
+{
+padding: 0;
+height: 20px;
+line-height: 20px;
+color: #fffbfb;
+font-size: 13px;
+text-decoration: none;
+background: none;
+}
+ul#jmenu li a:hover
+{
+color: #333;
+}
+ul#jmenu ul
+{
+background-color:#AAAAB5;
+border-top: 1px solid #666699;
+border-left: 1px solid #666699;
+border-right: 1px solid #666699;
+}
+ul#jmenu li ul li
+{
+padding: 0px;
+}
+ul#jmenu li ul li a:link, ul#jmenu li ul li a:visited
+{
+min-width: 100px;
+font-size: 12px;
+height: 30px;
+line-height: 30px;
+border-bottom: 1px solid #666699;
+padding: 0px 4px;
+}
+ul#jmenu li ul li a:hover
+{
+background: #ddd;
+}
+
+ul#jmenu li ul li a.separator
+{
+height: 2px;
+background-color: #777111;
+border-bottom: 1px solid #666699;
+}
+
+ul#jmenu li a.dead, ul#jmenu li ul li a.dead{
+color:#555;
+}

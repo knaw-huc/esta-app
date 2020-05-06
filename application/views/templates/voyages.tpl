@@ -5,6 +5,7 @@
 		<li id="vmCollapser">Expand</li>
 		<li id="vmMyVoyages">My (sub)voyages</li>
 		<li id="vmSearch">Search</li>
+		<li id="vmNew">New voyage</li>
 	</ul>
 	<table id="resultTable">
 		<tr>
@@ -15,7 +16,7 @@
 			<th>Last edit</th>
 			<th>Mutation date</th>
 			<th></th>
-			<th>+</th>
+			<th></th>
 		</tr>
 		<tr class="voyageRow">
 			<td>23</td>
@@ -58,7 +59,7 @@
 			<td></td>
 		</tr>
 		<tr class="voyageRow">
-			<td>233</td>
+			<td>2331</td>
 			<td>Just another summary 2</td>
 			<td>1833</td>
 			<td>Rob Zeeman</td>
@@ -88,7 +89,7 @@
 			<td></td>
 		</tr>
 		<tr class="voyageRow">
-			<td>233</td>
+			<td>2334</td>
 			<td>This is the example</td>
 			<td>1854</td>
 			<td>Rob Zeeman</td>
@@ -153,7 +154,7 @@
 			</td>
 		</tr>
 		<tr class="voyageRow">
-			<td>233</td>
+			<td>2334456</td>
 			<td>Just another summary 3</td>
 			<td>1833</td>
 			<td>Rob Zeeman</td>
@@ -183,7 +184,7 @@
 			<td></td>
 		</tr>
 		<tr class="voyageRow">
-			<td>233</td>
+			<td>233234</td>
 			<td>Just another summary 4</td>
 			<td>1833</td>
 			<td>Rob Zeeman</td>
@@ -213,7 +214,7 @@
 			<td></td>
 		</tr>
 		<tr class="voyageRow">
-			<td>233</td>
+			<td>23367</td>
 			<td>Just another summary 5</td>
 			<td>1833</td>
 			<td>Rob Zeeman</td>

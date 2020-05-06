@@ -1,0 +1,634 @@
+{
+  "id": "ESTA_testID",
+  "content": {
+	"type": "Component",
+	"level": 1,
+	"ID": "5eaac4f83af9f",
+	"attributes": {
+	  "name": "voyage",
+	  "label": "Voyage",
+	  "CardinalityMin": "1",
+	  "CardinalityMax": "1",
+	  "initialOrder": 1
+	},
+	"content": {
+	  "type": "Component",
+	  "level": 2,
+	  "ID": "5eaac4f83afa7",
+	  "attributes": {
+		"name": "subvoyage",
+		"label": "Sub voyage",
+		"CardinalityMin": "1",
+		"duplicate": "yes",
+		"initialOrder": 1
+	  },
+	  "content": [
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b67e",
+		  "attributes": {
+			"name": "subvoyage_type",
+			"label": "Type",
+			"ValueScheme": [
+			  [
+				{
+				  "value": "sea"
+				},
+				{
+				  "value": "land"
+				}
+			  ]
+			],
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": "100",
+			"height": "10",
+			"inputField": "multiple"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b69c",
+		  "attributes": {
+			"name": "sub_dept_place",
+			"label": "Place of departure",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": "100"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b6c6",
+		  "attributes": {
+			"name": "sub_dept_region",
+			"label": "Region of departure",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 100
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b6cc",
+		  "attributes": {
+			"name": "sub_dept_polity",
+			"label": "Polity of departure",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 100
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b6d2",
+		  "attributes": {
+			"name": "sub_dept_place_standardized",
+			"label": "Place of departure standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": "100"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b6d7",
+		  "attributes": {
+			"name": "sub_dept_region_standardized",
+			"label": "Region of departure standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 100
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b6dd",
+		  "attributes": {
+			"name": "sub_dept_polity_standardized",
+			"label": "Polity of departure standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 100
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b6e2",
+		  "attributes": {
+			"name": "sub_dept_date_as_source",
+			"label": "Source departure date",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 45
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b6e7",
+		  "attributes": {
+			"name": "sub_dept_date_year",
+			"label": "Departure date year",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 4
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b6ed",
+		  "attributes": {
+			"name": "sub_dept_date_month",
+			"label": "Departure date month",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 2
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b6f2",
+		  "attributes": {
+			"name": "sub_dept_date_day",
+			"label": "Departure date day",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 2
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b6f8",
+		  "attributes": {
+			"name": "sub_dept_date_status",
+			"label": "Departure date status",
+			"ValueScheme": [
+			  [
+				{
+				  "value": "uncertain"
+				},
+				{
+				  "value": "incomplete"
+				},
+				{
+				  "value": "range"
+				},
+				{
+				  "value": "date\/month\/day\/year alternative"
+				},
+				{
+				  "value": "unknown to indicate status of departure date"
+				}
+			  ]
+			],
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": "100",
+			"height": "10",
+			"inputField": "multiple"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b700",
+		  "attributes": {
+			"name": "sub_arrival_place",
+			"label": "Place of arrival",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": "100"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b706",
+		  "attributes": {
+			"name": "sub_arrival_region",
+			"label": "Region of arrival",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 100
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b70c",
+		  "attributes": {
+			"name": "sub_arrival_polity",
+			"label": "Polity of arrival",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 100
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b711",
+		  "attributes": {
+			"name": "sub_arrival_place_standardized",
+			"label": "Place of arrival standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": "100"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b717",
+		  "attributes": {
+			"name": "sub_arrival_region_standardized",
+			"label": "Region of arrival standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 100
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b71c",
+		  "attributes": {
+			"name": "sub_arrival_polity_standardized",
+			"label": "Polity of arrival standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 100
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b721",
+		  "attributes": {
+			"name": "sub_arrival_date_as_source",
+			"label": "Arrival date source",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 45
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b727",
+		  "attributes": {
+			"name": "sub_arrival_date_year_standardized",
+			"label": "Year of arrival standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 4
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b72d",
+		  "attributes": {
+			"name": "sub_arrival_date_month_standardized",
+			"label": "Month of arrival standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 2
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b732",
+		  "attributes": {
+			"name": "sub_arrival_date_day_standardized",
+			"label": "Day of arrival standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 2
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b737",
+		  "attributes": {
+			"name": "sub_range_arrival_date_year_standardized",
+			"label": "Range arrival year standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 4
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b73c",
+		  "attributes": {
+			"name": "sub_range_arrival_date_month_standardized",
+			"label": "Range arrival month standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 2
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b741",
+		  "attributes": {
+			"name": "sub_range_arrival_date_day_standardized",
+			"label": "Range arrival day standardised",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": 2
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b747",
+		  "attributes": {
+			"name": "sub_arrival_date_status",
+			"label": "Arrival date status",
+			"ValueScheme": [
+			  [
+				{
+				  "value": "confirmed"
+				},
+				{
+				  "value": "inferred"
+				},
+				{
+				  "value": "incomplete"
+				},
+				{
+				  "value": "uncertain"
+				},
+				{
+				  "value": "range"
+				},
+				{
+				  "value": "date\/month\/day\/year alternative"
+				},
+				{
+				  "value": "unknown to indicate status of arrival date"
+				}
+			  ]
+			],
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": "100",
+			"height": "10",
+			"inputField": "multiple"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b74f",
+		  "attributes": {
+			"name": "sub_captain",
+			"label": "Captain",
+			"ValueScheme": "int",
+			"CardinalityMin": "0",
+			"CardinalityMax": "1"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b755",
+		  "attributes": {
+			"name": "sub_slaves",
+			"label": "Slaves",
+			"ValueScheme": "int",
+			"CardinalityMin": "0",
+			"CardinalityMax": "1"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b75a",
+		  "attributes": {
+			"name": "sub_possible_overlap1",
+			"label": "Possible overlap",
+			"ValueScheme": "int",
+			"CardinalityMin": "0",
+			"CardinalityMax": "1"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b75f",
+		  "attributes": {
+			"name": "sub_possible_overlap2",
+			"label": "",
+			"ValueScheme": "int",
+			"CardinalityMin": "0",
+			"CardinalityMax": "1"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b76f",
+		  "attributes": {
+			"name": "sub_possible_overlap3",
+			"label": "",
+			"ValueScheme": "int",
+			"CardinalityMin": "0",
+			"CardinalityMax": "1"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b775",
+		  "attributes": {
+			"name": "voyage_id",
+			"label": "",
+			"ValueScheme": "int",
+			"CardinalityMin": "0",
+			"CardinalityMax": "1"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b77b",
+		  "attributes": {
+			"name": "subvoyage_co-occurs_with",
+			"label": "Co-occurrance",
+			"ValueScheme": "int",
+			"CardinalityMin": "0",
+			"CardinalityMax": "1"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b781",
+		  "attributes": {
+			"name": "voyage_status",
+			"label": "Status",
+			"ValueScheme": [
+			  [
+				{
+				  "value": "confirmed"
+				},
+				{
+				  "value": "probable"
+				},
+				{
+				  "value": "possible"
+				},
+				{
+				  "value": "projected"
+				}
+			  ]
+			],
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": "100",
+			"height": "10",
+			"inputField": "multiple"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b789",
+		  "attributes": {
+			"name": "voyage_outfitter",
+			"label": "Outfitter",
+			"ValueScheme": "int",
+			"CardinalityMin": "0",
+			"CardinalityMax": "1"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b790",
+		  "attributes": {
+			"name": "voyage_investor",
+			"label": "Investor",
+			"ValueScheme": "int",
+			"CardinalityMin": "0",
+			"CardinalityMax": "1"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b795",
+		  "attributes": {
+			"name": "voyage_insurer",
+			"label": "Insurer",
+			"ValueScheme": "int",
+			"CardinalityMin": "0",
+			"CardinalityMax": "1"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b79b",
+		  "attributes": {
+			"name": "slaving_voyage_status",
+			"label": "Slaving voyage status",
+			"ValueScheme": [
+			  [
+				{
+				  "value": "confirmed"
+				},
+				{
+				  "value": "probable"
+				},
+				{
+				  "value": "possible"
+				},
+				{
+				  "value": "projected"
+				}
+			  ]
+			],
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": "100",
+			"height": "10",
+			"inputField": "multiple"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b7a4",
+		  "attributes": {
+			"name": "subvoyage_notes",
+			"label": "Notes",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": "100",
+			"height": "10",
+			"inputField": "multiple"
+		  }
+		},
+		{
+		  "type": "Element",
+		  "level": 3,
+		  "ID": "5eaac4f83b7ab",
+		  "attributes": {
+			"name": "sub_source",
+			"label": "Source",
+			"ValueScheme": "string",
+			"CardinalityMin": 0,
+			"CardinalityMax": 1,
+			"width": "100",
+			"height": "10",
+			"inputField": "multiple"
+		  }
+		}
+	  ]
+	}
+  }
+}

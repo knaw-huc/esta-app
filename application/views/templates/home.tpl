@@ -20,9 +20,10 @@
 			</div>
 		</div>
 		<div class="formRow">
-			<input type="button" value="Login" onclick="validate_login()" />
+			<input class="appBtn" type="button" value="Login" onclick="validate_login()" />
 		</div>
-		<div id="loginError" class="formRow"></div>
+		<div id="loginError" class="formRow">
+		</div>
 	</form>
 {/block}
 
