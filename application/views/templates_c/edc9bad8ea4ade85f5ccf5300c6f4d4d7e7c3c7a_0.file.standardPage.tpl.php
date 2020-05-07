@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-06 17:15:30
+/* Smarty version 3.1.32, created on 2020-05-07 21:29:10
   from '/Library/WebServer/Documents/esta/application/views/templates/standardPage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5eb2d492373ad1_55122134',
+  'unifunc' => 'content_5eb461861a5e77_59830179',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'edc9bad8ea4ade85f5ccf5300c6f4d4d7e7c3c7a' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/standardPage.tpl',
-      1 => 1588778126,
+      1 => 1588879742,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eb2d492373ad1_55122134 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eb461861a5e77_59830179 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -75,9 +75,22 @@ js/jmenu.js"><?php echo '</script'; ?>
 	<div id="head_menu">
 		<div id="menu-items">
 			<ul id="jmenu">
-					<li><a href="">Home</a></li>
-					<li><a href="">Voyages</a></li>
-					<li><a href="">My profile</a></li>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+workspace">Home</a></li>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+workspace">Voyages</a></li>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+workspace">My profile</a>
+					<ul>
+						<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+workspace/user_profile">Profile</a></li>
+						<li><a href="">Change password</a></li>
+					</ul>
+					</li>
+					<?php if ($_smarty_tpl->tpl_vars['role']->value == 'ADMIN') {?>
+						<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+admin/users">Users</a></li>
+					<?php }?>
 				<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 workspace/logout">Logout</a></li>
 			</ul>
@@ -86,7 +99,7 @@ workspace/logout">Logout</a></li>
 	<?php }?>
 	<div id="content">
 		<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17400417025eb2d4923720b6_48770414', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13574000015eb461861a2c53_20179014', "content");
 ?>
 
 	</div>
@@ -95,12 +108,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_17400417025eb2d492
 </html>
 <?php }
 /* {block "content"} */
-class Block_17400417025eb2d4923720b6_48770414 extends Smarty_Internal_Block
+class Block_13574000015eb461861a2c53_20179014 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_17400417025eb2d4923720b6_48770414',
+    0 => 'Block_13574000015eb461861a2c53_20179014',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

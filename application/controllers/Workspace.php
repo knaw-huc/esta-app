@@ -11,6 +11,7 @@ class Workspace extends CI_Controller
 			redirect(base_url());
 		}
 		$this->mysmarty->assign('user_name', $this->session->name);
+		$this->mysmarty->assign("role", $this->session->role);
 		$this->mysmarty->assign('title', 'ESTA Editor');
 
 	}
@@ -48,5 +49,14 @@ class Workspace extends CI_Controller
 		$this->mysmarty->assign("year", $this->session->userdata("year"));
 		$this->mysmarty->assign("summary", $this->session->userdata("summary"));
 		$this->mysmarty->view("edit_voyage");
+	}
+
+	function user_profile() {
+		$user = $this->fetch->getUserByID($this->session->id);
+		$this->mysmarty->assign('user_name', $user["chr_name"] . " " . $user["name"]);
+		$this->mysmarty->assign('first_name', $user["chr_name"]);
+		$this->mysmarty->assign('last_name', $user["name"]);
+		$this->mysmarty->assign('email', $user["email"]);
+		$this->mysmarty->view("user_profile");
 	}
 }

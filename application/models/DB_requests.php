@@ -12,4 +12,14 @@ class DB_requests extends CI_Model {
 		return $loResult->result_array();
 	}
 
+	function getUserByID($id) {
+		$lsSQL = "SELECT * FROM users WHERE id = $id";
+		$loResult = $this->db->query($lsSQL);
+		return $loResult->row_array();
+	}
+
+	function getUsers() {
+		$users = $this->db->query("SELECT * FROM users ORDER BY name");
+		return $users->result_array();
+	}
 }

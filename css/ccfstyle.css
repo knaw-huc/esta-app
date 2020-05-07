@@ -11,6 +11,7 @@ and open the template in the editor.
 .component{
 border:1px solid #999;
 padding: 8px;
+	background-color: #f3f3f4;
 }
 
 .component:first-child{
@@ -20,6 +21,11 @@ float:left;
 
 input[type="file"]{
 margin-left: 20px;
+}
+
+input[type="text"], input[type="password"] {
+	border: 1px solid #858595;
+	height: 1.6em;
 }
 
 #ccform{
@@ -40,13 +46,14 @@ background-color: #ddd;
 
 .componentHeader{
 color:#fff;
-background-color: #777;
+background-color: #5c5c6a;
 font-weight: bold;
 padding: 4px 6px;
 }
 
 .label{
-margin-top:6px;
+margin:16px 0 6px 0;
+
 }
 
 .resourceFileList{

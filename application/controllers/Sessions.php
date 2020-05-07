@@ -20,6 +20,8 @@ class Sessions extends CI_Controller
 			$results = $this->fetch->getUser($this->input->post("username"), $this->input->post("passwd"));
 			if (count($results)) {
 				$this->session->set_userdata("logged_in", 1);
+				$this->session->set_userdata("id", $results[0]["id"]);
+				$this->session->set_userdata("role", $results[0]["admin"]);
 				$this->session->set_userdata("name", $results[0]["chr_name"] . ' ' . $results[0]["name"]);
 				redirect(base_url() . "workspace");
 			} else {

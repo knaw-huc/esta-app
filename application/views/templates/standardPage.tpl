@@ -30,9 +30,17 @@
 	<div id="head_menu">
 		<div id="menu-items">
 			<ul id="jmenu">
-					<li><a href="">Home</a></li>
-					<li><a href="">Voyages</a></li>
-					<li><a href="">My profile</a></li>
+					<li><a href="{$home_path}workspace">Home</a></li>
+					<li><a href="{$home_path}workspace">Voyages</a></li>
+					<li><a href="{$home_path}workspace">My profile</a>
+					<ul>
+						<li><a href="{$home_path}workspace/user_profile">Profile</a></li>
+						<li><a href="">Change password</a></li>
+					</ul>
+					</li>
+					{if $role == 'ADMIN'}
+						<li><a href="{$home_path}admin/users">Users</a></li>
+					{/if}
 				<li><a href="{$home_path}workspace/logout">Logout</a></li>
 			</ul>
 		</div>

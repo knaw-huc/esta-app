@@ -99,3 +99,13 @@ function validateNewVoyage() {
 	}
 }
 
+function setUserEdit() {
+	$(".noUserEdit").css("display", "none");
+	$(".UserEdit").css('display', 'inline');
+}
+
+function revokeUserEdit() {
+	$(".noUserEdit").css("display", "inline");
+	$(".UserEdit").css('display', 'none');
+}
+
