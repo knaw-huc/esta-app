@@ -17,7 +17,12 @@ class Workspace extends CI_Controller
 	}
 
 	function index() {
-		$this->mysmarty->view('voyages');
+		$voyages = $this->fetch->getVoyages();
+		$this->mysmarty->assign("page", 1);
+		$this->mysmarty->assign("pages", 1);
+		$this->mysmarty->assign("count", $voyages["count"]);
+		$this->mysmarty->assign("voyages", $voyages["voyages"]);
+		$this->mysmarty->view('voyageList');
 	}
 
 	function voyage() {
