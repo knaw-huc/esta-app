@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-10 22:24:34
+/* Smarty version 3.1.32, created on 2020-05-11 10:28:47
   from '/Library/WebServer/Documents/esta/application/views/templates/voyageList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5eb86302307867_04295545',
+  'unifunc' => 'content_5eb90cbf508082_91009745',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a2885c70d118ed63b817c4831f250e78169b33da' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyageList.tpl',
-      1 => 1589142229,
+      1 => 1589185723,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eb86302307867_04295545 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5eb90cbf508082_91009745 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18845997885eb863022ddca8_23386091', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1801414935eb90cbf4f4168_09084846', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_18845997885eb863022ddca8_23386091 extends Smarty_Internal_Block
+class Block_1801414935eb90cbf4f4168_09084846 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_18845997885eb863022ddca8_23386091',
+    0 => 'Block_1801414935eb90cbf4f4168_09084846',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -48,10 +48,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
  (<?php echo $_smarty_tpl->tpl_vars['count']->value;?>
 )</h2>
 	<ul id="voyagesMenu">
-		<li id="vmCollapser">Expand</li>
-		<li id="vmMyVoyages">My (sub)voyages</li>
-		<li id="vmSearch">Search</li>
-		<li id="vmNew">New voyage</li>
+		<li class="appBtn" id="vmCollapser">Expand</li>
+		<li class="appBtn"  id="vmMyVoyages">My (sub)voyages</li>
+		<li  class="appBtn" id="vmSearch">Search</li>
+		<li  class="appBtn" id="vmNew">New voyage</li>
 	</ul>
 	<table id="resultTable">
 		<tr>

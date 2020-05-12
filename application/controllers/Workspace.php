@@ -25,7 +25,18 @@ class Workspace extends CI_Controller
 		$this->mysmarty->view('voyageList');
 	}
 
-	function voyage() {
+	function voyage($id = 0) {
+		if ($id == 0) {
+			redirect(base_url('workspace/'));
+		} else {
+			$subvoyages = $this->fetch->getSubvoyagerecords($id);
+			if (count($subvoyages)) {
+				$this->mysmarty->assign('voyage_id', $id);
+				$this->mysmarty->assign("subvoyages", $subvoyages);
+			} else {
+				redirect(base_url('workspace/'));
+			}
+		}
 		$this->mysmarty->view('voyage');
 	}
 
@@ -50,9 +61,16 @@ class Workspace extends CI_Controller
 		redirect(base_url() . "workspace/edit_voyage");
 	}
 
-	function edit_voyage() {
-		$this->mysmarty->assign("year", $this->session->userdata("year"));
-		$this->mysmarty->assign("summary", $this->session->userdata("summary"));
+	function edit_voyage($id = 0) {
+		$voyage = $this->fetch->getVoyage($id);
+		$this->mysmarty->assign('voyage', $voyage);
+		$this->mysmarty->assign('id', $id);
+		$this->mysmarty->assign('voyage_ed', $this->mysmarty->view2var('editors/subvoyage.tpl'));
+		$this->mysmarty->assign('slave_ed', $this->mysmarty->view2var('editors/slaves.tpl'));
+		$this->mysmarty->assign('vessel_ed', $this->mysmarty->view2var('editors/vessel.tpl'));
+		$this->mysmarty->assign('cargo_ed', $this->mysmarty->view2var('editors/cargo.tpl'));
+		//$this->mysmarty->assign("year", $this->session->userdata("year"));
+		//$this->mysmarty->assign("summary", $this->session->userdata("summary"));
 		$this->mysmarty->view("edit_voyage");
 	}
 

@@ -21,6 +21,14 @@ class DB_requests extends CI_Model
 		return $loResult->row_array();
 	}
 
+	function insert_user($user) {
+		$this->db->query("INSERT INTO users (chr_name, name, email, admin, active) VALUES(?, ?, ?, ?, ?)", $user);
+	}
+
+	function update_user($user, $id) {
+		$this->db->query("UPDATE users SET chr_name = ?, name = ?, email = ?, admin = ?, active = ? WHERE id = $id", $user);
+	}
+
 	function getUsers()
 	{
 		$users = $this->db->query("SELECT * FROM users ORDER BY name");
@@ -35,7 +43,19 @@ class DB_requests extends CI_Model
 		return $result;
 	}
 
-	private function getSubvoyages($voyages) {
+	function getVoyage($id) {
+		return $this->db->query("SELECT v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \" %d -%m -%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier FROM voyage as v, users as u, users as us  WHERE  v.created_by = u.id and v.modified_by = us.id")->row_array();
+	}
+
+	function save_passwd_by_id($id, $passwd) {
+		$this->db->query("UPDATE users SET passwd = MD5($passwd) WHERE id = $id");
+	}
+
+	function save_passwd_by_email($email, $passwd) {
+		$this->db->query("UPDATE users SET passwd = MD5($passwd) WHERE email = $email");
+	}
+
+	function getSubvoyages($voyages) {
 		$retArray = array();
 		foreach ($voyages as $voyage) {
 			$voyage["subvoyages"] = $this->getSubvoyageRecords($voyage["voyage_id"]);
@@ -44,7 +64,9 @@ class DB_requests extends CI_Model
 		return $retArray;
 	}
 
-	private function getSubvoyagerecords($voyage_id) {
+
+
+	function getSubvoyagerecords($voyage_id) {
 		$sql = "SELECT s.subvoyage_id, s.sub_dept_date_year, IFNULL(a.actor_name, '--') as captain, IFNULL(v.vessel_name, '--') as vessel, s.sub_dept_place, s.sub_arrival_place  FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN actor as a ON s.sub_captain = a.actor_id WHERE s.voyage_id = $voyage_id";
 		return $this->db->query($sql)->result_array();
 	}

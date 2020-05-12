@@ -31,4 +31,8 @@ class Sessions extends CI_Controller
 			redirect(base_url());
 		}
 	}
+
+	function forgot_passwd() {
+		$this->mysmarty->view("forgotten_passwd");
+	}
 }

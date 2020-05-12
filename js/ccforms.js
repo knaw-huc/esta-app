@@ -87,6 +87,8 @@ function hideDetails() {
     });*/
 	$('#profileXML').addClass('noView');
 	$('#profileJSON').addClass('noView');
+	$('#tweakXML').addClass('noView');
+	$('#metadataRecs').addClass('noView');
 	$('#voyage').addClass('noView');
 
 }

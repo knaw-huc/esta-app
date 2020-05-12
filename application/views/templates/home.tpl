@@ -21,6 +21,7 @@
 		</div>
 		<div class="formRow">
 			<input class="appBtn" type="button" value="Login" onclick="validate_login()" />
+			<a id="forgotPasswd" href="{$home_path}sessions/forgot_passwd">Forgot your password?</a>
 		</div>
 		<div id="loginError" class="formRow">
 		</div>

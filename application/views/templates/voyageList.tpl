@@ -2,10 +2,10 @@
 {block name="content"}
 	<h2>Voyages: page {$page} of {$pages} ({$count})</h2>
 	<ul id="voyagesMenu">
-		<li id="vmCollapser">Expand</li>
-		<li id="vmMyVoyages">My (sub)voyages</li>
-		<li id="vmSearch">Search</li>
-		<li id="vmNew">New voyage</li>
+		<li class="appBtn" id="vmCollapser">Expand</li>
+		<li class="appBtn"  id="vmMyVoyages">My (sub)voyages</li>
+		<li  class="appBtn" id="vmSearch">Search</li>
+		<li  class="appBtn" id="vmNew">New voyage</li>
 	</ul>
 	<table id="resultTable">
 		<tr>
