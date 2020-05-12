@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-07 21:29:10
+/* Smarty version 3.1.32, created on 2020-05-12 22:41:15
   from '/Library/WebServer/Documents/esta/application/views/templates/standardPage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5eb461861a5e77_59830179',
+  'unifunc' => 'content_5ebb09eb85afc8_07958593',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'edc9bad8ea4ade85f5ccf5300c6f4d4d7e7c3c7a' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/standardPage.tpl',
-      1 => 1588879742,
+      1 => 1589313582,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eb461861a5e77_59830179 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ebb09eb85afc8_07958593 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -57,6 +57,8 @@ js/jmenu.js"><?php echo '</script'; ?>
 >
 		$('document').ready(function () {
 			setEvents();
+			<?php if (isset($_smarty_tpl->tpl_vars['voyage_ed']->value)) {?>setEditors(<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
+);<?php }?>
 			$('#jmenu').jmenu();
 			});
 	<?php echo '</script'; ?>
@@ -67,39 +69,39 @@ js/jmenu.js"><?php echo '</script'; ?>
 	<div id="header">
 		ESTA Editor (demo)
 
-	<?php if ($_smarty_tpl->tpl_vars['user_name']->value != '') {?>
-		<div id="user"><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
+		<?php if ($_smarty_tpl->tpl_vars['user_name']->value != '') {?>
+			<div id="user"><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
 </div>
-	<?php }?></div>
+		<?php }?></div>
 	<?php if ($_smarty_tpl->tpl_vars['user_name']->value != '') {?>
-	<div id="head_menu">
-		<div id="menu-items">
-			<ul id="jmenu">
+		<div id="head_menu">
+			<div id="menu-items">
+				<ul id="jmenu">
 					<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 workspace">Home</a></li>
 					<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 workspace">Voyages</a></li>
 					<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 workspace">My profile</a>
-					<ul>
-						<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+						<ul>
+							<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 workspace/user_profile">Profile</a></li>
-						<li><a href="">Change password</a></li>
-					</ul>
+							<li><a href="">Change password</a></li>
+						</ul>
 					</li>
 					<?php if ($_smarty_tpl->tpl_vars['role']->value == 'ADMIN') {?>
 						<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 admin/users">Users</a></li>
 					<?php }?>
-				<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+					<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 workspace/logout">Logout</a></li>
-			</ul>
+				</ul>
+			</div>
 		</div>
-	</div>
 	<?php }?>
 	<div id="content">
 		<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13574000015eb461861a2c53_20179014', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1828408575ebb09eb857425_72359405', "content");
 ?>
 
 	</div>
@@ -108,12 +110,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13574000015eb46186
 </html>
 <?php }
 /* {block "content"} */
-class Block_13574000015eb461861a2c53_20179014 extends Smarty_Internal_Block
+class Block_1828408575ebb09eb857425_72359405 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_13574000015eb461861a2c53_20179014',
+    0 => 'Block_1828408575ebb09eb857425_72359405',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

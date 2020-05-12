@@ -64,8 +64,6 @@ class DB_requests extends CI_Model
 		return $retArray;
 	}
 
-
-
 	function getSubvoyagerecords($voyage_id) {
 		$sql = "SELECT s.subvoyage_id, s.sub_dept_date_year, IFNULL(a.actor_name, '--') as captain, IFNULL(v.vessel_name, '--') as vessel, s.sub_dept_place, s.sub_arrival_place  FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN actor as a ON s.sub_captain = a.actor_id WHERE s.voyage_id = $voyage_id";
 		return $this->db->query($sql)->result_array();
@@ -78,5 +76,13 @@ class DB_requests extends CI_Model
 
 	private function count_recs($table, $conditions) {
 		return $this->db->query("SELECT COUNT(*) AS amount FROM $table WHERE $conditions")->row()->amount;
+	}
+
+	/*
+	 * Function for service
+	 */
+
+	function getSubVoyageForEdit($id) {
+		return $this->db->query("SELECT * FROM subvoyage WHERE subvoyage_id = $id")->row_array();
 	}
 }

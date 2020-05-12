@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-12 12:22:42
+/* Smarty version 3.1.32, created on 2020-05-12 21:58:54
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5eba78f24a3fb0_36909683',
+  'unifunc' => 'content_5ebafffead65f2_91709979',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '03f082726b1860055f5b721899d50b3a783ddfa8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl',
-      1 => 1589278958,
+      1 => 1589306891,
       2 => 'file',
     ),
   ),
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ebafffead65f2_91709979 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="ccform1">
 	<div class="component" id="5eaac4f83afa7" data-name="subvoyage" data-order="1">
 		<div class="componentHeader">Subvoyage</div>
 		<div class="element" data-name="subvoyage_type">
 			<div class="label">Type</div>
-			<div class="control"><select id="5eaac4f83b67e" data-validation-profile="5eaac4f83b67e"
+			<div class="control"><select id="subvoyage_type" data-validation-profile="5eaac4f83b67e"
 										 class="input_element">
 					<option value="">--</option>
 					<option value="sea">sea</option>
@@ -38,7 +38,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_dept_place">
 			<div class="label">Place of departure</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b69c" data-validation-profile="5eaac4f83b69c"
+										id="sub_dept_place" data-validation-profile="5eaac4f83b69c"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b69c" class="errorMsg"></div>
 			</div>
@@ -46,7 +46,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_dept_region">
 			<div class="label">Region of departure</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b6c6" data-validation-profile="5eaac4f83b6c6"
+										id="sub_dept_region" data-validation-profile="5eaac4f83b6c6"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b6c6" class="errorMsg"></div>
 			</div>
@@ -54,7 +54,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_dept_polity">
 			<div class="label">Polity of departure</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b6cc" data-validation-profile="5eaac4f83b6cc"
+										id="sub_dept_polity" data-validation-profile="5eaac4f83b6cc"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b6cc" class="errorMsg"></div>
 			</div>
@@ -62,7 +62,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_dept_place_standardized">
 			<div class="label">Place of departure standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b6d2" data-validation-profile="5eaac4f83b6d2"
+										id="sub_dept_place_standardized" data-validation-profile="5eaac4f83b6d2"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b6d2" class="errorMsg"></div>
 			</div>
@@ -70,7 +70,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_dept_region_standardized">
 			<div class="label">Region of departure standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b6d7" data-validation-profile="5eaac4f83b6d7"
+										id="sub_dept_region_standardized" data-validation-profile="5eaac4f83b6d7"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b6d7" class="errorMsg"></div>
 			</div>
@@ -78,7 +78,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_dept_polity_standardized">
 			<div class="label">Polity of departure standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b6dd" data-validation-profile="5eaac4f83b6dd"
+										id="sub_dept_polity_standardized" data-validation-profile="5eaac4f83b6dd"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b6dd" class="errorMsg"></div>
 			</div>
@@ -86,7 +86,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_dept_date_as_source">
 			<div class="label">Source departure date</div>
 			<div class="control"><input type="text" size="45" data-reset-value="line" value=""
-										id="5eaac4f83b6e2" data-validation-profile="5eaac4f83b6e2"
+										id="sub_dept_date_as_source" data-validation-profile="5eaac4f83b6e2"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b6e2" class="errorMsg"></div>
 			</div>
@@ -94,7 +94,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_dept_date_year">
 			<div class="label">Departure date year</div>
 			<div class="control"><input type="text" size="4" data-reset-value="line" value=""
-										id="5eaac4f83b6e7"
+										id="sub_dept_date_year"
 										data-validation-profile="5eaac4f83b6e7" class="input_element">
 				<div id="errorMsg_5eaac4f83b6e7" class="errorMsg"></div>
 			</div>
@@ -102,7 +102,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_dept_date_month">
 			<div class="label">Departure date month</div>
 			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="5eaac4f83b6ed"
+										id="sub_dept_date_month"
 										data-validation-profile="5eaac4f83b6ed" class="input_element">
 				<div id="errorMsg_5eaac4f83b6ed" class="errorMsg"></div>
 			</div>
@@ -110,14 +110,14 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_dept_date_day">
 			<div class="label">Departure date day</div>
 			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="5eaac4f83b6f2"
+										id="sub_dept_date_day"
 										data-validation-profile="5eaac4f83b6f2" class="input_element">
 				<div id="errorMsg_5eaac4f83b6f2" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="sub_dept_date_status">
 			<div class="label">Departure date status</div>
-			<div class="control"><select id="5eaac4f83b6f8" data-validation-profile="5eaac4f83b6f8"
+			<div class="control"><select id="sub_dept_date_status" data-validation-profile="5eaac4f83b6f8"
 										 class="input_element">
 					<option value="">--</option>
 					<option value="uncertain">uncertain</option>
@@ -134,7 +134,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_arrival_place">
 			<div class="label">Place of arrival</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b700" data-validation-profile="5eaac4f83b700"
+										id="sub_arrival_place" data-validation-profile="5eaac4f83b700"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b700" class="errorMsg"></div>
 			</div>
@@ -142,7 +142,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_arrival_region">
 			<div class="label">Region of arrival</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b706" data-validation-profile="5eaac4f83b706"
+										id="sub_arrival_region" data-validation-profile="5eaac4f83b706"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b706" class="errorMsg"></div>
 			</div>
@@ -150,7 +150,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_arrival_polity">
 			<div class="label">Polity of arrival</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b70c" data-validation-profile="5eaac4f83b70c"
+										id="sub_arrival_polity" data-validation-profile="5eaac4f83b70c"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b70c" class="errorMsg"></div>
 			</div>
@@ -158,7 +158,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_arrival_place_standardized">
 			<div class="label">Place of arrival standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b711" data-validation-profile="5eaac4f83b711"
+										id="sub_arrival_place_standardized" data-validation-profile="5eaac4f83b711"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b711" class="errorMsg"></div>
 			</div>
@@ -166,7 +166,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_arrival_region_standardized">
 			<div class="label">Region of arrival standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b717" data-validation-profile="5eaac4f83b717"
+										id="sub_arrival_region_standardized" data-validation-profile="5eaac4f83b717"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b717" class="errorMsg"></div>
 			</div>
@@ -174,7 +174,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_arrival_polity_standardized">
 			<div class="label">Polity of arrival standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="5eaac4f83b71c" data-validation-profile="5eaac4f83b71c"
+										id="sub_arrival_polity_standardized" data-validation-profile="5eaac4f83b71c"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b71c" class="errorMsg"></div>
 			</div>
@@ -182,7 +182,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_arrival_date_as_source">
 			<div class="label">Arrival date source</div>
 			<div class="control"><input type="text" size="45" data-reset-value="line" value=""
-										id="5eaac4f83b721" data-validation-profile="5eaac4f83b721"
+										id="sub_arrival_date_as_source" data-validation-profile="5eaac4f83b721"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b721" class="errorMsg"></div>
 			</div>
@@ -190,7 +190,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_arrival_date_year_standardized">
 			<div class="label">Year of arrival standardised</div>
 			<div class="control"><input type="text" size="4" data-reset-value="line" value=""
-										id="5eaac4f83b727"
+										id="sub_arrival_date_year_standardized"
 										data-validation-profile="5eaac4f83b727" class="input_element">
 				<div id="errorMsg_5eaac4f83b727" class="errorMsg"></div>
 			</div>
@@ -198,7 +198,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_arrival_date_month_standardized">
 			<div class="label">Month of arrival standardised</div>
 			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="5eaac4f83b72d"
+										id="sub_arrival_date_month_standardized"
 										data-validation-profile="5eaac4f83b72d" class="input_element">
 				<div id="errorMsg_5eaac4f83b72d" class="errorMsg"></div>
 			</div>
@@ -206,7 +206,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_arrival_date_day_standardized">
 			<div class="label">Day of arrival standardised</div>
 			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="5eaac4f83b732"
+										id="sub_arrival_date_day_standardized"
 										data-validation-profile="5eaac4f83b732" class="input_element">
 				<div id="errorMsg_5eaac4f83b732" class="errorMsg"></div>
 			</div>
@@ -215,7 +215,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		>
 			<div class="label">Range arrival year standardised</div>
 			<div class="control"><input type="text" size="4" data-reset-value="line" value=""
-										id="5eaac4f83b737"
+										id="sub_range_arrival_date_year_standardized"
 										data-validation-profile="5eaac4f83b737" class="input_element">
 				<div id="errorMsg_5eaac4f83b737" class="errorMsg"></div>
 			</div>
@@ -224,7 +224,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		>
 			<div class="label">Range arrival month standardised</div>
 			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="5eaac4f83b73c"
+										id="sub_range_arrival_date_month_standardized"
 										data-validation-profile="5eaac4f83b73c" class="input_element">
 				<div id="errorMsg_5eaac4f83b73c" class="errorMsg"></div>
 			</div>
@@ -232,14 +232,14 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_range_arrival_date_day_standardized">
 			<div class="label">Range arrival day standardised</div>
 			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="5eaac4f83b741"
+										id="sub_range_arrival_date_day_standardized"
 										data-validation-profile="5eaac4f83b741" class="input_element">
 				<div id="errorMsg_5eaac4f83b741" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="sub_arrival_date_status">
 			<div class="label">Arrival date status</div>
-			<div class="control"><select id="5eaac4f83b747" data-validation-profile="5eaac4f83b747"
+			<div class="control"><select id="sub_arrival_date_status" data-validation-profile="5eaac4f83b747"
 										 class="input_element">
 					<option value="">--</option>
 					<option value="confirmed">confirmed</option>
@@ -259,7 +259,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 		<div class="element" data-name="voyage_status">
 			<div class="label">Status</div>
-			<div class="control"><select id="5eaac4f83b781" data-validation-profile="5eaac4f83b781"
+			<div class="control"><select id="voyage_status" data-validation-profile="5eaac4f83b781"
 										 class="input_element">
 					<option value="">--</option>
 					<option value="confirmed">confirmed</option>
@@ -270,30 +270,9 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 				<div id="errorMsg_5eaac4f83b781" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="voyage_outfitter">
-			<div class="label">Outfitter</div>
-			<div class="control"><input id="5eaac4f83b789" type="text" data-reset-value="line" value=""
-										data-validation-profile="5eaac4f83b789" class="input_element">
-				<div id="errorMsg_5eaac4f83b789" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="voyage_investor">
-			<div class="label">Investor</div>
-			<div class="control"><input id="5eaac4f83b790" type="text" data-reset-value="line" value=""
-										data-validation-profile="5eaac4f83b790" class="input_element">
-				<div id="errorMsg_5eaac4f83b790" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="voyage_insurer">
-			<div class="label">Insurer</div>
-			<div class="control"><input id="5eaac4f83b795" type="text" data-reset-value="line" value=""
-										data-validation-profile="5eaac4f83b795" class="input_element">
-				<div id="errorMsg_5eaac4f83b795" class="errorMsg"></div>
-			</div>
-		</div>
 		<div class="element" data-name="slaving_voyage_status">
 			<div class="label">Slaving voyage status</div>
-			<div class="control"><select id="5eaac4f83b79b" data-validation-profile="5eaac4f83b79b"
+			<div class="control"><select id="slaving_voyage_status" data-validation-profile="5eaac4f83b79b"
 										 class="input_element">
 					<option value="">--</option>
 					<option value="confirmed">confirmed</option>
@@ -307,7 +286,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="subvoyage_notes">
 			<div class="label">Notes</div>
 			<div class="control"><textarea rows="8" cols="100" data-reset-value="area"
-										   id="5eaac4f83b7a4"
+										   id="subvoyage_notes"
 										   data-validation-profile="5eaac4f83b7a4"
 										   class="input_element"></textarea>
 				<div id="errorMsg_5eaac4f83b7a4" class="errorMsg"></div>
@@ -316,7 +295,7 @@ function content_5eba78f24a3fb0_36909683 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_source">
 			<div class="label">Source</div>
 			<div class="control"><textarea rows="8" cols="100" data-reset-value="area"
-										   id="5eaac4f83b7ab"
+										   id="sub_source"
 										   data-validation-profile="5eaac4f83b7ab"
 										   class="input_element"></textarea>
 				<div id="errorMsg_5eaac4f83b7ab" class="errorMsg"></div>
