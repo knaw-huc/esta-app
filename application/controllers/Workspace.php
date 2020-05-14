@@ -78,6 +78,7 @@ class Workspace extends CI_Controller
 
 	function user_profile() {
 		$user = $this->fetch->getUserByID($this->session->id);
+		$this->mysmarty->assign("id", $this->session->id);
 		$this->mysmarty->assign('user_name', $user["chr_name"] . " " . $user["name"]);
 		$this->mysmarty->assign('first_name', $user["chr_name"]);
 		$this->mysmarty->assign('last_name', $user["name"]);

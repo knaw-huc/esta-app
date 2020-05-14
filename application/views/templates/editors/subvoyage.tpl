@@ -1,4 +1,4 @@
-<div id="ccform1">
+<div id="heSubvoyage">
 	<div class="component" id="5eaac4f83afa7" data-name="subvoyage" data-order="1">
 		<div class="componentHeader">Subvoyage</div>
 		<div class="element" data-name="subvoyage_type">
@@ -287,12 +287,30 @@
 				<tr>
 					<th>Actors</th>
 					<th></th>
-					<th>+</th>
+					<th></th>
 				</tr>
 				<tr>
 					<td>Captain</td>
-					<td>John Bell</td>
-					<td><a href="" title="Edit actor"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					<td id="captainCell"></td>
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					</td>
+				</tr>
+				<tr>
+					<td>Outfitter</td>
+					<td id="outfitterCell"></td>
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					</td>
+				</tr>
+				<tr>
+					<td>Investor</td>
+					<td id="investorCell"></td>
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					</td>
+				</tr>
+				<tr>
+					<td>Insurer</td>
+					<td id="insurerCell"></td>
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
 					</td>
 				</tr>
 			</table>

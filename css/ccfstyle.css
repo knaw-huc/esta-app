@@ -35,10 +35,11 @@ display: block;
 #btnFrame{
 display: inline-block;
 width: 24%;
+	padding-top: 6px;
 margin-left: 26px;
 position: fixed;
 //position: -webkit-sticky;
-top:254px;
+top:234px;
 border: 1px solid #000;
 border-radius: 6px;
 background-color: #ceced5;

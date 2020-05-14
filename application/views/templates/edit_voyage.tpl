@@ -17,10 +17,10 @@
 			<div id="profileJSON" class="noView">
 				{$slave_ed}
 			</div>
-			<div id="tweakXML">
+			<div id="tweakXML" class="noView">
 				{$vessel_ed}
 			</div>
-			<div id="metadataRecs">
+			<div id="metadataRecs" class="noView">
 				{$cargo_ed}
 			</div>
 			<div id="voyage" class="noView">

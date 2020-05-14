@@ -27,7 +27,7 @@
 		{/foreach}
 	</table>
 	<br/>
-	<h2>Dependencies</h2>
+	<h2>Subvoyage relations</h2>
 	<table id="dependencyTable">
 		<tr>
 			<th></th>

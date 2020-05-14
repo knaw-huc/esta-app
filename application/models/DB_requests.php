@@ -85,4 +85,16 @@ class DB_requests extends CI_Model
 	function getSubVoyageForEdit($id) {
 		return $this->db->query("SELECT * FROM subvoyage WHERE subvoyage_id = $id")->row_array();
 	}
+
+	function getActorName($id) {
+		if ($id == 0) {
+			return "-none-";
+		}
+		$result = $this->db->query("SELECT actor_name FROM actor WHERE actor_id = $id")->row_array();
+		if (count($result)) {
+			return $result["actor_name"];
+		} else {
+			return "-none-";
+		}
+	}
 }

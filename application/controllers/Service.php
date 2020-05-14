@@ -12,6 +12,10 @@ class Service extends CI_Controller
 		if ($this->input->post("id")) {
 			$subvoyage = $this->fetch->getSubVoyageForEdit($this->input->post("id"));
 			if (count($subvoyage)) {
+				$subvoyage["ac_captain_name"] = $this->fetch->getActorName($subvoyage["sub_captain"]);
+				$subvoyage["ac_outfitter_name"] = $this->fetch->getActorName($subvoyage["voyage_outfitter"]);
+				$subvoyage["ac_investor_name"] = $this->fetch->getActorName($subvoyage["voyage_investor"]);
+				$subvoyage["ac_insurer_name"] = $this->fetch->getActorName($subvoyage["voyage_insurer"]);
 				$this->send_json($subvoyage);
 			} else {
 				$this->throw_error("Subvoyage does not exist");
