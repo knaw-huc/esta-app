@@ -433,6 +433,16 @@ min-width: 54px;
 cursor: pointer;
 }
 
+#mutBtn{
+color: #fff;
+background-color: #5c5c6a;
+margin: 2px 10px 10px 8px;
+border-radius: 4px;
+font-weight: bold;
+padding: 6px 10px;
+cursor: pointer;
+}
+
 .UserEdit {
 display: none;
 }

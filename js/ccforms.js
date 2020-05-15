@@ -8,9 +8,10 @@ var editVars = {
 	cargo: 0
 }
 
+var currentForm = "";
+
 var hucForms = {
-	subvoyage: {
-		name: "heSubvoyage",
+	heSubvoyage: {
 		empty: true
 	}
 }
@@ -26,6 +27,18 @@ function setEvents() {
 	$("#vmNew").click(
 		function () {
 			window.location = home + '/workspace/new_voyage';
+		}
+	)
+
+	$("#vmMyVoyages").click(
+		function () {
+			alert("This function isn't implemented yet.")
+		}
+	)
+
+	$("#vmSearch").click(
+		function () {
+			alert("This function isn't implemented yet.")
 		}
 	)
 
@@ -75,7 +88,11 @@ function setUserEdit() {
 }
 
 function submitUserEdit() {
-
+	if ($("#first_name").val().trim() == "" || $("#name").val().trim() == "" || $("#email").val().trim() == "") {
+		$("#loginError").html("Empty fields are not allowed in this form!");
+	} else {
+		$("#userProfileForm").submit();
+	}
 }
 
 function revokeUserEdit() {
@@ -121,6 +138,37 @@ function setEditors(id) {
 			$(this).css('cursor', 'pointer');
 		});
 	});
+
+	setCurrentForm("heSubvoyage");
+}
+
+function setCurrentForm(formName) {
+	if (currentForm !== "") {
+		resetCurrentFormMetadata(currentForm);
+	}
+	currentForm = formName;
+	if (hucForms[currentForm].empty) {
+		initCurrentFormMetadata();
+	}
+
+}
+
+function resetCurrentFormMetadata() {
+	$("#" + currentForm).find(".changed_input_element").each(
+		function () {
+			$(this).removeClass("changed_input_element");
+			$(this).addClass("input_element");
+		}
+	)
+}
+
+function initCurrentFormMetadata() {
+	hucForms[currentForm].empty = false;
+
+	$("#" + currentForm).find(".input_element").change(function () {
+		$(this).removeClass("input_element");
+		$(this).addClass("changed_input_element");
+	});
 }
 
 
@@ -138,7 +186,7 @@ function getSubVoyageData(id) {
 					editVars.captain = json.captain;
 				}
 				console.log(json);
-				populateForm(hucForms.subvoyage ,json);
+				populateForm("heSubvoyage", json);
 				$("#captainCell").html(json.ac_captain_name);
 				$("#insurerCell").html(json.ac_insurer_name);
 				$("#outfitterCell").html(json.ac_outfitter_name);
@@ -152,7 +200,7 @@ function getSubVoyageData(id) {
 }
 
 function populateForm(form, json) {
-	$("#"+form.name).find(".input_element").each(
+	$("#" + form).find(".input_element").each(
 		function () {
 			var name = $(this).attr("id");
 			if (json[name] !== undefined) {

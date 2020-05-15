@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-12 11:32:45
+/* Smarty version 3.1.32, created on 2020-05-15 16:07:08
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/vessel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5eba6d3d7545e0_59976756',
+  'unifunc' => 'content_5ebea20c237f69_13606053',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9fa4979234394773ec697eba1c3b251710d2f22b' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/vessel.tpl',
-      1 => 1589273914,
+      1 => 1589548419,
       2 => 'file',
     ),
   ),
@@ -20,84 +20,85 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eba6d3d7545e0_59976756 (Smarty_Internal_Template $_smarty_tpl) {
-?><div id="ccform2">
+function content_5ebea20c237f69_13606053 (Smarty_Internal_Template $_smarty_tpl) {
+?><div id="heVessel"  data-action="<?php echo $_smarty_tpl->tpl_vars['vessel_action']->value;?>
+">
 	<div class="component">
 		<div class="componentHeader">Vessel</div>
-		<div class="element" data-name="vessel_name" data-order="undefined">
+		<div class="element" data-name="vessel_name">
 			<div class="label">Vessel name</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="5e823fa99abbd"
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="vessel_name"
 										data-validation-profile="5e823fa99abbd" class="input_element">
 				<div id="errorMsg_5e823fa99abbd" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="vessel_name_standardized" data-order="undefined">
+		<div class="element" data-name="vessel_name_standardized">
 			<div class="label">Vessel name standardised
 			</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="5e823fa99abc9"
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="vessel_name_standardized"
 										data-validation-profile="5e823fa99abc9" class="input_element">
 				<div id="errorMsg_5e823fa99abc9" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="vessel_type" data-order="undefined">
+		<div class="element" data-name="vessel_type">
 			<div class="label">Vessel type</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="5e823fa99abcf"
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="vessel_type"
 										data-validation-profile="5e823fa99abcf" class="input_element">
 				<div id="errorMsg_5e823fa99abcf" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="vessel_type_standardized" data-order="undefined">
+		<div class="element" data-name="vessel_type_standardized">
 			<div class="label">Vessel type standardised</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="5e823fa99abd5"
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="vessel_type_standardized"
 										data-validation-profile="5e823fa99abd5" class="input_element">
 				<div id="errorMsg_5e823fa99abd5" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="vessel_tonnage" data-order="undefined">
+		<div class="element" data-name="vessel_tonnage">
 			<div class="label">Tonnage</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="5e823fa99abda"
+			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="vessel_tonnage"
 										data-validation-profile="5e823fa99abda" class="input_element">
 				<div id="errorMsg_5e823fa99abda" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="vessel_tonnage_units" data-order="undefined">
+		<div class="element" data-name="vessel_tonnage_units">
 			<div class="label">Tonnage standardised</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="5e823fa99abe0"
+			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="vessel_tonnage_units"
 										data-validation-profile="5e823fa99abe0" class="input_element">
 				<div id="errorMsg_5e823fa99abe0" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="vessel_flag" data-order="undefined">
+		<div class="element" data-name="vessel_flag">
 			<div class="label">Flag</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="5e823fa99abe6"
+			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="vessel_flag"
 										data-validation-profile="5e823fa99abe6" class="input_element">
 				<div id="errorMsg_5e823fa99abe6" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="vessel_flag_standardized" data-order="undefined">
+		<div class="element" data-name="vessel_flag_standardized">
 			<div class="label">Flag standardised</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="5e823fa99abeb"
+			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="vessel_flag_standardized"
 										data-validation-profile="5e823fa99abeb" class="input_element">
 				<div id="errorMsg_5e823fa99abeb" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="vessel_possible_overlap" data-order="undefined">
+		<div class="element" data-name="vessel_possible_overlap">
 			<div class="label">Possible overlap</div>
-			<div class="control"><input id="5e823fa99abf2" type="text" data-reset-value="line" value=""
+			<div class="control"><input id="vessel_possible_overlap" type="text" data-reset-value="line" value=""
 										data-validation-profile="5e823fa99abf2" class="input_element">
 				<div id="errorMsg_5e823fa99abf2" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="vessel_notes" data-order="undefined">
+		<div class="element" data-name="vessel_notes">
 			<div class="label">Notes</div>
-			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="5e823fa99abf8"
+			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="vessel_notes"
 										   data-validation-profile="5e823fa99abf8" class="input_element"></textarea>
 				<div id="errorMsg_5e823fa99abf8" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="vess_source" data-order="undefined">
+		<div class="element" data-name="vess_source">
 			<div class="label">Source</div>
-			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="5e823fa99abfd"
+			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="vess_source"
 										   data-validation-profile="5e823fa99abfd" class="input_element"></textarea>
 				<div id="errorMsg_5e823fa99abfd" class="errorMsg"></div>
 			</div>

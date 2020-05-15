@@ -1,37 +1,37 @@
-<div id="ccform3">
+<div id="heActor"  data-action="{$actor_action}">
 	<div class="component">
 		<div class="componentHeader">Actor</div>
-		<div class="element" data-name="actor_name" data-order="undefined">
+		<div class="element" data-name="actor_name">
 			<div class="label">Name</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="5e823fa99af97"
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="actor_name"
 										data-validation-profile="5e823fa99af97" class="input_element">
 				<div id="errorMsg_5e823fa99af97" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="actor_name_standardised" data-order="undefined">
+		<div class="element" data-name="actor_name_standardised">
 			<div class="label">Name standardised</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="5e823fa99afa1"
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="actor_name_standardised"
 										data-validation-profile="5e823fa99afa1" class="input_element">
 				<div id="errorMsg_5e823fa99afa1" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="actor_nationality" data-order="undefined">
+		<div class="element" data-name="actor_nationality">
 			<div class="label">Nationality</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="5e823fa99afa8"
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="actor_nationality"
 										data-validation-profile="5e823fa99afa8" class="input_element">
 				<div id="errorMsg_5e823fa99afa8" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="actor_nationality_standardised" data-order="undefined">
+		<div class="element" data-name="actor_nationality_standardised">
 			<div class="label">Nationality standardised</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="5e823fa99afad"
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="actor_nationality_standardised"
 										data-validation-profile="5e823fa99afad" class="input_element">
 				<div id="errorMsg_5e823fa99afad" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="actor_sex" data-order="undefined">
+		<div class="element" data-name="actor_sex">
 			<div class="label">Sex</div>
-			<div class="control"><select id="5e823fa99afb3" data-validation-profile="5e823fa99afb3"
+			<div class="control"><select id="actor_sex" data-validation-profile="5e823fa99afb3"
 										 class="input_element">
 					<option value="">--</option>
 					<option value="male">male</option>
@@ -41,23 +41,23 @@
 				<div id="errorMsg_5e823fa99afb3" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="actor_possible_overlap" data-order="undefined">
+		<div class="element" data-name="actor_possible_overlap">
 			<div class="label">Possible overlap</div>
-			<div class="control"><input id="5e823fa99afbe" type="text" data-reset-value="line" value=""
+			<div class="control"><input id="actor_possible_overlap" type="text" data-reset-value="line" value=""
 										data-validation-profile="5e823fa99afbe" class="input_element">
 				<div id="errorMsg_5e823fa99afbe" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="actor_notes" data-order="undefined">
+		<div class="element" data-name="actor_notes">
 			<div class="label">Notes</div>
-			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="5e823fa99afe1"
+			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="actor_notes"
 										   data-validation-profile="5e823fa99afe1" class="input_element"></textarea>
 				<div id="errorMsg_5e823fa99afe1" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="actor_source" data-order="undefined">
+		<div class="element" data-name="actor_source">
 			<div class="label">Source</div>
-			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="5e823fa99afe7"
+			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="actor_source"
 										   data-validation-profile="5e823fa99afe7" class="input_element"></textarea>
 				<div id="errorMsg_5e823fa99afe7" class="errorMsg"></div>
 			</div>

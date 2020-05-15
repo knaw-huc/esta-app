@@ -1,4 +1,4 @@
-<div id="heSubvoyage">
+<div id="heSubvoyage" data-action="{$sub_voyage_action}">
 	<div class="component" id="5eaac4f83afa7" data-name="subvoyage" data-order="1">
 		<div class="componentHeader">Subvoyage</div>
 		<div class="element" data-name="subvoyage_type">
@@ -282,6 +282,8 @@
 	<div id="btnFrame">
 		<input type="button" value="Save" id="saveBtn"/>
 		<input type="button" value="Back" id="resetBtn"/>
+		&nbsp;
+		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div id="tmpFormatter">
 			<table id="resultTable">
 				<tr>
@@ -315,5 +317,6 @@
 				</tr>
 			</table>
 		</div>
+		<input id="mutBtn" type="button" value="Mutation history" onclick="alert('This function is not active yet.');"/>
 	</div>
 </div>

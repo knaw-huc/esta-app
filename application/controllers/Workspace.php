@@ -66,6 +66,7 @@ class Workspace extends CI_Controller
 			redirect(base_url('workspace'));
 		} else {
 			$voyage = $this->fetch->getVoyage($id);
+			$this->mysmarty->assign("sub_voyage_action", base_url('service/save_voyage'));
 			$this->mysmarty->assign('voyage', $voyage);
 			$this->mysmarty->assign('id', $id);
 			$this->mysmarty->assign('voyage_ed', $this->mysmarty->view2var('editors/subvoyage.tpl'));
@@ -84,5 +85,16 @@ class Workspace extends CI_Controller
 		$this->mysmarty->assign('last_name', $user["name"]);
 		$this->mysmarty->assign('email', $user["email"]);
 		$this->mysmarty->view("user_profile");
+	}
+
+	function set_profile() {
+		$params = array(
+			$this->input->post("first_name"),
+			$this->input->post("name"),
+			$this->input->post("email"),
+			$this->session->id
+		);
+		$this->fetch->setProfile($params);
+		redirect(base_url('workspace/user_profile/' . $this->session->id));
 	}
 }

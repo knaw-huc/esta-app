@@ -46,6 +46,7 @@ class Admin extends CI_Controller
 		$user_values["role"] = $this->input->post("role");
 		$user_values["active"] = $this->input->post("active");
 		if ($this->input->post("user") == "new") {
+			$user_values["passwd"] = $this->createPasswd();
 			$this->fetch->insert_user($user_values);
 		} else {
 			$this->fetch->update_user($user_values, $this->input->post("user"));
@@ -63,5 +64,9 @@ class Admin extends CI_Controller
 		$this->mysmarty->assign('email', $email);
 		$this->mysmarty->assign('role', $role);
 		$this->mysmarty->assign('active', $active);
+	}
+
+	private function createPasswd() {
+		return substr(md5(mt_rand()), 0, 8);
 	}
 }

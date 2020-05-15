@@ -22,7 +22,7 @@ class DB_requests extends CI_Model
 	}
 
 	function insert_user($user) {
-		$this->db->query("INSERT INTO users (chr_name, name, email, admin, active) VALUES(?, ?, ?, ?, ?)", $user);
+		$this->db->query("INSERT INTO users (chr_name, name, email, admin, active, passwd) VALUES(?, ?, ?, ?, ?, MD5(?))", $user);
 	}
 
 	function update_user($user, $id) {
@@ -67,6 +67,10 @@ class DB_requests extends CI_Model
 	function getSubvoyagerecords($voyage_id) {
 		$sql = "SELECT s.subvoyage_id, s.sub_dept_date_year, IFNULL(a.actor_name, '--') as captain, IFNULL(v.vessel_name, '--') as vessel, s.sub_dept_place, s.sub_arrival_place  FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN actor as a ON s.sub_captain = a.actor_id WHERE s.voyage_id = $voyage_id";
 		return $this->db->query($sql)->result_array();
+	}
+
+	function setProfile($params) {
+		$this->db->query("UPDATE users SET chr_name = ?, name = ?, email = ? WHERE id = ?", $params);
 	}
 
 	private function getRecords($fields, $table, $conditions)
