@@ -1,7 +1,7 @@
 {extends file="standardPage.tpl"}
 {block name="content"}
 	<h2>Voyage {$voyage_id}: sub voyages</h2>
-	<table id="resultTable">
+	<table class="resultTable">
 		<tr>
 			<th>Code</th>
 			<th>Departure date</th>

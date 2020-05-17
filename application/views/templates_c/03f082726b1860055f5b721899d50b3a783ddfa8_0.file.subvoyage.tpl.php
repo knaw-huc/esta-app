@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-15 16:27:17
+/* Smarty version 3.1.32, created on 2020-05-17 22:54:02
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ebea6c5a04ef3_02927712',
+  'unifunc' => 'content_5ec1a46ab66936_58098671',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '03f082726b1860055f5b721899d50b3a783ddfa8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl',
-      1 => 1589552833,
+      1 => 1589748837,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ebea6c5a04ef3_02927712 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec1a46ab66936_58098671 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSubvoyage" data-action="<?php echo $_smarty_tpl->tpl_vars['sub_voyage_action']->value;?>
 ">
 	<div class="component" id="5eaac4f83afa7" data-name="subvoyage" data-order="1">
@@ -29,7 +29,6 @@ function content_5ebea6c5a04ef3_02927712 (Smarty_Internal_Template $_smarty_tpl)
 			<div class="label">Type</div>
 			<div class="control"><select id="subvoyage_type" data-validation-profile="5eaac4f83b67e"
 										 class="input_element">
-					<option value="">--</option>
 					<option value="sea">sea</option>
 					<option value="land">land</option>
 				</select>
@@ -304,12 +303,13 @@ function content_5ebea6c5a04ef3_02927712 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 	</div>
 	<div id="btnFrame">
-		<input type="button" value="Save" id="saveBtn"/>
-		<input type="button" value="Back" id="resetBtn"/>
+		<input type="button" value="Save" id="saveBtn" onclick="saveSubVoyage()"/>
+		<input type="button" value="Back" class="resetBtn"/>
 		&nbsp;
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
+		<div class="messageBox">&nbsp;</div>
 		<div id="tmpFormatter">
-			<table id="resultTable">
+			<table class="resultTable">
 				<tr>
 					<th>Actors</th>
 					<th></th>

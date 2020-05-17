@@ -90,6 +90,62 @@ class DB_requests extends CI_Model
 		return $this->db->query("SELECT * FROM subvoyage WHERE subvoyage_id = $id")->row_array();
 	}
 
+	function getSlavesForEdit($id) {
+		//$slave_id = $this->getSlaveID($id);
+		//if ($slave_id == 0) {
+		//	return array();
+		//} else {
+			return $this->db->query("SELECT * FROM slaves WHERE slaves_id = $id")->row_array();
+		//}
+	}
+
+	function getVesselForEdit($id) {
+		//$vessel_id = $this->getVesselID($id);
+		//if ($vessel_id == 0) {
+		//	return array();
+		//} else {
+			return $this->db->query("SELECT * FROM vessel WHERE vessel_id = $id")->row_array();
+		//}
+	}
+
+	function getCargoOfSubVoyage($id) {
+		return $this->db->query("SELECT cargo_id, cargo_commodity FROM cargo WHERE subvoyage_subvoyage_id = $id")->result_array();
+	}
+
+	function getCargoForEdit($cargo_id) {
+		return $this->db->query("SELECT * FROM cargo WHERE cargo_id = $cargo_id")->row_array();
+	}
+
+	function update_data($key, $table, $data, $id) {
+		$values = array();
+		foreach ($data as $field => $value) {
+			$values[] = "$field = ?";
+		}
+		$sql = "UPDATE $table SET " . implode(",", $values) . " WHERE $key = $id";
+		$this->db->query($sql, $data);
+		return $id;
+	}
+
+
+
+	private function getSlaveID($id) {
+		$result = $this->db->query("SELECT sub_slaves FROM subvoyage WHERE subvoyage_id = $id")->row();
+		if ($result) {
+			return $result->sub_slaves;
+		} else {
+			return 0;
+		}
+	}
+
+	private function getVesselID($id) {
+		$result = $this->db->query("SELECT sub_vessel FROM subvoyage WHERE subvoyage_id = $id")->row();
+		if ($result) {
+			return $result->sub_vessel;
+		} else {
+			return 0;
+		}
+	}
+
 	function getActorName($id) {
 		if ($id == 0) {
 			return "-none-";

@@ -7,7 +7,7 @@
 		<li id="vmSearch">Search</li>
 		<li id="vmNew">New voyage</li>
 	</ul>
-	<table id="resultTable">
+	<table class="resultTable">
 		<tr>
 			<th>ID</th>
 			<th>Summary</th>

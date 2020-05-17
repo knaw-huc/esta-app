@@ -16,6 +16,7 @@ class Service extends CI_Controller
 				$subvoyage["ac_outfitter_name"] = $this->fetch->getActorName($subvoyage["voyage_outfitter"]);
 				$subvoyage["ac_investor_name"] = $this->fetch->getActorName($subvoyage["voyage_investor"]);
 				$subvoyage["ac_insurer_name"] = $this->fetch->getActorName($subvoyage["voyage_insurer"]);
+				$subvoyage["sub_cargo"] = $this->fetch->getCargoOfSubVoyage($this->input->post("id"));
 				$this->send_json($subvoyage);
 			} else {
 				$this->throw_error("Subvoyage does not exist");
@@ -25,11 +26,82 @@ class Service extends CI_Controller
 		}
 	}
 
+	function update_data() {
+		$id = $this->input->post("id");
+		$data = json_decode($this->input->post("data"), true);
+		$form = $this->input->post("form");
+		$key = $this->get_key($form);
+		$table = $this->get_table($form);
+		if ($id == 0) {
+			$ret_id = $this->fetch->insert_data($key, $table, $data);
+		} else {
+			$ret_id = $this->fetch->update_data($key, $table, $data, $id);
+		}
+		$this->send_json($ret_id);
+	}
+
+	function get_slaves() {
+		if ($this->input->post("id")) {
+			$slaves = $this->fetch->getSlavesForEdit($this->input->post("id"));
+			if (count($slaves)) {
+				$slaves["ac_main_actor"] = $this->fetch->getActorName($slaves["main_actor_id"]);
+				$slaves["ac_second_actor"] = $this->fetch->getActorName($slaves["actor_id2"]);
+				$this->send_json($slaves);
+			} else {
+				$this->throw_error("Slave info does not exist");
+			}
+		} else {
+			$this->throw_error();
+		}
+	}
+
+	function get_vessel() {
+		if ($this->input->post("id")) {
+			$vessel = $this->fetch->getVesselForEdit($this->input->post("id"));
+			$this->send_json($vessel);
+		} else {
+			$this->throw_error();
+		}
+	}
+
+	function get_cargo() {
+		if ($this->input->post("id")) {
+			$cargo = $this->fetch->getCargoForEdit($this->input->post("id"));
+			$this->send_json($cargo);
+		} else {
+			$this->throw_error();
+		}
+
+
+	}
+
+	private function get_key($form) {
+		$keys = array(
+			"heSubvoyage" => "subvoyage_id",
+			"heVessel" => "vessel_id",
+			"heSlaves" => "slaves_id",
+			"heCargo" => "cargo_id",
+			"heActor" => "actor_id",
+		);
+		return $keys[$form];
+	}
+
+	private function get_table($form) {
+		$tables = array(
+			"heSubvoyage" => "subvoyage",
+			"heVessel" => "vessel",
+			"heSlaves" => "slaves",
+			"heCargo" => "cargo",
+			"heActor" => "actor",
+		);
+		return $tables[$form];
+	}
+
 	private function throw_error($error = "Bad request") {
 		header('Content-Type: application/json; charset=UTF-8');
 		header('Access-Control-Allow-Origin: *');
 		$response = array("error" => $error);
-		send_json($response);
+		$this->send_json($response);
 	}
 
 	private function send_json($message_array) {

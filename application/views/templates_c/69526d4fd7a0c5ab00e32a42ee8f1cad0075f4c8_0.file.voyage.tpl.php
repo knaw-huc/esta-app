@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-13 15:27:04
+/* Smarty version 3.1.32, created on 2020-05-17 17:37:39
   from '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ebbf5a8373cd6_83514022',
+  'unifunc' => 'content_5ec15a43ea0d03_95497867',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '69526d4fd7a0c5ab00e32a42ee8f1cad0075f4c8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl',
-      1 => 1589375161,
+      1 => 1589729663,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ebbf5a8373cd6_83514022 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec15a43ea0d03_95497867 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18299784945ebbf5a8350c04_95242984', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14748800655ec15a43e90525_36191464', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_18299784945ebbf5a8350c04_95242984 extends Smarty_Internal_Block
+class Block_14748800655ec15a43e90525_36191464 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_18299784945ebbf5a8350c04_95242984',
+    0 => 'Block_14748800655ec15a43e90525_36191464',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -45,7 +45,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 	<h2>Voyage <?php echo $_smarty_tpl->tpl_vars['voyage_id']->value;?>
 : sub voyages</h2>
-	<table id="resultTable">
+	<table class="resultTable">
 		<tr>
 			<th>Code</th>
 			<th>Departure date</th>

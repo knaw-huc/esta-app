@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-15 16:07:08
+/* Smarty version 3.1.32, created on 2020-05-17 22:58:17
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ebea20c221d52_29554559',
+  'unifunc' => 'content_5ec1a5697e8aa1_86322696',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2b9a0ccd905ac6c1aa3b1249dc82bf26c2cf72d6' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl',
-      1 => 1589549001,
+      1 => 1589749020,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ebea20c221d52_29554559 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec1a5697e8aa1_86322696 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSlaves" data-action="<?php echo $_smarty_tpl->tpl_vars['slaves_action']->value;?>
 ">
 	<div class="component">
@@ -214,6 +214,37 @@ function content_5ebea20c221d52_29554559 (Smarty_Internal_Template $_smarty_tpl)
 				<div id="errorMsg_5e823fa99ca46" class="errorMsg"></div>
 			</div>
 		</div>
+	</div>
+	<div id="btnFrame">
+		<input type="button" value="Save" id="slaveSaveBtn" onclick="saveSlaves();"/>
+		<input type="button" value="Back" class="resetBtn"/>
+		&nbsp;
+		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
+		<div class="messageBox">&nbsp;</div>
+		<div id="tmpFormatter">
+			<table class="resultTable">
+				<tr>
+					<th>Actors</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>Actor 1</td>
+					<td id="slaveMainActorCell"></td>
+					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+img/edit.png" height="16px" width="16px">
+					</td>
+				</tr>
+				<tr>
+					<td>Actor 2</td>
+					<td id="slaveSecondActorCell"></td>
+					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+img/edit.png" height="16px" width="16px">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<input id="mutBtn" type="button" value="Mutation history" onclick="alert('This function is not active yet.');"/>
 	</div>
 </div>
 <?php }

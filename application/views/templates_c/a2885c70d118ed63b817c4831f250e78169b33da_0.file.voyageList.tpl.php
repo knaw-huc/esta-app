@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-11 10:28:47
+/* Smarty version 3.1.32, created on 2020-05-17 17:37:24
   from '/Library/WebServer/Documents/esta/application/views/templates/voyageList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5eb90cbf508082_91009745',
+  'unifunc' => 'content_5ec15a347c3bf7_24531313',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a2885c70d118ed63b817c4831f250e78169b33da' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyageList.tpl',
-      1 => 1589185723,
+      1 => 1589729788,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eb90cbf508082_91009745 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec15a347c3bf7_24531313 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1801414935eb90cbf4f4168_09084846', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1686375065ec15a347b6a98_54249980', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_1801414935eb90cbf4f4168_09084846 extends Smarty_Internal_Block
+class Block_1686375065ec15a347b6a98_54249980 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1801414935eb90cbf4f4168_09084846',
+    0 => 'Block_1686375065ec15a347b6a98_54249980',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -53,7 +53,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 		<li  class="appBtn" id="vmSearch">Search</li>
 		<li  class="appBtn" id="vmNew">New voyage</li>
 	</ul>
-	<table id="resultTable">
+	<table class="resultTable">
 		<tr>
 			<th>ID</th>
 			<th>Summary</th>

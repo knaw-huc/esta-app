@@ -191,4 +191,33 @@
 			</div>
 		</div>
 	</div>
+	<div id="btnFrame">
+		<input type="button" value="Save" id="slaveSaveBtn" onclick="saveSlaves();"/>
+		<input type="button" value="Back" class="resetBtn"/>
+		&nbsp;
+		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
+		<div class="messageBox">&nbsp;</div>
+		<div id="tmpFormatter">
+			<table class="resultTable">
+				<tr>
+					<th>Actors</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<td>Actor 1</td>
+					<td id="slaveMainActorCell"></td>
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					</td>
+				</tr>
+				<tr>
+					<td>Actor 2</td>
+					<td id="slaveSecondActorCell"></td>
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					</td>
+				</tr>
+			</table>
+		</div>
+		<input id="mutBtn" type="button" value="Mutation history" onclick="alert('This function is not active yet.');"/>
+	</div>
 </div>

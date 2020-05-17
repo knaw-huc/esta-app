@@ -5,7 +5,6 @@
 			<div class="label">Type</div>
 			<div class="control"><select id="subvoyage_type" data-validation-profile="5eaac4f83b67e"
 										 class="input_element">
-					<option value="">--</option>
 					<option value="sea">sea</option>
 					<option value="land">land</option>
 				</select>
@@ -280,12 +279,13 @@
 		</div>
 	</div>
 	<div id="btnFrame">
-		<input type="button" value="Save" id="saveBtn"/>
-		<input type="button" value="Back" id="resetBtn"/>
+		<input type="button" value="Save" id="saveBtn" onclick="saveSubVoyage()"/>
+		<input type="button" value="Back" class="resetBtn"/>
 		&nbsp;
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
+		<div class="messageBox">&nbsp;</div>
 		<div id="tmpFormatter">
-			<table id="resultTable">
+			<table class="resultTable">
 				<tr>
 					<th>Actors</th>
 					<th></th>

@@ -1,7 +1,7 @@
 {extends file="standardPage.tpl"}
 {block name="content"}
 	<h2>Users</h2>
-	<table id="resultTable">
+	<table class="resultTable">
 		<tr>
 			<th>Name</th>
 			<th>Email</th>

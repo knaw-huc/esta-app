@@ -80,4 +80,15 @@
 			</div>
 		</div>
 	</div>
+	<div id="btnFrame">
+		<input type="button" value="Save" id="saveVesselBtn" onclick="saveVessel()"/>
+		<input type="button" value="Back" class="resetBtn"/>
+		&nbsp;
+		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
+		<div class="messageBox">&nbsp;</div>
+		<div id="tmpFormatter">
+			&nbsp;
+		</div>
+		<input id="mutBtn" type="button" value="Mutation history" onclick="alert('This function is not active yet.');"/>
+	</div>
 </div>

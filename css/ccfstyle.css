@@ -8,89 +8,89 @@ and open the template in the editor.
     Author     : robzeeman
 */
 
-.component{
-border:1px solid #999;
+.component {
+border: 1px solid #999;
 padding: 16px 8px;
-	background-color: #f3f3f4;
+background-color: #f3f3f4;
 }
 
-.component:first-child{
+.component:first-child {
 width: 70%;
-float:left;
+float: left;
 }
 
-input[type="file"]{
+input[type="file"] {
 margin-left: 20px;
 }
 
 input[type="text"], input[type="password"] {
-	border: 1px solid #858595;
-	height: 1.6em;
+border: 1px solid #858595;
+height: 1.6em;
 }
 
-#ccform{
+#ccform {
 display: block;
 }
 
-#btnFrame{
+#btnFrame {
 display: inline-block;
 width: 24%;
-	padding-top: 6px;
+padding-top: 6px;
 margin-left: 26px;
 position: fixed;
-//position: -webkit-sticky;
-top:234px;
+/ / position: -webkit-sticky;
+top: 234px;
 border: 1px solid #000;
 border-radius: 6px;
 background-color: #ceced5;
 }
 
-.componentHeader{
-color:#fff;
+.componentHeader {
+color: #fff;
 background-color: #5c5c6a;
 font-weight: bold;
 padding: 4px 6px;
 }
 
-.label{
-margin:16px 0 6px 0;
+.label {
+margin: 16px 0 6px 0;
 
 }
 
-.resourceFileList{
-display:inline-block;
+.resourceFileList {
+display: inline-block;
 border: 1px solid #bbb;
 min-height: 20px;
 min-width: 200px;
 }
 
-.errorMsg{
+.errorMsg {
 color: #b00;
 font-weight: bold;
 display: inline;
 margin-left: 10px;
 }
 
-.btn, .compBtn, .optionalCompBtn, .resetUploadBtn{
-color:#fff;
+.btn, .compBtn, .optionalCompBtn, .resetUploadBtn {
+color: #fff;
 background-color: #777;
 font-weight: bold;
-height:20px;
+height: 20px;
 margin: 0 6px;
 width: 30px;
 border-radius: 4px;
 }
 
-.btn{
+.btn {
 border: 1px solid #666;
 }
 
-.compBtn, .optionalCompBtn, .resetUploadBtn{
+.compBtn, .optionalCompBtn, .resetUploadBtn {
 border: 1px solid #ccc;
 }
 
-#OKbtn, #saveBtn, #resetBtn{
-color:#fff;
+#OKbtn, #saveBtn, #slaveSaveBtn, #saveVesselBtn, #cargoSaveBtn, #resetBtn, .resetBtn {
+color: #fff;
 background-color: #5c5c6a;
 font-weight: bold;
 border: 1px solid #666;
@@ -102,36 +102,36 @@ width: 54px;
 cursor: pointer;
 }
 
-.disabledComponent, .disabledElement{
+.disabledComponent, .disabledElement {
 display: none;
 }
 
-.filename{
+.filename {
 display: block;
 margin: 4px 0 0 0;
 }
 
-.headerMsg{
+.headerMsg {
 display: inline-block;
 font-size: 10px;
 margin-left: 10px;
 font-weight: normal;
-color:#deb9ac;
+color: #deb9ac;
 }
 
-.fileForm{
+.fileForm {
 display: inline-block;
 }
 
-.hidden_element{
-display:none;
+.hidden_element {
+display: none;
 }
 
 
-#errorSpace p{
+#errorSpace p {
 margin-left: 10px;
 font-weight: bold;
-color:#b00;
+color: #b00;
 }
 
 

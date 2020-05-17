@@ -67,6 +67,10 @@ class Workspace extends CI_Controller
 		} else {
 			$voyage = $this->fetch->getVoyage($id);
 			$this->mysmarty->assign("sub_voyage_action", base_url('service/save_voyage'));
+			$this->mysmarty->assign("slaves_action", base_url());
+			$this->mysmarty->assign("vessel_action", base_url());
+			$this->mysmarty->assign("cargo_action", base_url());
+			$this->mysmarty->assign("actor_action", base_url());
 			$this->mysmarty->assign('voyage', $voyage);
 			$this->mysmarty->assign('id', $id);
 			$this->mysmarty->assign('voyage_ed', $this->mysmarty->view2var('editors/subvoyage.tpl'));
