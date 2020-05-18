@@ -71,8 +71,15 @@ class Service extends CI_Controller
 		} else {
 			$this->throw_error();
 		}
+	}
 
-
+	function get_actor() {
+		if ($this->input->post("id")) {
+			$actor = $this->fetch->getActorForEdit($this->input->post("id"));
+			$this->send_json($actor);
+		} else {
+			$this->throw_error();
+		}
 	}
 
 	private function get_key($form) {

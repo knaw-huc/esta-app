@@ -99,6 +99,10 @@ class Db_requests extends CI_Model
 		//}
 	}
 
+	function getActorForEdit($id) {
+		return $this->db->query("SELECT * FROM actor WHERE actor_id = $id")->row_array();
+	}
+
 	function getVesselForEdit($id) {
 		//$vessel_id = $this->getVesselID($id);
 		//if ($vessel_id == 0) {

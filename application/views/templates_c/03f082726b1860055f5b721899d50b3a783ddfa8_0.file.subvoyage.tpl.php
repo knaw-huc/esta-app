@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-17 22:54:02
+/* Smarty version 3.1.32, created on 2020-05-18 18:52:30
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ec1a46ab66936_58098671',
+  'unifunc' => 'content_5ec2bd4ec77375_56810939',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '03f082726b1860055f5b721899d50b3a783ddfa8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl',
-      1 => 1589748837,
+      1 => 1589820444,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec1a46ab66936_58098671 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec2bd4ec77375_56810939 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSubvoyage" data-action="<?php echo $_smarty_tpl->tpl_vars['sub_voyage_action']->value;?>
 ">
 	<div class="component" id="5eaac4f83afa7" data-name="subvoyage" data-order="1">
@@ -29,6 +29,7 @@ function content_5ec1a46ab66936_58098671 (Smarty_Internal_Template $_smarty_tpl)
 			<div class="label">Type</div>
 			<div class="control"><select id="subvoyage_type" data-validation-profile="5eaac4f83b67e"
 										 class="input_element">
+					<option value="">--</option>
 					<option value="sea">sea</option>
 					<option value="land">land</option>
 				</select>
@@ -315,28 +316,28 @@ function content_5ec1a46ab66936_58098671 (Smarty_Internal_Template $_smarty_tpl)
 					<th></th>
 					<th></th>
 				</tr>
-				<tr>
+				<tr id="captainRow">
 					<td>Captain</td>
 					<td id="captainCell"></td>
 					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
-img/edit.png" height="16px" width="16px">
+img/edit.png" height="16px" width="16px" onclick="editCaptain()">
 					</td>
 				</tr>
-				<tr>
+				<tr id="outfitterRow">
 					<td>Outfitter</td>
 					<td id="outfitterCell"></td>
 					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 img/edit.png" height="16px" width="16px">
 					</td>
 				</tr>
-				<tr>
+				<tr id="investorRow">
 					<td>Investor</td>
 					<td id="investorCell"></td>
 					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 img/edit.png" height="16px" width="16px">
 					</td>
 				</tr>
-				<tr>
+				<tr id="insurerRow">
 					<td>Insurer</td>
 					<td id="insurerCell"></td>
 					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>

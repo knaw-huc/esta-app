@@ -98,6 +98,7 @@ class Workspace extends CI_Controller
 			$this->mysmarty->assign('slave_ed', $this->mysmarty->view2var('editors/slaves.tpl'));
 			$this->mysmarty->assign('vessel_ed', $this->mysmarty->view2var('editors/vessel.tpl'));
 			$this->mysmarty->assign('cargo_ed', $this->mysmarty->view2var('editors/cargo.tpl'));
+			$this->mysmarty->assign('actor_ed', $this->mysmarty->view2var('editors/actor.tpl'));
 			$this->mysmarty->view("edit_voyage");
 		}
 	}

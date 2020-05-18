@@ -67,6 +67,9 @@
 					</div>
 				</div>
 			</div>
+			<div id="actorForm" class="noView">
+				{$actor_ed}
+			</div>
 		</div>
 	</div>
 {/block}

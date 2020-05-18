@@ -63,5 +63,6 @@
 	<div id="dashBoard">
 		<input type="button" value="Add row" onclick="addRow()"/>
 		<input type="button" value="Add column" onclick="addCol()"/>
+		<input type="button" value="Save" onclick="alert('This function is not implemented yet.')"/>
 	</div>
 {/block}

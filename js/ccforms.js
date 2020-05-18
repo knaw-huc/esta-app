@@ -10,13 +10,15 @@ var editVars = {
 	actor1: 0,
 	actor2: 0,
 	cargo: 0,
-	currentCargo: 0
+	currentCargo: 0,
+	currentActor: ""
 }
 
 var currentForm = "";
 var currentFormChanged = false;
 
 var home = 'http://www.huc.localhost/esta';
+var subVoyageSwapped = false;
 
 var hucForms = {
 	heSubvoyage: {
@@ -34,6 +36,10 @@ var hucForms = {
 	heCargo: {
 		empty: true,
 		address: home + "/service/get_cargo"
+	},
+	heActor: {
+		empty: true,
+		address: home + "/service/get_actor"
 	}
 }
 
@@ -92,8 +98,10 @@ function hideDetails() {
 	$('#tweakXML').addClass('noView');
 	$('#metadataRecs').addClass('noView');
 	$('#voyage').addClass('noView');
+	$("#actorForm").addClass("noView");
 
 }
+
 
 function validateNewVoyage() {
 	if ($("#voyageSummary").val() !== "" && $("#voyageYear").val() !== "") {
@@ -138,6 +146,10 @@ function setEditors(id) {
 			switch ($(this).attr('id')) {
 				case 'profileXMLTab':
 					$('#profileXML').removeClass('noView');
+					if (subVoyageSwapped) {
+						swapForms("profileXML");
+						subVoyageSwapped = false;
+					}
 					setCurrentForm("heSubvoyage");
 					break;
 				case 'profileJSONTab':
@@ -178,6 +190,23 @@ function setCurrentForm(formName) {
 
 }
 
+function editCaptain() {
+	editVars.currentActor = "captain";
+	$("#actorType").html("Captain");
+	hideDetails();
+	$("#actorForm").removeClass("noView");
+	currentForm = "heActor";
+	initCurrentFormMetadata();
+}
+
+
+function checkSave() {
+	if (currentFormChanged) {
+		alert('You must first save your input.');
+	}
+	return !currentFormChanged;
+}
+
 function resetCurrentFormMetadata() {
 	currentFormChanged = false;
 	$("#" + currentForm).find(".changed_input_element").each(
@@ -214,7 +243,10 @@ function initCurrentFormMetadata() {
 			} else {
 				getData(currentForm, 0);
 			}
-
+			break;
+		case "heActor":
+			console.log(editVars[editVars.currentActor]);
+			getData(currentForm, editVars[editVars.currentActor]);
 
 	}
 
@@ -317,7 +349,7 @@ function addCargos(json) {
 }
 
 function resetCargoList() {
-	$("#heCargo").find(".activeActorTableRow").each( function () {
+	$("#heCargo").find(".activeActorTableRow").each(function () {
 		$(this).removeClass("activeActorTableRow");
 	})
 }
@@ -353,7 +385,8 @@ function send_data(data, form, id) {
 			form: form,
 			data: JSON.stringify(data)
 		},
-		success: function (ret_id) {;
+		success: function (ret_id) {
+			;
 			message("Form data saved...");
 			updateLink(form, ret_id);
 		},

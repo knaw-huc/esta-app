@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-18 08:06:12
+/* Smarty version 3.1.32, created on 2020-05-18 18:29:00
   from '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ec225d4c0f485_37405109',
+  'unifunc' => 'content_5ec2b7cc3499a7_72063623',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '69526d4fd7a0c5ab00e32a42ee8f1cad0075f4c8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl',
-      1 => 1589781800,
+      1 => 1589819328,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec225d4c0f485_37405109 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec2b7cc3499a7_72063623 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11066347625ec225d4bf8d60_01347904', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_544434105ec2b7cc3247c7_82758501', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_11066347625ec225d4bf8d60_01347904 extends Smarty_Internal_Block
+class Block_544434105ec2b7cc3247c7_82758501 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_11066347625ec225d4bf8d60_01347904',
+    0 => 'Block_544434105ec2b7cc3247c7_82758501',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -130,6 +130,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 	<div id="dashBoard">
 		<input type="button" value="Add row" onclick="addRow()"/>
 		<input type="button" value="Add column" onclick="addCol()"/>
+		<input type="button" value="Save" onclick="alert('This function is not implemented yet.')"/>
 	</div>
 <?php
 }

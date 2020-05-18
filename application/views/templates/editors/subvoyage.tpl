@@ -5,6 +5,7 @@
 			<div class="label">Type</div>
 			<div class="control"><select id="subvoyage_type" data-validation-profile="5eaac4f83b67e"
 										 class="input_element">
+					<option value="">--</option>
 					<option value="sea">sea</option>
 					<option value="land">land</option>
 				</select>
@@ -291,25 +292,25 @@
 					<th></th>
 					<th></th>
 				</tr>
-				<tr>
+				<tr id="captainRow">
 					<td>Captain</td>
 					<td id="captainCell"></td>
-					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px" onclick="editCaptain()">
 					</td>
 				</tr>
-				<tr>
+				<tr id="outfitterRow">
 					<td>Outfitter</td>
 					<td id="outfitterCell"></td>
 					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
 					</td>
 				</tr>
-				<tr>
+				<tr id="investorRow">
 					<td>Investor</td>
 					<td id="investorCell"></td>
 					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
 					</td>
 				</tr>
-				<tr>
+				<tr id="insurerRow">
 					<td>Insurer</td>
 					<td id="insurerCell"></td>
 					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">

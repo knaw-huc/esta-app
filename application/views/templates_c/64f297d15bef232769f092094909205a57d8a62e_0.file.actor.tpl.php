@@ -1,4 +1,28 @@
-<div id="heActor"  data-action="{$actor_action}">
+<?php
+/* Smarty version 3.1.32, created on 2020-05-18 20:43:10
+  from '/Library/WebServer/Documents/esta/application/views/templates/editors/actor.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_5ec2d73e930393_59881465',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '64f297d15bef232769f092094909205a57d8a62e' => 
+    array (
+      0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/actor.tpl',
+      1 => 1589827337,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5ec2d73e930393_59881465 (Smarty_Internal_Template $_smarty_tpl) {
+?><div id="heActor"  data-action="<?php echo $_smarty_tpl->tpl_vars['actor_action']->value;?>
+">
 	<div class="component">
 		<div id="actorType" class="componentHeader">Actor</div>
 		<div class="element" data-name="actor_name">
@@ -75,3 +99,5 @@
 		<input id="mutBtn" type="button" value="Mutation history" onclick="alert('This function is not active yet.');"/>
 	</div>
 </div>
+<?php }
+}

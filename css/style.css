@@ -473,4 +473,8 @@ margin-top: 30px;
 cursor: pointer;
 }
 
+#formStore{
+display: none;
+}
+
 
