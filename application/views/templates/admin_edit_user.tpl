@@ -29,12 +29,20 @@
 			</div>
 			<div class="formRow">
 				<div class="formLabel">
+					User name:
+				</div>
+				<div class="formField">
+					<input type="text" name="username" size="40" value="{$username}"/> *
+				</div>
+			</div>
+			<div class="formRow">
+				<div class="formLabel">
 					Role:
 				</div>
 				<div class="formField">
 					<select name="role">
-						<option {if $role == "USER"}selected {/if} value="USER">USER</option>
-						<option {if $role == "ADMIN"}selected {/if} value="ADMIN">ADMIN</option>
+						<option {if $userrole == "USER"}selected {/if} value="USER">USER</option>
+						<option {if $userrole == "ADMIN"}selected {/if} value="ADMIN">ADMIN</option>
 					</select>
 				</div>
 			</div>

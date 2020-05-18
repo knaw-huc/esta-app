@@ -3,7 +3,7 @@
 if (!defined('BASEPATH'))
 	exit('No direct script access allowed');
 
-class DB_requests extends CI_Model
+class Db_requests extends CI_Model
 {
 
 	function getUser($un, $pw)
@@ -22,11 +22,11 @@ class DB_requests extends CI_Model
 	}
 
 	function insert_user($user) {
-		$this->db->query("INSERT INTO users (chr_name, name, email, admin, active, passwd) VALUES(?, ?, ?, ?, ?, MD5(?))", $user);
+		$this->db->query("INSERT INTO users (chr_name, name, email, username, admin, active, passwd) VALUES(?, ?, ?, ?, ?, ?, MD5(?))", $user);
 	}
 
 	function update_user($user, $id) {
-		$this->db->query("UPDATE users SET chr_name = ?, name = ?, email = ?, admin = ?, active = ? WHERE id = $id", $user);
+		$this->db->query("UPDATE users SET chr_name = ?, name = ?, email = ?, username = ?, admin = ?, active = ? WHERE id = $id", $user);
 	}
 
 	function getUsers()
@@ -124,6 +124,38 @@ class DB_requests extends CI_Model
 		$sql = "UPDATE $table SET " . implode(",", $values) . " WHERE $key = $id";
 		$this->db->query($sql, $data);
 		return $id;
+	}
+
+	function change_password($old, $new, $id) {
+		$params = array($new, $id, $old);
+		$this->db->query("UPDATE users SET passwd = MD5(?) WHERE id = ? AND passwd = MD5(?)", $params);
+		return $this->db->affected_rows();
+	}
+
+	function insert_data($key, $table, $data) {
+		$values = array();
+		$params = array();
+		foreach ($data as $field => $value) {
+			$values[] = "$field";
+			$params[] = "?";
+		}
+		$sql = "INSERT INTO $table (" . implode(",", $values) . " ) VALUES(" . implode(",", $params) . ")";
+		//error_log($sql);
+		$this->db->query($sql, $data);
+		return $this->db->insert_id();
+	}
+
+	function add_voyage($year, $summary, $user_id) {
+		$params = array($year, $summary, $user_id, $user_id);
+		$sql = "INSERT INTO voyage (year, summary, created_by, modified_by, last_mutation) VALUES(?, ?, ?, ?, NOW())";
+		$this->db->query($sql, $params);
+		return $this->db->insert_id();
+	}
+
+	function createNewSubvoyage() {
+		$voyage_id = $this->session->voyage;
+		$this->db->query("INSERT INTO subvoyage (voyage_id) VALUES($voyage_id)");
+		return $this->db->insert_id();
 	}
 
 

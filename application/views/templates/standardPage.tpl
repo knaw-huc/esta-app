@@ -36,7 +36,7 @@
 					<li><a href="{$home_path}workspace">My profile</a>
 						<ul>
 							<li><a href="{$home_path}workspace/user_profile">Profile</a></li>
-							<li><a href="">Change password</a></li>
+							<li><a href="{$home_path}workspace/change_password">Change password</a></li>
 						</ul>
 					</li>
 					{if $role == 'ADMIN'}

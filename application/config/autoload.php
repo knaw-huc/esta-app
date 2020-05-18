@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('db_requests' => 'fetch');
+$autoload['model'] = array('Db_requests' => 'fetch');

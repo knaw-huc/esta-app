@@ -73,7 +73,7 @@
 		</div>
 	</div>
 	<div id="btnFrame">
-		<input type="button" value="Save" id="cargoSaveBtn"/>
+		<input type="button" value="Save" id="cargoSaveBtn" onclick="saveCargo()"/>
 		<input type="button" value="Back" class="resetBtn"/>
 		&nbsp;
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>

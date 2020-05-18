@@ -9,7 +9,8 @@ var editVars = {
 	slaves: 0,
 	actor1: 0,
 	actor2: 0,
-	cargo: 0
+	cargo: 0,
+	currentCargo: 0
 }
 
 var currentForm = "";
@@ -208,6 +209,7 @@ function initCurrentFormMetadata() {
 			break;
 		case "heCargo":
 			if (editVars.cargo[0] !== undefined) {
+				editVars.currentCargo = editVars.cargo[0].cargo_id;
 				getData(currentForm, editVars.cargo[0].cargo_id);
 			} else {
 				getData(currentForm, 0);
@@ -220,20 +222,23 @@ function initCurrentFormMetadata() {
 
 
 function getData(form, id) {
-	$.ajax({
-		type: "POST",
-		url: hucForms[form].address,
-		data: {
-			id: id
-		},
-		success: function (json) {
-			populateForm(currentForm, json);
-			console.log(json);
-		},
-		error: function (err) {
-			console.log(err);
-		}
-	});
+	if (id !== "0") {
+		$.ajax({
+			type: "POST",
+			url: hucForms[form].address,
+			data: {
+				id: id
+			},
+			success: function (json) {
+				populateForm(currentForm, json);
+				console.log(json);
+			},
+			error: function (err) {
+				console.log(err);
+			}
+		});
+	}
+
 }
 
 function populateForm(form, json) {
@@ -287,6 +292,13 @@ function addCargos(json) {
 		$(img).attr("src", home + "/img/edit.png");
 		$(img).attr("height", "16px");
 		$(img).attr("width", "16px");
+		$(img).attr("data-cargo_id", editVars.cargo[key].cargo_id);
+		$(img).on("click", function (e) {
+			e.preventDefault();
+			resetCargoList();
+			selectCargo($(this).attr("data-cargo_id"));
+			$(this).parent().parent().addClass("activeActorTableRow");
+		});
 		$(cell).append(img);
 		$(cell).attr("width", "20px");
 		$(row).append(cell);
@@ -302,6 +314,18 @@ function addCargos(json) {
 		$("#cargoTable").append(row);
 	}
 	$("#cargoTable").find("tr:nth-child(2)").addClass("activeActorTableRow");
+}
+
+function resetCargoList() {
+	$("#heCargo").find(".activeActorTableRow").each( function () {
+		$(this).removeClass("activeActorTableRow");
+	})
+}
+
+function selectCargo(id) {
+	editVars.currentCargo = id;
+	resetCurrentFormMetadata();
+	getData(currentForm, editVars.currentCargo);
 }
 
 function setSubVoyageActors(json) {
@@ -329,13 +353,58 @@ function send_data(data, form, id) {
 			form: form,
 			data: JSON.stringify(data)
 		},
-		success: function (id) {;
+		success: function (ret_id) {;
 			message("Form data saved...");
+			updateLink(form, ret_id);
 		},
 		error: function (err) {
-			alert(err);
+			alert("Errors! Data not saved");
 		}
 	});
+}
+
+function new_cargo() {
+	var data = {};
+	data.subvoyage_subvoyage_id = editVars.currentVoyage;
+	send_data(data, "heCargo", 0);
+}
+
+function updateLink(form, id) {
+	switch (form) {
+		case "heVessel":
+			if (editVars.vessel !== id) {
+				editVars.vessel = id;
+				data = {};
+				data.sub_vessel = id;
+				send_data(data, "heSubvoyage", editVars.currentVoyage);
+			}
+			break;
+		case "heSlaves":
+			if (editVars.slaves !== id) {
+				editVars.slaves = id;
+				data = {};
+				data.sub_slaves = id;
+				send_data(data, "heSubvoyage", editVars.currentVoyage);
+			}
+			break;
+		case "heCargo":
+			if (parseInt(editVars.currentCargo) !== parseInt(id)) {
+				editVars.currentCargo = id;
+				addCargoToList(id);
+			}
+	}
+}
+
+function validate_pw() {
+	if ($("#opw").val().trim() === "" | $("#passwd1").val().trim() === "" | $("#passwd2").val().trim() === "") {
+		$("#loginError").html("Input missing!");
+	} else {
+		if ($("#passwd1").val().trim() !== $("#passwd2").val().trim()) {
+			$("#loginError").html("Values for new password are not identical!");
+		} else {
+			$("#pw").submit();
+		}
+	}
 }
 
 function message(msg) {
@@ -349,6 +418,47 @@ function eraseMsg() {
 	$(".messageBox").each(function () {
 		$(this).html("&nbsp;");
 	})
+}
+
+function addCargoToList(id) {
+	resetCargoList();
+	var row = document.createElement("tr");
+	var cell = document.createElement("td");
+	if ($("#cargo_commodity").val().trim() === "") {
+		$(cell).html("--New--");
+	} else {
+		$(cell).html($("#cargo_commodity").val());
+	}
+
+	$(row).append(cell);
+	var cell = document.createElement("td");
+	$(cell).addClass("editIcon");
+	var img = document.createElement("img");
+	$(img).attr("src", home + "/img/edit.png");
+	$(img).attr("height", "16px");
+	$(img).attr("width", "16px");
+	$(img).attr("data-cargo_id", id);
+	$(img).on("click", function (e) {
+		e.preventDefault();
+		resetCargoList();
+		selectCargo($(this).attr("data-cargo_id"));
+		$(this).parent().parent().addClass("activeActorTableRow");
+	});
+	$(cell).append(img);
+	$(cell).attr("width", "20px");
+	$(row).append(cell);
+	var cell = document.createElement("td");
+	$(cell).addClass("editIcon");
+	var img = document.createElement("img");
+	$(img).attr("src", home + "/img/bin.png");
+	$(img).attr("height", "16px");
+	$(img).attr("width", "16px");
+	$(cell).append(img);
+	$(cell).attr("width", "20px");
+	$(row).append(cell);
+	$(row).addClass("activeActorTableRow");
+	$("#cargoTable").append(row);
+	selectCargo(id);
 }
 
 function saveSubVoyage() {
@@ -378,12 +488,23 @@ function saveVessel() {
 	}
 }
 
+function saveCargo() {
+	if (currentFormChanged) {
+		var data = harvestForm(currentForm);
+		$("#heCargo").find(".activeActorTableRow td:first").html(data.cargo_commodity);
+		send_data(data, currentForm, editVars.currentCargo);
+	} else {
+		alert("Form was not changed.");
+	}
+}
+
 function harvestForm(form) {
 	var data = {};
 	$("#" + form).find(".changed_input_element").each(function () {
 		var id = $(this).attr("id");
 		data[id] = $("#" + id).val();
 	});
+	resetCurrentFormMetadata();
 	return data;
 }
 

@@ -10,7 +10,7 @@
 			<th>From</th>
 			<th>To</th>
 			<th></th>
-			<th>+</th>
+			<th><a href="{$home_path}workspace/new_subvoyage">+</a></th>
 		</tr>
 		{foreach from=$subvoyages item=subvoyage}
 			<tr class="even">

@@ -29,7 +29,7 @@ class Admin extends CI_Controller
 		} else {
 			$user = $this->fetch->getUserByID($id);
 			if (count($user)) {
-				$this->init_user_form($user["chr_name"], $user["name"], $user["email"], $user["admin"], $user["active"]);
+				$this->init_user_form($user["chr_name"], $user["name"], $user["email"], $user["username"], $user["admin"], $user["active"]);
 				$this->mysmarty->assign('user', $id);
 			} else {
 				redirect(base_url('admin/users'));
@@ -43,6 +43,7 @@ class Admin extends CI_Controller
 		$user_values["chr_name"] = $this->input->post("chr_name");
 		$user_values["name"] = $this->input->post("name");
 		$user_values["email"] = $this->input->post("email");
+		$user_values["username"] = $this->input->post("username");
 		$user_values["role"] = $this->input->post("role");
 		$user_values["active"] = $this->input->post("active");
 		if ($this->input->post("user") == "new") {
@@ -54,15 +55,25 @@ class Admin extends CI_Controller
 		redirect(base_url("admin/users"));
 	}
 
+	function test_mail() {
+		$this->email->from('rob.zeeman@di.huc.knaw.nl');
+		$this->email->to("rob@robzeeman.nl");
+		$this->email->message("Hallo Rob");
+		$this->email->subject( 'TESTA');
+		$this->email->send();
+		echo 'OK';
+}
+
 	/*
 	 * Private functions
 	 */
 
-	private function init_user_form($chr_name = '', $name = '', $email = '', $role = 'USER', $active = 1) {
+	private function init_user_form($chr_name = '', $name = '', $email = '', $username = '', $role = 'USER', $active = 1) {
 		$this->mysmarty->assign('chr_name', $chr_name);
 		$this->mysmarty->assign('name', $name);
 		$this->mysmarty->assign('email', $email);
-		$this->mysmarty->assign('role', $role);
+		$this->mysmarty->assign('username', $username);
+		$this->mysmarty->assign('userrole', $role);
 		$this->mysmarty->assign('active', $active);
 	}
 

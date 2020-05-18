@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-11 14:26:08
+/* Smarty version 3.1.32, created on 2020-05-18 18:12:48
   from '/Library/WebServer/Documents/esta/application/views/templates/admin_edit_user.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5eb944607c9823_83327926',
+  'unifunc' => 'content_5ec2b4008c6b58_40346248',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '34f249b92db63d5e44e3f42249c30f597e33c8ae' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/admin_edit_user.tpl',
-      1 => 1589199962,
+      1 => 1589818364,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5eb944607c9823_83327926 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec2b4008c6b58_40346248 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_20957546035eb944607c0dd5_86764388', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1563626955ec2b4008bdd51_06421759', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_20957546035eb944607c0dd5_86764388 extends Smarty_Internal_Block
+class Block_1563626955ec2b4008bdd51_06421759 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_20957546035eb944607c0dd5_86764388',
+    0 => 'Block_1563626955ec2b4008bdd51_06421759',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -76,12 +76,21 @@ admin/save_user">
 			</div>
 			<div class="formRow">
 				<div class="formLabel">
+					User name:
+				</div>
+				<div class="formField">
+					<input type="text" name="username" size="40" value="<?php echo $_smarty_tpl->tpl_vars['username']->value;?>
+"/> *
+				</div>
+			</div>
+			<div class="formRow">
+				<div class="formLabel">
 					Role:
 				</div>
 				<div class="formField">
 					<select name="role">
-						<option <?php if ($_smarty_tpl->tpl_vars['role']->value == "USER") {?>selected <?php }?> value="USER">USER</option>
-						<option <?php if ($_smarty_tpl->tpl_vars['role']->value == "ADMIN") {?>selected <?php }?> value="ADMIN">ADMIN</option>
+						<option <?php if ($_smarty_tpl->tpl_vars['userrole']->value == "USER") {?>selected <?php }?> value="USER">USER</option>
+						<option <?php if ($_smarty_tpl->tpl_vars['userrole']->value == "ADMIN") {?>selected <?php }?> value="ADMIN">ADMIN</option>
 					</select>
 				</div>
 			</div>

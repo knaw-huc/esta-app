@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-17 22:58:17
+/* Smarty version 3.1.32, created on 2020-05-18 12:34:06
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/cargo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ec1a5698045d5_64361166',
+  'unifunc' => 'content_5ec2649e90eb23_51982771',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '63a5947cb38d135d21665a981697c6588b4b022f' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/cargo.tpl',
-      1 => 1589749033,
+      1 => 1589797485,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec1a5698045d5_64361166 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec2649e90eb23_51982771 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heCargo"  data-action="<?php echo $_smarty_tpl->tpl_vars['cargo_action']->value;?>
 ">
 	<div class="component">
@@ -97,7 +97,7 @@ function content_5ec1a5698045d5_64361166 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 	</div>
 	<div id="btnFrame">
-		<input type="button" value="Save" id="cargoSaveBtn"/>
+		<input type="button" value="Save" id="cargoSaveBtn" onclick="saveCargo()"/>
 		<input type="button" value="Back" class="resetBtn"/>
 		&nbsp;
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>

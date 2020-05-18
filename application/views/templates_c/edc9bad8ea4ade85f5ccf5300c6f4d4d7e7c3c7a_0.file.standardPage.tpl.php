@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-12 22:41:15
+/* Smarty version 3.1.32, created on 2020-05-18 13:51:27
   from '/Library/WebServer/Documents/esta/application/views/templates/standardPage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ebb09eb85afc8_07958593',
+  'unifunc' => 'content_5ec276bf25f6c5_80022124',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'edc9bad8ea4ade85f5ccf5300c6f4d4d7e7c3c7a' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/standardPage.tpl',
-      1 => 1589313582,
+      1 => 1589802158,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ebb09eb85afc8_07958593 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec276bf25f6c5_80022124 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -86,7 +86,8 @@ workspace">My profile</a>
 						<ul>
 							<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 workspace/user_profile">Profile</a></li>
-							<li><a href="">Change password</a></li>
+							<li><a href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+workspace/change_password">Change password</a></li>
 						</ul>
 					</li>
 					<?php if ($_smarty_tpl->tpl_vars['role']->value == 'ADMIN') {?>
@@ -101,7 +102,7 @@ workspace/logout">Logout</a></li>
 	<?php }?>
 	<div id="content">
 		<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1828408575ebb09eb857425_72359405', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15564746615ec276bf25c3b9_58913971', "content");
 ?>
 
 	</div>
@@ -110,12 +111,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1828408575ebb09eb8
 </html>
 <?php }
 /* {block "content"} */
-class Block_1828408575ebb09eb857425_72359405 extends Smarty_Internal_Block
+class Block_15564746615ec276bf25c3b9_58913971 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1828408575ebb09eb857425_72359405',
+    0 => 'Block_15564746615ec276bf25c3b9_58913971',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

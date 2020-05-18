@@ -30,14 +30,20 @@ class Workspace extends CI_Controller
 			redirect(base_url('workspace/'));
 		} else {
 			$subvoyages = $this->fetch->getSubvoyagerecords($id);
-			if (count($subvoyages)) {
+			//if (count($subvoyages)) {
 				$this->mysmarty->assign('voyage_id', $id);
 				$this->mysmarty->assign("subvoyages", $subvoyages);
-			} else {
-				redirect(base_url('workspace/'));
-			}
+			//} else {
+			//	redirect(base_url('workspace/'));
+			//}
+			$this->session->set_userdata("voyage", $id);
 		}
 		$this->mysmarty->view('voyage');
+	}
+
+	function new_subvoyage() {
+		$subvoyage_id = $this->fetch->createNewSubvoyage();
+		redirect(base_url("workspace/edit_voyage/$subvoyage_id"));
 	}
 
 	function logout() {
@@ -51,14 +57,29 @@ class Workspace extends CI_Controller
 		$this->mysmarty->view('formPage');
 	}
 
+	function change_password() {
+		$this->mysmarty->view("change_passwd");
+	}
+
+	function newpasswd() {
+		$old = $this->input->post("opw");
+		$new = $this->input->post("passwd1");
+		$succes = $this->fetch->change_password($old, $new, $this->session->id);
+		if ($succes) {
+			$this->mysmarty->assign('msg', "Password changed");
+		} else {
+			$this->mysmarty->assign('msg', "Password not changed. Please try again");
+		}
+		$this->mysmarty->view("passwd_changed");
+	}
+
 	function new_voyage() {
 		$this->mysmarty->view("voyageForm");
 	}
 
 	function accept_new_voyage() {
-		$this->session->set_userdata("year", $this->input->post["year"]);
-		$this->session->set_userdata("summary", $this->input->post["summary"]);
-		redirect(base_url() . "workspace/edit_voyage");
+		$voyage_id = $this->fetch->add_voyage( $this->input->post("year"),$this->input->post("summary"), $this->session->id);
+		redirect(base_url() . "workspace/voyage/$voyage_id");
 	}
 
 	function edit_voyage($id = 0) {
