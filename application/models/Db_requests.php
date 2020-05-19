@@ -126,6 +126,7 @@ class Db_requests extends CI_Model
 			$values[] = "$field = ?";
 		}
 		$sql = "UPDATE $table SET " . implode(",", $values) . " WHERE $key = $id";
+		error_log($sql);
 		$this->db->query($sql, $data);
 		return $id;
 	}

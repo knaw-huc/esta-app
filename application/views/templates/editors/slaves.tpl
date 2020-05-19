@@ -207,13 +207,13 @@
 				<tr>
 					<td>Actor 1</td>
 					<td id="slaveMainActorCell"></td>
-					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px" onclick="editSlaveActor1()">
 					</td>
 				</tr>
 				<tr>
 					<td>Actor 2</td>
 					<td id="slaveSecondActorCell"></td>
-					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px" onclick="editSlaveActor2()">
 					</td>
 				</tr>
 			</table>

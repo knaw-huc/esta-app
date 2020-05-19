@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-18 18:52:30
+/* Smarty version 3.1.32, created on 2020-05-19 17:53:48
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ec2bd4ec77375_56810939',
+  'unifunc' => 'content_5ec4010c224a60_54390002',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '03f082726b1860055f5b721899d50b3a783ddfa8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl',
-      1 => 1589820444,
+      1 => 1589903572,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec2bd4ec77375_56810939 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec4010c224a60_54390002 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSubvoyage" data-action="<?php echo $_smarty_tpl->tpl_vars['sub_voyage_action']->value;?>
 ">
 	<div class="component" id="5eaac4f83afa7" data-name="subvoyage" data-order="1">
@@ -327,21 +327,21 @@ img/edit.png" height="16px" width="16px" onclick="editCaptain()">
 					<td>Outfitter</td>
 					<td id="outfitterCell"></td>
 					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
-img/edit.png" height="16px" width="16px">
+img/edit.png" height="16px" width="16px" onclick="editOutfitter()">
 					</td>
 				</tr>
 				<tr id="investorRow">
 					<td>Investor</td>
 					<td id="investorCell"></td>
 					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
-img/edit.png" height="16px" width="16px">
+img/edit.png" height="16px" width="16px" onclick="editInvestor()">
 					</td>
 				</tr>
 				<tr id="insurerRow">
 					<td>Insurer</td>
 					<td id="insurerCell"></td>
 					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
-img/edit.png" height="16px" width="16px">
+img/edit.png" height="16px" width="16px" onclick="editInsurer()">
 					</td>
 				</tr>
 			</table>

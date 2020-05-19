@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-17 22:58:17
+/* Smarty version 3.1.32, created on 2020-05-19 18:01:01
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ec1a5697e8aa1_86322696',
+  'unifunc' => 'content_5ec402bd693283_22297455',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2b9a0ccd905ac6c1aa3b1249dc82bf26c2cf72d6' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl',
-      1 => 1589749020,
+      1 => 1589903972,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec1a5697e8aa1_86322696 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ec402bd693283_22297455 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSlaves" data-action="<?php echo $_smarty_tpl->tpl_vars['slaves_action']->value;?>
 ">
 	<div class="component">
@@ -232,14 +232,14 @@ function content_5ec1a5697e8aa1_86322696 (Smarty_Internal_Template $_smarty_tpl)
 					<td>Actor 1</td>
 					<td id="slaveMainActorCell"></td>
 					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
-img/edit.png" height="16px" width="16px">
+img/edit.png" height="16px" width="16px" onclick="editSlaveActor1()">
 					</td>
 				</tr>
 				<tr>
 					<td>Actor 2</td>
 					<td id="slaveSecondActorCell"></td>
 					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
-img/edit.png" height="16px" width="16px">
+img/edit.png" height="16px" width="16px" onclick="editSlaveActor2()">
 					</td>
 				</tr>
 			</table>

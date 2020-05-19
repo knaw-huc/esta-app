@@ -65,7 +65,7 @@
 	</div>
 	<div id="btnFrame">
 		<input type="button" value="Save" id="saveBtn" onclick="saveActor()"/>
-		<input type="button" value="Back" class="resetBtn"/>
+		<input type="button" value="Back" class="resetBtn" onclick="returnToMainTab()"/>
 		&nbsp;
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>

@@ -301,19 +301,19 @@
 				<tr id="outfitterRow">
 					<td>Outfitter</td>
 					<td id="outfitterCell"></td>
-					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px" onclick="editOutfitter()">
 					</td>
 				</tr>
 				<tr id="investorRow">
 					<td>Investor</td>
 					<td id="investorCell"></td>
-					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px" onclick="editInvestor()">
 					</td>
 				</tr>
 				<tr id="insurerRow">
 					<td>Insurer</td>
 					<td id="insurerCell"></td>
-					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px">
+					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px" onclick="editInsurer()">
 					</td>
 				</tr>
 			</table>

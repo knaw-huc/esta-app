@@ -17,6 +17,8 @@ var editVars = {
 var currentForm = "";
 var currentFormChanged = false;
 
+var activeTab = "profileXML";
+
 var home = 'http://www.huc.localhost/esta';
 var subVoyageSwapped = false;
 
@@ -150,22 +152,27 @@ function setEditors(id) {
 						swapForms("profileXML");
 						subVoyageSwapped = false;
 					}
+					activeTab = "profileXML";
 					setCurrentForm("heSubvoyage");
 					break;
 				case 'profileJSONTab':
 					$('#profileJSON').removeClass('noView');
 					setCurrentForm("heSlaves");
+					activeTab = "profileJSON";
 					break;
 				case 'profileTweakTab':
 					$('#tweakXML').removeClass('noView');
 					setCurrentForm("heVessel");
+					activeTab = "profileTweak";
 					break;
 				case 'profileRecordsTab':
 					$('#metadataRecs').removeClass('noView');
 					setCurrentForm("heCargo");
+					activeTab = "profileRecords";
 					break;
 				case 'voyageTab':
 					$('#voyage').removeClass('noView');
+					activeTab = "voyage";
 					break;
 			}
 		}
@@ -199,6 +206,58 @@ function editCaptain() {
 	initCurrentFormMetadata();
 }
 
+function editOutfitter() {
+	editVars.currentActor = "outfitter";
+	$("#actorType").html("Outfitter");
+	hideDetails();
+	$("#actorForm").removeClass("noView");
+	currentForm = "heActor";
+	initCurrentFormMetadata();
+}
+
+function editInvestor() {
+	editVars.currentActor = "investor";
+	$("#actorType").html("Investor");
+	hideDetails();
+	$("#actorForm").removeClass("noView");
+	currentForm = "heActor";
+	initCurrentFormMetadata();
+}
+
+function editInsurer() {
+	editVars.currentActor = "insurer";
+	$("#actorType").html("Insurer");
+	hideDetails();
+	$("#actorForm").removeClass("noView");
+	currentForm = "heActor";
+	initCurrentFormMetadata();
+}
+
+function editSlaveActor1() {
+	editVars.currentActor = "actor1";
+	$("#actorType").html("Main actor");
+	hideDetails();
+	$("#actorForm").removeClass("noView");
+	currentForm = "heActor";
+	initCurrentFormMetadata();
+}
+
+function editSlaveActor2() {
+	editVars.currentActor = "actor2";
+	$("#actorType").html("Second actor");
+	hideDetails();
+	$("#actorForm").removeClass("noView");
+	currentForm = "heActor";
+	initCurrentFormMetadata();
+}
+
+function returnToMainTab() {
+	resetCurrentFormMetadata();
+	hideDetails();
+	hucForms.heActor.empty = true;
+	clearForm("heActor");
+	$("#" + activeTab).removeClass("noView");
+}
 
 function checkSave() {
 	if (currentFormChanged) {
@@ -271,6 +330,14 @@ function getData(form, id) {
 		});
 	}
 
+}
+
+function clearForm(form) {
+	$("#" + form).find(".input_element").each(
+		function () {
+			$(this).val("");
+		}
+	);
 }
 
 function populateForm(form, json) {
@@ -377,6 +444,7 @@ function setSlaveActors(json) {
  */
 
 function send_data(data, form, id) {
+	console.log(data);
 	$.ajax({
 		type: "POST",
 		url: home + "/service/update_data",
@@ -386,7 +454,6 @@ function send_data(data, form, id) {
 			data: JSON.stringify(data)
 		},
 		success: function (ret_id) {
-			;
 			message("Form data saved...");
 			updateLink(form, ret_id);
 		},
@@ -405,7 +472,7 @@ function new_cargo() {
 function updateLink(form, id) {
 	switch (form) {
 		case "heVessel":
-			if (editVars.vessel !== id) {
+			if (parseInt(editVars.vessel) !== parseInt(id)) {
 				editVars.vessel = id;
 				data = {};
 				data.sub_vessel = id;
@@ -413,7 +480,7 @@ function updateLink(form, id) {
 			}
 			break;
 		case "heSlaves":
-			if (editVars.slaves !== id) {
+			if (parseInt(editVars.slaves) !== parseInt(id)) {
 				editVars.slaves = id;
 				data = {};
 				data.sub_slaves = id;
@@ -425,7 +492,57 @@ function updateLink(form, id) {
 				editVars.currentCargo = id;
 				addCargoToList(id);
 			}
+			break;
+		case "heActor":
+			if (parseInt(editVars[editVars.currentActor]) !== parseInt(id)) {
+				editVars[editVars.currentActor] = id;
+				linkActor(editVars.currentActor, id);
+			}
+			break;
 	}
+}
+
+function linkActor(actor, id) {
+	var table = "";
+	var dataField = "";
+	var data = {};
+	var key = "";
+
+	switch(actor) {
+		case "captain":
+			table = "heSubvoyage";
+			dataField = "sub_captain";
+			key = editVars.currentVoyage;
+			break;
+		case "outfitter":
+			table = "heSubvoyage";
+			dataField = "voyage_outfitter";
+			key = editVars.currentVoyage;
+			break;
+		case "investor":
+			table = "heSubvoyage";
+			dataField = "voyage_investor";
+			key = editVars.currentVoyage;
+			break;
+		case "insurer":
+			table = "heSubvoyage";
+			dataField = "voyage_insurer";
+			key = editVars.currentVoyage;
+			break;
+		case "actor1":
+			table = "heSlaves";
+			dataField = "main_actor_id";
+			key = editVars.slaves;
+			break;
+		case "acctor2":
+			table = "heSlaves";
+			dataField = "actor2_id";
+			key = editVars.slaves;
+			break;
+
+	}
+	data[dataField] = id;
+	send_data(data, table, key);
 }
 
 function validate_pw() {
@@ -526,6 +643,15 @@ function saveCargo() {
 		var data = harvestForm(currentForm);
 		$("#heCargo").find(".activeActorTableRow td:first").html(data.cargo_commodity);
 		send_data(data, currentForm, editVars.currentCargo);
+	} else {
+		alert("Form was not changed.");
+	}
+}
+
+function saveActor() {
+	if (currentFormChanged) {
+		var data = harvestForm(currentForm);
+		send_data(data, currentForm, editVars[editVars.currentActor]);
 	} else {
 		alert("Form was not changed.");
 	}
