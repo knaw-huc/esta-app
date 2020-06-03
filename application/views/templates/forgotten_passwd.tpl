@@ -1,7 +1,7 @@
 {extends file="standardPage.tpl"}
 {block name="content"}
 
-	<form name="login" id="loginForm" method="post" action="{$home_path}sessions/new_passwd">
+	<form name="login" id="newPasswdForm" method="post" action="{$home_path}sessions/new_passwd">
 		<h2>Request new password</h2>
 		<div class="formRow">
 			<div class="formLabel">
@@ -12,9 +12,9 @@
 			</div>
 		</div>
 		<div class="formRow">
-			<input class="appBtn" type="Submit" value="Send" /> <input class="appBtn" type="button" value="Back" onclick="history.back()"/>
+			<input class="appBtn" type="button" value="Send" onclick="submitNewPasswd()"/> <input class="appBtn" type="button" value="Back" onclick="history.back()"/>
 		</div>
-		<div class="message">
+		<div class="message" id="nwPasswdMessage">
 			A new password will be sent to this email adress.
 		</div>
 	</form>

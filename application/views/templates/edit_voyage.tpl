@@ -24,45 +24,45 @@
 				{$cargo_ed}
 			</div>
 			<div id="voyage" class="noView">
-				<div class="component">
+				<div id="heVoyage" class="component">
 					<div class="formRow">
 						<div class="formLabel">
 							Summary:
 						</div>
-						<div class="formField">
-							{$voyage.summary}
+						<div id="summary" class="formField">
+
 						</div>
 					</div>
 					<div class="formRow">
 						<div class="formLabel">
 							Year:
 						</div>
-						<div class="formField">
-							{$voyage.year}
+						<div id="year" class="formField">
+
 						</div>
 					</div>
 					<div class="formRow">
 						<div class="formLabel">
 							Owner:
 						</div>
-						<div class="formField">
-							{$voyage.creator}
+						<div id="creator" class="formField">
+
 						</div>
 					</div>
 					<div class="formRow">
 						<div class="formLabel">
 							Last edited on:
 						</div>
-						<div class="formField">
-							{$voyage.last_mutation}
+						<div id="last_mutation" class="formField">
+
 						</div>
 					</div>
 					<div class="formRow">
 						<div class="formLabel">
 							Last edited by:
 						</div>
-						<div class="formField">
-							{$voyage.modifier}
+						<div id="modifier" class="formField">
+
 						</div>
 					</div>
 				</div>

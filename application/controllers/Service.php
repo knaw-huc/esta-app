@@ -26,6 +26,7 @@ class Service extends CI_Controller
 		}
 	}
 
+
 	function update_data() {
 		$id = $this->input->post("id");
 		$data = json_decode($this->input->post("data"), true);
@@ -77,6 +78,15 @@ class Service extends CI_Controller
 		if ($this->input->post("id")) {
 			$actor = $this->fetch->getActorForEdit($this->input->post("id"));
 			$this->send_json($actor);
+		} else {
+			$this->throw_error();
+		}
+	}
+
+	function get_voyage() {
+		if ($this->input->post("id")) {
+			$voyage = $this->fetch->getVoyage($this->input->post("id"));
+			$this->send_json($voyage);
 		} else {
 			$this->throw_error();
 		}

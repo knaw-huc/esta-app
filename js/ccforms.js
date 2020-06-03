@@ -11,7 +11,8 @@ var editVars = {
 	actor2: 0,
 	cargo: 0,
 	currentCargo: 0,
-	currentActor: ""
+	currentActor: "",
+	mainVoyage: 0
 }
 
 var currentForm = "";
@@ -42,6 +43,10 @@ var hucForms = {
 	heActor: {
 		empty: true,
 		address: home + "/service/get_actor"
+	},
+	heVoyage: {
+		empty: true,
+		address: home + "/service/get_voyage"
 	}
 }
 
@@ -119,8 +124,8 @@ function setUserEdit() {
 }
 
 function submitUserEdit() {
-	if ($("#first_name").val().trim() == "" || $("#name").val().trim() == "" || $("#email").val().trim() == "") {
-		$("#loginError").html("Empty fields are not allowed in this form!");
+	if ($("#first_name").val().trim() == "" || $("#name").val().trim() == "" || !validateEmail($("#email").val())) {
+		$("#loginError").html("One or more field values are invalid!");
 	} else {
 		$("#userProfileForm").submit();
 	}
@@ -171,7 +176,9 @@ function setEditors(id) {
 					activeTab = "profileRecords";
 					break;
 				case 'voyageTab':
+					currentForm = "heVoyage";
 					$('#voyage').removeClass('noView');
+					getVoyageData(editVars.mainVoyage);
 					activeTab = "voyage";
 					break;
 			}
@@ -184,6 +191,10 @@ function setEditors(id) {
 		});
 	});
 
+}
+
+function getVoyageData(id) {
+	getData(currentForm, id);
 }
 
 function setCurrentForm(formName) {
@@ -304,7 +315,6 @@ function initCurrentFormMetadata() {
 			}
 			break;
 		case "heActor":
-			console.log(editVars[editVars.currentActor]);
 			getData(currentForm, editVars[editVars.currentActor]);
 
 	}
@@ -341,6 +351,10 @@ function clearForm(form) {
 }
 
 function populateForm(form, json) {
+	if (form === 'heVoyage') {
+		fillVoyageForm(json);
+		return;
+	}
 	if (form === 'heSubvoyage') {
 		setEditVars(json);
 	}
@@ -355,6 +369,17 @@ function populateForm(form, json) {
 	setActors(form, json);
 }
 
+function fillVoyageForm(json) {
+	$("#heVoyage").find(".formField").each(
+		function () {
+			var name = $(this).attr("id");
+			if (json[name] !== undefined) {
+				$(this).html(json[name]);
+			}
+		}
+	);
+}
+
 function setEditVars(json) {
 	editVars.currentVoyage = json.subvoyage_id;
 	editVars.slaves = json.sub_slaves;
@@ -364,6 +389,7 @@ function setEditVars(json) {
 	editVars.investor = json.voyage_investor;
 	editVars.outfitter = json.voyage_outfitter;
 	editVars.insurer = json.voyage_insurer;
+	editVars.mainVoyage = json.voyage_id;
 }
 
 function setActors(form, json) {
@@ -379,7 +405,6 @@ function setActors(form, json) {
 }
 
 function addCargos(json) {
-	console.log(editVars);
 	for (var key in editVars.cargo) {
 		var row = document.createElement("tr");
 		var cell = document.createElement("td");
@@ -444,7 +469,6 @@ function setSlaveActors(json) {
  */
 
 function send_data(data, form, id) {
-	console.log(data);
 	$.ajax({
 		type: "POST",
 		url: home + "/service/update_data",
@@ -508,7 +532,7 @@ function linkActor(actor, id) {
 	var data = {};
 	var key = "";
 
-	switch(actor) {
+	switch (actor) {
 		case "captain":
 			table = "heSubvoyage";
 			dataField = "sub_captain";
@@ -665,5 +689,20 @@ function harvestForm(form) {
 	});
 	resetCurrentFormMetadata();
 	return data;
+}
+
+function validateEmail(email) {
+	var re = /\S+@\S+\.\S+/;
+	return re.test(email);
+}
+
+function submitNewPasswd() {
+	if ( validateEmail($("#email").val()) ) {
+		$("#newPasswdForm").submit();
+	} else {
+		$("#nwPasswdMessage").html("This is not a valid email address!");
+		$("#nwPasswdMessage").css('font-weight', 'bold');
+		$("#nwPasswdMessage").css('color', '#b00');
+	}
 }
 

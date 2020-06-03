@@ -48,7 +48,13 @@ class Admin extends CI_Controller
 		$user_values["active"] = $this->input->post("active");
 		if ($this->input->post("user") == "new") {
 			$user_values["passwd"] = $this->createPasswd();
-			$this->fetch->insert_user($user_values);
+			if ($this->fetch->insert_user($user_values)) {
+				$this->inviteUser($user_values["chr_name"] . " " . $user_values["name"] = $this->input->post("name"),
+					$user_values["username"],
+					$user_values["email"],
+					$user_values["passwd"]
+				);
+			}
 		} else {
 			$this->fetch->update_user($user_values, $this->input->post("user"));
 		}
@@ -59,7 +65,7 @@ class Admin extends CI_Controller
 		$this->email->from('rob.zeeman@di.huc.knaw.nl');
 		$this->email->to("rob@robzeeman.nl");
 		$this->email->message("Hallo Rob");
-		$this->email->subject( 'TESTA');
+		$this->email->subject( 'ESTA');
 		$this->email->send();
 		echo 'OK';
 }
@@ -79,5 +85,19 @@ class Admin extends CI_Controller
 
 	private function createPasswd() {
 		return substr(md5(mt_rand()), 0, 8);
+	}
+
+	private function inviteUser($name, $user_name, $email, $passwd) {
+		$this->mysmarty->assign('name', $name);
+		$this->mysmarty->assign('user_name', $user_name);
+		$this->mysmarty->assign('email', $email);
+		$this->mysmarty->assign('passwd', $passwd);
+
+		$this->email->from('no-reply@di.huc.knaw.nl');
+		$this->email->to($email);
+		$this->email->message($this->mysmarty->view2var("invite_user"));
+		$this->email->subject( 'Your new ESTA account');
+		$this->email->send();
+
 	}
 }

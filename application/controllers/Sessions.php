@@ -35,4 +35,25 @@ class Sessions extends CI_Controller
 	function forgot_passwd() {
 		$this->mysmarty->view("forgotten_passwd");
 	}
+
+	function new_passwd() {
+		if ($this->input->post("email")) {
+			$pw = $this->createPasswd();
+			$this->fetch->updatePasswd($this->input->post("email"), $pw);
+			$this->email->from('no-reply@esta.huc.knaw.nl', 'ESTA administrator');
+			$this->email->to($this->input->post("email"));
+			$this->mysmarty->assign("pw", $pw);
+			$this->email->subject("New password ESTA user");
+			$this->email->message($this->mysmarty->view2var("new_password_mail"));
+			$this->email->send();
+			$this->mysmarty->assign('email', $this->input->post("email"));
+			$this->mysmarty->view("passwd_send");
+		} else {
+			redirect(base_url());
+		}
+	}
+
+	private function createPasswd() {
+		return substr(md5(mt_rand()), 0, 8);
+	}
 }
