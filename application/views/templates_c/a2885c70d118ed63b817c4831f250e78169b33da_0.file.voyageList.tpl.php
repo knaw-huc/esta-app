@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-17 17:37:24
+/* Smarty version 3.1.32, created on 2020-06-14 16:43:39
   from '/Library/WebServer/Documents/esta/application/views/templates/voyageList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ec15a347c3bf7_24531313',
+  'unifunc' => 'content_5ee6379baf0783_07923132',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a2885c70d118ed63b817c4831f250e78169b33da' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyageList.tpl',
-      1 => 1589729788,
+      1 => 1592145814,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec15a347c3bf7_24531313 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee6379baf0783_07923132 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1686375065ec15a347b6a98_54249980', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13319239335ee6379bacc3b5_33004956', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_1686375065ec15a347b6a98_54249980 extends Smarty_Internal_Block
+class Block_13319239335ee6379bacc3b5_33004956 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1686375065ec15a347b6a98_54249980',
+    0 => 'Block_13319239335ee6379bacc3b5_33004956',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -49,7 +49,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 )</h2>
 	<ul id="voyagesMenu">
 		<li class="appBtn" id="vmCollapser">Expand</li>
-		<li class="appBtn"  id="vmMyVoyages">My (sub)voyages</li>
+		<li class="appBtn <?php echo $_smarty_tpl->tpl_vars['range']->value;?>
+"  id="vmMyVoyages"><?php if ($_smarty_tpl->tpl_vars['range']->value == "allRecs") {?>My (sub)voyages<?php } else { ?>All voyages<?php }?></li>
 		<li  class="appBtn" id="vmSearch">Search</li>
 		<li  class="appBtn" id="vmNew">New voyage</li>
 	</ul>

@@ -66,13 +66,18 @@ function setEvents() {
 
 	$("#vmMyVoyages").click(
 		function () {
-			alert("This function isn't implemented yet.")
+			if ($("#vmMyVoyages").hasClass("allRecs")) {
+				window.location.assign(home + "/workspace/myvoyages");
+			} else {
+				window.location.assign(home + "/workspace");
+			}
+
 		}
 	)
 
 	$("#vmSearch").click(
 		function () {
-			alert("This function isn't implemented yet.")
+			alert("This function isn't implemented yet.");
 		}
 	)
 
@@ -106,7 +111,7 @@ function hideDetails() {
 	$('#metadataRecs').addClass('noView');
 	$('#voyage').addClass('noView');
 	$("#actorForm").addClass("noView");
-
+	$("#mutView").addClass("noView");
 }
 
 
@@ -168,12 +173,12 @@ function setEditors(id) {
 				case 'profileTweakTab':
 					$('#tweakXML').removeClass('noView');
 					setCurrentForm("heVessel");
-					activeTab = "profileTweak";
+					activeTab = "tweakXML";
 					break;
 				case 'profileRecordsTab':
 					$('#metadataRecs').removeClass('noView');
 					setCurrentForm("heCargo");
-					activeTab = "profileRecords";
+					activeTab = "metadataRecs";
 					break;
 				case 'voyageTab':
 					currentForm = "heVoyage";
@@ -270,6 +275,51 @@ function returnToMainTab() {
 	$("#" + activeTab).removeClass("noView");
 }
 
+function closeMutationView() {
+	hideDetails();
+	clearMutationView();
+	$("#" + activeTab).removeClass("noView");
+}
+
+function clearMutationView() {
+	$(".mutViewRow").remove();
+}
+
+function show_mutations() {
+	hideDetails();
+	getMutationData();
+	$("#mutView").removeClass("noView");
+}
+
+function getMutationData() {
+	switch (currentForm) {
+		case "heSubvoyage":
+			var id = editVars.currentVoyage;
+			var table = "subvoyage";
+			break;
+		case "heSlaves":
+			var id = editVars.slaves;
+			var table = "slaves";
+			break;
+		case "heVessel":
+			var id = editVars.vessel;
+			var table = "vessel";
+			break;
+		case "heCargo":
+			var id = editVars.currentCargo;
+			var table = "cargo";
+			break;
+		case "heActor":
+			var id = editVars.currentActor;
+			var table = "actor";
+			break;
+	}
+	if (id !== undefined) {
+		fetchMutationData(id, table);
+	}
+}
+
+
 function checkSave() {
 	if (currentFormChanged) {
 		alert('You must first save your input.');
@@ -339,7 +389,45 @@ function getData(form, id) {
 			}
 		});
 	}
+}
 
+function fetchMutationData(id, table) {
+	$.ajax({
+		type: "POST",
+		url: home + "/service/get_mutation_data",
+		data: {
+			id: id,
+			table: table
+		},
+		success: function (json) {
+			populateMutationView(JSON.parse(json));
+		},
+		error: function (err) {
+			console.log(err);
+		}
+	});
+}
+
+function populateMutationView(json) {
+	for (var key in json) {
+		console.log(key);
+		var row = document.createElement('tr');
+		$(row).append(cell(json[key].tablename));
+		$(row).append(cell(json[key].fieldname));
+		$(row).append(cell(json[key].name));
+		$(row).append(cell(json[key].modification_date));
+		$(row).append(cell(json[key].value_before));
+		$(row).append(cell(json[key].value_after));
+		$(row).addClass("mutViewRow");
+		$("#mutTable").append(row);
+	}
+
+}
+
+function cell(value) {
+	var cell = document.createElement("td");
+	$(cell).html(value);
+	return cell;
 }
 
 function clearForm(form) {
@@ -482,6 +570,7 @@ function send_data(data, form, id) {
 			updateLink(form, ret_id);
 		},
 		error: function (err) {
+			console.log(err);
 			alert("Errors! Data not saved");
 		}
 	});

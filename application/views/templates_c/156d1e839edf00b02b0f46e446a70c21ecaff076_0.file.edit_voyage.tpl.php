@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-06-03 21:25:48
+/* Smarty version 3.1.32, created on 2020-06-08 14:29:00
   from '/Library/WebServer/Documents/esta/application/views/templates/edit_voyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ed7f93cd4b4c2_85107818',
+  'unifunc' => 'content_5ede2f0cbd9505_03365334',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '156d1e839edf00b02b0f46e446a70c21ecaff076' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/edit_voyage.tpl',
-      1 => 1591212333,
+      1 => 1591607361,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ed7f93cd4b4c2_85107818 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ede2f0cbd9505_03365334 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_11249009675ed7f93cd44448_98235814', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6709878115ede2f0cbd1234_01451969', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_11249009675ed7f93cd44448_98235814 extends Smarty_Internal_Block
+class Block_6709878115ede2f0cbd1234_01451969 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_11249009675ed7f93cd44448_98235814',
+    0 => 'Block_6709878115ede2f0cbd1234_01451969',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -117,6 +117,10 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 			</div>
 			<div id="actorForm" class="noView">
 				<?php echo $_smarty_tpl->tpl_vars['actor_ed']->value;?>
+
+			</div>
+			<div id="mutView" class="noView">
+				<?php echo $_smarty_tpl->tpl_vars['mut_view']->value;?>
 
 			</div>
 		</div>

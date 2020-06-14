@@ -154,21 +154,21 @@ table {
 empty-cells: show;
 }
 
-.resultTable, #dependencyTable, #cargoTable {
+.resultTable, #dependencyTable, #cargoTable, #mutTable {
 border-collapse: collapse;
 }
 
-.resultTable tr, #dependencyTable tr, #cargoTable tr {
+.resultTable tr, #dependencyTable tr, #cargoTable tr, #mutTable tr {
 border-top: 1px solid #555;
 border-left: 1px solid #555;
 border-right: 1px solid #555;
 }
 
-.resultTable, #dependencyTable, #cargoTable {
+.resultTable, #dependencyTable, #cargoTable, #mutTable {
 border-bottom: 1px solid #555;
 }
 
-#btnFrame .resultTable tr td, #cargoTable tr td {
+#btnFrame .resultTable tr td, #cargoTable tr td, #mutTable tr td {
 background-color: #ffffff;
 }
 
@@ -208,11 +208,11 @@ border-right: none;
 }
 
 
-.resultTable tr td, .resultTable tr th, #cargoTable tr td, #cargoTable tr th {
+.resultTable tr td, .resultTable tr th, #cargoTable tr td, #cargoTable tr th, #mutTable tr th, #mutTable tr td {
 padding: 4px 16px 4px 6px;
 }
 
-.resultTable tr th, #dependencyTable tr th, #cargoTable tr th {
+.resultTable tr th, #dependencyTable tr th, #cargoTable tr th, #mutTable tr th {
 color: #fff;
 background-color: #5c5c6a;
 }

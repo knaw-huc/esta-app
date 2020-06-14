@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-19 18:06:22
+/* Smarty version 3.1.32, created on 2020-06-08 15:18:27
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/actor.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ec403fe13a728_95796088',
+  'unifunc' => 'content_5ede3aa38d3748_76826563',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '64f297d15bef232769f092094909205a57d8a62e' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/actor.tpl',
-      1 => 1589904155,
+      1 => 1591620849,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec403fe13a728_95796088 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ede3aa38d3748_76826563 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heActor"  data-action="<?php echo $_smarty_tpl->tpl_vars['actor_action']->value;?>
 ">
 	<div class="component">
@@ -96,7 +96,7 @@ function content_5ec403fe13a728_95796088 (Smarty_Internal_Template $_smarty_tpl)
 		<div id="tmpFormatter">
 			&nbsp;
 		</div>
-		<input id="mutBtn" type="button" value="Mutation history" onclick="alert('This function is not active yet.');"/>
+		<input id="mutBtn" type="button" value="Mutation history" onclick="show_mutations()"/>
 	</div>
 </div>
 <?php }

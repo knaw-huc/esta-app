@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-19 17:53:48
+/* Smarty version 3.1.32, created on 2020-06-08 14:46:47
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ec4010c224a60_54390002',
+  'unifunc' => 'content_5ede33376a4fb5_16012186',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '03f082726b1860055f5b721899d50b3a783ddfa8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl',
-      1 => 1589903572,
+      1 => 1591620237,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec4010c224a60_54390002 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ede33376a4fb5_16012186 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSubvoyage" data-action="<?php echo $_smarty_tpl->tpl_vars['sub_voyage_action']->value;?>
 ">
 	<div class="component" id="5eaac4f83afa7" data-name="subvoyage" data-order="1">
@@ -346,7 +346,7 @@ img/edit.png" height="16px" width="16px" onclick="editInsurer()">
 				</tr>
 			</table>
 		</div>
-		<input id="mutBtn" type="button" value="Mutation history" onclick="alert('This function is not active yet.');"/>
+		<input id="mutBtn" type="button" value="Mutation history" onclick="show_mutations()"/>
 	</div>
 </div>
 <?php }

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-17 22:58:17
+/* Smarty version 3.1.32, created on 2020-06-08 14:28:16
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/vessel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ec1a5697f9190_15448403',
+  'unifunc' => 'content_5ede2ee08ef395_83131710',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9fa4979234394773ec697eba1c3b251710d2f22b' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/vessel.tpl',
-      1 => 1589749020,
+      1 => 1591607361,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec1a5697f9190_15448403 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ede2ee08ef395_83131710 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heVessel"  data-action="<?php echo $_smarty_tpl->tpl_vars['vessel_action']->value;?>
 ">
 	<div class="component">
@@ -113,7 +113,7 @@ function content_5ec1a5697f9190_15448403 (Smarty_Internal_Template $_smarty_tpl)
 		<div id="tmpFormatter">
 			&nbsp;
 		</div>
-		<input id="mutBtn" type="button" value="Mutation history" onclick="alert('This function is not active yet.');"/>
+		<input id="mutBtn" type="button" value="Mutation history" onclick="show_mutations();"/>
 	</div>
 </div>
 <?php }

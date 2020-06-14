@@ -70,6 +70,9 @@
 			<div id="actorForm" class="noView">
 				{$actor_ed}
 			</div>
+			<div id="mutView" class="noView">
+				{$mut_view}
+			</div>
 		</div>
 	</div>
 {/block}

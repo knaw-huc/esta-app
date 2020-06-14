@@ -9,6 +9,7 @@ function addRow() {
         $(cell).on("click", function (e) {
             fill_cell(this);
         });
+        $(row).addClass("depRow");
         row.append(cell);
     }
     $("#dependencyTable").append(row);
@@ -32,6 +33,23 @@ function addCol() {
     cols++;
 }
 
+function save_dependencies() {
+	var row = 0;
+	var cell = 0;
+	var json = [];
+
+	$("#dependencyTable").find(".depRow").each(function (index) {
+		row = index;
+		$(this).find("td").each(function (index) {
+			cell = index;
+			if ($(this). attr("data-id") !== undefined) {
+				console.log(row + ", ", cell);
+			}
+		})
+		}
+	);
+}
+
 function set_candidate(obj) {
     if (!$(obj).hasClass("noSeaNorLand")) {
         selectedObject = obj;
@@ -45,12 +63,14 @@ function fill_cell(obj) {
             $(obj).html(selectedObject.id);
             $(obj).attr("class", null);
             $(obj).addClass($(selectedObject).attr("class"));
+            $(obj).attr("data-id", $(selectedObject).attr("data-id"));
             $("#" + $(selectedObject).attr("id")).attr("class", "noSeaNorLand");
             selectedObject = null;
         } else {
             var id = $(obj).html();
             var objClass = $(obj).attr("class");
             $("#" + id).attr("class", objClass);
+			$(obj).attr("data-id", null);
             $(obj).attr("class", null);
             $(obj).html("");
         }
@@ -59,6 +79,7 @@ function fill_cell(obj) {
         var objClass = $(obj).attr("class");
         $("#" + id).attr("class", objClass);
         $(obj).attr("class", null);
+        $(obj).attr("data-id", null);
         $(obj).html("");
     }
 }

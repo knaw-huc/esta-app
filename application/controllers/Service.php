@@ -17,6 +17,7 @@ class Service extends CI_Controller
 				$subvoyage["ac_investor_name"] = $this->fetch->getActorName($subvoyage["voyage_investor"]);
 				$subvoyage["ac_insurer_name"] = $this->fetch->getActorName($subvoyage["voyage_insurer"]);
 				$subvoyage["sub_cargo"] = $this->fetch->getCargoOfSubVoyage($this->input->post("id"));
+				$this->session->set_userdata("subvoyage", $this->input->post("id"));
 				$this->send_json($subvoyage);
 			} else {
 				$this->throw_error("Subvoyage does not exist");
@@ -87,6 +88,14 @@ class Service extends CI_Controller
 		if ($this->input->post("id")) {
 			$voyage = $this->fetch->getVoyage($this->input->post("id"));
 			$this->send_json($voyage);
+		} else {
+			$this->throw_error();
+		}
+	}
+
+	function get_mutation_data() {
+		if ($this->input->post("id")) {
+			$this->send_json($this->fetch->getMutationData($this->input->post("id"),$this->input->post("table")));
 		} else {
 			$this->throw_error();
 		}

@@ -72,6 +72,6 @@
 		<div id="tmpFormatter">
 			&nbsp;
 		</div>
-		<input id="mutBtn" type="button" value="Mutation history" onclick="alert('This function is not active yet.');"/>
+		<input id="mutBtn" type="button" value="Mutation history" onclick="show_mutations()"/>
 	</div>
 </div>

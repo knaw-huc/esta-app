@@ -37,11 +37,16 @@ class Db_requests extends CI_Model
 		return $users->result_array();
 	}
 
-	function getVoyages($conditions = 1)
+	function getVoyages($id = null)
 	{
 		$result = array();
-		$result["count"] = $this->count_recs("voyage", $conditions);
-		$result["voyages"] = $this->getSubvoyages($this->getRecords("v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier", "voyage as v, users as u, users as us", "v.created_by = u.id and v.modified_by = us.id"));
+		if (is_null($id)) {
+			$result["count"] = $this->count_recs("voyage", 1);
+			$result["voyages"] = $this->getSubvoyages($this->getRecords("v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier", "voyage as v, users as u, users as us", "v.created_by = u.id and v.modified_by = us.id"));
+		} else {
+			$result["count"] = $this->count_recs("voyage", "created_by = $id");
+			$result["voyages"] = $this->getSubvoyages($this->getRecords("v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier", "voyage as v, users as u, users as us", "v.created_by = $id and v.created_by = u.id and v.modified_by = us.id"));
+		}
 		return $result;
 	}
 
@@ -149,8 +154,29 @@ class Db_requests extends CI_Model
 		}
 		$sql = "UPDATE $table SET " . implode(",", $values) . " WHERE $key = $id";
 		$this->log_modifications($key, $table, $data, $id);
+		$this->set_modifier();
 		$this->db->query($sql, $data);
 		return $id;
+	}
+
+	function getMutationData($id, $table) {
+		$results = $this->db->query("SELECT m.*, CONCAT(u.chr_name, ' ', u.name) AS name FROM sys_mutations AS m, users AS u WHERE m.user = u.id AND record_id = $id AND tablename = '$table'")->result_array();
+		return json_encode($results);
+	}
+
+	private function set_modifier() {
+		$id = $this->getVoyageID($this->session->subvoyage);
+		$modifier = $this->session->id;
+		$this->db->query("UPDATE voyage SET modified_by = $modifier, last_mutation = NOW() WHERE voyage_id = $id LIMIT 1");
+	}
+
+	private function getVoyageID($subvoyageID) {
+		$row = $this->db->query("SELECT voyage_id FROM subvoyage WHERE subvoyage_id = $subvoyageID")->row();
+		if (isset($row->voyage_id)) {
+			return $row->voyage_id;
+		} else {
+			return 0;
+		}
 	}
 
 	private function log_modifications($key, $table, $data, $id)

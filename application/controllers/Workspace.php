@@ -14,15 +14,27 @@ class Workspace extends CI_Controller
 		$this->mysmarty->assign("role", $this->session->role);
 		$this->mysmarty->assign('title', 'ESTA Editor');
 
+		$this->pageLength = 5;
 	}
 
 	function index() {
 		$voyages = $this->fetch->getVoyages();
+		$this->mysmarty->assign("range", "allRecs");
 		$this->mysmarty->assign("page", 1);
 		$this->mysmarty->assign("pages", 1);
 		$this->mysmarty->assign("count", $voyages["count"]);
 		$this->mysmarty->assign("voyages", $voyages["voyages"]);
 		$this->mysmarty->view('voyageList');
+	}
+
+	function myvoyages() {
+			$voyages = $this->fetch->getVoyages($this->session->id);
+			$this->mysmarty->assign("range", "myRecs");
+			$this->mysmarty->assign("page", 1);
+			$this->mysmarty->assign("pages", 1);
+			$this->mysmarty->assign("count", $voyages["count"]);
+			$this->mysmarty->assign("voyages", $voyages["voyages"]);
+			$this->mysmarty->view('voyageList');
 	}
 
 	function voyage($id = 0) {
@@ -99,6 +111,7 @@ class Workspace extends CI_Controller
 			$this->mysmarty->assign('vessel_ed', $this->mysmarty->view2var('editors/vessel.tpl'));
 			$this->mysmarty->assign('cargo_ed', $this->mysmarty->view2var('editors/cargo.tpl'));
 			$this->mysmarty->assign('actor_ed', $this->mysmarty->view2var('editors/actor.tpl'));
+			$this->mysmarty->assign('mut_view', $this->mysmarty->view2var('editors/mutation_view'));
 			$this->mysmarty->view("edit_voyage");
 		}
 	}

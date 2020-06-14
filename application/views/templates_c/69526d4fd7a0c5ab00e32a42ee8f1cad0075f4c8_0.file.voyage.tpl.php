@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-18 18:29:00
+/* Smarty version 3.1.32, created on 2020-06-14 17:53:11
   from '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ec2b7cc3499a7_72063623',
+  'unifunc' => 'content_5ee647e7cce340_85041753',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '69526d4fd7a0c5ab00e32a42ee8f1cad0075f4c8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl',
-      1 => 1589819328,
+      1 => 1592149985,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec2b7cc3499a7_72063623 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee647e7cce340_85041753 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_544434105ec2b7cc3247c7_82758501', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3444874055ee647e7cc1691_95961467', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_544434105ec2b7cc3247c7_82758501 extends Smarty_Internal_Block
+class Block_3444874055ee647e7cc1691_95961467 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_544434105ec2b7cc3247c7_82758501',
+    0 => 'Block_3444874055ee647e7cc1691_95961467',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -67,7 +67,8 @@ $__foreach_subvoyage_0_saved = $_smarty_tpl->tpl_vars['subvoyage'];
 ?>
 			<tr class="even">
 				<td id="SV<?php echo $_smarty_tpl->tpl_vars['subvoyage']->index+1;?>
-" class="sea" onclick="set_candidate(this)">SV<?php echo $_smarty_tpl->tpl_vars['subvoyage']->index+1;?>
+" class="sea" data-id="<?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['subvoyage_id'];?>
+" onclick="set_candidate(this)">SV<?php echo $_smarty_tpl->tpl_vars['subvoyage']->index+1;?>
 </td>
 				<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['sub_dept_date_year'];?>
 </td>
@@ -102,25 +103,25 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 			<th></th>
 			<th></th>
 		</tr>
-		<tr>
+		<tr class="depRow">
 			<td onclick="fill_cell(this)"></td>
 			<td onclick="fill_cell(this)"></td>
 			<td onclick="fill_cell(this)"></td>
 			<td onclick="fill_cell(this)"></td>
 		</tr>
-		<tr>
+		<tr class="depRow">
 			<td onclick="fill_cell(this)"></td>
 			<td onclick="fill_cell(this)"></td>
 			<td onclick="fill_cell(this)"></td>
 			<td onclick="fill_cell(this)"></td>
 		</tr>
-		<tr>
+		<tr class="depRow">
 			<td onclick="fill_cell(this)"></td>
 			<td onclick="fill_cell(this)"></td>
 			<td onclick="fill_cell(this)"></td>
 			<td onclick="fill_cell(this)"></td>
 		</tr>
-		<tr>
+		<tr class="depRow">
 			<td onclick="fill_cell(this)"></td>
 			<td onclick="fill_cell(this)"></td>
 			<td onclick="fill_cell(this)"></td>
@@ -130,7 +131,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 	<div id="dashBoard">
 		<input type="button" value="Add row" onclick="addRow()"/>
 		<input type="button" value="Add column" onclick="addCol()"/>
-		<input type="button" value="Save" onclick="alert('This function is not implemented yet.')"/>
+		<input type="button" value="Save" onclick="save_dependencies()"/>
 	</div>
 <?php
 }
