@@ -194,7 +194,7 @@ color: #777;
 margin: 10px 0 20px 10px;
 }
 
-.resultTable tr:last-child, #dependencyTable tr:last-child {
+#dependencyTable tr:last-child {
 border-bottom: 1px solid #555;
 }
 
@@ -475,6 +475,23 @@ cursor: pointer;
 
 #formStore{
 display: none;
+}
+
+#gridMessage {
+font-weight: bold;
+margin: 20px 0;
+}
+
+#voyageBrowserNext, #voyageBrowserPrev {
+font-weight:  bold;
+}
+
+#voyageBrowser{
+border-top: 1px solid #555;
+}
+
+#voyageBrowserNext {
+text-align: right;
 }
 
 

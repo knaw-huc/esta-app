@@ -42,5 +42,10 @@
 				</tr>
 			{/foreach}
 		{/foreach}
+		{*<tr id="voyageBrowser">
+			<td colspan="3" id="voyageBrowserPrev">previous</td>
+			<td colspan="3" id="voyageBrowserPage"></td>
+			<td colspan="2" id="voyageBrowserNext">next</td>
+		</tr>*}
 	</table>
 {/block}

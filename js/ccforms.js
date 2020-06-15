@@ -687,11 +687,11 @@ function addCargoToList(id) {
 	resetCargoList();
 	var row = document.createElement("tr");
 	var cell = document.createElement("td");
-	if ($("#cargo_commodity").val().trim() === "") {
+	//if ($("#cargo_commodity").val().trim() === "") {
 		$(cell).html("--New--");
-	} else {
-		$(cell).html($("#cargo_commodity").val());
-	}
+	//} else {
+	//	$(cell).html($("#cargo_commodity").val());
+	//}
 
 	$(row).append(cell);
 	var cell = document.createElement("td");

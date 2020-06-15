@@ -28,7 +28,7 @@
 	</table>
 	<br/>
 	<h2>Subvoyage relations</h2>
-	<table id="dependencyTable">
+	<table id="dependencyTable" data-voyage-id="{$voyage_id}">
 		<tr>
 			<th></th>
 			<th></th>
@@ -65,4 +65,8 @@
 		<input type="button" value="Add column" onclick="addCol()"/>
 		<input type="button" value="Save" onclick="save_dependencies()"/>
 	</div>
+	<div id="gridMessage"></div>
+	<script>
+		get_grid_data();
+	</script>
 {/block}

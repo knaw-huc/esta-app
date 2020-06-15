@@ -93,6 +93,26 @@ class Service extends CI_Controller
 		}
 	}
 
+	function update_grid_data() {
+		if ($this->input->post("id")) {
+			if ($this->fetch->updateGridData($this->input->post("id"), $this->input->post("data"))) {
+				$this->send_json(array("status" => "OK"));
+			} else {
+				$this->throw_error();
+			}
+		} else {
+			$this->throw_error();
+		}
+	}
+
+	function get_grid_data() {
+		if ($this->input->post("id")) {
+			$this->send_grid_json($this->fetch->getGridData($this->input->post("id")));
+		} else {
+			$this->throw_error();
+		}
+	}
+
 	function get_mutation_data() {
 		if ($this->input->post("id")) {
 			$this->send_json($this->fetch->getMutationData($this->input->post("id"),$this->input->post("table")));
@@ -124,15 +144,22 @@ class Service extends CI_Controller
 	}
 
 	private function throw_error($error = "Bad request") {
-		header('Content-Type: application/json; charset=UTF-8');
+		header("HTTP/1.0 400 Bad Request");
+		/*header('Content-Type: application/json; charset=UTF-8');
 		header('Access-Control-Allow-Origin: *');
 		$response = array("error" => $error);
-		$this->send_json($response);
+		$this->send_json($response);*/
 	}
 
 	private function send_json($message_array) {
 		header('Content-Type: application/json; charset=UTF-8');
 		header('Access-Control-Allow-Origin: *');
 		echo json_encode($message_array);
+	}
+
+	private function send_grid_json($json) {
+		header('Content-Type: application/json; charset=UTF-8');
+		header('Access-Control-Allow-Origin: *');
+		echo $json;
 	}
 }

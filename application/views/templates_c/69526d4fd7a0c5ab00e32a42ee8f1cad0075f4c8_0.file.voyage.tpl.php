@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-06-14 17:53:11
+/* Smarty version 3.1.32, created on 2020-06-15 14:50:44
   from '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ee647e7cce340_85041753',
+  'unifunc' => 'content_5ee76ea42345d7_38741486',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '69526d4fd7a0c5ab00e32a42ee8f1cad0075f4c8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl',
-      1 => 1592149985,
+      1 => 1592225438,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ee647e7cce340_85041753 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5ee76ea42345d7_38741486 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3444874055ee647e7cc1691_95961467', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3430204435ee76ea4225920_00056416', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_3444874055ee647e7cc1691_95961467 extends Smarty_Internal_Block
+class Block_3430204435ee76ea4225920_00056416 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_3444874055ee647e7cc1691_95961467',
+    0 => 'Block_3430204435ee76ea4225920_00056416',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -96,7 +96,8 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 	</table>
 	<br/>
 	<h2>Subvoyage relations</h2>
-	<table id="dependencyTable">
+	<table id="dependencyTable" data-voyage-id="<?php echo $_smarty_tpl->tpl_vars['voyage_id']->value;?>
+">
 		<tr>
 			<th></th>
 			<th></th>
@@ -133,6 +134,12 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 		<input type="button" value="Add column" onclick="addCol()"/>
 		<input type="button" value="Save" onclick="save_dependencies()"/>
 	</div>
+	<div id="gridMessage"></div>
+	<?php echo '<script'; ?>
+>
+		get_grid_data();
+	<?php echo '</script'; ?>
+>
 <?php
 }
 }
