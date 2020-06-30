@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-06-08 14:46:47
+/* Smarty version 3.1.32, created on 2020-06-30 22:03:39
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/cargo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ede33376d5066_62899529',
+  'unifunc' => 'content_5efb9a9bc95120_93849881',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '63a5947cb38d135d21665a981697c6588b4b022f' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/cargo.tpl',
-      1 => 1591620265,
+      1 => 1593547200,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ede33376d5066_62899529 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5efb9a9bc95120_93849881 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heCargo"  data-action="<?php echo $_smarty_tpl->tpl_vars['cargo_action']->value;?>
 ">
 	<div class="component">
@@ -34,8 +34,8 @@ function content_5ede33376d5066_62899529 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 		<div class="element" data-name="cargo_commodity_standardized">
 			<div class="label">Cargo commodity standardized</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="cargo_commodity_standardized"
-										data-validation-profile="5e823fa99d64c" class="input_element">
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="cargo_commodity_standardized" data-table="cargo"
+										data-validation-profile="5e823fa99d64c" class="input_element" data-auto="yes">
 				<div id="errorMsg_5e823fa99d64c" class="errorMsg"></div>
 			</div>
 		</div>

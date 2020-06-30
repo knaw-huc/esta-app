@@ -121,6 +121,20 @@ class Service extends CI_Controller
 		}
 	}
 
+	function get_standard_values($table = "", $field = "") {
+		if ($table == "" || $field == "") {
+			$this->throw_error();
+		} else {
+			$value = $this->input->post("q");
+			$result = $this->fetch->getStandardValues($table, $field, $value);
+			if ($result) {
+				$this->send_json($result);
+			} else {
+				$this->throw_error();
+			}
+		}
+	}
+
 	private function get_key($form) {
 		$keys = array(
 			"heSubvoyage" => "subvoyage_id",

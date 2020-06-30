@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-05-18 13:51:27
+/* Smarty version 3.1.32, created on 2020-06-30 22:03:28
   from '/Library/WebServer/Documents/esta/application/views/templates/standardPage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ec276bf25f6c5_80022124',
+  'unifunc' => 'content_5efb9a90b2a634_87357349',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'edc9bad8ea4ade85f5ccf5300c6f4d4d7e7c3c7a' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/standardPage.tpl',
-      1 => 1589802158,
+      1 => 1593547396,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ec276bf25f6c5_80022124 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5efb9a90b2a634_87357349 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -47,8 +47,14 @@ js/ccforms.js"><?php echo '</script'; ?>
  type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 js/dep_grid.js"><?php echo '</script'; ?>
 >
+	<?php echo '<script'; ?>
+ type="text/javascript" src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+js/jquery.autocomplete.js"><?php echo '</script'; ?>
+>
 	<link href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 css/jmenu.css" rel="stylesheet" type="text/css"/>
+	<link href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+css/autocomplete.css" rel="stylesheet" type="text/css"/>
 	<?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 js/jmenu.js"><?php echo '</script'; ?>
@@ -60,6 +66,7 @@ js/jmenu.js"><?php echo '</script'; ?>
 			<?php if (isset($_smarty_tpl->tpl_vars['voyage_ed']->value)) {?>setEditors(<?php echo $_smarty_tpl->tpl_vars['id']->value;?>
 );<?php }?>
 			$('#jmenu').jmenu();
+			createAutoCompletes();
 			});
 	<?php echo '</script'; ?>
 >
@@ -102,7 +109,7 @@ workspace/logout">Logout</a></li>
 	<?php }?>
 	<div id="content">
 		<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15564746615ec276bf25c3b9_58913971', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_14776770615efb9a90b27c26_43730867', "content");
 ?>
 
 	</div>
@@ -111,12 +118,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_15564746615ec276bf
 </html>
 <?php }
 /* {block "content"} */
-class Block_15564746615ec276bf25c3b9_58913971 extends Smarty_Internal_Block
+class Block_14776770615efb9a90b27c26_43730867 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_15564746615ec276bf25c3b9_58913971',
+    0 => 'Block_14776770615efb9a90b27c26_43730867',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

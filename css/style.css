@@ -372,10 +372,9 @@ padding: 6px 0 6px 12px;
 display: block;
 }
 
-
 #loginForm {
 display: table;
-margin: 100px auto;
+margin: 6px auto;
 }
 
 #formRow {
@@ -389,6 +388,12 @@ padding-bottom: 20px;
 
 .formLabel {
 width: 120px;
+font-weight: bold;
+color: #44444f;
+}
+
+
+.loginFormLabel {
 font-weight: bold;
 color: #44444f;
 }
@@ -456,13 +461,41 @@ display: none;
 max-width: 800px;
 }
 
+.homeComponent {
+display: inline-block;
+width: 60%;
+padding: 0 160px 0 0;
+vertical-align: top;
+font-size: 1.2em;
+}
+
+#homeContent{
+vertical-align: top;
+}
+
 #ccform1, #ccform2 {
 display: block;
 }
 
 #forgotPasswd {
-margin-left: 54px;
+display:block;
+margin-top: 10px;
 color: #778;
+}
+
+#loginFrame {
+border: 1px solid #000;
+border-radius: 6px;
+background-color: #dedede;
+display: inline-block;
+width: 240px;
+margin-left: 40px;
+margin-top: 56px;
+padding: 0;
+}
+
+#loginBtn{
+margin-top: 4px;
 }
 
 .message {

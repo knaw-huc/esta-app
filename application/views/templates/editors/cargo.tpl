@@ -10,8 +10,8 @@
 		</div>
 		<div class="element" data-name="cargo_commodity_standardized">
 			<div class="label">Cargo commodity standardized</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="cargo_commodity_standardized"
-										data-validation-profile="5e823fa99d64c" class="input_element">
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="cargo_commodity_standardized" data-table="cargo"
+										data-validation-profile="5e823fa99d64c" class="input_element" data-auto="yes">
 				<div id="errorMsg_5e823fa99d64c" class="errorMsg"></div>
 			</div>
 		</div>

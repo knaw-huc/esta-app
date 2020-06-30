@@ -9,13 +9,16 @@
 	<script type="text/javascript" src="{$home_path}js/jquery-3.2.1.min.js"></script>
 	<script type="text/javascript" src="{$home_path}js/ccforms.js"></script>
 	<script type="text/javascript" src="{$home_path}js/dep_grid.js"></script>
+	<script type="text/javascript" src="{$home_path}js/jquery.autocomplete.js"></script>
 	<link href="{$home_path}css/jmenu.css" rel="stylesheet" type="text/css"/>
+	<link href="{$home_path}css/autocomplete.css" rel="stylesheet" type="text/css"/>
 	<script src="{$home_path}js/jmenu.js"></script>
 	<script>
 		$('document').ready(function () {literal}{{/literal}
 			setEvents();
 			{if isset($voyage_ed)}setEditors({$id});{/if}
 			$('#jmenu').jmenu();
+			createAutoCompletes();
 			{literal}}{/literal});
 	</script>
 </head>

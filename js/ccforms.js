@@ -795,3 +795,14 @@ function submitNewPasswd() {
 	}
 }
 
+function createAutoCompletes() {
+	$("input[data-auto='yes']").each(function () {
+		$(this).devbridgeAutocomplete({
+			serviceUrl: home + '/service/get_standard_values/' + $(this).attr("data-table") + '/' + $(this).attr("id"),
+			type: "POST",
+			dataType: 'text',
+			paramName: 'q'
+		});
+	});
+}
+

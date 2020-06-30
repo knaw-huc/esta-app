@@ -64,6 +64,17 @@ class Db_requests extends CI_Model
 		}
 	}
 
+	function getStandardValues($table, $field, $value) {
+		$params = array($value . '%');
+		try {
+			$result = $this->db->query("SELECT DISTINCT $field AS value, $field AS data FROM $table WHERE $field LIKE ?", $params)->result_array();
+			$retArray = array("query" => "Unit", "suggestions" => $result);
+			return $retArray;
+		} catch (Exception $e) {
+			return 0;
+		}
+	}
+
 	function getVoyage($id)
 	{
 		return $this->db->query("SELECT v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier FROM voyage as v, users as u, users as us  WHERE  v.voyage_id = $id AND v.created_by = u.id and v.modified_by = us.id")->row_array();
