@@ -164,8 +164,8 @@
 		</div>
 		<div class="element" data-name="slaves_type_standardized">
 			<div class="label">Type standardised</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_type_standardized"
-										data-validation-profile="5e823fa99ba45" class="input_element">
+			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_type_standardized" data-table="slaves"
+										data-validation-profile="5e823fa99ba45" class="input_element" data-auto="yes">
 				<div id="errorMsg_5e823fa99ba45" class="errorMsg"></div>
 			</div>
 		</div>
@@ -193,7 +193,7 @@
 	</div>
 	<div id="btnFrame">
 		<input type="button" value="Save" id="slaveSaveBtn" onclick="saveSlaves();"/>
-		<input type="button" value="Back" class="resetBtn"/>
+		<input type="button" value="Back" class="resetBtn" onclick="history.back()"/>
 		&nbsp;
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>

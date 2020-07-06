@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-06-08 14:28:16
+/* Smarty version 3.1.32, created on 2020-07-06 15:49:24
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/vessel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ede2ee08ef395_83131710',
+  'unifunc' => 'content_5f032be4c793c9_43329074',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9fa4979234394773ec697eba1c3b251710d2f22b' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/vessel.tpl',
-      1 => 1591607361,
+      1 => 1594043304,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ede2ee08ef395_83131710 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f032be4c793c9_43329074 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heVessel"  data-action="<?php echo $_smarty_tpl->tpl_vars['vessel_action']->value;?>
 ">
 	<div class="component">
@@ -106,7 +106,7 @@ function content_5ede2ee08ef395_83131710 (Smarty_Internal_Template $_smarty_tpl)
 	</div>
 	<div id="btnFrame">
 		<input type="button" value="Save" id="saveVesselBtn" onclick="saveVessel()"/>
-		<input type="button" value="Back" class="resetBtn"/>
+		<input type="button" value="Back" class="resetBtn" onclick="history.back()"/>
 		&nbsp;
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>

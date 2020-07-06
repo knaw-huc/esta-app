@@ -517,14 +517,27 @@ margin: 20px 0;
 
 #voyageBrowserNext, #voyageBrowserPrev {
 font-weight:  bold;
+padding-top: 16px;
 }
 
 #voyageBrowser{
 border-top: 1px solid #555;
+border-left:0;
+border-right: 0;
 }
 
 #voyageBrowserNext {
 text-align: right;
+}
+
+#voyageList {
+border-bottom: 0;
+}
+
+.userFormError {
+padding-top: 4px;
+font-weight: bold;
+color: #B00;
 }
 
 

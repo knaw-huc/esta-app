@@ -69,7 +69,7 @@ function setEvents() {
 			if ($("#vmMyVoyages").hasClass("allRecs")) {
 				window.location.assign(home + "/workspace/myvoyages");
 			} else {
-				window.location.assign(home + "/workspace");
+				window.location.assign(home + "/workspace/voyages");
 			}
 
 		}
@@ -688,7 +688,7 @@ function addCargoToList(id) {
 	var row = document.createElement("tr");
 	var cell = document.createElement("td");
 	//if ($("#cargo_commodity").val().trim() === "") {
-		$(cell).html("--New--");
+	$(cell).html("--New--");
 	//} else {
 	//	$(cell).html($("#cargo_commodity").val());
 	//}
@@ -786,7 +786,7 @@ function validateEmail(email) {
 }
 
 function submitNewPasswd() {
-	if ( validateEmail($("#email").val()) ) {
+	if (validateEmail($("#email").val())) {
 		$("#newPasswdForm").submit();
 	} else {
 		$("#nwPasswdMessage").html("This is not a valid email address!");
@@ -794,6 +794,40 @@ function submitNewPasswd() {
 		$("#nwPasswdMessage").css('color', '#b00');
 	}
 }
+
+function validate_user() {
+	var ok = true;
+	if (!validateEmail($("#email").val())) {
+		$("#email_error").html("This is not a valid email address!");
+		ok = false;
+	} else {
+		$("#username_error").html("");
+	}
+
+	if ($("#chr_name").val().trim() === "") {
+		$("#chr_name_error").html("First name cannot be empty!");
+		ok = false;
+	} else {
+		$("#chr_name_error").html("");
+	}
+	if ($("#name").val().trim() === "") {
+		$("#name_error").html("Family name cannot be empty!");
+		ok = false;
+	} else {
+		$("#name_error").html("");
+	}
+	if ($("#username").val().trim() === "") {
+		$("#username_error").html("User name cannot be empty!");
+		ok = false;
+	} else {
+		$("#username_error").html("");
+	}
+
+	if (ok) {
+		$("#userForm").submit();
+	}
+}
+
 
 function createAutoCompletes() {
 	$("input[data-auto='yes']").each(function () {

@@ -3,11 +3,11 @@
 	<h2>Voyages: page {$page} of {$pages} ({$count})</h2>
 	<ul id="voyagesMenu">
 		<li class="appBtn" id="vmCollapser">Expand</li>
-		<li class="appBtn {$range}"  id="vmMyVoyages">{if $range == "allRecs"}My (sub)voyages{else}All voyages{/if}</li>
-		<li  class="appBtn" id="vmSearch">Search</li>
-		<li  class="appBtn" id="vmNew">New voyage</li>
+		<li class="appBtn {$range}" id="vmMyVoyages">{if $range == "allRecs"}My (sub)voyages{else}All voyages{/if}</li>
+		<li class="appBtn" id="vmSearch">Search</li>
+		<li class="appBtn" id="vmNew">New voyage</li>
 	</ul>
-	<table class="resultTable">
+	<table id="voyageList" class="resultTable">
 		<tr>
 			<th>ID</th>
 			<th>Summary</th>
@@ -26,7 +26,8 @@
 				<td>{$voyage.creator}</td>
 				<td>{$voyage.modifier}</td>
 				<td>{$voyage.last_mutation}</td>
-				<td><a href="{$home_path}workspace/voyage/{$voyage.voyage_id}" title="Edit voyage"><img src="{$home_path}img/edit.png" height="16px" width="16px"></a></td>
+				<td><a href="{$home_path}workspace/voyage/{$voyage.voyage_id}" title="Edit voyage"><img
+								src="{$home_path}img/edit.png" height="16px" width="16px"></a></td>
 				<td><a href="" title="Delete voyage"><img src="{$home_path}img/bin.png" height="16px" width="16px"></a>
 			</tr>
 			{foreach from=$voyage.subvoyages item=subvoyage}
@@ -42,10 +43,14 @@
 				</tr>
 			{/foreach}
 		{/foreach}
-		{*<tr id="voyageBrowser">
-			<td colspan="3" id="voyageBrowserPrev">previous</td>
-			<td colspan="3" id="voyageBrowserPage"></td>
-			<td colspan="2" id="voyageBrowserNext">next</td>
-		</tr>*}
+		<tr id="voyageBrowser">
+			<td colspan="3" id="voyageBrowserPrev">
+				{if $page > 1}<a href="{$home_path}workspace/{if $range == "myRecs"}my{/if}voyages/{$page-1}">previous</a>{else}&nbsp;{/if}
+			</td>
+			<td colspan="3" id="voyageBrowserPage">&nbsp;</td>
+			<td colspan="3" id="voyageBrowserNext">
+				{if $page < $pages}<a href="{$home_path}workspace/{if $range == "myRecs"}my{/if}voyages/{$page+1}">next</a>{else}&nbsp;{/if}
+			</td>
+		</tr>
 	</table>
 {/block}

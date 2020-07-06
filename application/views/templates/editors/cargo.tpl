@@ -24,8 +24,8 @@
 		</div>
 		<div class="element" data-name="cargo_unit_standardized">
 			<div class="label">Cargo unit standardized</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="cargo_unit_standardized"
-										data-validation-profile="5e823fa99d65a" class="input_element">
+			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="cargo_unit_standardized" data-table="cargo"
+										data-validation-profile="5e823fa99d65a" class="input_element" data-auto="yes">
 				<div id="errorMsg_5e823fa99d65a" class="errorMsg"></div>
 			</div>
 		</div>
@@ -52,8 +52,8 @@
 		</div>
 		<div class="element" data-name="cargo_value_standardized">
 			<div class="label">Cargo value standardized</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="cargo_value_standardized"
-										data-validation-profile="5e823fa99d673" class="input_element">
+			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="cargo_value_standardized" data-table="cargo"
+										data-validation-profile="5e823fa99d673" class="input_element" data-auto="yes">
 				<div id="errorMsg_5e823fa99d673" class="errorMsg"></div>
 			</div>
 		</div>
@@ -74,7 +74,7 @@
 	</div>
 	<div id="btnFrame">
 		<input type="button" value="Save" id="cargoSaveBtn" onclick="saveCargo()"/>
-		<input type="button" value="Back" class="resetBtn"/>
+		<input type="button" value="Back" class="resetBtn" onclick="history.back()"/>
 		&nbsp;
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>

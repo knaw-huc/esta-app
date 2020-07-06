@@ -6,45 +6,60 @@ class Workspace extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		if ($this->session->logged_in != 1)
-		{
+		if ($this->session->logged_in != 1) {
 			redirect(base_url());
 		}
 		$this->mysmarty->assign('user_name', $this->session->name);
 		$this->mysmarty->assign("role", $this->session->role);
 		$this->mysmarty->assign('title', 'ESTA Editor');
 
-		$this->pageLength = 5;
+		$this->pageLength = 20;
 	}
 
-	function index() {
-		$voyages = $this->fetch->getVoyages();
-		$this->mysmarty->assign("range", "allRecs");
-		$this->mysmarty->assign("page", 1);
-		$this->mysmarty->assign("pages", 1);
-		$this->mysmarty->assign("count", $voyages["count"]);
+	function index()
+	{
+		$this->mysmarty->assign("notLoggedIn", false);
+		$this->mysmarty->view('home');
+	}
+
+	function voyages($page = 1)
+	{
+		$pageInfo = $this->getPageInfo();
+		if ($this->pageNotCorrect($page, $pageInfo["pages"])) {
+			redirect(base_url('workspace/voyages'));
+		} else {
+			$voyages = $this->fetch->getVoyages(($page - 1) * $this->pageLength, $this->pageLength);
+			$this->mysmarty->assign("range", "allRecs");
+			$this->mysmarty->assign("page", $page);
+			$this->mysmarty->assign("pages", $pageInfo["pages"]);
+			$this->mysmarty->assign("count", $pageInfo["items"]);
+			$this->mysmarty->assign("voyages", $voyages["voyages"]);
+			$this->mysmarty->view('voyageList');
+		}
+
+	}
+
+	function myvoyages($page = 1)
+	{
+		$pageInfo = $this->getPageInfo($this->session->id);
+		$voyages = $this->fetch->getVoyages(($page - 1) * $this->pageLength, $this->pageLength, $this->session->id);
+		$this->mysmarty->assign("range", "myRecs");
+		$this->mysmarty->assign("page", $page);
+		$this->mysmarty->assign("pages", $pageInfo["pages"]);
+		$this->mysmarty->assign("count", $pageInfo["items"]);
 		$this->mysmarty->assign("voyages", $voyages["voyages"]);
 		$this->mysmarty->view('voyageList');
 	}
 
-	function myvoyages() {
-			$voyages = $this->fetch->getVoyages($this->session->id);
-			$this->mysmarty->assign("range", "myRecs");
-			$this->mysmarty->assign("page", 1);
-			$this->mysmarty->assign("pages", 1);
-			$this->mysmarty->assign("count", $voyages["count"]);
-			$this->mysmarty->assign("voyages", $voyages["voyages"]);
-			$this->mysmarty->view('voyageList');
-	}
-
-	function voyage($id = 0) {
+	function voyage($id = 0)
+	{
 		if ($id == 0) {
 			redirect(base_url('workspace/'));
 		} else {
 			$subvoyages = $this->fetch->getSubvoyagerecords($id);
 			//if (count($subvoyages)) {
-				$this->mysmarty->assign('voyage_id', $id);
-				$this->mysmarty->assign("subvoyages", $subvoyages);
+			$this->mysmarty->assign('voyage_id', $id);
+			$this->mysmarty->assign("subvoyages", $subvoyages);
 			//} else {
 			//	redirect(base_url('workspace/'));
 			//}
@@ -53,27 +68,32 @@ class Workspace extends CI_Controller
 		$this->mysmarty->view('voyage');
 	}
 
-	function new_subvoyage() {
+	function new_subvoyage()
+	{
 		$subvoyage_id = $this->fetch->createNewSubvoyage();
 		redirect(base_url("workspace/edit_voyage/$subvoyage_id"));
 	}
 
-	function logout() {
+	function logout()
+	{
 		$this->session->sess_destroy();
 		redirect(base_url());
 	}
 
-	function editor() {
+	function editor()
+	{
 		$json = file_get_contents(base_url() . 'json/editor.json');
 		$this->mysmarty->assign('json', $json);
 		$this->mysmarty->view('formPage');
 	}
 
-	function change_password() {
+	function change_password()
+	{
 		$this->mysmarty->view("change_passwd");
 	}
 
-	function newpasswd() {
+	function newpasswd()
+	{
 		$old = $this->input->post("opw");
 		$new = $this->input->post("passwd1");
 		$succes = $this->fetch->change_password($old, $new, $this->session->id);
@@ -85,16 +105,19 @@ class Workspace extends CI_Controller
 		$this->mysmarty->view("passwd_changed");
 	}
 
-	function new_voyage() {
+	function new_voyage()
+	{
 		$this->mysmarty->view("voyageForm");
 	}
 
-	function accept_new_voyage() {
-		$voyage_id = $this->fetch->add_voyage( $this->input->post("year"),$this->input->post("summary"), $this->session->id);
+	function accept_new_voyage()
+	{
+		$voyage_id = $this->fetch->add_voyage($this->input->post("year"), $this->input->post("summary"), $this->session->id);
 		redirect(base_url() . "workspace/voyage/$voyage_id");
 	}
 
-	function edit_voyage($id = 0) {
+	function edit_voyage($id = 0)
+	{
 		if ($id == 0) {
 			redirect(base_url('workspace'));
 		} else {
@@ -116,7 +139,8 @@ class Workspace extends CI_Controller
 		}
 	}
 
-	function user_profile() {
+	function user_profile()
+	{
 		$user = $this->fetch->getUserByID($this->session->id);
 		$this->mysmarty->assign("id", $this->session->id);
 		$this->mysmarty->assign('user_name', $user["chr_name"] . " " . $user["name"]);
@@ -126,7 +150,8 @@ class Workspace extends CI_Controller
 		$this->mysmarty->view("user_profile");
 	}
 
-	function set_profile() {
+	function set_profile()
+	{
 		$params = array(
 			$this->input->post("first_name"),
 			$this->input->post("name"),
@@ -135,5 +160,28 @@ class Workspace extends CI_Controller
 		);
 		$this->fetch->setProfile($params);
 		redirect(base_url('workspace/user_profile/' . $this->session->id));
+	}
+
+	private function getPageInfo($id = null)
+	{
+		if (is_null($id)) {
+			$count = $this->fetch->count_recs("voyage", 1);
+		} else {
+			$count = $this->fetch->count_recs("voyage", "created_by = $id");
+		}
+		return array("items" => $count, "pages" => ceil($count / $this->pageLength));
+	}
+
+	private function pageNotCorrect($page, $count)
+	{
+		if (!is_numeric($page)) {
+			return true;
+		} else {
+			if ($page < 1 || $page > $count) {
+				return true;
+			} else {
+				return false;
+			}
+		}
 	}
 }

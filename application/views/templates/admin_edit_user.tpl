@@ -2,13 +2,14 @@
 {block name="content"}
 	<h2>{if $user == "new"}New{else}Edit{/if} user</h2>
 	<div class="component" style="max-width: 600px;">
-		<form method="post" action="{$home_path}admin/save_user">
+		<form id="userForm" method="post" action="{$home_path}admin/save_user">
 			<div class="formRow">
 				<div class="formLabel">
 					First name:
 				</div>
 				<div class="formField">
-					<input type="text" name="chr_name" value="{$chr_name}"/> *
+					<input type="text" id="chr_name" name="chr_name" value="{$chr_name}"/> *
+					<div id="chr_name_error" class="userFormError"/>
 				</div>
 			</div>
 			<div class="formRow">
@@ -16,7 +17,8 @@
 					Family name:
 				</div>
 				<div class="formField">
-					<input type="text" name="name" size="40" value="{$name}"/> *
+					<input type="text" id="name" name="name" size="40" value="{$name}"/> *
+					<div id="name_error" class="userFormError"/>
 				</div>
 			</div>
 			<div class="formRow">
@@ -24,7 +26,8 @@
 					Email:
 				</div>
 				<div class="formField">
-					<input type="text" name="email" size="60" value="{$email}"/> *
+					<input type="text" id="email" name="email" size="60" value="{$email}"/> *
+					<div id="email_error" class="userFormError"/>
 				</div>
 			</div>
 			<div class="formRow">
@@ -32,7 +35,8 @@
 					User name:
 				</div>
 				<div class="formField">
-					<input type="text" name="username" size="40" value="{$username}"/> *
+					<input type="text" id="username" name="username" size="40" value="{$username}"/> *
+					<div id="username_error" class="userFormError"/>
 				</div>
 			</div>
 			<div class="formRow">
@@ -58,10 +62,11 @@
 				</div>
 			</div>
 			<div class="formRow">
-				<input class="appBtn" type="submit" value="Send"/>
+				<input class="appBtn" type="button" value="Send" onclick="validate_user()"/>
 				<input class="appBtn" type="button" value="Back" onclick="history.back()"/>
 				<input type="hidden" name="user" value="{$user}"/>
 			</div>
+			<div id="loginError"></div>
 		</form>
 	</div>
 {/block}

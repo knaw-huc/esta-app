@@ -39,24 +39,24 @@
 		<div class="element" data-name="sub_dept_place_standardized">
 			<div class="label">Place of departure standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_place_standardized" data-validation-profile="5eaac4f83b6d2"
-										class="input_element">
+										id="sub_dept_place_standardized" data-table="slaves" data-validation-profile="5eaac4f83b6d2"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b6d2" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="sub_dept_region_standardized">
 			<div class="label">Region of departure standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_region_standardized" data-validation-profile="5eaac4f83b6d7"
-										class="input_element">
+										id="sub_dept_region_standardized" data-table="slaves" data-validation-profile="5eaac4f83b6d7"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b6d7" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="sub_dept_polity_standardized">
 			<div class="label">Polity of departure standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_polity_standardized" data-validation-profile="5eaac4f83b6dd"
-										class="input_element">
+										id="sub_dept_polity_standardized" data-table="slaves" data-validation-profile="5eaac4f83b6dd"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b6dd" class="errorMsg"></div>
 			</div>
 		</div>
@@ -135,24 +135,24 @@
 		<div class="element" data-name="sub_arrival_place_standardized">
 			<div class="label">Place of arrival standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_place_standardized" data-validation-profile="5eaac4f83b711"
-										class="input_element">
+										id="sub_arrival_place_standardized" data-table="slaves" data-validation-profile="5eaac4f83b711"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b711" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="sub_arrival_region_standardized">
 			<div class="label">Region of arrival standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_region_standardized" data-validation-profile="5eaac4f83b717"
-										class="input_element">
+										id="sub_arrival_region_standardized" data-table="slaves" data-validation-profile="5eaac4f83b717"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b717" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="sub_arrival_polity_standardized">
 			<div class="label">Polity of arrival standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_polity_standardized" data-validation-profile="5eaac4f83b71c"
-										class="input_element">
+										id="sub_arrival_polity_standardized" data-table="slaves" data-validation-profile="5eaac4f83b71c"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b71c" class="errorMsg"></div>
 			</div>
 		</div>
@@ -281,7 +281,7 @@
 	</div>
 	<div id="btnFrame">
 		<input type="button" value="Save" id="saveBtn" onclick="saveSubVoyage()"/>
-		<input type="button" value="Back" class="resetBtn"/>
+		<input type="button" value="Back" class="resetBtn" onclick="history.back()"/>
 		&nbsp;
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>

@@ -3,7 +3,7 @@
 	<h2>Profile {$user_name}</h2>
 	<form name="userProfile" id="userProfileForm" method="post" action="{$home_path}workspace/set_profile">
 		<div class="formRow">
-			<div class="formLabel">Firstname:</div>
+			<div class="formLabel">First name:</div>
 			<div class="formField"><span class="noUserEdit">{$first_name}</span><input type="input" size="30" id="first_name" name="first_name" class="UserEdit" value="{$first_name}"/></div>
 		</div>
 		<div class="formRow">

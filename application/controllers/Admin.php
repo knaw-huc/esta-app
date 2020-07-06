@@ -46,19 +46,28 @@ class Admin extends CI_Controller
 		$user_values["username"] = $this->input->post("username");
 		$user_values["role"] = $this->input->post("role");
 		$user_values["active"] = $this->input->post("active");
-		if ($this->input->post("user") == "new") {
-			$user_values["passwd"] = $this->createPasswd();
-			if ($this->fetch->insert_user($user_values)) {
-				$this->inviteUser($user_values["chr_name"] . " " . $user_values["name"] = $this->input->post("name"),
-					$user_values["username"],
-					$user_values["email"],
-					$user_values["passwd"]
-				);
+
+		$username_exists = $this->fetch->valueExists("username", $user_values["username"]);
+		$email_exists = $this->fetch->valueExists("email", $user_values["email"]);
+
+		if (!$username_exists && !$email_exists) {
+
+			if ($this->input->post("user") == "new") {
+				$user_values["passwd"] = $this->createPasswd();
+				if ($this->fetch->insert_user($user_values)) {
+					$this->inviteUser($user_values["chr_name"] . " " . $user_values["name"] = $this->input->post("name"),
+						$user_values["username"],
+						$user_values["email"],
+						$user_values["passwd"]
+					);
+				}
+			} else {
+				$this->fetch->update_user($user_values, $this->input->post("user"));
 			}
+			redirect(base_url("admin/users"));
 		} else {
-			$this->fetch->update_user($user_values, $this->input->post("user"));
+			die("Email or username exists!");
 		}
-		redirect(base_url("admin/users"));
 	}
 
 	function test_mail() {

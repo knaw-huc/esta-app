@@ -12,6 +12,7 @@ class Sessions extends CI_Controller
 	}
 
 	function index() {
+		$this->mysmarty->assign("notLoggedIn", true);
 		$this->mysmarty->view('home');
 	}
 
@@ -23,7 +24,7 @@ class Sessions extends CI_Controller
 				$this->session->set_userdata("id", $results[0]["id"]);
 				$this->session->set_userdata("role", $results[0]["admin"]);
 				$this->session->set_userdata("name", $results[0]["chr_name"] . ' ' . $results[0]["name"]);
-				redirect(base_url() . "workspace");
+				redirect(base_url() . "workspace/voyages");
 			} else {
 				redirect(base_url());
 			}

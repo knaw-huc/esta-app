@@ -27,6 +27,14 @@ class Service extends CI_Controller
 		}
 	}
 
+	function check_existence() {
+		if ($this->input->post("field")) {
+			$arr =  $this->fetch->checkExistence($this->input->post("field"), $this->input->post("value"));
+			$this->send_json($arr);
+		} else {
+			$this->throw_error();
+		}
+	}
 
 	function update_data() {
 		$id = $this->input->post("id");

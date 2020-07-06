@@ -37,15 +37,25 @@ class Db_requests extends CI_Model
 		return $users->result_array();
 	}
 
-	function getVoyages($id = null)
+	function valueExists($field, $value) {
+		$params = array($value);
+		$result = $this->db->query("SELECT id FROM users WHERE $field = ?", $params)->result_array();
+		if (count($result)) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	function getVoyages($start, $offset, $id = null)
 	{
 		$result = array();
 		if (is_null($id)) {
 			$result["count"] = $this->count_recs("voyage", 1);
-			$result["voyages"] = $this->getSubvoyages($this->getRecords("v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier", "voyage as v, users as u, users as us", "v.created_by = u.id and v.modified_by = us.id"));
+			$result["voyages"] = $this->getSubvoyages($this->getRecords("v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier", "voyage as v, users as u, users as us", "v.created_by = u.id and v.modified_by = us.id ORDER BY v.voyage_id LIMIT $start, $offset"));
 		} else {
 			$result["count"] = $this->count_recs("voyage", "created_by = $id");
-			$result["voyages"] = $this->getSubvoyages($this->getRecords("v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier", "voyage as v, users as u, users as us", "v.created_by = $id and v.created_by = u.id and v.modified_by = us.id"));
+			$result["voyages"] = $this->getSubvoyages($this->getRecords("v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier", "voyage as v, users as u, users as us", "v.created_by = $id and v.created_by = u.id and v.modified_by = us.id LIMIT $start, $offset"));
 		}
 		return $result;
 	}
@@ -116,7 +126,7 @@ class Db_requests extends CI_Model
 		return $this->db->query("SELECT $fields FROM $table WHERE $conditions")->result_array();
 	}
 
-	private function count_recs($table, $conditions)
+	function count_recs($table, $conditions)
 	{
 		return $this->db->query("SELECT COUNT(*) AS amount FROM $table WHERE $conditions")->row()->amount;
 	}

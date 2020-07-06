@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-06-08 14:46:47
+/* Smarty version 3.1.32, created on 2020-07-06 15:49:24
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ede33376c4878_22843992',
+  'unifunc' => 'content_5f032be4c6ae09_28164241',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2b9a0ccd905ac6c1aa3b1249dc82bf26c2cf72d6' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl',
-      1 => 1591620247,
+      1 => 1594043335,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ede33376c4878_22843992 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f032be4c6ae09_28164241 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSlaves" data-action="<?php echo $_smarty_tpl->tpl_vars['slaves_action']->value;?>
 ">
 	<div class="component">
@@ -217,7 +217,7 @@ function content_5ede33376c4878_22843992 (Smarty_Internal_Template $_smarty_tpl)
 	</div>
 	<div id="btnFrame">
 		<input type="button" value="Save" id="slaveSaveBtn" onclick="saveSlaves();"/>
-		<input type="button" value="Back" class="resetBtn"/>
+		<input type="button" value="Back" class="resetBtn" onclick="history.back()"/>
 		&nbsp;
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>

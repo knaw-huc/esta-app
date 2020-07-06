@@ -35,7 +35,7 @@
 			<div id="menu-items">
 				<ul id="jmenu">
 					<li><a href="{$home_path}workspace">Home</a></li>
-					<li><a href="{$home_path}workspace">Voyages</a></li>
+					<li><a href="{$home_path}workspace/voyages">Voyages</a></li>
 					<li><a href="{$home_path}workspace">My profile</a>
 						<ul>
 							<li><a href="{$home_path}workspace/user_profile">Profile</a></li>

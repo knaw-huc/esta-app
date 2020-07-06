@@ -22,6 +22,7 @@
 				language as a whole. Baudrillard uses the term ‘socialist realism’ to denote
 				the bridge between reality and sexual identity.</p>
 		</div>
+		{if $notLoggedIn}
 		<div id="loginFrame">
 			<form name="login" id="loginForm" method="post" action="{$home_path}sessions/login">
 				<h2>Login</h2>
@@ -49,6 +50,7 @@
 				</div>
 			</form>
 		</div>
+		{/if}
 	</div>
 {/block}
 
