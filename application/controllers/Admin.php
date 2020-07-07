@@ -39,34 +39,46 @@ class Admin extends CI_Controller
 	}
 
 	function save_user() {
-		$user_values = array();
-		$user_values["chr_name"] = $this->input->post("chr_name");
-		$user_values["name"] = $this->input->post("name");
-		$user_values["email"] = $this->input->post("email");
-		$user_values["username"] = $this->input->post("username");
-		$user_values["role"] = $this->input->post("role");
-		$user_values["active"] = $this->input->post("active");
+		if ($this->input->post("name")) {
+			$user_values = array();
+			$user_values["chr_name"] = $this->input->post("chr_name");
+			$user_values["name"] = $this->input->post("name");
+			$user_values["email"] = $this->input->post("email");
+			$user_values["username"] = $this->input->post("username");
+			$user_values["role"] = $this->input->post("role");
+			$user_values["active"] = $this->input->post("active");
 
-		$username_exists = $this->fetch->valueExists("username", $user_values["username"]);
-		$email_exists = $this->fetch->valueExists("email", $user_values["email"]);
+			$username_exists = $this->fetch->valueExists("username", $user_values["username"], $this->input->post("user"));
+			$email_exists = $this->fetch->valueExists("email", $user_values["email"], $this->input->post("user"));
 
-		if (!$username_exists && !$email_exists) {
+			if (!$username_exists && !$email_exists) {
 
-			if ($this->input->post("user") == "new") {
-				$user_values["passwd"] = $this->createPasswd();
-				if ($this->fetch->insert_user($user_values)) {
-					$this->inviteUser($user_values["chr_name"] . " " . $user_values["name"] = $this->input->post("name"),
-						$user_values["username"],
-						$user_values["email"],
-						$user_values["passwd"]
-					);
+				if ($this->input->post("user") == "new") {
+					$user_values["passwd"] = $this->createPasswd();
+					if ($this->fetch->insert_user($user_values)) {
+						$this->inviteUser($user_values["chr_name"] . " " . $user_values["name"] = $this->input->post("name"),
+							$user_values["username"],
+							$user_values["email"],
+							$user_values["passwd"]
+						);
+					}
+				} else {
+					$this->fetch->update_user($user_values, $this->input->post("user"));
 				}
+				redirect(base_url("admin/users"));
 			} else {
-				$this->fetch->update_user($user_values, $this->input->post("user"));
+				$this->init_user_form($user_values["chr_name"], $user_values["name"], $user_values["email"], $user_values["username"], $user_values["role"], $user_values["active"]);
+				$this->mysmarty->assign('user', $this->input->post("user"));
+				if ($username_exists) {
+					$this->mysmarty->assign("name_error", "User name already exists for another user!");
+				}
+				if ($email_exists) {
+					$this->mysmarty->assign("mail_error", "Email address already exists for another user!");
+				}
+				$this->mysmarty->view('admin_edit_user');
 			}
-			redirect(base_url("admin/users"));
 		} else {
-			die("Email or username exists!");
+			redirect(base_url("admin/users"));
 		}
 	}
 

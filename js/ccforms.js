@@ -828,7 +828,6 @@ function validate_user() {
 	}
 }
 
-
 function createAutoCompletes() {
 	$("input[data-auto='yes']").each(function () {
 		$(this).devbridgeAutocomplete({
@@ -838,5 +837,20 @@ function createAutoCompletes() {
 			paramName: 'q'
 		});
 	});
+}
+
+function delete_voyage(id) {
+	if (confirm("Do you really want to delete voyage " + id + "?")) {
+		$.ajax({
+			url: home + "/service/delete_voyage/" + id,
+			success: function (json) {
+				location.reload();
+			},
+			error: function (err) {
+				alert("An error occurred: " + err);
+			}
+		})
+
+	}
 }
 

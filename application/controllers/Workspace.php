@@ -29,6 +29,7 @@ class Workspace extends CI_Controller
 			redirect(base_url('workspace/voyages'));
 		} else {
 			$voyages = $this->fetch->getVoyages(($page - 1) * $this->pageLength, $this->pageLength);
+			$this->mysmarty->assign("user", $this->session->id);
 			$this->mysmarty->assign("range", "allRecs");
 			$this->mysmarty->assign("page", $page);
 			$this->mysmarty->assign("pages", $pageInfo["pages"]);
@@ -165,9 +166,9 @@ class Workspace extends CI_Controller
 	private function getPageInfo($id = null)
 	{
 		if (is_null($id)) {
-			$count = $this->fetch->count_recs("voyage", 1);
+			$count = $this->fetch->count_recs("voyage", "NOT deleted ");
 		} else {
-			$count = $this->fetch->count_recs("voyage", "created_by = $id");
+			$count = $this->fetch->count_recs("voyage", "created_by = $id AND NOT deleted");
 		}
 		return array("items" => $count, "pages" => ceil($count / $this->pageLength));
 	}

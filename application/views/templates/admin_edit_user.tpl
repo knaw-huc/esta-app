@@ -27,7 +27,7 @@
 				</div>
 				<div class="formField">
 					<input type="text" id="email" name="email" size="60" value="{$email}"/> *
-					<div id="email_error" class="userFormError"/>
+					<div id="email_error" class="userFormError">{if isset($mail_error)}{$mail_error}{/if}</div>
 				</div>
 			</div>
 			<div class="formRow">
@@ -36,7 +36,7 @@
 				</div>
 				<div class="formField">
 					<input type="text" id="username" name="username" size="40" value="{$username}"/> *
-					<div id="username_error" class="userFormError"/>
+					<div id="username_error" class="userFormError">{if isset($name_error)}{$name_error}{/if}</div>
 				</div>
 			</div>
 			<div class="formRow">
@@ -63,7 +63,7 @@
 			</div>
 			<div class="formRow">
 				<input class="appBtn" type="button" value="Send" onclick="validate_user()"/>
-				<input class="appBtn" type="button" value="Back" onclick="history.back()"/>
+				<input class="appBtn" type="button" value="Back" onclick="window.location = '{$home_path}admin/users'"/>
 				<input type="hidden" name="user" value="{$user}"/>
 			</div>
 			<div id="loginError"></div>

@@ -28,7 +28,7 @@
 				<td>{$voyage.last_mutation}</td>
 				<td><a href="{$home_path}workspace/voyage/{$voyage.voyage_id}" title="Edit voyage"><img
 								src="{$home_path}img/edit.png" height="16px" width="16px"></a></td>
-				<td><a href="" title="Delete voyage"><img src="{$home_path}img/bin.png" height="16px" width="16px"></a>
+				<td>{if $user == $voyage.created_by}<img class="withPointer" title="Delete voyage" src="{$home_path}img/bin.png" height="16px" width="16px" onclick="delete_voyage('{$voyage.voyage_id}')">{/if}</td>
 			</tr>
 			{foreach from=$voyage.subvoyages item=subvoyage}
 				<tr class="subVoyageRow">

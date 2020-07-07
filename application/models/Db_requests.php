@@ -37,9 +37,14 @@ class Db_requests extends CI_Model
 		return $users->result_array();
 	}
 
-	function valueExists($field, $value) {
+	function valueExists($field, $value, $id) {
 		$params = array($value);
-		$result = $this->db->query("SELECT id FROM users WHERE $field = ?", $params)->result_array();
+		if ($id == "new") {
+			$result = $this->db->query("SELECT id FROM users WHERE $field = ?", $params)->result_array();
+		} else {
+			$result = $this->db->query("SELECT id FROM users WHERE id <> $id AND $field = ?", $params)->result_array();
+		}
+
 		if (count($result)) {
 			return true;
 		} else {
@@ -47,15 +52,19 @@ class Db_requests extends CI_Model
 		}
 	}
 
+	function deleteVoyage($id, $user) {
+		return $this->db->query("UPDATE voyage SET deleted = 1 WHERE voyage_id = $id AND created_by = $user");
+	}
+
 	function getVoyages($start, $offset, $id = null)
 	{
 		$result = array();
 		if (is_null($id)) {
-			$result["count"] = $this->count_recs("voyage", 1);
-			$result["voyages"] = $this->getSubvoyages($this->getRecords("v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier", "voyage as v, users as u, users as us", "v.created_by = u.id and v.modified_by = us.id ORDER BY v.voyage_id LIMIT $start, $offset"));
+			$result["count"] = $this->count_recs("voyage", "NOT deleted");
+			$result["voyages"] = $this->getSubvoyages($this->getRecords("v.voyage_id, v.summary,  v.created_by, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier", "voyage as v, users as u, users as us", "NOT v.deleted AND v.created_by = u.id AND v.modified_by = us.id ORDER BY v.voyage_id LIMIT $start, $offset"));
 		} else {
-			$result["count"] = $this->count_recs("voyage", "created_by = $id");
-			$result["voyages"] = $this->getSubvoyages($this->getRecords("v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier", "voyage as v, users as u, users as us", "v.created_by = $id and v.created_by = u.id and v.modified_by = us.id LIMIT $start, $offset"));
+			$result["count"] = $this->count_recs("voyage", "created_by = $id AND NOT deleted");
+			$result["voyages"] = $this->getSubvoyages($this->getRecords("v.voyage_id, v.summary, v.year, v.created_by, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier", "voyage as v, users as u, users as us", "v.created_by = $id AND NOT v.deleted AND v.created_by = u.id and v.modified_by = us.id LIMIT $start, $offset"));
 		}
 		return $result;
 	}

@@ -540,4 +540,8 @@ font-weight: bold;
 color: #B00;
 }
 
+.withPointer {
+cursor: pointer;
+}
+
 

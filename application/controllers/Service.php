@@ -143,6 +143,18 @@ class Service extends CI_Controller
 		}
 	}
 
+	function delete_voyage($id) {
+		if ($this->session->logged_in) {
+			if ($this->fetch->deleteVoyage($id, $this->session->id)) {
+				$this->send_json(array("status" => "OK"));
+			} else {
+				$this->throw_error();
+			}
+		} else {
+			$this->throw_error();
+		}
+	}
+
 	private function get_key($form) {
 		$keys = array(
 			"heSubvoyage" => "subvoyage_id",
