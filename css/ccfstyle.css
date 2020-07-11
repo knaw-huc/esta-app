@@ -89,7 +89,7 @@ border: 1px solid #666;
 border: 1px solid #ccc;
 }
 
-#OKbtn, #saveBtn, #slaveSaveBtn, #saveVesselBtn, #cargoSaveBtn, #resetBtn, .resetBtn {
+#OKbtn, #saveBtn, #slaveSaveBtn, #saveVesselBtn, #cargoSaveBtn, #resetBtn, .resetBtn, .saveBtn {
 color: #fff;
 background-color: #5c5c6a;
 font-weight: bold;
@@ -98,7 +98,7 @@ margin: 10px;
 font-size: 10px;
 padding: 6px 10px;
 border-radius: 4px;
-width: 54px;
+width: 60px;
 cursor: pointer;
 }
 

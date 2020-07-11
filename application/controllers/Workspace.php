@@ -58,15 +58,41 @@ class Workspace extends CI_Controller
 			redirect(base_url('workspace/'));
 		} else {
 			$subvoyages = $this->fetch->getSubvoyagerecords($id);
-			//if (count($subvoyages)) {
 			$this->mysmarty->assign('voyage_id', $id);
 			$this->mysmarty->assign("subvoyages", $subvoyages);
-			//} else {
-			//	redirect(base_url('workspace/'));
-			//}
 			$this->session->set_userdata("voyage", $id);
 		}
 		$this->mysmarty->view('voyage');
+	}
+
+	function deleted_subvoyages($id = null) {
+		if (is_null($id || !is_numeric($id))) {
+			redirect(base_url('workspace'));
+		} else {
+			$deleted = $this->fetch->getDeletedSubvoyages($id);
+			$this->mysmarty->assign('role', $this->session->role);
+			$this->mysmarty->assign("voyage", $id);
+			$this->mysmarty->assign("subvoyages", $deleted);
+			$this->mysmarty->view('deleted_subvoyages');
+		}
+	}
+
+	function undelete_subvoyages() {
+		if ($this->session->role != "ADMIN")
+		{
+			redirect(base_url() . "workspace");
+		} else {
+			if (!is_null($this->input->post("undelete"))) {
+				$this->fetch->undeleteSubvoyages( implode($this->input->post("undelete"), ", "));
+				redirect(base_url("workspace/voyage/" . $this->input->post("voyage")));
+			} else {
+				if (!is_null($this->input->post("voyage"))) {
+					redirect(base_url("workspace/voyage/" . $this->input->post("voyage")));
+				} else {
+					redirect(base_url("workspace"));
+				}
+			}
+		}
 	}
 
 	function new_subvoyage()

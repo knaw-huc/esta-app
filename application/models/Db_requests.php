@@ -56,6 +56,20 @@ class Db_requests extends CI_Model
 		return $this->db->query("UPDATE voyage SET deleted = 1 WHERE voyage_id = $id AND created_by = $user");
 	}
 
+	function deleteSubVoyage($id, $user) {
+		return $this->db->query("UPDATE subvoyage SET deleted = 1, deleted_by = $user WHERE subvoyage_id = $id ");
+	}
+
+	function getDeletedSubvoyages($id) {
+		$sql = "SELECT s.subvoyage_id, s.subvoyage_type, s.sub_dept_date_year, IFNULL(a.actor_name, '--') as captain, IFNULL(v.vessel_name, '--') as vessel, s.sub_dept_place, s.sub_arrival_place, CONCAT(chr_name , ' ', name) AS username  FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN actor as a ON s.sub_captain = a.actor_id LEFT JOIN users AS u ON s.deleted_by = u.id WHERE s.voyage_id = $id AND deleted";
+		return $this->db->query($sql)->result_array();
+	}
+
+	function undeleteSubvoyages($range) {
+		$sql = "UPDATE subvoyage SET deleted = 0, deleted_by = 0 WHERE subvoyage_id IN ($range)";
+		$this->db->query($sql);
+	}
+
 	function getVoyages($start, $offset, $id = null)
 	{
 		$result = array();
@@ -121,7 +135,7 @@ class Db_requests extends CI_Model
 
 	function getSubvoyagerecords($voyage_id)
 	{
-		$sql = "SELECT s.subvoyage_id, s.sub_dept_date_year, IFNULL(a.actor_name, '--') as captain, IFNULL(v.vessel_name, '--') as vessel, s.sub_dept_place, s.sub_arrival_place  FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN actor as a ON s.sub_captain = a.actor_id WHERE s.voyage_id = $voyage_id";
+		$sql = "SELECT s.subvoyage_id, s.subvoyage_type, s.sub_dept_date_year, IFNULL(a.actor_name, '--') as captain, IFNULL(v.vessel_name, '--') as vessel, s.sub_dept_place, s.sub_arrival_place  FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN actor as a ON s.sub_captain = a.actor_id WHERE s.voyage_id = $voyage_id AND NOT deleted";
 		return $this->db->query($sql)->result_array();
 	}
 

@@ -2,25 +2,26 @@
 {block name="content"}
 	<div id="homeContent">
 		<div class="homeComponent">
-			<h2>ESTA</h2>
-			<p>The main theme of the works of Tarantino is a self-supporting paradox.
-				Therefore, the premise of pretextual narrative holds that the purpose of the
-				participant is significant form, but only if Baudrillard’s essay on Marxist
-				class is invalid. Derrida suggests the use of socialist realism to attack and
-				read class.</p>
-
-			<p>However, the subject is interpolated into a pretextual narrative that
-				includes language as a whole. Marx uses the term ‘precapitalist constructivist
-				theory’ to denote the difference between society and truth.</p>
-
-			<p>It could be said that the subject is contextualised into a socialist realism
-				that includes consciousness as a paradox. The characteristic theme of
-				Wilson’s[3] critique of pretextual narrative is the defining
-				characteristic, and therefore the stasis, of postsemantic class.</p>
-
-			<p>Thus, the subject is interpolated into a Marxist class that includes
-				language as a whole. Baudrillard uses the term ‘socialist realism’ to denote
-				the bridge between reality and sexual identity.</p>
+			<p>
+			<h3>ESTA Editor</h3>
+			This is the database editor of the <em>Exploring Slave Trade in Asia</em> project. The ESTA Editor allows adding observations and editing data on slave trade (sub)voyages in the wider Indian Ocean and Indonesian Archipelago worlds.
+			</p>
+			<p>
+			<h3>Exploring Slave Trade in Asia</h3>
+			Since 2016, a growing group of scholars focusing on slavery and slave trade in the Indian Ocean and Indonesian Archipelago Worlds has forged new connections through successful workshops in Amsterdam (2016), Kalmar (2017) and Lyon (2019). The scholars of this emerging network are committed to develop a coherent field of Asian slave trade and slavery studies, including East, Southeast and South Asia as well as East Africa. Key groundwork in propelling both current and future research in the field of Asian slavery studies entails creating the basis for a collaborative slave trade database initiative. Within this wider network of Asian slavery and slave trade studies, we have therefore initiated the project <em>Exploring Slave Trade in Asia</em> that aims to work towards a collaborative slave trade database for the wider Indian Ocean and Indonesian Archipelago regions slave trade.
+			</p>
+			<p>
+			<h3>Want to join or contribute?</h3>
+			Scholars or students who are interested in contributing to the initiative and providing data are more than welcome. The project collects existing datasets, invites new connections for the network and fosters new data contributions. If you are interested to contribute, please contact <a href="">Etaoin Shrdlu</a>.
+			</p>
+			<p>
+			<h3>More information</h3>
+			More information on the ESTA project and slavery and slave trade in Asia network can be found here: <a href="https://iisg.amsterdam/nl/research/projects/slave-trade-asia" target="_new">https://iisg.amsterdam/nl/research/projects/slave-trade-asia</a>. The curated existing datasets are collected and stored at the IISH Dataverse: <a href="https://datasets.socialhistory.org/dataverse/iomastd" target="_new">https://datasets.socialhistory.org/dataverse/iomastd</a>.
+			</p>
+			<p>
+			<h3>Funding</h3>
+			The first phase of this project is funded by the project grant <em>Exploring Slave Trade in Asia (ESTA)</em> awarded within the NWO Internationalisation in the Humanities 2018 Grant Programme (2018).
+			</p>
 		</div>
 		{if $notLoggedIn}
 		<div id="loginFrame">

@@ -55,6 +55,10 @@ function save_dependencies() {
 			}
 		});
 	});
+	$("#gridSaveBtn").removeClass("toBeSaved");
+	$(".interMediateBin").each(function () {
+		$(this).removeClass("interMediateBin");
+	});
 	var data = JSON.stringify(json);
 	send_dependencies(data);
 }
@@ -111,6 +115,7 @@ function fill_grid(json) {
 	for (var key in json.data) {
 		setCell(json.data[key]);
 	}
+	$("#gridSaveBtn").removeClass("toBeSaved");
 }
 
 function setCell(obj) {
@@ -146,11 +151,15 @@ function fill_cell(obj) {
 			$(obj).addClass($(selectedObject).attr("class"));
 			$(obj).attr("data-id", $(selectedObject).attr("data-id"));
 			$("#" + $(selectedObject).attr("id")).attr("class", "noSeaNorLand");
+			$("#bin" + $(selectedObject).attr("data-id")).removeClass("interMediateBin");
+			$("#bin" + $(selectedObject).attr("data-id")).addClass("hiddenBin");
 			selectedObject = null;
 		} else {
 			var id = $(obj).html();
 			var objClass = $(obj).attr("class");
 			$("#" + id).attr("class", objClass);
+			$("#bin" + $(obj).attr("data-id")).removeClass("hiddenBin");
+			$("#bin" + $(obj).attr("data-id")).addClass("interMediateBin");
 			$(obj).attr("data-id", null);
 			$(obj).attr("class", null);
 			$(obj).html("");
@@ -160,9 +169,12 @@ function fill_cell(obj) {
 		var objClass = $(obj).attr("class");
 		$("#" + id).attr("class", objClass);
 		$(obj).attr("class", null);
+		$("#bin" + $(obj).attr("data-id")).removeClass("hiddenBin");
+		$("#bin" + $(obj).attr("data-id")).addClass("interMediateBin");
 		$(obj).attr("data-id", null);
 		$(obj).html("");
 	}
+	$("#gridSaveBtn").addClass("toBeSaved");
 }
 
 function validate_login() {

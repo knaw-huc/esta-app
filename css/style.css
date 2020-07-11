@@ -51,6 +51,15 @@ color: #44444f;
 font-size: 18px;
 }
 
+h3{
+color: #44444f;
+margin: 10px 0 4px 0;
+}
+
+h3:first-of-type {
+padding-top: 30px;
+}
+
 #menu {
 position: absolute;
 left: 400px;
@@ -353,7 +362,7 @@ background-color: #b29766;
 margin-top: 20px;
 }
 
-#dashBoard input[type="button"] {
+#dashBoard input[type="button"], button, input[type="submit"] {
 font-weight: bold;
 background-color: #5c5c6a;
 color: #FFFFFF;
@@ -542,6 +551,14 @@ color: #B00;
 
 .withPointer {
 cursor: pointer;
+}
+
+.interMediateBin, .hiddenBin {
+display: none;
+}
+
+.toBeSaved:after {
+content: " *" !important;
 }
 
 

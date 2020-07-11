@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-06 15:49:24
+/* Smarty version 3.1.32, created on 2020-07-11 12:18:00
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f032be4c4ef77_03457508',
+  'unifunc' => 'content_5f0991d8d65326_18753148',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '03f082726b1860055f5b721899d50b3a783ddfa8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl',
-      1 => 1594043321,
+      1 => 1594462675,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f032be4c4ef77_03457508 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f0991d8d65326_18753148 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSubvoyage" data-action="<?php echo $_smarty_tpl->tpl_vars['sub_voyage_action']->value;?>
 ">
 	<div class="component" id="5eaac4f83afa7" data-name="subvoyage" data-order="1">
@@ -63,24 +63,24 @@ function content_5f032be4c4ef77_03457508 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_dept_place_standardized">
 			<div class="label">Place of departure standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_place_standardized" data-validation-profile="5eaac4f83b6d2"
-										class="input_element">
+										id="sub_dept_place_standardized" data-table="slaves" data-validation-profile="5eaac4f83b6d2"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b6d2" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="sub_dept_region_standardized">
 			<div class="label">Region of departure standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_region_standardized" data-validation-profile="5eaac4f83b6d7"
-										class="input_element">
+										id="sub_dept_region_standardized" data-table="slaves" data-validation-profile="5eaac4f83b6d7"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b6d7" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="sub_dept_polity_standardized">
 			<div class="label">Polity of departure standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_polity_standardized" data-validation-profile="5eaac4f83b6dd"
-										class="input_element">
+										id="sub_dept_polity_standardized" data-table="slaves" data-validation-profile="5eaac4f83b6dd"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b6dd" class="errorMsg"></div>
 			</div>
 		</div>
@@ -159,24 +159,24 @@ function content_5f032be4c4ef77_03457508 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="sub_arrival_place_standardized">
 			<div class="label">Place of arrival standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_place_standardized" data-validation-profile="5eaac4f83b711"
-										class="input_element">
+										id="sub_arrival_place_standardized" data-table="slaves" data-validation-profile="5eaac4f83b711"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b711" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="sub_arrival_region_standardized">
 			<div class="label">Region of arrival standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_region_standardized" data-validation-profile="5eaac4f83b717"
-										class="input_element">
+										id="sub_arrival_region_standardized" data-table="slaves" data-validation-profile="5eaac4f83b717"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b717" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="sub_arrival_polity_standardized">
 			<div class="label">Polity of arrival standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_polity_standardized" data-validation-profile="5eaac4f83b71c"
-										class="input_element">
+										id="sub_arrival_polity_standardized" data-table="slaves" data-validation-profile="5eaac4f83b71c"
+										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b71c" class="errorMsg"></div>
 			</div>
 		</div>

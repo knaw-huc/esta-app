@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-06 15:42:56
+/* Smarty version 3.1.32, created on 2020-07-11 20:08:28
   from '/Library/WebServer/Documents/esta/application/views/templates/home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f032a60b3ae06_24901254',
+  'unifunc' => 'content_5f0a001c9a5462_35893881',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd117044c10cdaa2ecf8b3ba92be9f12bde5abe39' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/home.tpl',
-      1 => 1594042680,
+      1 => 1594490905,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f032a60b3ae06_24901254 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f0a001c9a5462_35893881 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5520120865f032a60b2ce39_21420928', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7416940685f0a001c99c924_84733790', "content");
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_5520120865f032a60b2ce39_21420928 extends Smarty_Internal_Block
+class Block_7416940685f0a001c99c924_84733790 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_5520120865f032a60b2ce39_21420928',
+    0 => 'Block_7416940685f0a001c99c924_84733790',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -46,25 +46,26 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 	<div id="homeContent">
 		<div class="homeComponent">
-			<h2>ESTA</h2>
-			<p>The main theme of the works of Tarantino is a self-supporting paradox.
-				Therefore, the premise of pretextual narrative holds that the purpose of the
-				participant is significant form, but only if Baudrillard’s essay on Marxist
-				class is invalid. Derrida suggests the use of socialist realism to attack and
-				read class.</p>
-
-			<p>However, the subject is interpolated into a pretextual narrative that
-				includes language as a whole. Marx uses the term ‘precapitalist constructivist
-				theory’ to denote the difference between society and truth.</p>
-
-			<p>It could be said that the subject is contextualised into a socialist realism
-				that includes consciousness as a paradox. The characteristic theme of
-				Wilson’s[3] critique of pretextual narrative is the defining
-				characteristic, and therefore the stasis, of postsemantic class.</p>
-
-			<p>Thus, the subject is interpolated into a Marxist class that includes
-				language as a whole. Baudrillard uses the term ‘socialist realism’ to denote
-				the bridge between reality and sexual identity.</p>
+			<p>
+			<h3>ESTA Editor</h3>
+			This is the database editor of the <em>Exploring Slave Trade in Asia</em> project. The ESTA Editor allows adding observations and editing data on slave trade (sub)voyages in the wider Indian Ocean and Indonesian Archipelago worlds.
+			</p>
+			<p>
+			<h3>Exploring Slave Trade in Asia</h3>
+			Since 2016, a growing group of scholars focusing on slavery and slave trade in the Indian Ocean and Indonesian Archipelago Worlds has forged new connections through successful workshops in Amsterdam (2016), Kalmar (2017) and Lyon (2019). The scholars of this emerging network are committed to develop a coherent field of Asian slave trade and slavery studies, including East, Southeast and South Asia as well as East Africa. Key groundwork in propelling both current and future research in the field of Asian slavery studies entails creating the basis for a collaborative slave trade database initiative. Within this wider network of Asian slavery and slave trade studies, we have therefore initiated the project <em>Exploring Slave Trade in Asia</em> that aims to work towards a collaborative slave trade database for the wider Indian Ocean and Indonesian Archipelago regions slave trade.
+			</p>
+			<p>
+			<h3>Want to join or contribute?</h3>
+			Scholars or students who are interested in contributing to the initiative and providing data are more than welcome. The project collects existing datasets, invites new connections for the network and fosters new data contributions. If you are interested to contribute, please contact <a href="">Etaoin Shrdlu</a>.
+			</p>
+			<p>
+			<h3>More information</h3>
+			More information on the ESTA project and slavery and slave trade in Asia network can be found here: <a href="https://iisg.amsterdam/nl/research/projects/slave-trade-asia" target="_new">https://iisg.amsterdam/nl/research/projects/slave-trade-asia</a>. The curated existing datasets are collected and stored at the IISH Dataverse: <a href="https://datasets.socialhistory.org/dataverse/iomastd" target="_new">https://datasets.socialhistory.org/dataverse/iomastd</a>.
+			</p>
+			<p>
+			<h3>Funding</h3>
+			The first phase of this project is funded by the project grant <em>Exploring Slave Trade in Asia (ESTA)</em> awarded within the NWO Internationalisation in the Humanities 2018 Grant Programme (2018).
+			</p>
 		</div>
 		<?php if ($_smarty_tpl->tpl_vars['notLoggedIn']->value) {?>
 		<div id="loginFrame">

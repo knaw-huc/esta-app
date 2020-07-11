@@ -155,6 +155,20 @@ class Service extends CI_Controller
 		}
 	}
 
+	function delete_subvoyage($id) {
+		if ($this->session->logged_in) {
+			if ($this->fetch->deleteSubVoyage($id, $this->session->id)) {
+				$this->send_json(array("status" => "OK"));
+			} else {
+				$this->throw_error();
+			}
+		} else {
+			$this->throw_error();
+		}
+	}
+
+
+
 	private function get_key($form) {
 		$keys = array(
 			"heSubvoyage" => "subvoyage_id",

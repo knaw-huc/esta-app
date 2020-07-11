@@ -14,14 +14,14 @@
 		</tr>
 		{foreach from=$subvoyages item=subvoyage}
 			<tr class="even">
-				<td id="SV{$subvoyage@index + 1}" class="sea" data-id="{$subvoyage.subvoyage_id}" onclick="set_candidate(this)">SV{$subvoyage@index + 1}</td>
+				<td id="SV{$subvoyage@index + 1}" class="{$subvoyage.subvoyage_type}" data-id="{$subvoyage.subvoyage_id}" onclick="set_candidate(this)">SV{$subvoyage@index + 1}</td>
 				<td>{$subvoyage.sub_dept_date_year}</td>
 				<td>{$subvoyage.vessel}</td>
 				<td>{$subvoyage.captain}</td>
 				<td>{$subvoyage.sub_dept_place}</td>
 				<td>{$subvoyage.sub_arrival_place}</td>
-				<td><a href="{$home_path}workspace/edit_voyage/{$subvoyage.subvoyage_id}"><img src="{$home_path}img/edit.png" height="16px" width="16px"></a></td>
-				<td><a href="" title="Delete profile"><img src="{$home_path}img/bin.png" height="16px" width="16px"></a>
+				<td><img src="{$home_path}img/edit.png"  class="withPointer" height="16px" width="16px" onclick="edit_voyage('{$subvoyage.subvoyage_id}')"></td>
+				<td><img id="bin{$subvoyage.subvoyage_id}"  class="withPointer" src="{$home_path}img/bin.png" height="16px" width="16px" onclick="delete_subvoyage('{$subvoyage.subvoyage_id}')">
 				</td>
 			</tr>
 		{/foreach}
@@ -63,7 +63,11 @@
 	<div id="dashBoard">
 		<input type="button" value="Add row" onclick="addRow()"/>
 		<input type="button" value="Add column" onclick="addCol()"/>
-		<input type="button" value="Save" onclick="save_dependencies()"/>
+		<button id="gridSaveBtn" onclick="save_dependencies()">Save</button>
+		<div>
+			&nbsp;<br/>
+			<button onclick="window.location = '{$home_path}workspace/deleted_subvoyages/{$voyage_id}'">Deletions</button>
+		</div>
 	</div>
 	<div id="gridMessage"></div>
 	<script>

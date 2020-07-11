@@ -319,6 +319,14 @@ function getMutationData() {
 	}
 }
 
+function change_cbDeleted(obj) {
+	if ($(obj).is(':checked')) {
+		$(".cbDeleted").prop('checked', true);
+	} else {
+		$(".cbDeleted").prop('checked', false);
+	}
+
+}
 
 function checkSave() {
 	if (currentFormChanged) {
@@ -334,7 +342,7 @@ function resetCurrentFormMetadata() {
 			$(this).removeClass("changed_input_element");
 			$(this).addClass("input_element");
 		}
-	)
+	);
 }
 
 function initCurrentFormMetadata() {
@@ -368,7 +376,6 @@ function initCurrentFormMetadata() {
 			getData(currentForm, editVars[editVars.currentActor]);
 
 	}
-
 }
 
 
@@ -851,6 +858,28 @@ function delete_voyage(id) {
 			}
 		})
 
+	}
+}
+
+function edit_voyage(id) {
+	if ($("#gridSaveBtn").hasClass("toBeSaved")) {
+		alert("You have to save the subvoyage relations first!");
+	} else {
+		window.location = home + "/workspace/edit_voyage/" + id;
+	}
+}
+
+function delete_subvoyage(id) {
+	if (confirm("Do you really want to delete subvoyage " + id + "?")) {
+		$.ajax({
+			url: home + "/service/delete_subvoyage/" + id,
+			success: function (json) {
+				location.reload();
+			},
+			error: function (err) {
+				alert("An error occurred: " + err);
+			}
+		})
 	}
 }
 

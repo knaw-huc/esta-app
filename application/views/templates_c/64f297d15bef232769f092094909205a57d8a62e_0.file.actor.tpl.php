@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-06 20:55:25
+/* Smarty version 3.1.32, created on 2020-07-08 15:15:33
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/actor.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f03739d8c99d3_22741447',
+  'unifunc' => 'content_5f05c6f5642f19_80965537',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '64f297d15bef232769f092094909205a57d8a62e' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/actor.tpl',
-      1 => 1594061716,
+      1 => 1594061846,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f03739d8c99d3_22741447 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f05c6f5642f19_80965537 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heActor"  data-action="<?php echo $_smarty_tpl->tpl_vars['actor_action']->value;?>
 ">
 	<div class="component">
@@ -35,7 +35,7 @@ function content_5f03739d8c99d3_22741447 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="actor_name_standardised">
 			<div class="label">Name standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="actor_name_standardised" data-table="actor"
-										data-validation-profile="5e823fa99afa1" class="input_element">
+										data-validation-profile="5e823fa99afa1" class="input_element" data-auto="yes">
 				<div id="errorMsg_5e823fa99afa1" class="errorMsg"></div>
 			</div>
 		</div>
@@ -49,7 +49,7 @@ function content_5f03739d8c99d3_22741447 (Smarty_Internal_Template $_smarty_tpl)
 		<div class="element" data-name="actor_nationality_standardised">
 			<div class="label">Nationality standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="actor_nationality_standardised" data-table="actor"
-										data-validation-profile="5e823fa99afad" class="input_element">
+										data-validation-profile="5e823fa99afad" class="input_element" data-auto="yes">
 				<div id="errorMsg_5e823fa99afad" class="errorMsg"></div>
 			</div>
 		</div>
