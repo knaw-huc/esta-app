@@ -536,15 +536,27 @@ function addCargos(json) {
 }
 
 function resetCargoList() {
-	$("#heCargo").find(".activeActorTableRow").each(function () {
+	$("#cargoTable").find(".activeActorTableRow").each(function () {
 		$(this).removeClass("activeActorTableRow");
-	})
+	});
+}
+
+function resetActorList(type) {
+	$("#" + type + "Table").find(".activeActorTableRow").each(function () {
+		$(this).removeClass("activeActorTableRow");
+	});
 }
 
 function selectCargo(id) {
 	editVars.currentCargo = id;
 	resetCurrentFormMetadata();
 	getData(currentForm, editVars.currentCargo);
+}
+
+function selectActor(id) {
+	editVars.currentActor = id;
+	resetCurrentFormMetadata();
+	getData(currentForm, editVars.currentActor);
 }
 
 function setSubVoyageActors(json) {
@@ -555,15 +567,15 @@ function setSubVoyageActors(json) {
 }
 
 function setSlaveActors(json) {
-	$("#slaveMainActorCell").html(json.ac_main_actor);
-	$("#slaveSecondActorCell").html(json.ac_second_actor);
+	$("#slavesActorTable").removeClass("noView");
 }
 
 /*
 	Saving functions
  */
 
-function send_data(data, form, id) {
+function send_data(data, form, id, type = 'default') {
+	console.log(type);
 	$.ajax({
 		type: "POST",
 		url: home + "/service/update_data",
@@ -587,6 +599,32 @@ function new_cargo() {
 	var data = {};
 	data.subvoyage_subvoyage_id = editVars.currentVoyage;
 	send_data(data, "heCargo", 0);
+}
+
+function new_actor(type, id) {
+	switch(type) {
+		case "slavesActor":
+			var actorType = "slaves";
+			break;
+		default:
+			var actorType = "cargo";
+			break;
+	}
+	$.ajax({
+		type: "POST",
+		url: home + "/service/add_actor",
+		data: {
+			id: id,
+			actor_type: actorType
+		},
+		success: function (ret_id) {
+			addActorToList(ret_id, type);
+		},
+		error: function (err) {
+			console.log(err);
+			alert("Errors! Data not saved");
+		}
+	})
 }
 
 function updateLink(form, id) {
@@ -648,16 +686,6 @@ function linkActor(actor, id) {
 			table = "heSubvoyage";
 			dataField = "voyage_insurer";
 			key = editVars.currentVoyage;
-			break;
-		case "actor1":
-			table = "heSlaves";
-			dataField = "main_actor_id";
-			key = editVars.slaves;
-			break;
-		case "acctor2":
-			table = "heSlaves";
-			dataField = "actor2_id";
-			key = editVars.slaves;
 			break;
 
 	}
@@ -731,6 +759,45 @@ function addCargoToList(id) {
 	selectCargo(id);
 }
 
+function addActorToList(id, tableName) {
+	resetActorList(tableName);
+	var row = document.createElement("tr");
+	var cell = document.createElement("td");
+	$(cell).html("--New--");
+
+	$(row).append(cell);
+	var cell = document.createElement("td");
+	$(cell).addClass("editIcon");
+	var img = document.createElement("img");
+	$(img).attr("src", home + "/img/edit.png");
+	$(img).attr("height", "16px");
+	$(img).attr("width", "16px");
+	$(img).attr("data-cargo_id", id);
+	$(img).on("click", function (e) {
+		e.preventDefault();
+		resetActorList(tableName);
+		selectActor($(this).attr("data-actor_id"));
+		$(this).parent().parent().addClass("activeActorTableRow");
+	});
+	$(cell).append(img);
+	$(cell).attr("width", "20px");
+	$(row).append(cell);
+	var cell = document.createElement("td");
+	$(cell).addClass("editIcon");
+	var img = document.createElement("img");
+	$(img).attr("src", home + "/img/bin.png");
+	$(img).attr("height", "16px");
+	$(img).attr("width", "16px");
+	$(cell).append(img);
+	$(cell).attr("width", "20px");
+	$(row).append(cell);
+	$(row).addClass("activeActorTableRow");
+	$("#" + tableName).append(row);
+	selectActor(id);
+}
+
+
+
 function saveSubVoyage() {
 	if (currentFormChanged) {
 		var data = harvestForm(currentForm);
@@ -776,6 +843,7 @@ function saveActor() {
 		alert("Form was not changed.");
 	}
 }
+
 
 function harvestForm(form) {
 	var data = {};
@@ -840,7 +908,7 @@ function createAutoCompletes() {
 		$(this).devbridgeAutocomplete({
 			serviceUrl: home + '/service/get_standard_values/' + $(this).attr("data-table") + '/' + $(this).attr("id"),
 			type: "POST",
-			dataType: 'text',
+			dataType: 'json',
 			paramName: 'q'
 		});
 	});

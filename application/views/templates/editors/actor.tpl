@@ -15,11 +15,31 @@
 				<div id="errorMsg_5e823fa99afa1" class="errorMsg"></div>
 			</div>
 		</div>
+
+		<div class="element" data-name="actor_role">
+			<div class="label">Role</div>
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="actor_role"
+										class="input_element">
+			</div>
+		</div>
+		<div class="element" data-name="actor_role_standardised">
+			<div class="label">Role standardised</div>
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="actor_role_standardised" data-table="actor"
+										data-validation-profile="5e823fa99afad" class="input_element" data-auto="yes">
+				<div id="errorMsg_5e823fa99afad" class="errorMsg"></div>
+			</div>
+		</div>
+
+		<div class="element" data-name="actor_company">
+			<div class="label">Company</div>
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="actor_company"
+										class="input_element">
+			</div>
+		</div>
+
 		<div class="element" data-name="actor_nationality">
 			<div class="label">Nationality</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="actor_nationality"
-										data-validation-profile="5e823fa99afa8" class="input_element">
-				<div id="errorMsg_5e823fa99afa8" class="errorMsg"></div>
+			<div class="control"><input type="text" size="100" data-reset-value="line" value="" id="actor_nationality" class="input_element">
 			</div>
 		</div>
 		<div class="element" data-name="actor_nationality_standardised">

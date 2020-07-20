@@ -198,23 +198,11 @@
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>
 		<div id="tmpFormatter">
-			<table class="resultTable">
+			<table id="slavesActorTable" class="noView">
 				<tr>
 					<th>Actors</th>
 					<th></th>
-					<th></th>
-				</tr>
-				<tr>
-					<td>Actor 1</td>
-					<td id="slaveMainActorCell"></td>
-					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px" onclick="editSlaveActor1()">
-					</td>
-				</tr>
-				<tr>
-					<td>Actor 2</td>
-					<td id="slaveSecondActorCell"></td>
-					<td class="editIcon"><img src="{$home_path}img/edit.png" height="16px" width="16px" onclick="editSlaveActor2()">
-					</td>
+					<th><a href="javascript:new_actor('slavesActor', editVars.slaves)">+</a></th>
 				</tr>
 			</table>
 		</div>

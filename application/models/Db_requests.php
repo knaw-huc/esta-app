@@ -299,6 +299,11 @@ class Db_requests extends CI_Model
 		return $this->db->insert_id();
 	}
 
+	function getSlaveActors($id) {
+		$sql = "SELECT a.actor_id, a.actor_name, a.actor_role FROM free_actors AS f, actor AS a WHERE f.type = 'slaves' AND f.type_id = $id AND f.actor_id = a.actor_id";
+		return $this->db->query($sql)->result_array();
+	}
+
 
 	private function getSlaveID($id)
 	{

@@ -163,25 +163,25 @@ table {
 empty-cells: show;
 }
 
-.resultTable, #dependencyTable, #cargoTable, #mutTable {
+.resultTable, #dependencyTable, #cargoTable, #mutTable, #slavesActorTable {
 border-collapse: collapse;
 }
 
-.resultTable tr, #dependencyTable tr, #cargoTable tr, #mutTable tr {
+.resultTable tr, #dependencyTable tr, #cargoTable tr, #mutTable tr, #slavesActorTable tr {
 border-top: 1px solid #555;
 border-left: 1px solid #555;
 border-right: 1px solid #555;
 }
 
-.resultTable, #dependencyTable, #cargoTable, #mutTable {
+.resultTable, #dependencyTable, #cargoTable, #mutTable, #slavesActorTable {
 border-bottom: 1px solid #555;
 }
 
-#btnFrame .resultTable tr td, #cargoTable tr td, #mutTable tr td {
+#btnFrame .resultTable tr td, #cargoTable tr td, #mutTable tr td, #slavesActorTable tr td {
 background-color: #ffffff;
 }
 
-#btnFrame .resultTable, #cargoTable {
+#btnFrame .resultTable, #cargoTable, #slavesActorTable {
 width: 90%;
 }
 
@@ -197,6 +197,10 @@ width: 20px;
 
 .resultTable tr:hover {
 color: #777;
+}
+
+#cargoActorTable{
+display: none;
 }
 
 #tmpFormatter {
@@ -217,16 +221,16 @@ border-right: none;
 }
 
 
-.resultTable tr td, .resultTable tr th, #cargoTable tr td, #cargoTable tr th, #mutTable tr th, #mutTable tr td {
+.resultTable tr td, .resultTable tr th, #cargoTable tr td, #cargoTable tr th, #mutTable tr th, #mutTable tr td, #slavesActorTable tr td, #slavesActorTable, tr th {
 padding: 4px 16px 4px 6px;
 }
 
-.resultTable tr th, #dependencyTable tr th, #cargoTable tr th, #mutTable tr th {
+.resultTable tr th, #dependencyTable tr th, #cargoTable tr th, #mutTable tr th, #slavesActorTable tr th {
 color: #fff;
 background-color: #5c5c6a;
 }
 
-.resultTable tr th a , #cargoTable tr th a{
+.resultTable tr th a , #cargoTable tr th a, #slavesActorTable tr th a{
 color: #ffffff;
 }
 

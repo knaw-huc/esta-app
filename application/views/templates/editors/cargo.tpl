@@ -86,6 +86,14 @@
 					<th><a href="javascript:new_cargo()">+</a></th>
 				</tr>
 			</table>
+			<div>&nbsp;</div>
+			<table id="cargoActorTable">
+				<tr>
+					<th>Actors</th>
+					<th></th>
+					<th><a href="javascript:new_actor('cargoActor', editVars.currentCargo)">+</a></th>
+				</tr>
+			</table>
 		</div>
 		<input id="mutBtn" type="button" value="Mutation history" onclick="show_mutations();"/>
 	</div>

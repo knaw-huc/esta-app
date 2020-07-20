@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-11 12:18:00
+/* Smarty version 3.1.32, created on 2020-07-17 14:45:58
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f0991d8d65326_18753148',
+  'unifunc' => 'content_5f119d864c0893_88242191',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '03f082726b1860055f5b721899d50b3a783ddfa8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl',
-      1 => 1594462675,
+      1 => 1594982703,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f0991d8d65326_18753148 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f119d864c0893_88242191 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSubvoyage" data-action="<?php echo $_smarty_tpl->tpl_vars['sub_voyage_action']->value;?>
 ">
 	<div class="component" id="5eaac4f83afa7" data-name="subvoyage" data-order="1">
@@ -29,7 +29,6 @@ function content_5f0991d8d65326_18753148 (Smarty_Internal_Template $_smarty_tpl)
 			<div class="label">Type</div>
 			<div class="control"><select id="subvoyage_type" data-validation-profile="5eaac4f83b67e"
 										 class="input_element">
-					<option value="">--</option>
 					<option value="sea">sea</option>
 					<option value="land">land</option>
 				</select>

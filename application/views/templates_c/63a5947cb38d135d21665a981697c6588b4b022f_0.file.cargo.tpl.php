@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-06 20:55:25
+/* Smarty version 3.1.32, created on 2020-07-17 14:45:58
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/cargo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f03739d8b85f7_51942185',
+  'unifunc' => 'content_5f119d865128f2_57695206',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '63a5947cb38d135d21665a981697c6588b4b022f' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/cargo.tpl',
-      1 => 1594061606,
+      1 => 1594989868,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f03739d8b85f7_51942185 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f119d865128f2_57695206 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heCargo"  data-action="<?php echo $_smarty_tpl->tpl_vars['cargo_action']->value;?>
 ">
 	<div class="component">
@@ -108,6 +108,14 @@ function content_5f03739d8b85f7_51942185 (Smarty_Internal_Template $_smarty_tpl)
 					<th>Cargos</th>
 					<th></th>
 					<th><a href="javascript:new_cargo()">+</a></th>
+				</tr>
+			</table>
+			<div>&nbsp;</div>
+			<table id="cargoActorTable">
+				<tr>
+					<th>Actors</th>
+					<th></th>
+					<th><a href="javascript:new_actor('cargoActor', editVars.currentCargo)">+</a></th>
 				</tr>
 			</table>
 		</div>

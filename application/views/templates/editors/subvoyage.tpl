@@ -5,7 +5,6 @@
 			<div class="label">Type</div>
 			<div class="control"><select id="subvoyage_type" data-validation-profile="5eaac4f83b67e"
 										 class="input_element">
-					<option value="">--</option>
 					<option value="sea">sea</option>
 					<option value="land">land</option>
 				</select>

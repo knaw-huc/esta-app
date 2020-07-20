@@ -36,6 +36,14 @@ class Service extends CI_Controller
 		}
 	}
 
+	function add_actor() {
+		if ($this->input->post("id") && $this->input->post("actor_type")) {
+			$id = $this->fetch->insert_data("", "actor", array());
+			$this->fetch->insert_data("", "free_actors", array("type" => $this->input->post("actor_type"), "actor_id" => $id , "type_id" => $this->input->post("id")));
+			$this->send_json($id);
+		}
+	}
+
 	function update_data() {
 		$id = $this->input->post("id");
 		$data = json_decode($this->input->post("data"), true);
@@ -54,8 +62,7 @@ class Service extends CI_Controller
 		if ($this->input->post("id")) {
 			$slaves = $this->fetch->getSlavesForEdit($this->input->post("id"));
 			if (count($slaves)) {
-				$slaves["ac_main_actor"] = $this->fetch->getActorName($slaves["main_actor_id"]);
-				$slaves["ac_second_actor"] = $this->fetch->getActorName($slaves["actor_id2"]);
+				$slaves["actors"] = $this->fetch->getSlaveActors($this->input->post("id"));
 				$this->send_json($slaves);
 			} else {
 				$this->throw_error("Slave info does not exist");
