@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-11 19:30:20
+/* Smarty version 3.1.32, created on 2020-07-29 21:25:44
   from '/Library/WebServer/Documents/esta/application/views/templates/deleted_subvoyages.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f09f72c7ceca6_87987411',
+  'unifunc' => 'content_5f21cd38ee38c1_96561199',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0cc63a4ca9cd7062d1ba17f383f2699fd93ef8fc' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/deleted_subvoyages.tpl',
-      1 => 1594488615,
+      1 => 1596050740,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f09f72c7ceca6_87987411 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f21cd38ee38c1_96561199 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_5151575595f09f72c7bbae6_78385825', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_12457326745f21cd38ecf472_13931523', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_5151575595f09f72c7bbae6_78385825 extends Smarty_Internal_Block
+class Block_12457326745f21cd38ecf472_13931523 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_5151575595f09f72c7bbae6_78385825',
+    0 => 'Block_12457326745f21cd38ecf472_13931523',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -51,7 +51,6 @@ workspace/undelete_subvoyages">
 		<tr>
 			<th>Departure date</th>
 			<th>Vessel</th>
-			<th>Captain</th>
 			<th>From</th>
 			<th>To</th>
 			<th>Deleted by</th>
@@ -67,8 +66,6 @@ foreach ($_from as $_smarty_tpl->tpl_vars['subvoyage']->value) {
 				<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['sub_dept_date_year'];?>
 </td>
 				<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['vessel'];?>
-</td>
-				<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['captain'];?>
 </td>
 				<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['sub_dept_place'];?>
 </td>

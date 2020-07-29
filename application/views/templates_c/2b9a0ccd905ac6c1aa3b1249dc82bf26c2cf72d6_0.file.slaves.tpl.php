@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-19 16:19:19
+/* Smarty version 3.1.32, created on 2020-07-29 17:20:17
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f1456677da655_63241144',
+  'unifunc' => 'content_5f2193b1adb084_57877519',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2b9a0ccd905ac6c1aa3b1249dc82bf26c2cf72d6' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl',
-      1 => 1595168307,
+      1 => 1596035583,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f1456677da655_63241144 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2193b1adb084_57877519 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSlaves" data-action="<?php echo $_smarty_tpl->tpl_vars['slaves_action']->value;?>
 ">
 	<div class="component">
@@ -222,9 +222,10 @@ function content_5f1456677da655_63241144 (Smarty_Internal_Template $_smarty_tpl)
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>
 		<div id="tmpFormatter">
-			<table id="slavesActorTable" class="noView">
+			<table id="slavesActorTable" class="resultTable">
 				<tr>
 					<th>Actors</th>
+					<th></th>
 					<th></th>
 					<th><a href="javascript:new_actor('slavesActor', editVars.slaves)">+</a></th>
 				</tr>

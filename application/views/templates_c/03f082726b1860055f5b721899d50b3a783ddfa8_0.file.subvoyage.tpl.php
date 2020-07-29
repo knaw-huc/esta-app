@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-17 14:45:58
+/* Smarty version 3.1.32, created on 2020-07-29 12:36:56
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f119d864c0893_88242191',
+  'unifunc' => 'content_5f215148a809a1_78800683',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '03f082726b1860055f5b721899d50b3a783ddfa8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl',
-      1 => 1594982703,
+      1 => 1596019012,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f119d864c0893_88242191 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f215148a809a1_78800683 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSubvoyage" data-action="<?php echo $_smarty_tpl->tpl_vars['sub_voyage_action']->value;?>
 ">
 	<div class="component" id="5eaac4f83afa7" data-name="subvoyage" data-order="1">
@@ -309,39 +309,12 @@ function content_5f119d864c0893_88242191 (Smarty_Internal_Template $_smarty_tpl)
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>
 		<div id="tmpFormatter">
-			<table class="resultTable">
+			<table id="voyageActorTable" class="resultTable">
 				<tr>
 					<th>Actors</th>
 					<th></th>
 					<th></th>
-				</tr>
-				<tr id="captainRow">
-					<td>Captain</td>
-					<td id="captainCell"></td>
-					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
-img/edit.png" height="16px" width="16px" onclick="editCaptain()">
-					</td>
-				</tr>
-				<tr id="outfitterRow">
-					<td>Outfitter</td>
-					<td id="outfitterCell"></td>
-					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
-img/edit.png" height="16px" width="16px" onclick="editOutfitter()">
-					</td>
-				</tr>
-				<tr id="investorRow">
-					<td>Investor</td>
-					<td id="investorCell"></td>
-					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
-img/edit.png" height="16px" width="16px" onclick="editInvestor()">
-					</td>
-				</tr>
-				<tr id="insurerRow">
-					<td>Insurer</td>
-					<td id="insurerCell"></td>
-					<td class="editIcon"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
-img/edit.png" height="16px" width="16px" onclick="editInsurer()">
-					</td>
+					<th><a href="javascript:new_actor('voyageActor', editVars.currentVoyage)">+</a></th>
 				</tr>
 			</table>
 		</div>

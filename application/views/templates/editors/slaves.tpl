@@ -198,9 +198,10 @@
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>
 		<div id="tmpFormatter">
-			<table id="slavesActorTable" class="noView">
+			<table id="slavesActorTable" class="resultTable">
 				<tr>
 					<th>Actors</th>
+					<th></th>
 					<th></th>
 					<th><a href="javascript:new_actor('slavesActor', editVars.slaves)">+</a></th>
 				</tr>

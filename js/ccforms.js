@@ -1,17 +1,11 @@
 var editVars = {
 	voyageStatus: "new",
 	currentVoyage: 0,
-	captain: 0,
-	insurer: 0,
-	outfitter: 0,
-	investor: 0,
 	vessel: 0,
 	slaves: 0,
-	actor1: 0,
-	actor2: 0,
 	cargo: 0,
 	currentCargo: 0,
-	currentActor: "",
+	currentActor: 0,
 	mainVoyage: 0
 }
 
@@ -129,7 +123,7 @@ function setUserEdit() {
 }
 
 function submitUserEdit() {
-	if ($("#first_name").val().trim() == "" || $("#name").val().trim() == "" || !validateEmail($("#email").val())) {
+	if ($("#first_name").val().trim() === "" || $("#name").val().trim() === "" || !validateEmail($("#email").val())) {
 		$("#loginError").html("One or more field values are invalid!");
 	} else {
 		$("#userProfileForm").submit();
@@ -222,14 +216,6 @@ function editCaptain() {
 	initCurrentFormMetadata();
 }
 
-function editOutfitter() {
-	editVars.currentActor = "outfitter";
-	$("#actorType").html("Outfitter");
-	hideDetails();
-	$("#actorForm").removeClass("noView");
-	currentForm = "heActor";
-	initCurrentFormMetadata();
-}
 
 function editInvestor() {
 	editVars.currentActor = "investor";
@@ -243,24 +229,6 @@ function editInvestor() {
 function editInsurer() {
 	editVars.currentActor = "insurer";
 	$("#actorType").html("Insurer");
-	hideDetails();
-	$("#actorForm").removeClass("noView");
-	currentForm = "heActor";
-	initCurrentFormMetadata();
-}
-
-function editSlaveActor1() {
-	editVars.currentActor = "actor1";
-	$("#actorType").html("Main actor");
-	hideDetails();
-	$("#actorForm").removeClass("noView");
-	currentForm = "heActor";
-	initCurrentFormMetadata();
-}
-
-function editSlaveActor2() {
-	editVars.currentActor = "actor2";
-	$("#actorType").html("Second actor");
 	hideDetails();
 	$("#actorForm").removeClass("noView");
 	currentForm = "heActor";
@@ -292,26 +260,28 @@ function show_mutations() {
 }
 
 function getMutationData() {
+	var id;
+	var table;
 	switch (currentForm) {
 		case "heSubvoyage":
-			var id = editVars.currentVoyage;
-			var table = "subvoyage";
+			id = editVars.currentVoyage;
+			table = "subvoyage";
 			break;
 		case "heSlaves":
-			var id = editVars.slaves;
-			var table = "slaves";
+			id = editVars.slaves;
+			table = "slaves";
 			break;
 		case "heVessel":
-			var id = editVars.vessel;
-			var table = "vessel";
+			id = editVars.vessel;
+			table = "vessel";
 			break;
 		case "heCargo":
-			var id = editVars.currentCargo;
-			var table = "cargo";
+			id = editVars.currentCargo;
+			table = "cargo";
 			break;
 		case "heActor":
-			var id = editVars.currentActor;
-			var table = "actor";
+			id = editVars.currentActor;
+			table = "actor";
 			break;
 	}
 	if (id !== undefined) {
@@ -373,8 +343,11 @@ function initCurrentFormMetadata() {
 			}
 			break;
 		case "heActor":
-			getData(currentForm, editVars[editVars.currentActor]);
-
+			if (editVars.currentActor !== "") {
+				getData(currentForm, editVars[editVars.currentActor]);
+			} else {
+				getData(currentForm, editVars.currentFreeActor);
+			}
 	}
 }
 
@@ -417,7 +390,6 @@ function fetchMutationData(id, table) {
 
 function populateMutationView(json) {
 	for (var key in json) {
-		console.log(key);
 		var row = document.createElement('tr');
 		$(row).append(cell(json[key].tablename));
 		$(row).append(cell(json[key].fieldname));
@@ -480,10 +452,6 @@ function setEditVars(json) {
 	editVars.slaves = json.sub_slaves;
 	editVars.vessel = json.sub_vessel;
 	editVars.cargo = json.sub_cargo;
-	editVars.captain = json.sub_captain;
-	editVars.investor = json.voyage_investor;
-	editVars.outfitter = json.voyage_outfitter;
-	editVars.insurer = json.voyage_insurer;
 	editVars.mainVoyage = json.voyage_id;
 }
 
@@ -547,6 +515,10 @@ function resetActorList(type) {
 	});
 }
 
+function emptyActorList(type) {
+	$("#" + type + "Table").html("");
+}
+
 function selectCargo(id) {
 	editVars.currentCargo = id;
 	resetCurrentFormMetadata();
@@ -554,16 +526,20 @@ function selectCargo(id) {
 }
 
 function selectActor(id) {
-	editVars.currentActor = id;
+	editVars.currentFreeActor = id;
+	editVars.currentActor = "";
 	resetCurrentFormMetadata();
-	getData(currentForm, editVars.currentActor);
+	setCurrentForm("heActor");
+	hideDetails();
+	$("#actorForm").removeClass("noView");
 }
 
 function setSubVoyageActors(json) {
-	$("#captainCell").html(json.ac_captain_name);
-	$("#outfitterCell").html(json.ac_outfitter_name);
-	$("#investorCell").html(json.ac_investor_name);
-	$("#insurerCell").html(json.ac_insurer_name);
+	if (json.actors.length) {
+		for (key in json.actors) {
+			addActorToList(json.actors[key].actor_id, json.actors[key].actor_name, json.actors[key].actor_role, "voyageActor");
+		}
+	}
 }
 
 function setSlaveActors(json) {
@@ -575,7 +551,6 @@ function setSlaveActors(json) {
  */
 
 function send_data(data, form, id, type = 'default') {
-	console.log(type);
 	$.ajax({
 		type: "POST",
 		url: home + "/service/update_data",
@@ -602,29 +577,35 @@ function new_cargo() {
 }
 
 function new_actor(type, id) {
-	switch(type) {
-		case "slavesActor":
-			var actorType = "slaves";
-			break;
-		default:
-			var actorType = "cargo";
-			break;
-	}
-	$.ajax({
-		type: "POST",
-		url: home + "/service/add_actor",
-		data: {
-			id: id,
-			actor_type: actorType
-		},
-		success: function (ret_id) {
-			addActorToList(ret_id, type);
-		},
-		error: function (err) {
-			console.log(err);
-			alert("Errors! Data not saved");
+	if (parseInt(id) === 0) {
+		message("No data to link new actor on!");
+	} else {
+		switch (type) {
+			case "slavesActor":
+				var actorType = "slaves";
+				break;
+			case "voyageActor":
+				var actorType = "voyage";
+				break;
+			case "cargoActor":
+				var actorType = "cargo"
 		}
-	})
+		$.ajax({
+			type: "POST",
+			url: home + "/service/add_actor",
+			data: {
+				id: id,
+				actor_type: actorType
+			},
+			success: function (ret_id) {
+				addActorToList(ret_id, "--New--", "", type, true);
+			},
+			error: function (err) {
+				console.log(err);
+				alert("Errors! Data not saved");
+			}
+		});
+	}
 }
 
 function updateLink(form, id) {
@@ -651,47 +632,47 @@ function updateLink(form, id) {
 				addCargoToList(id);
 			}
 			break;
-		case "heActor":
+		/*case "heActor":
 			if (parseInt(editVars[editVars.currentActor]) !== parseInt(id)) {
 				editVars[editVars.currentActor] = id;
 				linkActor(editVars.currentActor, id);
 			}
-			break;
+			break;*/
 	}
 }
 
-function linkActor(actor, id) {
-	var table = "";
-	var dataField = "";
-	var data = {};
-	var key = "";
-
-	switch (actor) {
-		case "captain":
-			table = "heSubvoyage";
-			dataField = "sub_captain";
-			key = editVars.currentVoyage;
-			break;
-		case "outfitter":
-			table = "heSubvoyage";
-			dataField = "voyage_outfitter";
-			key = editVars.currentVoyage;
-			break;
-		case "investor":
-			table = "heSubvoyage";
-			dataField = "voyage_investor";
-			key = editVars.currentVoyage;
-			break;
-		case "insurer":
-			table = "heSubvoyage";
-			dataField = "voyage_insurer";
-			key = editVars.currentVoyage;
-			break;
-
-	}
-	data[dataField] = id;
-	send_data(data, table, key);
-}
+// function linkActor(actor, id) {
+// 	var table = "";
+// 	var dataField = "";
+// 	var data = {};
+// 	var key = "";
+//
+// 	switch (actor) {
+// 		case "captain":
+// 			table = "heSubvoyage";
+// 			dataField = "sub_captain";
+// 			key = editVars.currentVoyage;
+// 			break;
+// 		case "outfitter":
+// 			table = "heSubvoyage";
+// 			dataField = "voyage_outfitter";
+// 			key = editVars.currentVoyage;
+// 			break;
+// 		case "investor":
+// 			table = "heSubvoyage";
+// 			dataField = "voyage_investor";
+// 			key = editVars.currentVoyage;
+// 			break;
+// 		case "insurer":
+// 			table = "heSubvoyage";
+// 			dataField = "voyage_insurer";
+// 			key = editVars.currentVoyage;
+// 			break;
+//
+// 	}
+// 	data[dataField] = id;
+// 	send_data(data, table, key);
+// }
 
 function validate_pw() {
 	if ($("#opw").val().trim() === "" | $("#passwd1").val().trim() === "" | $("#passwd2").val().trim() === "") {
@@ -759,12 +740,16 @@ function addCargoToList(id) {
 	selectCargo(id);
 }
 
-function addActorToList(id, tableName) {
-	resetActorList(tableName);
+function addActorToList(id, name, role, tableName, focusForm = false) {
+	resetActorList(tableName + "Table");
 	var row = document.createElement("tr");
 	var cell = document.createElement("td");
-	$(cell).html("--New--");
-
+	$(cell).html(role);
+	$(cell).attr("id", "role_" + id);
+	$(row).append(cell);
+	var cell = document.createElement("td");
+	$(cell).html(name);
+	$(cell).attr("id", "name_" + id);
 	$(row).append(cell);
 	var cell = document.createElement("td");
 	$(cell).addClass("editIcon");
@@ -772,12 +757,12 @@ function addActorToList(id, tableName) {
 	$(img).attr("src", home + "/img/edit.png");
 	$(img).attr("height", "16px");
 	$(img).attr("width", "16px");
-	$(img).attr("data-cargo_id", id);
+	$(img).attr("data-actor_id", id);
 	$(img).on("click", function (e) {
 		e.preventDefault();
-		resetActorList(tableName);
+		resetActorList(tableName + "Table");
 		selectActor($(this).attr("data-actor_id"));
-		$(this).parent().parent().addClass("activeActorTableRow");
+		// $(this).parent().parent().addClass("activeActorTableRow");
 	});
 	$(cell).append(img);
 	$(cell).attr("width", "20px");
@@ -791,11 +776,13 @@ function addActorToList(id, tableName) {
 	$(cell).append(img);
 	$(cell).attr("width", "20px");
 	$(row).append(cell);
-	$(row).addClass("activeActorTableRow");
-	$("#" + tableName).append(row);
-	selectActor(id);
-}
+	// $(row).addClass("activeActorTableRow");
+	$("#" + tableName + "Table").append(row);
+	if (focusForm) {
+		selectActor(id);
+	}
 
+}
 
 
 function saveSubVoyage() {
@@ -838,7 +825,12 @@ function saveCargo() {
 function saveActor() {
 	if (currentFormChanged) {
 		var data = harvestForm(currentForm);
-		send_data(data, currentForm, editVars[editVars.currentActor]);
+		if (editVars.currentActor !== "") {
+			send_data(data, currentForm, editVars[editVars.currentActor]);
+		} else {
+			send_data(data, currentForm, editVars.currentFreeActor);
+		}
+
 	} else {
 		alert("Form was not changed.");
 	}

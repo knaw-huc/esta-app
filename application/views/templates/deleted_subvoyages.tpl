@@ -6,7 +6,6 @@
 		<tr>
 			<th>Departure date</th>
 			<th>Vessel</th>
-			<th>Captain</th>
 			<th>From</th>
 			<th>To</th>
 			<th>Deleted by</th>
@@ -17,7 +16,6 @@
 			<tr class="even">
 				<td>{$subvoyage.sub_dept_date_year}</td>
 				<td>{$subvoyage.vessel}</td>
-				<td>{$subvoyage.captain}</td>
 				<td>{$subvoyage.sub_dept_place}</td>
 				<td>{$subvoyage.sub_arrival_place}</td>
 				<td>{$subvoyage.username}</td>
