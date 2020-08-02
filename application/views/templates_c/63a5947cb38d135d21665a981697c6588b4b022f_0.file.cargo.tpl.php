@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-17 14:45:58
+/* Smarty version 3.1.32, created on 2020-08-02 22:23:57
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/cargo.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f119d865128f2_57695206',
+  'unifunc' => 'content_5f2720dd3a9af7_13975891',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '63a5947cb38d135d21665a981697c6588b4b022f' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/cargo.tpl',
-      1 => 1594989868,
+      1 => 1596399784,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f119d865128f2_57695206 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f2720dd3a9af7_13975891 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heCargo"  data-action="<?php echo $_smarty_tpl->tpl_vars['cargo_action']->value;?>
 ">
-	<div class="component">
+	<div id="cargoComponent" class="component">
 		<div class="componentHeader">Cargo</div>
 		<div class="element" data-name="cargo_commodity">
 			<div class="label">Cargo commodity</div>

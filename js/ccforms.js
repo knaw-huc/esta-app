@@ -339,15 +339,17 @@ function initCurrentFormMetadata() {
 				editVars.currentCargo = editVars.cargo[0].cargo_id;
 				getData(currentForm, editVars.cargo[0].cargo_id);
 			} else {
-				getData(currentForm, 0);
+				//getData(currentForm, 0);
+				$("#cargoComponent").css('visibility', 'hidden');
+				$("#cargoSaveBtn").css('visibility', 'hidden');
 			}
 			break;
 		case "heActor":
-			if (editVars.currentActor !== "") {
-				getData(currentForm, editVars[editVars.currentActor]);
-			} else {
-				getData(currentForm, editVars.currentFreeActor);
-			}
+			//if (editVars.currentActor !== "") {
+			//	getData(currentForm, editVars[editVars.currentActor]);
+			//} else {
+			getData(currentForm, editVars.currentActor);
+		//}
 	}
 }
 
@@ -470,6 +472,7 @@ function setActors(form, json) {
 function addCargos(json) {
 	for (var key in editVars.cargo) {
 		var row = document.createElement("tr");
+		$(row).attr("data-cargo_id", editVars.cargo[key].cargo_id);
 		var cell = document.createElement("td");
 		$(cell).html(editVars.cargo[key].cargo_commodity);
 		$(row).append(cell);
@@ -526,8 +529,8 @@ function selectCargo(id) {
 }
 
 function selectActor(id) {
-	editVars.currentFreeActor = id;
-	editVars.currentActor = "";
+	//editVars.currentFreeActor = id;
+	editVars.currentActor = id;
 	resetCurrentFormMetadata();
 	setCurrentForm("heActor");
 	hideDetails();
@@ -573,7 +576,29 @@ function send_data(data, form, id, type = 'default') {
 function new_cargo() {
 	var data = {};
 	data.subvoyage_subvoyage_id = editVars.currentVoyage;
+	$("#cargoComponent").css('visibility', 'visible');
+	$("#cargoSaveBtn").css('visibility', 'visible');
 	send_data(data, "heCargo", 0);
+}
+
+function delete_actor(id, table, name) {
+	if (confirm("Do you want to delete " + name + "?")) {
+		$.ajax({
+			type: "POST",
+			url: home + "/service/delete_actor",
+			data: {
+				id: id
+			},
+			success: function (json) {
+				$("#actor_" + id).remove();
+				message(name + " deleted");
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		})
+
+	}
 }
 
 function new_actor(type, id) {
@@ -702,6 +727,7 @@ function eraseMsg() {
 function addCargoToList(id) {
 	resetCargoList();
 	var row = document.createElement("tr");
+	$(row).attr("data-cargo_id", id);
 	var cell = document.createElement("td");
 	//if ($("#cargo_commodity").val().trim() === "") {
 	$(cell).html("--New--");
@@ -732,6 +758,16 @@ function addCargoToList(id) {
 	$(img).attr("src", home + "/img/bin.png");
 	$(img).attr("height", "16px");
 	$(img).attr("width", "16px");
+	$(img).attr("data-cargo_id", id);
+	$(img).on("click", function (e) {
+		e.preventDefault();
+		if (parseInt(editVars.currentCargo) === parseInt(id)) {
+			resetCargoList();
+
+		}
+
+
+	});
 	$(cell).append(img);
 	$(cell).attr("width", "20px");
 	$(row).append(cell);
@@ -743,6 +779,7 @@ function addCargoToList(id) {
 function addActorToList(id, name, role, tableName, focusForm = false) {
 	resetActorList(tableName + "Table");
 	var row = document.createElement("tr");
+	$(row).attr("id", "actor_" + id);
 	var cell = document.createElement("td");
 	$(cell).html(role);
 	$(cell).attr("id", "role_" + id);
@@ -762,7 +799,6 @@ function addActorToList(id, name, role, tableName, focusForm = false) {
 		e.preventDefault();
 		resetActorList(tableName + "Table");
 		selectActor($(this).attr("data-actor_id"));
-		// $(this).parent().parent().addClass("activeActorTableRow");
 	});
 	$(cell).append(img);
 	$(cell).attr("width", "20px");
@@ -773,6 +809,11 @@ function addActorToList(id, name, role, tableName, focusForm = false) {
 	$(img).attr("src", home + "/img/bin.png");
 	$(img).attr("height", "16px");
 	$(img).attr("width", "16px");
+	$(img).attr("data-actor_id", id);
+	$(img).on("click", function (e) {
+		e.preventDefault();
+		delete_actor($(this).attr("data-actor_id"), tableName, name);
+	});
 	$(cell).append(img);
 	$(cell).attr("width", "20px");
 	$(row).append(cell);
@@ -824,13 +865,10 @@ function saveCargo() {
 
 function saveActor() {
 	if (currentFormChanged) {
+		$("#name_" + editVars.currentActor).html($("#actor_name").val());
+		$("#role_" + editVars.currentActor).html($("#actor_role").val());
 		var data = harvestForm(currentForm);
-		if (editVars.currentActor !== "") {
-			send_data(data, currentForm, editVars[editVars.currentActor]);
-		} else {
-			send_data(data, currentForm, editVars.currentFreeActor);
-		}
-
+		send_data(data, currentForm, editVars.currentActor);
 	} else {
 		alert("Form was not changed.");
 	}

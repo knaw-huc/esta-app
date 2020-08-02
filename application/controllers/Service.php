@@ -109,6 +109,18 @@ class Service extends CI_Controller
 		}
 	}
 
+	function delete_actor() {
+		if ($this->input->post("id")) {
+			if ($this->fetch->deleteActor($this->input->post("id"))) {
+				$this->send_json(array("status" => "OK"));
+			} else {
+				$this->throw_error();
+			}
+		} else {
+			$this->throw_error();
+		}
+	}
+
 	function update_grid_data() {
 		if ($this->input->post("id")) {
 			if ($this->fetch->updateGridData($this->input->post("id"), $this->input->post("data"))) {

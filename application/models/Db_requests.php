@@ -60,6 +60,15 @@ class Db_requests extends CI_Model
 		return $this->db->query("UPDATE subvoyage SET deleted = 1, deleted_by = $user WHERE subvoyage_id = $id ");
 	}
 
+	function deleteActor($id) {
+		if ($this->db->query("DELETE FROM free_actors WHERE actor_id = $id LIMIT 1"))
+		{
+			return $this->db->query("DELETE FROM actor WHERE actor_id = $id LIMIT 1");
+		} else {
+			return false;
+		}
+	}
+
 	function getDeletedSubvoyages($id) {
 		$sql = "SELECT s.subvoyage_id, s.subvoyage_type, s.sub_dept_date_year, IFNULL(v.vessel_name, '--') as vessel, s.sub_dept_place, s.sub_arrival_place, CONCAT(chr_name , ' ', name) AS username  FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN users AS u ON s.deleted_by = u.id WHERE s.voyage_id = $id AND deleted";
 		return $this->db->query($sql)->result_array();
@@ -136,7 +145,6 @@ class Db_requests extends CI_Model
 	function getSubvoyagerecords($voyage_id)
 	{
 		$sql = "SELECT s.subvoyage_id, s.subvoyage_type, s.sub_dept_date_year, IFNULL(a.actor_name, '--') as captain, IFNULL(v.vessel_name, '--') as vessel, s.sub_dept_place, s.sub_arrival_place FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN (SELECT f.type_id, a.actor_name FROM free_actors as f, `actor` as a WHERE f.type = 'voyage' AND f.actor_id = a.actor_id AND (a.actor_role = 'captain' OR a.actor_role_standardised = 'captain' )) AS a ON s.subvoyage_id = a.type_id WHERE s.voyage_id = $voyage_id AND NOT deleted";
-		error_log($sql);
 		return $this->db->query($sql)->result_array();
 	}
 

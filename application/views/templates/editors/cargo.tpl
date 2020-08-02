@@ -1,5 +1,5 @@
 <div id="heCargo"  data-action="{$cargo_action}">
-	<div class="component">
+	<div id="cargoComponent" class="component">
 		<div class="componentHeader">Cargo</div>
 		<div class="element" data-name="cargo_commodity">
 			<div class="label">Cargo commodity</div>
