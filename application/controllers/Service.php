@@ -12,10 +12,6 @@ class Service extends CI_Controller
 		if ($this->input->post("id")) {
 			$subvoyage = $this->fetch->getSubVoyageForEdit($this->input->post("id"));
 			if (count($subvoyage)) {
-				/*$subvoyage["ac_captain_name"] = $this->fetch->getActorName($subvoyage["sub_captain"]);
-				$subvoyage["ac_outfitter_name"] = $this->fetch->getActorName($subvoyage["voyage_outfitter"]);
-				$subvoyage["ac_investor_name"] = $this->fetch->getActorName($subvoyage["voyage_investor"]);
-				$subvoyage["ac_insurer_name"] = $this->fetch->getActorName($subvoyage["voyage_insurer"]);*/
 				$subvoyage["actors"] = $this->fetch->getActors($this->input->post("id"), 'voyage');
 				$subvoyage["sub_cargo"] = $this->fetch->getCargoOfSubVoyage($this->input->post("id"));
 				$this->session->set_userdata("subvoyage", $this->input->post("id"));
@@ -85,6 +81,9 @@ class Service extends CI_Controller
 	function get_cargo() {
 		if ($this->input->post("id")) {
 			$cargo = $this->fetch->getCargoForEdit($this->input->post("id"));
+			if (count($cargo)) {
+				$cargo["actors"] = $this->fetch->getCargoActors($this->input->post("id"));
+			}
 			$this->send_json($cargo);
 		} else {
 			$this->throw_error();
@@ -112,6 +111,18 @@ class Service extends CI_Controller
 	function delete_actor() {
 		if ($this->input->post("id")) {
 			if ($this->fetch->deleteActor($this->input->post("id"))) {
+				$this->send_json(array("status" => "OK"));
+			} else {
+				$this->throw_error();
+			}
+		} else {
+			$this->throw_error();
+		}
+	}
+
+	function delete_cargo() {
+		if ($this->input->post("id")) {
+			if ($this->fetch->deleteCargo($this->input->post("id")) && $this->fetch->deleteCargoActors($this->input->post("id"))) {
 				$this->send_json(array("status" => "OK"));
 			} else {
 				$this->throw_error();

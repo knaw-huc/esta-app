@@ -21,6 +21,7 @@
 				{$vessel_ed}
 			</div>
 			<div id="metadataRecs" class="noView">
+				<div id="noCargos" class="noView">This subvoyage doesn't contain any cargos yet.</div>
 				{$cargo_ed}
 			</div>
 			<div id="voyage" class="noView">

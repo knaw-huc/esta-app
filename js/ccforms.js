@@ -207,33 +207,8 @@ function setCurrentForm(formName) {
 
 }
 
-function editCaptain() {
-	editVars.currentActor = "captain";
-	$("#actorType").html("Captain");
-	hideDetails();
-	$("#actorForm").removeClass("noView");
-	currentForm = "heActor";
-	initCurrentFormMetadata();
-}
 
 
-function editInvestor() {
-	editVars.currentActor = "investor";
-	$("#actorType").html("Investor");
-	hideDetails();
-	$("#actorForm").removeClass("noView");
-	currentForm = "heActor";
-	initCurrentFormMetadata();
-}
-
-function editInsurer() {
-	editVars.currentActor = "insurer";
-	$("#actorType").html("Insurer");
-	hideDetails();
-	$("#actorForm").removeClass("noView");
-	currentForm = "heActor";
-	initCurrentFormMetadata();
-}
 
 function returnToMainTab() {
 	resetCurrentFormMetadata();
@@ -340,8 +315,7 @@ function initCurrentFormMetadata() {
 				getData(currentForm, editVars.cargo[0].cargo_id);
 			} else {
 				//getData(currentForm, 0);
-				$("#cargoComponent").css('visibility', 'hidden');
-				$("#cargoSaveBtn").css('visibility', 'hidden');
+				hide_cargo();
 			}
 			break;
 		case "heActor":
@@ -466,15 +440,31 @@ function setActors(form, json) {
 		case "heSlaves":
 			setSlaveActors(json);
 			break;
+		case "heCargo":
+			setCargoActors(json);
+			break;
 	}
+}
+
+function setCargoActors(json) {
+	resetCargoActortable();
+	for (var key in json.actors) {
+		addActorToList(json.actors[key].actor_id, json.actors[key].actor_name, json.actors[key].actor_role, "cargoActor");
+	}
+}
+
+function resetCargoActortable() {
+	$("#cargoActorTable tr:gt(0)").remove();
 }
 
 function addCargos(json) {
 	for (var key in editVars.cargo) {
 		var row = document.createElement("tr");
+		$(row).attr("id", "cargo_row_" + editVars.cargo[key].cargo_id);
 		$(row).attr("data-cargo_id", editVars.cargo[key].cargo_id);
 		var cell = document.createElement("td");
 		$(cell).html(editVars.cargo[key].cargo_commodity);
+		$(cell).attr("id", "commodity_name_" + editVars.cargo[key].cargo_id);
 		$(row).append(cell);
 		var cell = document.createElement("td");
 		$(cell).addClass("editIcon");
@@ -498,6 +488,11 @@ function addCargos(json) {
 		$(img).attr("src", home + "/img/bin.png");
 		$(img).attr("height", "16px");
 		$(img).attr("width", "16px");
+		$(img).attr("data-cargo_id", editVars.cargo[key].cargo_id);
+		$(img).on("click", function (e) {
+			e.preventDefault();
+			delete_cargo($(this).attr("data-cargo_id"));
+		});
 		$(cell).append(img);
 		$(cell).attr("width", "20px");
 		$(row).append(cell);
@@ -523,6 +518,7 @@ function emptyActorList(type) {
 }
 
 function selectCargo(id) {
+	setCurrentForm("heCargo");
 	editVars.currentCargo = id;
 	resetCurrentFormMetadata();
 	getData(currentForm, editVars.currentCargo);
@@ -576,9 +572,22 @@ function send_data(data, form, id, type = 'default') {
 function new_cargo() {
 	var data = {};
 	data.subvoyage_subvoyage_id = editVars.currentVoyage;
-	$("#cargoComponent").css('visibility', 'visible');
-	$("#cargoSaveBtn").css('visibility', 'visible');
+	show_cargo();
 	send_data(data, "heCargo", 0);
+}
+
+function show_cargo() {
+	$("#cargoComponent").css('visibility', 'visible');
+	$("#cargoSaveBtn").removeClass("noView");
+	$("#cargoActorTable").removeClass("noView");
+	$("#noCargos").addClass("noView");
+}
+
+function hide_cargo() {
+	$("#cargoComponent").css('visibility', 'hidden');
+	$("#cargoSaveBtn").addClass("noView");
+	$("#cargoActorTable").addClass("noView");
+	$("#noCargos").removeClass("noView");
 }
 
 function delete_actor(id, table, name) {
@@ -727,14 +736,11 @@ function eraseMsg() {
 function addCargoToList(id) {
 	resetCargoList();
 	var row = document.createElement("tr");
+	$(row).attr("id", "cargo_row_" + id);
 	$(row).attr("data-cargo_id", id);
 	var cell = document.createElement("td");
-	//if ($("#cargo_commodity").val().trim() === "") {
+	$(cell).attr("id", "commodity_name_" + id);
 	$(cell).html("--New--");
-	//} else {
-	//	$(cell).html($("#cargo_commodity").val());
-	//}
-
 	$(row).append(cell);
 	var cell = document.createElement("td");
 	$(cell).addClass("editIcon");
@@ -761,12 +767,7 @@ function addCargoToList(id) {
 	$(img).attr("data-cargo_id", id);
 	$(img).on("click", function (e) {
 		e.preventDefault();
-		if (parseInt(editVars.currentCargo) === parseInt(id)) {
-			resetCargoList();
-
-		}
-
-
+		delete_cargo($(this).attr("data-cargo_id"));
 	});
 	$(cell).append(img);
 	$(cell).attr("width", "20px");
@@ -774,6 +775,31 @@ function addCargoToList(id) {
 	$(row).addClass("activeActorTableRow");
 	$("#cargoTable").append(row);
 	selectCargo(id);
+}
+
+function delete_cargo(id) {
+	if (confirm("Do you want to delete cargo with commodity " + $("#commodity_name_" + id).html() + "?")) {
+		$("#cargo_row_" + id).remove();
+		if (parseInt(editVars.currentCargo) === parseInt(id)) {
+			const firstRow = $("#cargoTable").find("tr:nth-child(2)");
+			if (firstRow.length !== 0) {
+				firstRow.addClass("activeActorTableRow");
+				selectCargo(firstRow.attr("data-cargo_id"));
+			} else {
+				hide_cargo();
+			}
+		}
+		$.ajax({
+			type: "POST",
+			url: home + "/service/delete_cargo",
+			data: {
+				id: id
+			},
+			success: function () {
+				message("Cargo removed...");
+			}
+		});
+	}
 }
 
 function addActorToList(id, name, role, tableName, focusForm = false) {

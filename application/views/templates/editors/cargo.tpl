@@ -87,9 +87,10 @@
 				</tr>
 			</table>
 			<div>&nbsp;</div>
-			<table id="cargoActorTable">
+			<table id="cargoActorTable" class="resultTable">
 				<tr>
 					<th>Actors</th>
+					<th></th>
 					<th></th>
 					<th><a href="javascript:new_actor('cargoActor', editVars.currentCargo)">+</a></th>
 				</tr>

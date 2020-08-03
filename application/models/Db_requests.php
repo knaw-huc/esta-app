@@ -69,6 +69,10 @@ class Db_requests extends CI_Model
 		}
 	}
 
+	function deleteCargo($id) {
+		return $this->db->query("DELETE FROM cargo WHERE cargo_id = $id");
+	}
+
 	function getDeletedSubvoyages($id) {
 		$sql = "SELECT s.subvoyage_id, s.subvoyage_type, s.sub_dept_date_year, IFNULL(v.vessel_name, '--') as vessel, s.sub_dept_place, s.sub_arrival_place, CONCAT(chr_name , ' ', name) AS username  FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN users AS u ON s.deleted_by = u.id WHERE s.voyage_id = $id AND deleted";
 		return $this->db->query($sql)->result_array();
@@ -316,6 +320,15 @@ class Db_requests extends CI_Model
 	function getSlaveActors($id) {
 		$sql = "SELECT a.actor_id, a.actor_name, a.actor_role FROM free_actors AS f, actor AS a WHERE f.type = 'slaves' AND f.type_id = $id AND f.actor_id = a.actor_id";
 		return $this->db->query($sql)->result_array();
+	}
+
+	function getcargoActors($id) {
+		$sql = "SELECT a.actor_id, a.actor_name, a.actor_role FROM free_actors AS f, actor AS a WHERE f.type = 'cargo' AND f.type_id = $id AND f.actor_id = a.actor_id";
+		return $this->db->query($sql)->result_array();
+	}
+
+	function deleteCargoActors($id) {
+		return $this->db->query("delete actor, free_actors FROM actor INNER JOIN free_actors on actor.actor_id = free_actors.actor_id WHERE free_actors.type = 'cargo' and free_actors.type_id = $id");
 	}
 
 

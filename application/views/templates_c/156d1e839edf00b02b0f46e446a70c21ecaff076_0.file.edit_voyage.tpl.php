@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-06-08 14:29:00
+/* Smarty version 3.1.32, created on 2020-08-03 16:33:14
   from '/Library/WebServer/Documents/esta/application/views/templates/edit_voyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5ede2f0cbd9505_03365334',
+  'unifunc' => 'content_5f28202ae09560_86193767',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '156d1e839edf00b02b0f46e446a70c21ecaff076' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/edit_voyage.tpl',
-      1 => 1591607361,
+      1 => 1596465191,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5ede2f0cbd9505_03365334 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f28202ae09560_86193767 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6709878115ede2f0cbd1234_01451969', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_16606242855f28202ae01be5_58872728', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_6709878115ede2f0cbd1234_01451969 extends Smarty_Internal_Block
+class Block_16606242855f28202ae01be5_58872728 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_6709878115ede2f0cbd1234_01451969',
+    0 => 'Block_16606242855f28202ae01be5_58872728',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -68,6 +68,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 
 			</div>
 			<div id="metadataRecs" class="noView">
+				<div id="noCargos" class="noView">This subvoyage doesn't contain any cargos yet.</div>
 				<?php echo $_smarty_tpl->tpl_vars['cargo_ed']->value;?>
 
 			</div>

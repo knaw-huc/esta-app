@@ -163,25 +163,25 @@ table {
 empty-cells: show;
 }
 
-.resultTable, #dependencyTable, #cargoTable, #mutTable, #slavesActorTable, #voyageActorTable {
+.resultTable, #dependencyTable, #cargoTable, #cargoActorTable, #mutTable, #slavesActorTable, #voyageActorTable {
 border-collapse: collapse;
 }
 
-.resultTable tr, #dependencyTable tr, #cargoTable tr, #mutTable tr, #slavesActorTable tr, #voyageActorTable tr {
+.resultTable tr, #dependencyTable tr, #cargoTable tr, #cargoActorTable tr, #mutTable tr, #slavesActorTable tr, #voyageActorTable tr {
 border-top: 1px solid #555;
 border-left: 1px solid #555;
 border-right: 1px solid #555;
 }
 
-.resultTable, #dependencyTable, #cargoTable, #mutTable, #slavesActorTable, #voyageActorTable {
+.resultTable, #dependencyTable, #cargoTable, #cargoActorTable, #mutTable, #slavesActorTable, #voyageActorTable {
 border-bottom: 1px solid #555;
 }
 
-#btnFrame .resultTable tr td, #cargoTable tr td, #mutTable tr td, #slavesActorTable tr td, #voyageActorTable tr td {
+#btnFrame .resultTable tr td, #cargoTable tr td, #cargoActorTable tr td, #mutTable tr td, #slavesActorTable tr td, #voyageActorTable tr td {
 background-color: #ffffff;
 }
 
-#btnFrame .resultTable, #cargoTable, #slavesActorTable, #voyageActorTable {
+#btnFrame .resultTable, #cargoTable, #cargoActorTable, #slavesActorTable, #voyageActorTable {
 width: 90%;
 }
 
@@ -199,9 +199,6 @@ width: 20px;
 color: #777;
 }
 
-#cargoActorTable{
-display: none;
-}
 
 #tmpFormatter {
 margin: 10px 0 20px 10px;
@@ -221,17 +218,19 @@ border-right: none;
 }
 
 
-.resultTable tr td, .resultTable tr th, #cargoTable tr td, #cargoTable tr th, #mutTable tr th, #mutTable tr td, #slavesActorTable tr td, #slavesActorTable, tr th, #voyageActorTable tr th {
+.resultTable tr td, .resultTable tr th, #cargoTable tr td, #cargoTable tr th, #cargoActorTable tr td, #cargoActorTable tr th, #mutTable tr th, #mutTable tr td, #slavesActorTable tr td, #slavesActorTable, tr th, #voyageActorTable tr th {
 padding: 4px 16px 4px 6px;
 }
 
-.resultTable tr th, #dependencyTable tr th, #cargoTable tr th, #mutTable tr th, #slavesActorTable tr th, #voyageActorTable tr th {
+.resultTable tr th, #dependencyTable tr th, #cargoTable tr th, #cargoActorTable tr th, #mutTable tr th, #slavesActorTable tr th, #voyageActorTable tr th {
 color: #fff;
 background-color: #5c5c6a;
 }
 
-.resultTable tr th a , #cargoTable tr th a, #slavesActorTable tr th a, #voyageActorTable tr th a{
+.resultTable tr th a , #cargoTable tr th a, #cargoActorTable tr th a, #slavesActorTable tr th a, #voyageActorTable tr th a{
 color: #ffffff;
+border: 1px solid #ffffff;
+padding: 0 4px;
 }
 
 .itemGrid {
@@ -300,6 +299,11 @@ background-color: #d0d0d4 !important;
 
 .noView {
 display: none;
+}
+
+#noCargos {
+margin: 10px 0 0 40px;
+font-size: 16px;
 }
 
 #homeBtn {
