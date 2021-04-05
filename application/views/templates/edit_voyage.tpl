@@ -66,10 +66,23 @@
 
 						</div>
 					</div>
+					<div class="formRow">
+						<div id="globalVoyageBtns">
+							<input id="globalVoyageEditBtn" class="saveBtn noView" type="button" value="Edit" onclick="editGlobalVoyage()"/>
+							<input id="globalVoyageSaveBtn" class="saveBtn noView" type="button" value="Save" onclick="saveGlobalVoyage()"/>
+							<input id="globalVoyageRejectBtn" class="saveBtn noView" type="button" value="Back" onclick="resetGlobalVoyage()"/>
+							<input id="globalVoyageOwner" type="hidden" value="{$editUserID}"/>
+							<input id="summaryBuffer" type="hidden">
+							<input id="yearBuffer" type="hidden">
+						</div>
+					</div>
 				</div>
 			</div>
 			<div id="actorForm" class="noView">
 				{$actor_ed}
+			</div>
+			<div id="slaveGroupForm" class="noView">
+				{$slave_group_ed}
 			</div>
 			<div id="mutView" class="noView">
 				{$mut_view}

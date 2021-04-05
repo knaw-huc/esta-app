@@ -8,7 +8,14 @@
 				<div id="errorMsg_5e823fa99b7ed" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="slaves_total_male">
+		<div class="element" data-name="slaves_total_standardized">
+			<div class="label">Total standardised</div>
+			<div class="control"><input id="slaves_total_standardized" type="text" data-reset-value="line" value=""
+										data-validation-profile="5e823fa99b954" class="input_element">
+				<div id="errorMsg_5e823fa99b954" class="errorMsg"></div>
+			</div>
+		</div>
+		{*<div class="element" data-name="slaves_total_male">
 			<div class="label">Total male slaves</div>
 			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_total_male"
 										data-validation-profile="5e823fa99b821" class="input_element">
@@ -69,13 +76,6 @@
 			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_total_infants"
 										data-validation-profile="5e823fa99b935" class="input_element">
 				<div id="errorMsg_5e823fa99b935" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_standardized">
-			<div class="label">Total standardised</div>
-			<div class="control"><input id="slaves_total_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99b954" class="input_element">
-				<div id="errorMsg_5e823fa99b954" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="slaves_total_male_standardized">
@@ -140,7 +140,7 @@
 										data-validation-profile="5e823fa99ba0d" class="input_element">
 				<div id="errorMsg_5e823fa99ba0d" class="errorMsg"></div>
 			</div>
-		</div>
+		</div>*}
 		<div class="element" data-name="slaves_mortality">
 			<div class="label">Mortality</div>
 			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_mortality"
@@ -198,12 +198,19 @@
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>
 		<div id="tmpFormatter">
+			<table id="slaveGroupTable" class="resultTable">
+				<tr>
+					<th>Groups</th>
+					<th class="btnHeader"><a href="javascript:new_group('slaveGroupActor', editVars.slaves)">+</a></th>
+				</tr>
+			</table>
+			<p>&nbsp;</p>
 			<table id="slavesActorTable" class="resultTable">
 				<tr>
 					<th>Actors</th>
 					<th></th>
 					<th></th>
-					<th><a href="javascript:new_actor('slavesActor', editVars.slaves)">+</a></th>
+					<th class="btnHeader"><a href="javascript:new_actor('slavesActor', editVars.slaves)">+</a></th>
 				</tr>
 			</table>
 		</div>

@@ -149,11 +149,13 @@ class Workspace extends CI_Controller
 			redirect(base_url('workspace'));
 		} else {
 			$voyage = $this->fetch->getVoyage($id);
+			$this->mysmarty->assign("editUserID", $this->session->id);
 			$this->mysmarty->assign("sub_voyage_action", base_url('service/save_voyage'));
 			$this->mysmarty->assign("slaves_action", base_url());
 			$this->mysmarty->assign("vessel_action", base_url());
 			$this->mysmarty->assign("cargo_action", base_url());
 			$this->mysmarty->assign("actor_action", base_url());
+			$this->mysmarty->assign("slave_group_action", base_url());
 			$this->mysmarty->assign('voyage', $voyage);
 			$this->mysmarty->assign('id', $id);
 			$this->mysmarty->assign('voyage_ed', $this->mysmarty->view2var('editors/subvoyage.tpl'));
@@ -162,6 +164,7 @@ class Workspace extends CI_Controller
 			$this->mysmarty->assign('cargo_ed', $this->mysmarty->view2var('editors/cargo.tpl'));
 			$this->mysmarty->assign('actor_ed', $this->mysmarty->view2var('editors/actor.tpl'));
 			$this->mysmarty->assign('mut_view', $this->mysmarty->view2var('editors/mutation_view'));
+			$this->mysmarty->assign('slave_group_ed', $this->mysmarty->view2var('editors/slave_group.tpl'));
 			$this->mysmarty->view("edit_voyage");
 		}
 	}

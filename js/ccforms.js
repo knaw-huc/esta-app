@@ -4,6 +4,7 @@ var editVars = {
 	vessel: 0,
 	slaves: 0,
 	cargo: 0,
+	currentSlaveGroup: 0,
 	currentCargo: 0,
 	currentActor: 0,
 	mainVoyage: 0
@@ -41,6 +42,10 @@ var hucForms = {
 	heVoyage: {
 		empty: true,
 		address: home + "/service/get_voyage"
+	},
+	heSlaveGroup: {
+		empty: true,
+		address: home + "/service/get_slave_group"
 	}
 }
 
@@ -206,8 +211,6 @@ function setCurrentForm(formName) {
 	}
 
 }
-
-
 
 
 function returnToMainTab() {
@@ -412,6 +415,52 @@ function populateForm(form, json) {
 	setActors(form, json);
 }
 
+function editGlobalVoyage() {
+	$("#globalVoyageEditBtn").addClass("noView");
+	$("#globalVoyageSaveBtn").removeClass("noView");
+	$("#globalVoyageRejectBtn").removeClass("noView");
+	$("#summaryBuffer").val($("#summary").html());
+	$("#yearBuffer").val($("#year").html());
+	element = document.createElement('input');
+	element.setAttribute('id', 'summaryInput');
+	element.setAttribute('value', $("#summaryBuffer").val());
+	element.setAttribute('size', '40');
+	$("#summary").html(element);
+	element = document.createElement('input');
+	element.setAttribute('id', 'yearInput');
+	element.setAttribute('value', $("#yearBuffer").val());
+	element.setAttribute('size', '10');
+	$("#year").html(element);
+}
+
+function resetGlobalVoyage() {
+	$("#summary").html($("#summaryBuffer").val());
+	$("#year").html($("#yearBuffer").val());
+	$("#globalVoyageSaveBtn").addClass("noView");
+	$("#globalVoyageRejectBtn").addClass("noView");
+	$("#globalVoyageEditBtn").removeClass("noView");
+}
+
+function saveGlobalVoyage() {
+	$("#summaryBuffer").val($("#summaryInput").val());
+	$("#yearBuffer").val($("#yearInput").val());
+	$.ajax({
+		type: "POST",
+		url: home + "/service/update_global_voyage",
+		data: {
+			id: editVars.mainVoyage,
+			summary: $("#summaryBuffer").val(),
+			year: $("#yearBuffer").val(),
+		},
+		success: function (ret_id) {
+			resetGlobalVoyage();
+		},
+		error: function (err) {
+			alert("Errors! Data not saved");
+		}
+	});
+}
+
 function fillVoyageForm(json) {
 	$("#heVoyage").find(".formField").each(
 		function () {
@@ -421,6 +470,11 @@ function fillVoyageForm(json) {
 			}
 		}
 	);
+	if (json["creator_id"] === $("#globalVoyageOwner").val()) {
+		$("#globalVoyageEditBtn").removeClass("noView");
+		$("#globalVoyageSaveBtn").addClass("noView");
+		$("#globalVoyageRejectBtn").addClass("noView");
+	}
 }
 
 function setEditVars(json) {
@@ -543,6 +597,11 @@ function setSubVoyageActors(json) {
 
 function setSlaveActors(json) {
 	$("#slavesActorTable").removeClass("noView");
+	if (json.actors.length) {
+		for (key in json.actors) {
+			addActorToList(json.actors[key].actor_id, json.actors[key].actor_name, json.actors[key].actor_role, "slavesActor");
+		}
+	}
 }
 
 /*
@@ -607,6 +666,47 @@ function delete_actor(id, table, name) {
 			}
 		})
 
+	}
+}
+
+function delete_group(id, name) {
+	if (confirm("Do you want to delete " + name + "?")) {
+		$.ajax({
+			type: "POST",
+			url: home + "/service/delete_group",
+			data: {
+				id: id
+			},
+			success: function (json) {
+				$("#group_" + id).remove();
+				message(name + " deleted");
+			},
+			error: function (error) {
+				console.log(error);
+			}
+		})
+
+	}
+}
+
+function new_group($id) {
+	if (parseInt(id) === 0) {
+		message("No data to link new actor on!");
+	} else {
+		$.ajax({
+			type: "POST",
+			url: home + "/service/add_group",
+			data: {
+				id: id
+			},
+			success: function (ret_id) {
+				addGroupToList(ret_id, "--New--", true);
+			},
+			error: function (err) {
+				console.log(err);
+				alert("Errors! Data not saved");
+			}
+		});
 	}
 }
 
@@ -800,6 +900,51 @@ function delete_cargo(id) {
 			}
 		});
 	}
+}
+
+function addGroupToList(id, description, focusForm = false) {
+	resetGroupList();
+	var row = document.createElement("tr");
+	$(row).attr("id", "actor_" + id);
+	var cell = document.createElement("td");
+	$(cell).html(role);
+	$(cell).attr("id", "role_" + id);
+	$(row).append(cell);
+	var cell = document.createElement("td");
+	$(cell).addClass("editIcon");
+	var img = document.createElement("img");
+	$(img).attr("src", home + "/img/edit.png");
+	$(img).attr("height", "16px");
+	$(img).attr("width", "16px");
+	$(img).attr("data-group_id", id);
+	$(img).on("click", function (e) {
+		e.preventDefault();
+		resetGroupList();
+		selectGroup($(this).attr("data-group_id"));
+	});
+	$(cell).append(img);
+	$(cell).attr("width", "20px");
+	$(row).append(cell);
+	var cell = document.createElement("td");
+	$(cell).addClass("editIcon");
+	var img = document.createElement("img");
+	$(img).attr("src", home + "/img/bin.png");
+	$(img).attr("height", "16px");
+	$(img).attr("width", "16px");
+	$(img).attr("data-actor_id", id);
+	$(img).on("click", function (e) {
+		e.preventDefault();
+		delete_group($(this).attr("data-group_id"), name);
+	});
+	$(cell).append(img);
+	$(cell).attr("width", "20px");
+	$(row).append(cell);
+	// $(row).addClass("activeActorTableRow");
+	$("#" + tableName + "Table").append(row);
+	if (focusForm) {
+		selectGroup(id);
+	}
+
 }
 
 function addActorToList(id, name, role, tableName, focusForm = false) {

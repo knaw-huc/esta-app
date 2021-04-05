@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-29 17:20:17
+/* Smarty version 3.1.32, created on 2021-04-05 14:18:11
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f2193b1adb084_57877519',
+  'unifunc' => 'content_606b0003b07704_52919719',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2b9a0ccd905ac6c1aa3b1249dc82bf26c2cf72d6' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl',
-      1 => 1596035583,
+      1 => 1617625087,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f2193b1adb084_57877519 (Smarty_Internal_Template $_smarty_tpl) {
+function content_606b0003b07704_52919719 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSlaves" data-action="<?php echo $_smarty_tpl->tpl_vars['slaves_action']->value;?>
 ">
 	<div class="component">
@@ -32,69 +32,6 @@ function content_5f2193b1adb084_57877519 (Smarty_Internal_Template $_smarty_tpl)
 				<div id="errorMsg_5e823fa99b7ed" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="slaves_total_male">
-			<div class="label">Total male slaves</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_total_male"
-										data-validation-profile="5e823fa99b821" class="input_element">
-				<div id="errorMsg_5e823fa99b821" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_female">
-			<div class="label">Total female slaves</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_total_female"
-										data-validation-profile="5e823fa99b83a" class="input_element">
-				<div id="errorMsg_5e823fa99b83a" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_males_adult">
-			<div class="label">Total adult males</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_total_males_adult"
-										data-validation-profile="5e823fa99b858" class="input_element">
-				<div id="errorMsg_5e823fa99b858" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_females_adult">
-			<div class="label">Total adult females</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_total_females_adult"
-										data-validation-profile="5e823fa99b874" class="input_element">
-				<div id="errorMsg_5e823fa99b874" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_males_children">
-			<div class="label">Total male children</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_total_males_children"
-										data-validation-profile="5e823fa99b89a" class="input_element">
-				<div id="errorMsg_5e823fa99b89a" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_female_children">
-			<div class="label">Total female children</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_total_female_children"
-										data-validation-profile="5e823fa99b8cb" class="input_element">
-				<div id="errorMsg_5e823fa99b8cb" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_adults">
-			<div class="label">Total adults</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_total_adults"
-										data-validation-profile="5e823fa99b8ed" class="input_element">
-				<div id="errorMsg_5e823fa99b8ed" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_children">
-			<div class="label">Total children</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_total_children"
-										data-validation-profile="5e823fa99b910" class="input_element">
-				<div id="errorMsg_5e823fa99b910" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_infants">
-			<div class="label">Total infants</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_total_infants"
-										data-validation-profile="5e823fa99b935" class="input_element">
-				<div id="errorMsg_5e823fa99b935" class="errorMsg"></div>
-			</div>
-		</div>
 		<div class="element" data-name="slaves_total_standardized">
 			<div class="label">Total standardised</div>
 			<div class="control"><input id="slaves_total_standardized" type="text" data-reset-value="line" value=""
@@ -102,70 +39,7 @@ function content_5f2193b1adb084_57877519 (Smarty_Internal_Template $_smarty_tpl)
 				<div id="errorMsg_5e823fa99b954" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="slaves_total_male_standardized">
-			<div class="label">Total males standardised</div>
-			<div class="control"><input id="slaves_total_male_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99b966" class="input_element">
-				<div id="errorMsg_5e823fa99b966" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_female_standardized">
-			<div class="label">Total females standardised</div>
-			<div class="control"><input id="slaves_total_female_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99b974" class="input_element">
-				<div id="errorMsg_5e823fa99b974" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_males_adult_standardized">
-			<div class="label">Total adult males standardised</div>
-			<div class="control"><input id="slaves_total_males_adult_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99b982" class="input_element">
-				<div id="errorMsg_5e823fa99b982" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_females_adult_standardized">
-			<div class="label">Total adult females standardised</div>
-			<div class="control"><input id="slaves_total_females_adult_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99b992" class="input_element">
-				<div id="errorMsg_5e823fa99b992" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_males_children_standardized">
-			<div class="label">Total male children standardised</div>
-			<div class="control"><input id="slaves_total_males_children_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99b9b6" class="input_element">
-				<div id="errorMsg_5e823fa99b9b6" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_female_children_standardized">
-			<div class="label">Total female children standardised</div>
-			<div class="control"><input id="slaves_total_female_children_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99b9d4" class="input_element">
-				<div id="errorMsg_5e823fa99b9d4" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_adults_standardized">
-			<div class="label">Total adults standardised</div>
-			<div class="control"><input id="slaves_total_adults_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99b9f7" class="input_element">
-				<div id="errorMsg_5e823fa99b9f7" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_children_standardized">
-			<div class="label">Total children standardised</div>
-			<div class="control"><input id="slaves_total_children_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99ba03" class="input_element">
-				<div id="errorMsg_5e823fa99ba03" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_total_infants_standardized">
-			<div class="label">Total infants standardised</div>
-			<div class="control"><input id="slaves_total_infants_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99ba0d" class="input_element">
-				<div id="errorMsg_5e823fa99ba0d" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_mortality">
+				<div class="element" data-name="slaves_mortality">
 			<div class="label">Mortality</div>
 			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_mortality"
 										data-validation-profile="5e823fa99ba1f" class="input_element">
@@ -222,12 +96,19 @@ function content_5f2193b1adb084_57877519 (Smarty_Internal_Template $_smarty_tpl)
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>
 		<div id="tmpFormatter">
+			<table id="slaveGroupTable" class="resultTable">
+				<tr>
+					<th>Groups</th>
+					<th class="btnHeader"><a href="javascript:new_actor('slavesActor', editVars.slaves)">+</a></th>
+				</tr>
+			</table>
+			<p>&nbsp;</p>
 			<table id="slavesActorTable" class="resultTable">
 				<tr>
 					<th>Actors</th>
 					<th></th>
 					<th></th>
-					<th><a href="javascript:new_actor('slavesActor', editVars.slaves)">+</a></th>
+					<th class="btnHeader"><a href="javascript:new_actor('slavesActor', editVars.slaves)">+</a></th>
 				</tr>
 			</table>
 		</div>

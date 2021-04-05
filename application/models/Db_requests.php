@@ -69,6 +69,15 @@ class Db_requests extends CI_Model
 		}
 	}
 
+	function deleteGroup($id) {
+		if ($this->db->query("DELETE FROM free_actors WHERE type= 'group' and type_id = $id LIMIT 1"))
+		{
+			return $this->db->query("DELETE FROM slaves_group WHERE group_id = $id LIMIT 1");
+		} else {
+			return false;
+		}
+	}
+
 	function deleteCargo($id) {
 		return $this->db->query("DELETE FROM cargo WHERE cargo_id = $id");
 	}
@@ -123,7 +132,12 @@ class Db_requests extends CI_Model
 
 	function getVoyage($id)
 	{
-		return $this->db->query("SELECT v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier FROM voyage as v, users as u, users as us  WHERE  v.voyage_id = $id AND v.created_by = u.id and v.modified_by = us.id")->row_array();
+		return $this->db->query("SELECT v.voyage_id, v.summary, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier, v.created_by as creator_id FROM voyage as v, users as u, users as us  WHERE  v.voyage_id = $id AND v.created_by = u.id and v.modified_by = us.id")->row_array();
+	}
+
+	function update_global_voyage($id, $summary, $year) {
+		$params = array($summary, $year, $id);
+		return $this->db->query("UPDATE voyage set summary = ?, year = ? WHERE voyage_id = ?", $params);
 	}
 
 	function save_passwd_by_id($id, $passwd)
@@ -220,6 +234,10 @@ class Db_requests extends CI_Model
 	function getCargoForEdit($cargo_id)
 	{
 		return $this->db->query("SELECT * FROM cargo WHERE cargo_id = $cargo_id")->row_array();
+	}
+
+	function getSlaveGroupForEdit($id) {
+		return $this->db->query("SELECT * FROM slave_group WHERE group_id = $id")->row_array();
 	}
 
 	function update_data($key, $table, $data, $id)
@@ -324,6 +342,11 @@ class Db_requests extends CI_Model
 
 	function getcargoActors($id) {
 		$sql = "SELECT a.actor_id, a.actor_name, a.actor_role FROM free_actors AS f, actor AS a WHERE f.type = 'cargo' AND f.type_id = $id AND f.actor_id = a.actor_id";
+		return $this->db->query($sql)->result_array();
+	}
+
+	function getSlaveGroupActors($id) {
+		$sql = "SELECT a.actor_id, a.actor_name, a.actor_role FROM free_actors AS f, actor AS a WHERE f.type = 'group' AND f.type_id = $id AND f.actor_id = a.actor_id";
 		return $this->db->query($sql)->result_array();
 	}
 

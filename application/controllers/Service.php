@@ -90,6 +90,18 @@ class Service extends CI_Controller
 		}
 	}
 
+	function get_slave_group() {
+		if ($this->input->post("id")) {
+			$group = $this->fetch->getSlaveGroupForEdit($this->input->post("id"));
+			if (count($group)) {
+				$group["actors"] = $this->fetch->getSlaveGroupActors($this->input->post("id"));
+			}
+			$this->send_json($group);
+		} else {
+			$this->throw_error();
+		}
+	}
+
 	function get_actor() {
 		if ($this->input->post("id")) {
 			$actor = $this->fetch->getActorForEdit($this->input->post("id"));
@@ -111,6 +123,18 @@ class Service extends CI_Controller
 	function delete_actor() {
 		if ($this->input->post("id")) {
 			if ($this->fetch->deleteActor($this->input->post("id"))) {
+				$this->send_json(array("status" => "OK"));
+			} else {
+				$this->throw_error();
+			}
+		} else {
+			$this->throw_error();
+		}
+	}
+
+	function delete_group() {
+		if ($this->input->post("id")) {
+			if ($this->fetch->deleteGroup($this->input->post("id"))) {
 				$this->send_json(array("status" => "OK"));
 			} else {
 				$this->throw_error();
@@ -193,6 +217,17 @@ class Service extends CI_Controller
 			} else {
 				$this->throw_error();
 			}
+		} else {
+			$this->throw_error();
+		}
+	}
+
+	function update_global_voyage() {
+		$id = $this->input->post("id");
+		$summary = $this->input->post("summary");
+		$year = $this->input->post("year");
+		if ($this->fetch->update_global_voyage($id, $summary, $year)) {
+			return $this->send_json(array("msg" => "OK"));
 		} else {
 			$this->throw_error();
 		}
