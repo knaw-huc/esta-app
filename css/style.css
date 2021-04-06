@@ -1,5 +1,5 @@
 body {
-font-family: Verdana;
+font-family: Roboto;
 font-size: 12px;
 margin: 0;
 padding: 0;
@@ -14,15 +14,33 @@ padding: 0;
 }
 
 #header {
-height: 28px;
-color: #3c3c46;
-background-color: #ceced5;
+display: block;
+height: 68px;
+color: #fff;
+background-color: #000000;
 font-family: Arial;
-font-size: 20px;
-padding: 14px 0 14px 20px;
+font-size: 30px;
+padding: 0 0 0 10px;
 font-weight: bold;
-border-bottom: 1px solid #aaa;
-background-image: url("../img/zee.png");
+vertical-align: center;
+}
+
+#headerTitle{
+display: inline-block;
+position: absolute;
+top: 12px;
+left: 288px;
+}
+
+#homeImg {
+margin: 60px 0 48px 48px;
+border: 1px solid #000;
+}
+
+#logo{
+height: 20px;
+width: 300px;
+display: inline-block;
 }
 
 #user {
@@ -181,6 +199,10 @@ border-bottom: 1px solid #555;
 background-color: #ffffff;
 }
 
+#slaveGroupTable tr td:first-child {
+width: 240px !important;
+}
+
 #btnFrame .resultTable, #cargoTable, #cargoActorTable, #slavesActorTable, #voyageActorTable {
 width: 90%;
 }
@@ -218,11 +240,11 @@ border-right: none;
 }
 
 
-.resultTable tr td, .resultTable tr th, #cargoTable tr td, #cargoTable tr th, #cargoActorTable tr td, #cargoActorTable tr th, #mutTable tr th, #mutTable tr td, #slavesActorTable tr td, #slavesActorTable, tr th, #voyageActorTable tr th {
+.resultTable tr td, .resultTable tr th, #cargoTable tr td, #cargoTable tr th, #cargoTable tr td, #slaveGroupTable tr th, #slaveGroupTable tr td, #cargoActorTable tr th, #mutTable tr th, #mutTable tr td, #slavesActorTable tr td, #slavesActorTable, tr th, #voyageActorTable tr th {
 padding: 4px 16px 4px 6px;
 }
 
-.resultTable tr th, #dependencyTable tr th, #cargoTable tr th, #cargoActorTable tr th, #mutTable tr th, #slavesActorTable tr th, #voyageActorTable tr th {
+.resultTable tr th, #dependencyTable tr th, #cargoTable tr th, #slaveGroupTable tr th, #cargoActorTable tr th, #mutTable tr th, #slavesActorTable tr th, #voyageActorTable tr th {
 color: #fff;
 background-color: #5c5c6a;
 }
@@ -383,7 +405,7 @@ cursor: pointer;
 #head_menu {
 /*width:100%;*/
 height: 24px;
-background-color: #5c5c6a;
+background-color: #5c5c5a;
 margin: 0 0 40px 0;
 padding: 6px 0 6px 12px;
 display: block;
@@ -481,13 +503,14 @@ max-width: 800px;
 .homeComponent {
 display: inline-block;
 width: 60%;
-padding: 0 160px 0 0;
+padding: 0 160px 0 30px;
 vertical-align: top;
 font-size: 1.2em;
 }
 
 #homeContent{
 vertical-align: top;
+font-family: "Roboto Slab", "ff-tisa-web-pro", "Georgia", Arial, sans-serif;
 }
 
 #ccform1, #ccform2 {

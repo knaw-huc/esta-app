@@ -201,7 +201,8 @@
 			<table id="slaveGroupTable" class="resultTable">
 				<tr>
 					<th>Groups</th>
-					<th class="btnHeader"><a href="javascript:new_group('slaveGroupActor', editVars.slaves)">+</a></th>
+					<th></th>
+					<th class="btnHeader"><a href="javascript:new_group( editVars.slaves)">+</a></th>
 				</tr>
 			</table>
 			<p>&nbsp;</p>

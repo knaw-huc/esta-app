@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-06 15:42:56
+/* Smarty version 3.1.32, created on 2021-04-06 14:59:09
   from '/Library/WebServer/Documents/esta/application/views/templates/standardPage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f032a60b65346_55459155',
+  'unifunc' => 'content_606c5b1d427321_48686461',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'edc9bad8ea4ade85f5ccf5300c6f4d4d7e7c3c7a' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/standardPage.tpl',
-      1 => 1594042948,
+      1 => 1617713865,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f032a60b65346_55459155 (Smarty_Internal_Template $_smarty_tpl) {
+function content_606c5b1d427321_48686461 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -55,6 +55,7 @@ js/jquery.autocomplete.js"><?php echo '</script'; ?>
 css/jmenu.css" rel="stylesheet" type="text/css"/>
 	<link href="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 css/autocomplete.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" />
 	<?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 js/jmenu.js"><?php echo '</script'; ?>
@@ -74,7 +75,9 @@ js/jmenu.js"><?php echo '</script'; ?>
 <body>
 <div id="wrapper">
 	<div id="header">
-		ESTA Editor (demo)
+		<div id="logo"><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+img/logo.png" height="60px"></div>
+		<div id="headerTitle">ESTA Editor</div>
 
 		<?php if ($_smarty_tpl->tpl_vars['user_name']->value != '') {?>
 			<div id="user"><?php echo $_smarty_tpl->tpl_vars['user_name']->value;?>
@@ -109,7 +112,7 @@ workspace/logout">Logout</a></li>
 	<?php }?>
 	<div id="content">
 		<?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6804699775f032a60b63579_20647405', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1249889279606c5b1d420523_37001730', "content");
 ?>
 
 	</div>
@@ -118,12 +121,12 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_6804699775f032a60b
 </html>
 <?php }
 /* {block "content"} */
-class Block_6804699775f032a60b63579_20647405 extends Smarty_Internal_Block
+class Block_1249889279606c5b1d420523_37001730 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_6804699775f032a60b63579_20647405',
+    0 => 'Block_1249889279606c5b1d420523_37001730',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {

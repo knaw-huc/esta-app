@@ -237,7 +237,7 @@ class Db_requests extends CI_Model
 	}
 
 	function getSlaveGroupForEdit($id) {
-		return $this->db->query("SELECT * FROM slave_group WHERE group_id = $id")->row_array();
+		return $this->db->query("SELECT * FROM slaves_group WHERE group_id = $id")->row_array();
 	}
 
 	function update_data($key, $table, $data, $id)
@@ -337,6 +337,11 @@ class Db_requests extends CI_Model
 
 	function getSlaveActors($id) {
 		$sql = "SELECT a.actor_id, a.actor_name, a.actor_role FROM free_actors AS f, actor AS a WHERE f.type = 'slaves' AND f.type_id = $id AND f.actor_id = a.actor_id";
+		return $this->db->query($sql)->result_array();
+	}
+
+	function getSlaveGroups($id) {
+		$sql = "SELECT * FROM slaves_group  WHERE slaves_id = $id ";
 		return $this->db->query($sql)->result_array();
 	}
 

@@ -3,6 +3,7 @@
 	<div id="homeContent">
 		<div class="homeComponent">
 			<p>
+			<img id="homeImg" align="right" src="{$home_path}/img/SK-A-4988.jpg"/>
 			<h3>ESTA Editor</h3>
 			This is the database editor of the <em>Exploring Slave Trade in Asia</em> project. The ESTA Editor allows adding observations and editing data on slave trade (sub)voyages in the wider Indian Ocean and Indonesian Archipelago worlds.
 			</p>

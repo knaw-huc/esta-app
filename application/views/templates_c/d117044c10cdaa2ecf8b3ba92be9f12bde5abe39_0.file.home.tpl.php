@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-11 20:08:28
+/* Smarty version 3.1.32, created on 2021-04-06 15:08:52
   from '/Library/WebServer/Documents/esta/application/views/templates/home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f0a001c9a5462_35893881',
+  'unifunc' => 'content_606c5d64016173_17836576',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd117044c10cdaa2ecf8b3ba92be9f12bde5abe39' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/home.tpl',
-      1 => 1594490905,
+      1 => 1617714466,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f0a001c9a5462_35893881 (Smarty_Internal_Template $_smarty_tpl) {
+function content_606c5d64016173_17836576 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_7416940685f0a001c99c924_84733790', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_357923706606c5d63f1cff4_77855837', "content");
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_7416940685f0a001c99c924_84733790 extends Smarty_Internal_Block
+class Block_357923706606c5d63f1cff4_77855837 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_7416940685f0a001c99c924_84733790',
+    0 => 'Block_357923706606c5d63f1cff4_77855837',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -47,6 +47,8 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 	<div id="homeContent">
 		<div class="homeComponent">
 			<p>
+			<img id="homeImg" align="right" src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+/img/SK-A-4988.jpg"/>
 			<h3>ESTA Editor</h3>
 			This is the database editor of the <em>Exploring Slave Trade in Asia</em> project. The ESTA Editor allows adding observations and editing data on slave trade (sub)voyages in the wider Indian Ocean and Indonesian Archipelago worlds.
 			</p>

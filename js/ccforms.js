@@ -111,6 +111,7 @@ function hideDetails() {
 	$('#voyage').addClass('noView');
 	$("#actorForm").addClass("noView");
 	$("#mutView").addClass("noView");
+	$("#slaveGroupForm").addClass("noView");
 }
 
 
@@ -217,7 +218,9 @@ function returnToMainTab() {
 	resetCurrentFormMetadata();
 	hideDetails();
 	hucForms.heActor.empty = true;
+	hucForms.heSlaveGroup.empty = true;
 	clearForm("heActor");
+	clearForm("heSlaveGroup");
 	$("#" + activeTab).removeClass("noView");
 }
 
@@ -261,6 +264,9 @@ function getMutationData() {
 			id = editVars.currentActor;
 			table = "actor";
 			break;
+		case "heSlaveGroup":
+			id = editVars.currentSlaveGroup;
+			table = "slaves_group"
 	}
 	if (id !== undefined) {
 		fetchMutationData(id, table);
@@ -326,6 +332,9 @@ function initCurrentFormMetadata() {
 			//	getData(currentForm, editVars[editVars.currentActor]);
 			//} else {
 			getData(currentForm, editVars.currentActor);
+			break;
+		case "heSlaveGroup":
+			getData(currentForm, editVars.currentSlaveGroup);
 		//}
 	}
 }
@@ -341,7 +350,7 @@ function getData(form, id) {
 			},
 			success: function (json) {
 				populateForm(currentForm, json);
-				console.log(json);
+				//console.log(json);
 			},
 			error: function (err) {
 				console.log(err);
@@ -493,6 +502,7 @@ function setActors(form, json) {
 			break;
 		case "heSlaves":
 			setSlaveActors(json);
+			setSlaveGroups(json);
 			break;
 		case "heCargo":
 			setCargoActors(json);
@@ -561,6 +571,12 @@ function resetCargoList() {
 	});
 }
 
+function resetGroupList() {
+	$("#slaveGroupTable").find(".activeActorTableRow").each(function () {
+		$(this).removeClass("activeActorTableRow");
+	});
+}
+
 function resetActorList(type) {
 	$("#" + type + "Table").find(".activeActorTableRow").each(function () {
 		$(this).removeClass("activeActorTableRow");
@@ -577,6 +593,16 @@ function selectCargo(id) {
 	resetCurrentFormMetadata();
 	getData(currentForm, editVars.currentCargo);
 }
+
+function selectGroup(id) {
+	setCurrentForm("heSlaveGroup");
+	editVars.currentSlaveGroup = id;
+	resetCurrentFormMetadata();
+	hideDetails();
+	$("#slaveGroupForm").removeClass("noView");
+	getData(currentForm, editVars.currentSlaveGroup);
+}
+
 
 function selectActor(id) {
 	//editVars.currentFreeActor = id;
@@ -600,6 +626,15 @@ function setSlaveActors(json) {
 	if (json.actors.length) {
 		for (key in json.actors) {
 			addActorToList(json.actors[key].actor_id, json.actors[key].actor_name, json.actors[key].actor_role, "slavesActor");
+		}
+	}
+}
+
+function setSlaveGroups(json) {
+	$("#slaveGroupTable").removeClass("noView");
+	if (json.groups.length) {
+		for (key in json.groups) {
+			addGroupToList(json.groups[key].group_id, makeGroupLabel(json.groups[key].gr_sex, json.groups[key].gr_age_group, json.groups[key].gr_quantity, json.groups[key].gr_quantity_standardized), false);
 		}
 	}
 }
@@ -678,7 +713,7 @@ function delete_group(id, name) {
 				id: id
 			},
 			success: function (json) {
-				$("#group_" + id).remove();
+				$("#data-group_" + id).remove();
 				message(name + " deleted");
 			},
 			error: function (error) {
@@ -689,18 +724,18 @@ function delete_group(id, name) {
 	}
 }
 
-function new_group($id) {
+function new_group(id) {
 	if (parseInt(id) === 0) {
-		message("No data to link new actor on!");
+		message("No data to link new group on!");
 	} else {
 		$.ajax({
 			type: "POST",
 			url: home + "/service/add_group",
 			data: {
-				id: id
+				slaves_id: id
 			},
 			success: function (ret_id) {
-				addGroupToList(ret_id, "--New--", true);
+				addGroupToList(ret_id, "male - adult", true);
 			},
 			error: function (err) {
 				console.log(err);
@@ -902,13 +937,13 @@ function delete_cargo(id) {
 	}
 }
 
-function addGroupToList(id, description, focusForm = false) {
+function addGroupToList(id, description, focusForm = true) {
 	resetGroupList();
 	var row = document.createElement("tr");
-	$(row).attr("id", "actor_" + id);
+	$(row).attr("id", "data-group_" + id);
 	var cell = document.createElement("td");
-	$(cell).html(role);
-	$(cell).attr("id", "role_" + id);
+	$(cell).html(description);
+	$(cell).attr("id", "group_description_" + id);
 	$(row).append(cell);
 	var cell = document.createElement("td");
 	$(cell).addClass("editIcon");
@@ -934,16 +969,16 @@ function addGroupToList(id, description, focusForm = false) {
 	$(img).attr("data-actor_id", id);
 	$(img).on("click", function (e) {
 		e.preventDefault();
-		delete_group($(this).attr("data-group_id"), name);
+		delete_group(id, description);
 	});
 	$(cell).append(img);
 	$(cell).attr("width", "20px");
 	$(row).append(cell);
-	// $(row).addClass("activeActorTableRow");
-	$("#" + tableName + "Table").append(row);
+	$("#slaveGroupTable").append(row);
 	if (focusForm) {
 		selectGroup(id);
 	}
+
 
 }
 
@@ -1043,6 +1078,28 @@ function saveActor() {
 	} else {
 		alert("Form was not changed.");
 	}
+}
+
+function saveSlaveGroup() {
+	if (currentFormChanged) {
+		$("#group_description_" + editVars.currentSlaveGroup).html(makeGroupLabel($("#gr_sex").val(), $("#gr_age_group").val(), $("#gr_quantity").val(), $("#gr_quantity_standardized").val()));
+		var data = harvestForm(currentForm);
+		send_data(data, currentForm, editVars.currentSlaveGroup);
+	} else {
+		alert("Form was not changed.");
+	}
+}
+
+function makeGroupLabel(sex, age, amount, amount_st) {
+	$retVal = sex + " - " + age;
+	if (amount.trim() !== "") {
+		$retVal = $retVal + " (" + amount + ")";
+	} else {
+		if (amount_st.trim() !== "") {
+			$retVal = $retVal + " (" + amount_st + ")";
+		}
+	}
+	return $retVal;
 }
 
 

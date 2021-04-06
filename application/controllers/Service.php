@@ -41,6 +41,15 @@ class Service extends CI_Controller
 		}
 	}
 
+	function add_group() {
+		if ($this->input->post("slaves_id")) {
+			$id = $this->fetch->insert_data("", "slaves_group", array("slaves_id" => $this->input->post("slaves_id")));
+			$this->send_json($id);
+		} else {
+			$this->throw_error();
+		}
+	}
+
 	function update_data() {
 		$id = $this->input->post("id");
 		$data = json_decode($this->input->post("data"), true);
@@ -60,6 +69,7 @@ class Service extends CI_Controller
 			$slaves = $this->fetch->getSlavesForEdit($this->input->post("id"));
 			if (count($slaves)) {
 				$slaves["actors"] = $this->fetch->getSlaveActors($this->input->post("id"));
+				$slaves["groups"] = $this->fetch->getSlaveGroups($this->input->post("id"));
 				$this->send_json($slaves);
 			} else {
 				$this->throw_error("Slave info does not exist");
@@ -242,6 +252,7 @@ class Service extends CI_Controller
 			"heSlaves" => "slaves_id",
 			"heCargo" => "cargo_id",
 			"heActor" => "actor_id",
+			'heSlaveGroup' => "group_id"
 		);
 		return $keys[$form];
 	}
@@ -253,6 +264,7 @@ class Service extends CI_Controller
 			"heSlaves" => "slaves",
 			"heCargo" => "cargo",
 			"heActor" => "actor",
+			'heSlaveGroup' => "slaves_group"
 		);
 		return $tables[$form];
 	}

@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="{$home_path}js/jquery.autocomplete.js"></script>
 	<link href="{$home_path}css/jmenu.css" rel="stylesheet" type="text/css"/>
 	<link href="{$home_path}css/autocomplete.css" rel="stylesheet" type="text/css"/>
+	<link rel="stylesheet" media="all" href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" />
 	<script src="{$home_path}js/jmenu.js"></script>
 	<script>
 		$('document').ready(function () {literal}{{/literal}
@@ -25,7 +26,8 @@
 <body>
 <div id="wrapper">
 	<div id="header">
-		ESTA Editor (demo)
+		<div id="logo"><img src="{$home_path}img/logo.png" height="60px"></div>
+		<div id="headerTitle">ESTA Editor</div>
 
 		{if $user_name != ""}
 			<div id="user">{$user_name}</div>
