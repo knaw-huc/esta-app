@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-11 18:56:06
+/* Smarty version 3.1.32, created on 2021-04-30 20:34:01
   from '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f09ef267e1d77_84514006',
+  'unifunc' => 'content_608c4d99c172d7_40968402',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '69526d4fd7a0c5ab00e32a42ee8f1cad0075f4c8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl',
-      1 => 1594486551,
+      1 => 1619807636,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f09ef267e1d77_84514006 (Smarty_Internal_Template $_smarty_tpl) {
+function content_608c4d99c172d7_40968402 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_3155237455f09ef267d0805_46243895', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1038884553608c4d99bf7af0_61344091', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_3155237455f09ef267d0805_46243895 extends Smarty_Internal_Block
+class Block_1038884553608c4d99bf7af0_61344091 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_3155237455f09ef267d0805_46243895',
+    0 => 'Block_1038884553608c4d99bf7af0_61344091',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -49,7 +49,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 		<tr>
 			<th>Code</th>
 			<th>Departure date</th>
-			<th>Vessel</th>
+			<th>Vehicle</th>
 			<th>Captain</th>
 			<th>From</th>
 			<th>To</th>

@@ -69,20 +69,21 @@ class CI_Email {
 	 *
 	 * @var	string	'mail', 'sendmail' or 'smtp'
 	 */
-	public $protocol	= 'sendmail';		// mail/sendmail/smtp
+	public $protocol	= 'smtp';		// mail/sendmail/smtp
 
 	/**
 	 * STMP Server host
 	 *
 	 * @var	string
 	 */
-	public $smtp_host	= '';
+	public $smtp_host	= 'mail0.diginfra.net';
 
 	/**
 	 * SMTP Username
 	 *
 	 * @var	string
 	 */
+	//public $smtp_user	= 'esta@diginfra.net';
 	public $smtp_user	= '';
 
 	/**
@@ -90,6 +91,7 @@ class CI_Email {
 	 *
 	 * @var	string
 	 */
+	//public $smtp_pass	= 'tSrer3WWVe8wsvMiShb1CCxfBp';
 	public $smtp_pass	= '';
 
 	/**
@@ -104,7 +106,7 @@ class CI_Email {
 	 *
 	 * @var	int
 	 */
-	public $smtp_timeout	= 5;
+	public $smtp_timeout	= 15;
 
 	/**
 	 * SMTP persistent connection

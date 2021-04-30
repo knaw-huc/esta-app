@@ -50,13 +50,6 @@
 				<div id="errorMsg_5e823fa99d66d" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="cargo_value_standardized">
-			<div class="label">Cargo value standardized</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="cargo_value_standardized" data-table="cargo"
-										data-validation-profile="5e823fa99d673" class="input_element" data-auto="yes">
-				<div id="errorMsg_5e823fa99d673" class="errorMsg"></div>
-			</div>
-		</div>
 		<div class="element" data-name="cargo_notes">
 			<div class="label">Notes</div>
 			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="cargo_notes"

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2021-04-05 14:12:21
+/* Smarty version 3.1.32, created on 2021-04-30 20:36:01
   from '/Library/WebServer/Documents/esta/application/views/templates/edit_voyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_606afea59062d0_20081192',
+  'unifunc' => 'content_608c4e1102f632_39960864',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '156d1e839edf00b02b0f46e446a70c21ecaff076' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/edit_voyage.tpl',
-      1 => 1617624738,
+      1 => 1619807756,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_606afea59062d0_20081192 (Smarty_Internal_Template $_smarty_tpl) {
+function content_608c4e1102f632_39960864 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1689696144606afea58ee147_72827916', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_832167244608c4e11027682_75351320', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_1689696144606afea58ee147_72827916 extends Smarty_Internal_Block
+class Block_832167244608c4e11027682_75351320 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1689696144606afea58ee147_72827916',
+    0 => 'Block_832167244608c4e11027682_75351320',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -49,7 +49,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 		<ul id="profileDataNavigator">
 			<li id="profileXMLTab" class="profileDataActiveTab">Subvoyage</li>
 			<li id="profileJSONTab">Slaves</li>
-			<li id="profileTweakTab">Vessel</li>
+			<li id="profileTweakTab">Transport</li>
 			<li id="profileRecordsTab">Cargo</li>
 			<li id="voyageTab">Voyage</li>
 		</ul>

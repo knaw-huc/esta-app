@@ -5,7 +5,7 @@
 		<tr>
 			<th>Code</th>
 			<th>Departure date</th>
-			<th>Vessel</th>
+			<th>Vehicle</th>
 			<th>Captain</th>
 			<th>From</th>
 			<th>To</th>

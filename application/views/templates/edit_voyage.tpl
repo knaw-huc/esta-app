@@ -5,7 +5,7 @@
 		<ul id="profileDataNavigator">
 			<li id="profileXMLTab" class="profileDataActiveTab">Subvoyage</li>
 			<li id="profileJSONTab">Slaves</li>
-			<li id="profileTweakTab">Vessel</li>
+			<li id="profileTweakTab">Transport</li>
 			<li id="profileRecordsTab">Cargo</li>
 			<li id="voyageTab">Voyage</li>
 		</ul>

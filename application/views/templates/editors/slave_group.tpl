@@ -13,6 +13,25 @@
 				<div id="errorMsg_5e823fa99b7ed" class="errorMsg"></div>
 			</div>
 		</div>
+		<div class="element" data-name="ethnicity">
+			<div class="label">Ethnicity</div>
+			<div class="control">
+				<input type="text" size="30" data-reset-value="line" value="" id="gr_ethnicity"
+					   data-validation-profile="5e823fa99b83a" class="input_element">
+			</div>
+		</div>
+		<div class="element" data-name="physical_state">
+			<div class="label">Physical state</div>
+			<div class="control">
+				<select id="gr_physical_state" data-validation-profile="5eaac4f83b67e"
+						class="input_element">
+					<option value="Healthy">Healthy</option>
+					<option value="Impaired">Impaired</option>
+					<option value="Pregnant">Pregnant</option>
+					<option value="Other">Other</option>
+				</select>
+			</div>
+		</div>
 		<div class="element" data-name="age_group">
 			<div class="label">Age group</div>
 			<div class="control"><select id="gr_age_group" data-validation-profile="5eaac4f83b67e"
