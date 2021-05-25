@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2021-04-30 20:34:01
+/* Smarty version 3.1.32, created on 2021-05-04 19:42:47
   from '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_608c4d99c172d7_40968402',
+  'unifunc' => 'content_60918797e29d65_62620885',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '69526d4fd7a0c5ab00e32a42ee8f1cad0075f4c8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyage.tpl',
-      1 => 1619807636,
+      1 => 1620150164,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_608c4d99c172d7_40968402 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60918797e29d65_62620885 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1038884553608c4d99bf7af0_61344091', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_62326572960918797e0aca3_14972136', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_1038884553608c4d99bf7af0_61344091 extends Smarty_Internal_Block
+class Block_62326572960918797e0aca3_14972136 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_1038884553608c4d99bf7af0_61344091',
+    0 => 'Block_62326572960918797e0aca3_14972136',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -50,7 +50,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 			<th>Code</th>
 			<th>Departure date</th>
 			<th>Vehicle</th>
-			<th>Captain</th>
+			<th>Transport</th>
 			<th>From</th>
 			<th>To</th>
 			<th></th>
@@ -77,9 +77,9 @@ $__foreach_subvoyage_0_saved = $_smarty_tpl->tpl_vars['subvoyage'];
 </td>
 				<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['captain'];?>
 </td>
-				<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['sub_dept_place'];?>
+				<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['sub_dept_location'];?>
 </td>
-				<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['sub_arrival_place'];?>
+				<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['sub_arrival_location'];?>
 </td>
 				<td><img src="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 img/edit.png"  class="withPointer" height="16px" width="16px" onclick="edit_voyage('<?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['subvoyage_id'];?>

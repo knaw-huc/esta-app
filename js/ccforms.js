@@ -10,6 +10,7 @@ var editVars = {
 	mainVoyage: 0
 }
 
+
 var currentForm = "";
 var currentFormChanged = false;
 
@@ -305,6 +306,9 @@ function initCurrentFormMetadata() {
 	$("#" + currentForm).find(".input_element").change(function () {
 		$(this).removeClass("input_element");
 		$(this).addClass("changed_input_element");
+		if (currentForm == 'heSubvoyage') {
+			lookForDateCopy($(this).attr("id"));
+		}
 		currentFormChanged = true;
 	});
 
@@ -328,9 +332,6 @@ function initCurrentFormMetadata() {
 			}
 			break;
 		case "heActor":
-			//if (editVars.currentActor !== "") {
-			//	getData(currentForm, editVars[editVars.currentActor]);
-			//} else {
 			getData(currentForm, editVars.currentActor);
 			break;
 		case "heSlaveGroup":
@@ -339,6 +340,34 @@ function initCurrentFormMetadata() {
 	}
 }
 
+function lookForDateCopy(id) {
+	switch(id) {
+		case "sub_dept_date_day":
+			copyFieldValues("#sub_dept_date_day", "#sub_dept_date_day_to");
+			break;
+		case "sub_dept_date_month":
+			copyFieldValues("#sub_dept_date_month", "#sub_dept_date_month_to");
+			break;
+		case "sub_dept_date_year":
+			copyFieldValues("#sub_dept_date_year", "#sub_dept_date_year_to");
+			break;
+		case "sub_arrival_date_day":
+			copyFieldValues("#sub_arrival_date_day", "#sub_arrival_date_day_to");
+			break;
+		case "sub_arrival_date_month":
+			copyFieldValues("#sub_arrival_date_month", "#sub_arrival_date_month_to");
+			break;
+		case "sub_arrival_date_year":
+			copyFieldValues("#sub_arrival_date_year", "#sub_arrival_date_year_to");
+			break;
+	}
+}
+
+function copyFieldValues(from, to) {
+	if ($(to).prop('readonly')) {
+		$(to).val($(from).val());
+	}
+}
 
 function getData(form, id) {
 	if (id !== "0") {
@@ -410,9 +439,7 @@ function populateForm(form, json) {
 		fillVoyageForm(json);
 		return;
 	}
-	if (form === 'heSubvoyage') {
-		setEditVars(json);
-	}
+
 	$("#" + form).find(".input_element").each(
 		function () {
 			var name = $(this).attr("id");
@@ -421,6 +448,11 @@ function populateForm(form, json) {
 			}
 		}
 	);
+	if (form === 'heSubvoyage') {
+		setEditVars(json);
+		changeDepartureDateStatus($("#sub_dept_date_status"));
+		changeArrivalDateStatus($("#sub_arrival_date_status"));
+	}
 	setActors(form, json);
 }
 
@@ -644,6 +676,7 @@ function setSlaveGroups(json) {
  */
 
 function send_data(data, form, id, type = 'default') {
+	//console.log(data);
 	$.ajax({
 		type: "POST",
 		url: home + "/service/update_data",
@@ -1207,5 +1240,143 @@ function delete_subvoyage(id) {
 			}
 		})
 	}
+}
+
+// Standardized subvoyage departure dates
+function changeDepartureDateStatus(obj) {
+	switch($(obj).val()) {
+		case "Confirmed":
+		case "Inferred":
+		case "Uncertain":
+		case "Incomplete":
+			resetSecondDepartureDate();
+			$("#sub_dept_date_relative").addClass("noView");
+			break;
+		case "Range":
+		case "Date alternative":
+			$("#sub_dept_date_relative").addClass("noView");
+			$("#sub_dept_date_to").removeClass('noView');
+			openSecondDepartureDate();
+			break;
+		case "Year alternative":
+			$("#sub_dept_date_relative").addClass("noView");
+			$("#sub_dept_date_to").removeClass('noView');
+			closeSecondDepartureDate();
+			$("#sub_dept_date_year_to").prop("readonly", false);
+			break;
+		case "Month alternative":
+			$("#sub_dept_date_relative").addClass("noView");
+			$("#sub_dept_date_to").removeClass('noView');
+			closeSecondDepartureDate();
+			$("#sub_dept_date_month_to").prop("readonly", false);
+			break;
+		case "Day alternative":
+			$("#sub_dept_date_relative").addClass("noView");
+			$("#sub_dept_date_to").removeClass('noView');
+			closeSecondDepartureDate();
+			$("#sub_dept_date_day_to").prop("readonly", false);
+			break;
+		case "Relative":
+			resetSecondDepartureDate();
+			$("#sub_dept_date_relative").removeClass("noView");
+			break;
+	}
+}
+
+function resetSecondDepartureDate() {
+	$("#sub_dept_date_to").addClass('noView');
+	setFieldValue("#sub_dept_date_day_to", "0");
+	setFieldValue("#sub_dept_date_month_to", "0");
+	setFieldValue("#sub_dept_date_year_to", "0");
+}
+
+function openSecondDepartureDate() {
+	$("#sub_dept_date_day_to").prop("readonly", false);
+	$("#sub_dept_date_month_to").prop("readonly", false);
+	$("#sub_dept_date_year_to").prop("readonly", false);
+}
+
+function closeSecondDepartureDate() {
+	$("#sub_dept_date_day_to").prop("readonly", true);
+	$("#sub_dept_date_month_to").prop("readonly", true);
+	$("#sub_dept_date_year_to").prop("readonly", true);
+	copyFieldValues("#sub_dept_date_day", "#sub_dept_date_day_to");
+	copyFieldValues("#sub_dept_date_month", "#sub_dept_date_month_to");
+	copyFieldValues("#sub_dept_date_year", "#sub_dept_date_year_to");
+}
+
+
+//End standardized subvoyage departure dates
+
+//Standardized subvoyage arrival dates
+function changeArrivalDateStatus(obj) {
+	switch($(obj).val()) {
+		case "Confirmed":
+		case "Inferred":
+		case "Uncertain":
+		case "Incomplete":
+			resetSecondArrivalDate();
+			$("#sub_arrival_date_relative").addClass("noView");
+			break;
+		case "Range":
+		case "Date alternative":
+			$("#sub_arrival_date_relative").addClass("noView");
+			$("#sub_arrival_date_to").removeClass('noView');
+			openSecondArrivalDate();
+			break;
+		case "Year alternative":
+			$("#sub_arrival_date_relative").addClass("noView");
+			$("#sub_arrival_date_to").removeClass('noView');
+			closeSecondArrivalDate();
+			$("#sub_arrival_date_year_to").prop("readonly", false);
+			break;
+		case "Month alternative":
+			$("#sub_arrival_date_relative").addClass("noView");
+			$("#sub_arrival_date_to").removeClass('noView');
+			closeSecondArrivalDate();
+			$("#sub_arrival_date_month_to").prop("readonly", false);
+			break;
+		case "Day alternative":
+			$("#sub_dept_date_relative").addClass("noView");
+			$("#sub_arrival_date_to").removeClass('noView');
+			closeSecondArrivalDate();
+			$("#sub_arrival_date_day_to").prop("readonly", false);
+			break;
+		case "Relative":
+			resetSecondArrivalDate();
+			$("#sub_arrival_date_relative").removeClass("noView");
+			break;
+	}
+}
+
+function resetSecondArrivalDate() {
+	$("#sub_dept_date_to").addClass('noView');
+	setFieldValue("#sub_arrival_date_day_to", "0");
+	setFieldValue("#sub_arrival_date_month_to", "0");
+	setFieldValue("#sub_arrival_date_year_to", "0");
+}
+
+function openSecondArrivalDate() {
+	$("#sub_arrival_date_day_to").prop("readonly", false);
+	$("#sub_arrival_date_month_to").prop("readonly", false);
+	$("#sub_arrival_date_year_to").prop("readonly", false);
+}
+
+function closeSecondArrivalDate() {
+	$("#sub_arrival_date_day_to").prop("readonly", true);
+	$("#sub_arrival_date_month_to").prop("readonly", true);
+	$("#sub_arrival_date_year_to").prop("readonly", true);
+	copyFieldValues("#sub_arrival_date_day", "#sub_arrival_date_day_to");
+	copyFieldValues("#sub_arrival_date_month", "#sub_arrival_date_month_to");
+	copyFieldValues("#sub_arrival_date_year", "#sub_arrival_date_year_to");
+}
+
+// End standardized subvoyage arrival dates
+
+
+function setFieldValue(obj, value) {
+	$(obj).val(value);
+	$(obj).removeClass('input_element');
+	$(obj).addClass('changed_input_element');
 }
 

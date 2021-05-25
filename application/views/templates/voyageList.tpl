@@ -36,8 +36,8 @@
 					<td>{$subvoyage.sub_dept_date_year}</td>
 					<td>{$subvoyage.captain}</td>
 					<td>{$subvoyage.vessel}</td>
-					<td>{$subvoyage.sub_dept_place}</td>
-					<td>{$subvoyage.sub_arrival_place}</td>
+					<td>{$subvoyage.sub_dept_location}</td>
+					<td>{$subvoyage.sub_arrival_location}</td>
 					<td></td>
 					<td></td>
 				</tr>

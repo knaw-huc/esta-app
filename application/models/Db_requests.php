@@ -162,7 +162,7 @@ class Db_requests extends CI_Model
 
 	function getSubvoyagerecords($voyage_id)
 	{
-		$sql = "SELECT s.subvoyage_id, s.subvoyage_type, s.sub_dept_date_year, IFNULL(a.actor_name, '--') as captain, IFNULL(v.transport_name, '--') as vessel, s.sub_dept_place, s.sub_arrival_place FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN (SELECT f.type_id, a.actor_name FROM free_actors as f, `actor` as a WHERE f.type = 'voyage' AND f.actor_id = a.actor_id AND (a.actor_role = 'captain' OR a.actor_role_standardised = 'captain' )) AS a ON s.subvoyage_id = a.type_id WHERE s.voyage_id = $voyage_id AND NOT deleted";
+		$sql = "SELECT s.subvoyage_id, s.subvoyage_type, s.sub_dept_date_year, IFNULL(v.transport_type_standardized, '--') as captain, IFNULL(v.transport_name, '--') as vessel, s.sub_dept_location, s.sub_arrival_location FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN (SELECT f.type_id, a.actor_name FROM free_actors as f, `actor` as a WHERE f.type = 'voyage' AND f.actor_id = a.actor_id ) AS a ON s.subvoyage_id = a.type_id WHERE s.voyage_id = $voyage_id AND NOT deleted";
 		return $this->db->query($sql)->result_array();
 	}
 

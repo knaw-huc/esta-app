@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-07 21:26:11
+/* Smarty version 3.1.32, created on 2021-05-04 19:59:02
   from '/Library/WebServer/Documents/esta/application/views/templates/voyageList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f04cc53e4c174_16842617',
+  'unifunc' => 'content_60918b6626eb91_72557039',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a2885c70d118ed63b817c4831f250e78169b33da' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyageList.tpl',
-      1 => 1594149919,
+      1 => 1620150123,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f04cc53e4c174_16842617 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60918b6626eb91_72557039 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_10599941985f04cc53e37d49_43676749', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_18762583460918b6624dd22_55236478', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_10599941985f04cc53e37d49_43676749 extends Smarty_Internal_Block
+class Block_18762583460918b6624dd22_55236478 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_10599941985f04cc53e37d49_43676749',
+    0 => 'Block_18762583460918b6624dd22_55236478',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -106,9 +106,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['subvoyage']->value) {
 </td>
 					<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['vessel'];?>
 </td>
-					<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['sub_dept_place'];?>
+					<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['sub_dept_location'];?>
 </td>
-					<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['sub_arrival_place'];?>
+					<td><?php echo $_smarty_tpl->tpl_vars['subvoyage']->value['sub_arrival_location'];?>
 </td>
 					<td></td>
 					<td></td>

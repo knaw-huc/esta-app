@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2020-07-29 12:36:56
+/* Smarty version 3.1.32, created on 2021-05-25 11:24:51
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_5f215148a809a1_78800683',
+  'unifunc' => 'content_60acc2631739d9_70999950',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '03f082726b1860055f5b721899d50b3a783ddfa8' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/subvoyage.tpl',
-      1 => 1596019012,
+      1 => 1621934684,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f215148a809a1_78800683 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60acc2631739d9_70999950 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSubvoyage" data-action="<?php echo $_smarty_tpl->tpl_vars['sub_voyage_action']->value;?>
 ">
 	<div class="component" id="5eaac4f83afa7" data-name="subvoyage" data-order="1">
@@ -29,156 +29,116 @@ function content_5f215148a809a1_78800683 (Smarty_Internal_Template $_smarty_tpl)
 			<div class="label">Type</div>
 			<div class="control"><select id="subvoyage_type" data-validation-profile="5eaac4f83b67e"
 										 class="input_element">
+					<option value="">--</option>
 					<option value="sea">sea</option>
 					<option value="land">land</option>
 				</select>
 				<div id="errorMsg_5eaac4f83b67e" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="sub_dept_place">
-			<div class="label">Place of departure</div>
+		<hr/>
+		<div class="element" data-name="sub_dept_location">
+			<div class="label">Location of departure</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_place" data-validation-profile="5eaac4f83b69c"
+										id="sub_dept_location" data-validation-profile="5eaac4f83b69c"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b69c" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="sub_dept_region">
-			<div class="label">Region of departure</div>
+		<div class="element" data-name="sub_dept_location_standardized">
+			<div class="label">Location of departure standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_region" data-validation-profile="5eaac4f83b6c6"
-										class="input_element">
-				<div id="errorMsg_5eaac4f83b6c6" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="sub_dept_polity">
-			<div class="label">Polity of departure</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_polity" data-validation-profile="5eaac4f83b6cc"
-										class="input_element">
-				<div id="errorMsg_5eaac4f83b6cc" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="sub_dept_place_standardized">
-			<div class="label">Place of departure standardised</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_place_standardized" data-table="slaves" data-validation-profile="5eaac4f83b6d2"
+										id="sub_dept_location_standardized" data-table="slaves" data-validation-profile="5eaac4f83b6d2"
 										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b6d2" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="sub_dept_region_standardized">
-			<div class="label">Region of departure standardised</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_region_standardized" data-table="slaves" data-validation-profile="5eaac4f83b6d7"
-										class="input_element" data-auto="yes">
-				<div id="errorMsg_5eaac4f83b6d7" class="errorMsg"></div>
+		<div class="element" data-name="sub_dept_location_status">
+			<div class="label">Location of departure status</div>
+			<div class="control"><select id="sub_dept_location_status" data-validation-profile="5eaac4f83b67e"
+										 class="input_element">
+					<option value="">--</option>
+					<option value="Confirmed">Confirmed</option>
+					<option value="Implied">Implied</option>
+					<option value="Intended">Intended</option>
+					<option value="Uncertain">Uncertain</option>
+				</select>
+				<div id="errorMsg_5eaac4f83b67e" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="sub_dept_polity_standardized">
-			<div class="label">Polity of departure standardised</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_dept_polity_standardized" data-table="slaves" data-validation-profile="5eaac4f83b6dd"
-										class="input_element" data-auto="yes">
-				<div id="errorMsg_5eaac4f83b6dd" class="errorMsg"></div>
-			</div>
-		</div>
+		<hr/>
 		<div class="element" data-name="sub_dept_date_as_source">
-			<div class="label">Source departure date</div>
+			<div class="label">Departure date as in source</div>
 			<div class="control"><input type="text" size="45" data-reset-value="line" value=""
 										id="sub_dept_date_as_source" data-validation-profile="5eaac4f83b6e2"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b6e2" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="sub_dept_date_year">
-			<div class="label">Departure date year</div>
-			<div class="control"><input type="text" size="4" data-reset-value="line" value=""
-										id="sub_dept_date_year"
-										data-validation-profile="5eaac4f83b6e7" class="input_element">
-				<div id="errorMsg_5eaac4f83b6e7" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="sub_dept_date_month">
-			<div class="label">Departure date month</div>
-			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="sub_dept_date_month"
-										data-validation-profile="5eaac4f83b6ed" class="input_element">
-				<div id="errorMsg_5eaac4f83b6ed" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="sub_dept_date_day">
-			<div class="label">Departure date day</div>
-			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="sub_dept_date_day"
-										data-validation-profile="5eaac4f83b6f2" class="input_element">
-				<div id="errorMsg_5eaac4f83b6f2" class="errorMsg"></div>
-			</div>
-		</div>
 		<div class="element" data-name="sub_dept_date_status">
 			<div class="label">Departure date status</div>
-			<div class="control"><select id="sub_dept_date_status" data-validation-profile="5eaac4f83b6f8"
-										 class="input_element">
-					<option value="">--</option>
-					<option value="uncertain">uncertain</option>
-					<option value="incomplete">incomplete</option>
-					<option value="range">range</option>
-					<option value="date/month/day/year alternative">date/month/day/year alternative</option>
-					<option value="unknown to indicate status of departure date">unknown to indicate status of departure
-						date
-					</option>
+			<div class="control"><select id="sub_dept_date_status" data-validation-profile="5eaac4f83b67e"
+										 class="input_element" onchange="changeDepartureDateStatus(this)">
+					<option value="Confirmed">Confirmed</option>
+					<option value="Inferred">Inferred</option>
+					<option value="Uncertain">Uncertain</option>
+					<option value="Incomplete">Incomplete</option>
+					<option value="Range">Range</option>
+					<option value="Date alternative">Date alternative</option>
+					<option value="Year alternative">Year alternative</option>
+					<option value="Month alternative">Month alternative</option>
+					<option value="Day alternative">Day alternative</option>
+					<option value="Relative">Relative</option>
 				</select>
-				<div id="errorMsg_5eaac4f83b6f8" class="errorMsg"></div>
+				<div id="errorMsg_5eaac4f83b67e" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="sub_arrival_place">
+		<div class="element" data-name="sub_dept_date_standardized">
+			<div class="label">Departure date standardized (d-m-y)</div>
+			<div class="control">
+				<div class="date_control" id="sub_dept_date_from">
+					<select id="sub_dept_date_relative" class="input_element noView">
+						<option value="">--</option>
+						<option value="Before">Before</option>
+						<option value="After">After</option>
+					</select>
+					<input type="number" class="input_element" id="sub_dept_date_day" size="2"> - <input type="number" class="input_element" id="sub_dept_date_month" size="2"> - <input type="number" class="input_element" id="sub_dept_date_year" size="4">
+				</div>
+				<div class="date_control noView" id="sub_dept_date_to">
+					<input type="number" class="input_element" id="sub_dept_date_day_to" size="2"> - <input type="number" class="input_element" id="sub_dept_date_month_to" size="2"> - <input type="number" class="input_element" id="sub_dept_date_year_to" size="4">
+				</div>
+			</div>
+		</div>
+		<hr/>
+		<div class="element" data-name="sub_arrival_location">
 			<div class="label">Place of arrival</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_place" data-validation-profile="5eaac4f83b700"
+										id="sub_arrival_location" data-validation-profile="5eaac4f83b700"
 										class="input_element">
 				<div id="errorMsg_5eaac4f83b700" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="sub_arrival_region">
-			<div class="label">Region of arrival</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_region" data-validation-profile="5eaac4f83b706"
-										class="input_element">
-				<div id="errorMsg_5eaac4f83b706" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="sub_arrival_polity">
-			<div class="label">Polity of arrival</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_polity" data-validation-profile="5eaac4f83b70c"
-										class="input_element">
-				<div id="errorMsg_5eaac4f83b70c" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="sub_arrival_place_standardized">
+		<div class="element" data-name="sub_arrival_location_standardized">
 			<div class="label">Place of arrival standardised</div>
 			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_place_standardized" data-table="slaves" data-validation-profile="5eaac4f83b711"
+										id="sub_arrival_location_standardized" data-table="slaves" data-validation-profile="5eaac4f83b711"
 										class="input_element" data-auto="yes">
 				<div id="errorMsg_5eaac4f83b711" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="sub_arrival_region_standardized">
-			<div class="label">Region of arrival standardised</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_region_standardized" data-table="slaves" data-validation-profile="5eaac4f83b717"
-										class="input_element" data-auto="yes">
-				<div id="errorMsg_5eaac4f83b717" class="errorMsg"></div>
+		<div class="element" data-name="sub_arrival_location_status">
+			<div class="label">Location of departure status</div>
+			<div class="control"><select id="sub_arrival_location_status" data-validation-profile="5eaac4f83b67e"  class="input_element">
+					<option value="">--</option>
+					<option value="Confirmed">Confirmed</option>
+					<option value="Implied">Implied</option>
+					<option value="Intended">Intended</option>
+					<option value="Uncertain">Uncertain</option>
+				</select>
+				<div id="errorMsg_5eaac4f83b67e" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="sub_arrival_polity_standardized">
-			<div class="label">Polity of arrival standardised</div>
-			<div class="control"><input type="text" size="100" data-reset-value="line" value=""
-										id="sub_arrival_polity_standardized" data-table="slaves" data-validation-profile="5eaac4f83b71c"
-										class="input_element" data-auto="yes">
-				<div id="errorMsg_5eaac4f83b71c" class="errorMsg"></div>
-			</div>
-		</div>
+	<hr/>
 		<div class="element" data-name="sub_arrival_date_as_source">
 			<div class="label">Arrival date source</div>
 			<div class="control"><input type="text" size="45" data-reset-value="line" value=""
@@ -187,89 +147,41 @@ function content_5f215148a809a1_78800683 (Smarty_Internal_Template $_smarty_tpl)
 				<div id="errorMsg_5eaac4f83b721" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="sub_arrival_date_year_standardized">
-			<div class="label">Year of arrival standardised</div>
-			<div class="control"><input type="text" size="4" data-reset-value="line" value=""
-										id="sub_arrival_date_year_standardized"
-										data-validation-profile="5eaac4f83b727" class="input_element">
-				<div id="errorMsg_5eaac4f83b727" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="sub_arrival_date_month_standardized">
-			<div class="label">Month of arrival standardised</div>
-			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="sub_arrival_date_month_standardized"
-										data-validation-profile="5eaac4f83b72d" class="input_element">
-				<div id="errorMsg_5eaac4f83b72d" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="sub_arrival_date_day_standardized">
-			<div class="label">Day of arrival standardised</div>
-			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="sub_arrival_date_day_standardized"
-										data-validation-profile="5eaac4f83b732" class="input_element">
-				<div id="errorMsg_5eaac4f83b732" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="sub_range_arrival_date_year_standardized"
-		>
-			<div class="label">Range arrival year standardised</div>
-			<div class="control"><input type="text" size="4" data-reset-value="line" value=""
-										id="sub_range_arrival_date_year_standardized"
-										data-validation-profile="5eaac4f83b737" class="input_element">
-				<div id="errorMsg_5eaac4f83b737" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="sub_range_arrival_date_month_standardized"
-		>
-			<div class="label">Range arrival month standardised</div>
-			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="sub_range_arrival_date_month_standardized"
-										data-validation-profile="5eaac4f83b73c" class="input_element">
-				<div id="errorMsg_5eaac4f83b73c" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="sub_range_arrival_date_day_standardized">
-			<div class="label">Range arrival day standardised</div>
-			<div class="control"><input type="text" size="2" data-reset-value="line" value=""
-										id="sub_range_arrival_date_day_standardized"
-										data-validation-profile="5eaac4f83b741" class="input_element">
-				<div id="errorMsg_5eaac4f83b741" class="errorMsg"></div>
-			</div>
-		</div>
 		<div class="element" data-name="sub_arrival_date_status">
 			<div class="label">Arrival date status</div>
-			<div class="control"><select id="sub_arrival_date_status" data-validation-profile="5eaac4f83b747"
-										 class="input_element">
-					<option value="">--</option>
-					<option value="confirmed">confirmed</option>
-					<option value="inferred">inferred</option>
-					<option value="incomplete">incomplete</option>
-					<option value="uncertain">uncertain</option>
-					<option value="range">range</option>
-					<option value="date/month/day/year alternative">date/month/day/year alternative
-					</option>
-					<option value="unknown to indicate status of arrival date">unknown to indicate
-						status of
-						arrival date
-					</option>
+			<div class="control">
+				<select id="sub_arrival_date_status" data-validation-profile="5eaac4f83b747" class="input_element" onchange="changeArrivalDateStatus(this)">
+					<option value="Confirmed">Confirmed</option>
+					<option value="Inferred">Inferred</option>
+					<option value="Uncertain">Uncertain</option>
+					<option value="Incomplete">Incomplete</option>
+					<option value="Range">Range</option>
+					<option value="Date alternative">Date alternative</option>
+					<option value="Year alternative">Year alternative</option>
+					<option value="Month alternative">Month alternative</option>
+					<option value="Day alternative">Day alternative</option>
+					<option value="Relative">Relative</option>
 				</select>
 				<div id="errorMsg_5eaac4f83b747" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="voyage_status">
-			<div class="label">Status</div>
-			<div class="control"><select id="voyage_status" data-validation-profile="5eaac4f83b781"
-										 class="input_element">
-					<option value="">--</option>
-					<option value="confirmed">confirmed</option>
-					<option value="probable">probable</option>
-					<option value="possible">possible</option>
-					<option value="projected">projected</option>
-				</select>
-				<div id="errorMsg_5eaac4f83b781" class="errorMsg"></div>
+		<div class="element" data-name="sub_arrival_date_standardized">
+			<div class="label">Departure date standardized (d-m-y)</div>
+			<div class="control">
+				<div class="date_control" id="sub_arrival_date_from">
+					<select id="sub_arrival_date_relative" class="input_element noView">
+						<option value="">--</option>
+						<option value="Before">Before</option>
+						<option value="After">After</option>
+					</select>
+					<input type="number" id="sub_arrival_date_day" size="2" class="input_element"> - <input type="number" id="sub_arrival_date_month" size="2" class="input_element"> - <input type="number" id="sub_arrival_date_year" size="4" class="input_element">
+				</div>
+				<div class="date_control noView" id="sub_arrival_date_to">
+					<input type="number" id="sub_arrival_date_day_to" size="2" class="input_element"> - <input type="number" id="sub_arrival_date_month_to" size="2" class="input_element"> - <input type="number" id="sub_arrival_date_year_to" size="4" class="input_element">
+				</div>
 			</div>
 		</div>
+		<hr/>
 		<div class="element" data-name="slaving_voyage_status">
 			<div class="label">Slaving voyage status</div>
 			<div class="control"><select id="slaving_voyage_status" data-validation-profile="5eaac4f83b79b"

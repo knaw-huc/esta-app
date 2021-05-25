@@ -6,7 +6,7 @@
 			<th>Code</th>
 			<th>Departure date</th>
 			<th>Vehicle</th>
-			<th>Captain</th>
+			<th>Transport</th>
 			<th>From</th>
 			<th>To</th>
 			<th></th>
@@ -18,8 +18,8 @@
 				<td>{$subvoyage.sub_dept_date_year}</td>
 				<td>{$subvoyage.vessel}</td>
 				<td>{$subvoyage.captain}</td>
-				<td>{$subvoyage.sub_dept_place}</td>
-				<td>{$subvoyage.sub_arrival_place}</td>
+				<td>{$subvoyage.sub_dept_location}</td>
+				<td>{$subvoyage.sub_arrival_location}</td>
 				<td><img src="{$home_path}img/edit.png"  class="withPointer" height="16px" width="16px" onclick="edit_voyage('{$subvoyage.subvoyage_id}')"></td>
 				<td><img id="bin{$subvoyage.subvoyage_id}"  class="withPointer" src="{$home_path}img/bin.png" height="16px" width="16px" onclick="delete_subvoyage('{$subvoyage.subvoyage_id}')">
 				</td>

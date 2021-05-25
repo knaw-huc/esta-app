@@ -114,7 +114,7 @@ class Admin extends CI_Controller
 		$this->mysmarty->assign('email', $email);
 		$this->mysmarty->assign('passwd', $passwd);
 
-		$this->email->from('no-reply@di.huc.knaw.nl');
+		$this->email->from('rob.zeeman@di.huc.knaw.nl');
 		$this->email->to($email);
 		$this->email->message($this->mysmarty->view2var("invite_user"));
 		$this->email->subject( 'Your new ESTA account');

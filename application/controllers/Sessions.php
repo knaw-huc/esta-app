@@ -41,7 +41,7 @@ class Sessions extends CI_Controller
 		if ($this->input->post("email")) {
 			$pw = $this->createPasswd();
 			$this->fetch->updatePasswd($this->input->post("email"), $pw);
-			$this->email->from('no-reply@esta.huc.knaw.nl', 'ESTA administrator');
+			$this->email->from('rob.zeeman@esta.huc.knaw.nl', 'ESTA administrator');
 			$this->email->to($this->input->post("email"));
 			$this->mysmarty->assign("pw", $pw);
 			$this->email->subject("New password ESTA user");

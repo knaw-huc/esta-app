@@ -38,7 +38,7 @@
 		</div>
 		<div class="element" data-name="cargo_quantity_standardized">
 			<div class="label">Cargo quantity standardized</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="cargo_quantity_standardized"
+			<div class="control"><input type="number" size="4" data-reset-value="line" value="" id="cargo_quantity_standardized"
 										data-validation-profile="5e823fa99d666" class="input_element">
 				<div id="errorMsg_5e823fa99d666" class="errorMsg"></div>
 			</div>

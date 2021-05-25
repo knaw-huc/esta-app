@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2021-04-06 08:38:30
+/* Smarty version 3.1.32, created on 2021-05-04 16:13:11
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_606c01e62c5145_11917092',
+  'unifunc' => 'content_60915677598b72_90985242',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2b9a0ccd905ac6c1aa3b1249dc82bf26c2cf72d6' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl',
-      1 => 1617691083,
+      1 => 1620137579,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_606c01e62c5145_11917092 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60915677598b72_90985242 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSlaves" data-action="<?php echo $_smarty_tpl->tpl_vars['slaves_action']->value;?>
 ">
 	<div class="component">
@@ -33,13 +33,29 @@ function content_606c01e62c5145_11917092 (Smarty_Internal_Template $_smarty_tpl)
 			</div>
 		</div>
 		<div class="element" data-name="slaves_total_standardized">
-			<div class="label">Total standardised</div>
-			<div class="control"><input id="slaves_total_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99b954" class="input_element">
+			<div class="label">Total standardized</div>
+			<div class="control">Min: <input id="slaves_total_standardized_min" type="number" min="0" size="4" data-reset-value="line" value=""
+										data-validation-profile="5e823fa99b954" class="input_element">&nbsp;
+				Max: <input id="slaves_total_standardized_max" type="number" min="0" size="4" data-reset-value="line" value=""
+							data-validation-profile="5e823fa99b954" class="input_element">&nbsp;
+				Total: <input id="slaves_total_standardized_total" type="number" min="0" size="4" data-reset-value="line" value=""
+							  data-validation-profile="5e823fa99b954" class="input_element">
 				<div id="errorMsg_5e823fa99b954" class="errorMsg"></div>
 			</div>
 		</div>
-				<div class="element" data-name="slaves_mortality">
+		<div class="element" data-name="slaves_total_status">
+			<div class="label">Total status</div>
+			<div class="control"><select id="slaves_total_status"
+										 data-validation-profile="5e823fa99abcf" class="input_element">
+					<option value="Confirmed">Confirmed</option>
+					<option value="Approximate">Approximate</option>
+					<option value="Range">Range</option>
+					<option value="Unknown">Unknown</option>
+				</select>
+				<div id="errorMsg_5e823fa99ba45" class="errorMsg"></div>
+			</div>
+		</div>
+		<div class="element" data-name="slaves_mortality">
 			<div class="label">Mortality</div>
 			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_mortality"
 										data-validation-profile="5e823fa99ba1f" class="input_element">
@@ -48,7 +64,7 @@ function content_606c01e62c5145_11917092 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 		<div class="element" data-name="slaves_mortality_standardized">
 			<div class="label">Mortality standardised</div>
-			<div class="control"><input id="slaves_mortality_standardized" type="text" data-reset-value="line" value=""
+			<div class="control"><input id="slaves_mortality_standardized" type="number" data-reset-value="line" value="" min="0" size="4"
 										data-validation-profile="5e823fa99ba2d" class="input_element">
 				<div id="errorMsg_5e823fa99ba2d" class="errorMsg"></div>
 			</div>
@@ -62,16 +78,15 @@ function content_606c01e62c5145_11917092 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 		<div class="element" data-name="slaves_type_standardized">
 			<div class="label">Type standardised</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_type_standardized" data-table="slaves"
-										data-validation-profile="5e823fa99ba45" class="input_element" data-auto="yes">
+			<div class="control"><select id="slaves_type_standardized"
+										 data-validation-profile="5e823fa99abcf" class="input_element">
+					<option value="Slave trade">Slave trade</option>
+					<option value="Penal labour">Penal labour</option>
+					<option value="Tributary">Tributary</option>
+					<option value="Prisoners of war">Prisoners of war</option>
+					<option value="Other">Other</option>
+				</select>
 				<div id="errorMsg_5e823fa99ba45" class="errorMsg"></div>
-			</div>
-		</div>
-		<div class="element" data-name="slaves_ethnicity">
-			<div class="label">Ethnicity</div>
-			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_ethnicity"
-										data-validation-profile="5e823fa99ba55" class="input_element">
-				<div id="errorMsg_5e823fa99ba55" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="slaves_notes">

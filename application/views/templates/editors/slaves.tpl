@@ -9,10 +9,26 @@
 			</div>
 		</div>
 		<div class="element" data-name="slaves_total_standardized">
-			<div class="label">Total standardised</div>
-			<div class="control"><input id="slaves_total_standardized" type="text" data-reset-value="line" value=""
-										data-validation-profile="5e823fa99b954" class="input_element">
+			<div class="label">Total standardized</div>
+			<div class="control">Min: <input id="slaves_total_standardized_min" type="number" min="0" size="4" data-reset-value="line" value=""
+										data-validation-profile="5e823fa99b954" class="input_element">&nbsp;
+				Max: <input id="slaves_total_standardized_max" type="number" min="0" size="4" data-reset-value="line" value=""
+							data-validation-profile="5e823fa99b954" class="input_element">&nbsp;
+				Total: <input id="slaves_total_standardized_total" type="number" min="0" size="4" data-reset-value="line" value=""
+							  data-validation-profile="5e823fa99b954" class="input_element">
 				<div id="errorMsg_5e823fa99b954" class="errorMsg"></div>
+			</div>
+		</div>
+		<div class="element" data-name="slaves_total_status">
+			<div class="label">Total status</div>
+			<div class="control"><select id="slaves_total_status"
+										 data-validation-profile="5e823fa99abcf" class="input_element">
+					<option value="Confirmed">Confirmed</option>
+					<option value="Approximate">Approximate</option>
+					<option value="Range">Range</option>
+					<option value="Unknown">Unknown</option>
+				</select>
+				<div id="errorMsg_5e823fa99ba45" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="slaves_mortality">
@@ -24,20 +40,20 @@
 		</div>
 		<div class="element" data-name="slaves_mortality_standardized">
 			<div class="label">Mortality standardised</div>
-			<div class="control"><input id="slaves_mortality_standardized" type="text" data-reset-value="line" value=""
+			<div class="control"><input id="slaves_mortality_standardized" type="number" data-reset-value="line" value="" min="0" size="4"
 										data-validation-profile="5e823fa99ba2d" class="input_element">
 				<div id="errorMsg_5e823fa99ba2d" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="slaves_type">
-			<div class="label">Type</div>
+			<div class="label">Type of forced relocation</div>
 			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_type"
 										data-validation-profile="5e823fa99ba40" class="input_element">
 				<div id="errorMsg_5e823fa99ba40" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="slaves_type_standardized">
-			<div class="label">Type standardised</div>
+			<div class="label">Type of forced relocation standardised</div>
 			<div class="control"><select id="slaves_type_standardized"
 										 data-validation-profile="5e823fa99abcf" class="input_element">
 					<option value="Slave trade">Slave trade</option>

@@ -51,9 +51,9 @@
 				<div id="errorMsg_5e823fa99b83a" class="errorMsg"></div>
 			</div>
 		</div>
-		<div class="element" data-name="slaves_total_female">
+		<div class="element" data-name="gr_quantity_standardized">
 			<div class="label">Amount standardized</div>
-			<div class="control"><input type="text" size="20" data-reset-value="line" value="" id="gr_quantity_standardized"
+			<div class="control"><input type="number" size="4" data-reset-value="line" value="" id="gr_quantity_standardized" min="0"
 										data-validation-profile="5e823fa99b83a" class="input_element">
 				<div id="errorMsg_5e823fa99b83a" class="errorMsg"></div>
 			</div>
