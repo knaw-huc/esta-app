@@ -1380,3 +1380,11 @@ function setFieldValue(obj, value) {
 	$(obj).addClass('changed_input_element');
 }
 
+function gotopage(obj, range) {
+	if (range = 'allRecs') {
+		window.location.href = home + '/workspace/voyages/' + obj.value;
+	} else {
+		window.location.href = home + '/workspace/myvoyages/' + obj.value;
+	}
+}
+

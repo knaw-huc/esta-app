@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2021-04-06 15:08:52
+/* Smarty version 3.1.32, created on 2021-06-08 11:04:06
   from '/Library/WebServer/Documents/esta/application/views/templates/home.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_606c5d64016173_17836576',
+  'unifunc' => 'content_60bf3286712e71_12720252',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'd117044c10cdaa2ecf8b3ba92be9f12bde5abe39' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/home.tpl',
-      1 => 1617714466,
+      1 => 1623143037,
       2 => 'file',
     ),
   ),
@@ -20,25 +20,25 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_606c5d64016173_17836576 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60bf3286712e71_12720252 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_357923706606c5d63f1cff4_77855837', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_160474236760bf32867057d2_31704189', "content");
 ?>
 
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_357923706606c5d63f1cff4_77855837 extends Smarty_Internal_Block
+class Block_160474236760bf32867057d2_31704189 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_357923706606c5d63f1cff4_77855837',
+    0 => 'Block_160474236760bf32867057d2_31704189',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,7 +58,7 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 			</p>
 			<p>
 			<h3>Want to join or contribute?</h3>
-			Scholars or students who are interested in contributing to the initiative and providing data are more than welcome. The project collects existing datasets, invites new connections for the network and fosters new data contributions. If you are interested to contribute, please contact <a href="">Etaoin Shrdlu</a>.
+			Scholars or students who are interested in contributing to the initiative and providing data are more than welcome. The project collects existing datasets, invites new connections for the network and fosters new data contributions. If you are interested to contribute, please contact <a href="mailto:mvr@iisg.nl">Matthias van Rossum</a> or <a href="mailto:merve.tosun@iisg.nl">Merve Tosun</a>.
 			</p>
 			<p>
 			<h3>More information</h3>
@@ -79,7 +79,7 @@ sessions/login">
 						User name:
 					</div>
 					<div class="formField">
-						<input id="userName" name="username" type="text" size="30"/>
+						<input id="userName" name="username" type="text" size="20"/>
 					</div>
 				</div>
 				<div class="formRow">
@@ -87,7 +87,7 @@ sessions/login">
 						Password:
 					</div>
 					<div class="formField">
-						<input id="passwd" name="passwd" type="password" size="30"/>
+						<input id="passwd" name="passwd" type="password" size="20"/>
 					</div>
 				</div>
 				<div class="formRow">

@@ -1,4 +1,28 @@
-<div id="heSlaveGroup" data-action="{$slave_group_action}">
+<?php
+/* Smarty version 3.1.32, created on 2021-05-03 14:36:55
+  from '/Library/WebServer/Documents/esta/application/views/templates/editors/slave_group.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.32',
+  'unifunc' => 'content_608fee67d8f6c6_52957372',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    '914f92eff86c9f735f7a4d7da658d1560076a8a2' => 
+    array (
+      0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/slave_group.tpl',
+      1 => 1620045408,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_608fee67d8f6c6_52957372 (Smarty_Internal_Template $_smarty_tpl) {
+?><div id="heSlaveGroup" data-action="<?php echo $_smarty_tpl->tpl_vars['slave_group_action']->value;?>
+">
 	<div class="component">
 		<div class="componentHeader">Slave group</div>
 		<div class="element" data-name="sex">
@@ -65,16 +89,8 @@
 		&nbsp;
 		<input type="button" value="Go top" class="appBtn" onclick="window.scrollTo(0,0)"/>
 		<div class="messageBox">&nbsp;</div>
-		{*<div id="tmpFormatter">
-			<table id="slavesActorTable" class="resultTable">
-				<tr>
-					<th>Actors</th>
-					<th></th>
-					<th></th>
-					<th><a href="javascript:new_actor('slaveGroupActor', editVars.slaveGroup)">+</a></th>
-				</tr>
-			</table>
-		</div>*}
-		<input id="mutBtn" type="button" value="Mutation history" onclick="show_mutations();"/>
+				<input id="mutBtn" type="button" value="Mutation history" onclick="show_mutations();"/>
 	</div>
 </div>
+<?php }
+}

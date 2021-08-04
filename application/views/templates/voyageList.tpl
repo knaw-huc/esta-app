@@ -47,7 +47,11 @@
 			<td colspan="3" id="voyageBrowserPrev">
 				{if $page > 1}<a href="{$home_path}workspace/{if $range == "myRecs"}my{/if}voyages/{$page-1}">previous</a>{else}&nbsp;{/if}
 			</td>
-			<td colspan="3" id="voyageBrowserPage">&nbsp;</td>
+			<td colspan="3" id="voyageBrowserPage"><select onchange="gotopage(this, '{$range}')">
+					{for $i=1 to $pages}
+						<option value="{$i}" {if $i == $page}selected{/if}>{$i}</option>
+					{/for}
+				</select></td>
 			<td colspan="3" id="voyageBrowserNext">
 				{if $page < $pages}<a href="{$home_path}workspace/{if $range == "myRecs"}my{/if}voyages/{$page+1}">next</a>{else}&nbsp;{/if}
 			</td>

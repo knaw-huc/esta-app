@@ -13,7 +13,7 @@
 			</p>
 			<p>
 			<h3>Want to join or contribute?</h3>
-			Scholars or students who are interested in contributing to the initiative and providing data are more than welcome. The project collects existing datasets, invites new connections for the network and fosters new data contributions. If you are interested to contribute, please contact <a href="">Etaoin Shrdlu</a>.
+			Scholars or students who are interested in contributing to the initiative and providing data are more than welcome. The project collects existing datasets, invites new connections for the network and fosters new data contributions. If you are interested to contribute, please contact <a href="mailto:mvr@iisg.nl">Matthias van Rossum</a> or <a href="mailto:merve.tosun@iisg.nl">Merve Tosun</a>.
 			</p>
 			<p>
 			<h3>More information</h3>
@@ -33,7 +33,7 @@
 						User name:
 					</div>
 					<div class="formField">
-						<input id="userName" name="username" type="text" size="30"/>
+						<input id="userName" name="username" type="text" size="20"/>
 					</div>
 				</div>
 				<div class="formRow">
@@ -41,7 +41,7 @@
 						Password:
 					</div>
 					<div class="formField">
-						<input id="passwd" name="passwd" type="password" size="30"/>
+						<input id="passwd" name="passwd" type="password" size="20"/>
 					</div>
 				</div>
 				<div class="formRow">

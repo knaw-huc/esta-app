@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2021-05-04 16:13:11
+/* Smarty version 3.1.32, created on 2021-06-07 11:36:38
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_60915677598b72_90985242',
+  'unifunc' => 'content_60bde8a66834b2_61502046',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '2b9a0ccd905ac6c1aa3b1249dc82bf26c2cf72d6' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/slaves.tpl',
-      1 => 1620137579,
+      1 => 1621934797,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_60915677598b72_90985242 (Smarty_Internal_Template $_smarty_tpl) {
+function content_60bde8a66834b2_61502046 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSlaves" data-action="<?php echo $_smarty_tpl->tpl_vars['slaves_action']->value;?>
 ">
 	<div class="component">
@@ -70,14 +70,14 @@ function content_60915677598b72_90985242 (Smarty_Internal_Template $_smarty_tpl)
 			</div>
 		</div>
 		<div class="element" data-name="slaves_type">
-			<div class="label">Type</div>
+			<div class="label">Type of forced relocation</div>
 			<div class="control"><input type="text" size="45" data-reset-value="line" value="" id="slaves_type"
 										data-validation-profile="5e823fa99ba40" class="input_element">
 				<div id="errorMsg_5e823fa99ba40" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="slaves_type_standardized">
-			<div class="label">Type standardised</div>
+			<div class="label">Type of forced relocation standardised</div>
 			<div class="control"><select id="slaves_type_standardized"
 										 data-validation-profile="5e823fa99abcf" class="input_element">
 					<option value="Slave trade">Slave trade</option>
