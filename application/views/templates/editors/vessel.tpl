@@ -67,14 +67,14 @@
 		</div>*}
 		<div class="element" data-name="transport_notes">
 			<div class="label">Notes</div>
-			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="vessel_notes"
+			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="transport_notes"
 										   data-validation-profile="5e823fa99abf8" class="input_element"></textarea>
 				<div id="errorMsg_5e823fa99abf8" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="transport_source">
 			<div class="label">Source</div>
-			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="vess_source"
+			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="transport_source"
 										   data-validation-profile="5e823fa99abfd" class="input_element"></textarea>
 				<div id="errorMsg_5e823fa99abfd" class="errorMsg"></div>
 			</div>

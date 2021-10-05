@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2021-04-30 20:40:21
+/* Smarty version 3.1.32, created on 2021-10-05 18:40:08
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/vessel.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_608c4f156ce941_13777287',
+  'unifunc' => 'content_615c9c0894d8d0_82199549',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9fa4979234394773ec697eba1c3b251710d2f22b' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/vessel.tpl',
-      1 => 1619808017,
+      1 => 1633459085,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_608c4f156ce941_13777287 (Smarty_Internal_Template $_smarty_tpl) {
+function content_615c9c0894d8d0_82199549 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heVessel"  data-action="<?php echo $_smarty_tpl->tpl_vars['vessel_action']->value;?>
 ">
 	<div class="component">
@@ -84,14 +84,14 @@ function content_608c4f156ce941_13777287 (Smarty_Internal_Template $_smarty_tpl)
 		</div>
 				<div class="element" data-name="transport_notes">
 			<div class="label">Notes</div>
-			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="vessel_notes"
+			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="transport_notes"
 										   data-validation-profile="5e823fa99abf8" class="input_element"></textarea>
 				<div id="errorMsg_5e823fa99abf8" class="errorMsg"></div>
 			</div>
 		</div>
 		<div class="element" data-name="transport_source">
 			<div class="label">Source</div>
-			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="vess_source"
+			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="transport_source"
 										   data-validation-profile="5e823fa99abfd" class="input_element"></textarea>
 				<div id="errorMsg_5e823fa99abfd" class="errorMsg"></div>
 			</div>
