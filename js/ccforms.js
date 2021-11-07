@@ -77,7 +77,13 @@ function setEvents() {
 
 	$("#vmSearch").click(
 		function () {
-			alert("This function isn't implemented yet.");
+			if ($("#searchForm").hasClass("noView")) {
+				$("#searchForm").removeClass("noView");
+				$("#vmSearch").html("Browse");
+			} else {
+				$("#searchForm").addClass("noView");
+				$("#vmSearch").html("Search");
+			}
 		}
 	)
 

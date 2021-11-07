@@ -58,6 +58,13 @@
 				<div id="errorMsg_5e823fa99b83a" class="errorMsg"></div>
 			</div>
 		</div>
+		<div class="element" data-name="gr_notes">
+			<div class="label">Notes</div>
+			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="gr_notes"
+										   data-validation-profile="5e823fa99ca35" class="input_element"></textarea>
+				<div id="errorMsg_5e823fa99ca35" class="errorMsg"></div>
+			</div>
+		</div>
 	</div>
 	<div id="btnFrame">
 		<input type="button" value="Save" id="slaveSaveBtn" onclick="saveSlaveGroup();"/>

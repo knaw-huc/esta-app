@@ -7,6 +7,18 @@
 		<li class="appBtn" id="vmSearch">Search</li>
 		<li class="appBtn" id="vmNew">New voyage</li>
 	</ul>
+	<div id="searchForm" class="noView">
+		<input id="searchText" type="text">
+		<select id="tableSelect">
+			<option value="">Actor</option>
+			<option value="">Cargo</option>
+			<option value="">Transport</option>
+			<option value="">Subvoyage</option>
+			<option value="">Voyage</option>
+		</select>
+		<button id="searchBtn">OK</button>
+		<input type="hidden" id="browserStatus" value="{$status}"/>
+	</div>
 	<table id="voyageList" class="resultTable">
 		<tr>
 			<th>ID</th>

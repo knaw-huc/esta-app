@@ -600,4 +600,15 @@ content: " *" !important;
 text-align: right;
 }
 
+#searchBtn {
+display: inline-block;
+width: 100px; !important;
+background-color: #5c5c6a;
+border: 1px;
+}
+
+#searchForm {
+margin: 20px 0;
+}
+
 

@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2021-05-03 14:36:55
+/* Smarty version 3.1.32, created on 2021-10-07 12:13:24
   from '/Library/WebServer/Documents/esta/application/views/templates/editors/slave_group.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_608fee67d8f6c6_52957372',
+  'unifunc' => 'content_615ee4646e1107_55663300',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '914f92eff86c9f735f7a4d7da658d1560076a8a2' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/editors/slave_group.tpl',
-      1 => 1620045408,
+      1 => 1633608799,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_608fee67d8f6c6_52957372 (Smarty_Internal_Template $_smarty_tpl) {
+function content_615ee4646e1107_55663300 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="heSlaveGroup" data-action="<?php echo $_smarty_tpl->tpl_vars['slave_group_action']->value;?>
 ">
 	<div class="component">
@@ -80,6 +80,13 @@ function content_608fee67d8f6c6_52957372 (Smarty_Internal_Template $_smarty_tpl)
 			<div class="control"><input type="number" size="4" data-reset-value="line" value="" id="gr_quantity_standardized" min="0"
 										data-validation-profile="5e823fa99b83a" class="input_element">
 				<div id="errorMsg_5e823fa99b83a" class="errorMsg"></div>
+			</div>
+		</div>
+		<div class="element" data-name="gr_notes">
+			<div class="label">Notes</div>
+			<div class="control"><textarea rows="8" cols="100" data-reset-value="area" id="gr_notes"
+										   data-validation-profile="5e823fa99ca35" class="input_element"></textarea>
+				<div id="errorMsg_5e823fa99ca35" class="errorMsg"></div>
 			</div>
 		</div>
 	</div>

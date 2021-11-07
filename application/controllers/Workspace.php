@@ -35,6 +35,7 @@ class Workspace extends CI_Controller
 			$this->mysmarty->assign("pages", $pageInfo["pages"]);
 			$this->mysmarty->assign("count", $pageInfo["items"]);
 			$this->mysmarty->assign("voyages", $voyages["voyages"]);
+			$this->mysmarty->assign("status", "browse");
 			$this->mysmarty->view('voyageList');
 		}
 

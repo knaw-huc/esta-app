@@ -6,6 +6,21 @@ if (!defined('BASEPATH'))
 class Db_requests extends CI_Model
 {
 
+	function get_ft_query($table) {
+		switch ($table) {
+			case 'actor':
+				return "";
+			case "subvoyage":
+				return "SELECT voyage_id FROM subvoyage WHERE MATCH(sub_dept_location, sub_dept_location_standardized, sub_dept_date_as_source, sub_arrival_location, sub_arrival_location_standardized, sub_arrival_date_as_source, subvoyage_notes, sub_source) AGAINST (?)";
+			case "voyage":
+				return "SELECT voyage_id FROM voyage WHERE MATCH(summary, year) AGAINST (?)";
+			case "cargo":
+				return "SELECT s.voyage_id FROM subvoyage AS s, cargo AS c WHERE s.subvoyage_id = c.subvoyage_subvoyage_id AND MATCH(cargo_commodity, cargo_commodity_standardized, cargo_unit, cargo_unit_standardized, cargo_quantity, cargo_value, cargo_notes) AGAINST(?)";
+			case "vessel":
+				return "";
+		}
+}
+
 	function getUser($un, $pw)
 	{
 		$params = array($un, $pw);
@@ -162,7 +177,7 @@ class Db_requests extends CI_Model
 
 	function getSubvoyagerecords($voyage_id)
 	{
-		$sql = "SELECT s.subvoyage_id, s.subvoyage_type, s.sub_dept_date_year, IFNULL(v.transport_type_standardized, '--') as captain, IFNULL(v.transport_name, '--') as vessel, s.sub_dept_location, s.sub_arrival_location FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN (SELECT f.type_id, a.actor_name FROM free_actors as f, `actor` as a WHERE f.type = 'voyage' AND f.actor_id = a.actor_id ) AS a ON s.subvoyage_id = a.type_id WHERE s.voyage_id = $voyage_id AND NOT deleted";
+		$sql = "SELECT DISTINCT s.subvoyage_id, s.subvoyage_type, s.sub_dept_date_year, IFNULL(v.transport_type_standardized, '--') as captain, IFNULL(v.transport_name, '--') as vessel, s.sub_dept_location, s.sub_arrival_location FROM `subvoyage` as s LEFT JOIN vessel as v ON s.sub_vessel = v.vessel_id LEFT JOIN (SELECT f.type_id, a.actor_name FROM free_actors as f, `actor` as a WHERE f.type = 'voyage' AND f.actor_id = a.actor_id ) AS a ON s.subvoyage_id = a.type_id WHERE s.voyage_id = $voyage_id AND NOT deleted";
 		return $this->db->query($sql)->result_array();
 	}
 
