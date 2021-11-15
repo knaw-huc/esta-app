@@ -38,7 +38,16 @@ class Workspace extends CI_Controller
 			$this->mysmarty->assign("status", "browse");
 			$this->mysmarty->view('voyageList');
 		}
+	}
 
+	function search() {
+		$table = $this->input->get("table");
+		$value = $this->input->get("value");
+		$result = $this->fetch->search($table, $value);
+		$this->mysmarty->assign("user", $this->session->id);
+		$this->mysmarty->assign("count", $result["count"]);
+		$this->mysmarty->assign("voyages", $result["voyages"]);
+		$this->mysmarty->view('resultList');
 	}
 
 	function myvoyages($page = 1)
@@ -77,6 +86,8 @@ class Workspace extends CI_Controller
 			$this->mysmarty->view('deleted_subvoyages');
 		}
 	}
+
+
 
 	function undelete_subvoyages() {
 		if ($this->session->role != "ADMIN")
@@ -214,5 +225,11 @@ class Workspace extends CI_Controller
 				return false;
 			}
 		}
+	}
+
+	private function send_json($message_array) {
+		header('Content-Type: application/json; charset=UTF-8');
+		header('Access-Control-Allow-Origin: *');
+		echo json_encode($message_array);
 	}
 }

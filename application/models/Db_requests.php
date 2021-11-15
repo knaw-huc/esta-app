@@ -6,20 +6,37 @@ if (!defined('BASEPATH'))
 class Db_requests extends CI_Model
 {
 
-	function get_ft_query($table) {
+	function get_ft_query($table)
+	{
 		switch ($table) {
 			case 'actor':
 				return "";
 			case "subvoyage":
-				return "SELECT voyage_id FROM subvoyage WHERE MATCH(sub_dept_location, sub_dept_location_standardized, sub_dept_date_as_source, sub_arrival_location, sub_arrival_location_standardized, sub_arrival_date_as_source, subvoyage_notes, sub_source) AGAINST (?)";
+				return "SELECT DISTINCT voyage_id FROM subvoyage WHERE MATCH(sub_dept_location, sub_dept_location_standardized, sub_dept_date_as_source, sub_arrival_location, sub_arrival_location_standardized, sub_arrival_date_as_source, subvoyage_notes, sub_source) AGAINST (?)";
 			case "voyage":
-				return "SELECT voyage_id FROM voyage WHERE MATCH(summary, year) AGAINST (?)";
+				return "SELECT DISTINCT voyage_id FROM voyage WHERE MATCH(summary, year) AGAINST (?)";
 			case "cargo":
-				return "SELECT s.voyage_id FROM subvoyage AS s, cargo AS c WHERE s.subvoyage_id = c.subvoyage_subvoyage_id AND MATCH(cargo_commodity, cargo_commodity_standardized, cargo_unit, cargo_unit_standardized, cargo_quantity, cargo_value, cargo_notes) AGAINST(?)";
+				return "SELECT DISTINCT s.voyage_id FROM subvoyage AS s, cargo AS c WHERE s.subvoyage_id = c.subvoyage_subvoyage_id AND MATCH(c.cargo_commodity, c.cargo_commodity_standardized, c.cargo_unit, c.cargo_unit_standardized, c.cargo_quantity, c.cargo_value, c.cargo_notes) AGAINST(?)";
 			case "vessel":
-				return "";
+				return "SELECT DISTINCT s.voyage_id FROM subvoyage AS s, vessel AS v WHERE s.sub_vessel = v.vessel_id AND MATCH(v.transport_notes, v.transport_name, v.transport_name_standardized, v.transport_type, v.transport_designation_standardized, v.transport_capacity, v.transport_designation) AGAINST (?)";
 		}
-}
+
+	}
+
+	function search($table, $value) {
+		$retArray = array();
+		$sub_query = $this->get_ft_query($table);
+
+		$params = array($value);
+		$results = $this->db->query($sub_query, $params);
+		$retArray["count"] = $results->num_rows();
+		$query = "SELECT v.voyage_id, v.summary,  v.created_by, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier FROM voyage as v, users as u, users as us WHERE voyage_id IN ($sub_query) AND v.created_by = u.id AND v.modified_by = us.id ORDER BY v.voyage_id";
+		$results = $this->getSubvoyages($this->db->query($query, $params)->result_array());
+		$retArray["voyages"] = $results;
+		return $retArray;
+	}
+
+
 
 	function getUser($un, $pw)
 	{

@@ -1,24 +1,22 @@
 {extends file="standardPage.tpl"}
 {block name="content"}
-	<h2>Voyages: page {$page} of {$pages} ({$count})</h2>
+	<h2>Voyages: {$count}</h2>
 	<ul id="voyagesMenu">
 		<li class="appBtn" id="vmCollapser">Expand</li>
-		<li class="appBtn {$range}" id="vmMyVoyages">{if $range == "allRecs"}My (sub)voyages{else}All voyages{/if}</li>
-		<li class="appBtn" id="vmSearch">Search</li>
-		<li class="appBtn" id="vmNew">New voyage</li>
+		<li class="appBtn" onclick="location.href='{$home_path}/workspace/voyages'">Browse</li>
 	</ul>
-	<form id="searchForm" class="noView" method="GET" action="{$home_path}/workspace/search">
-		<input id="searchText" name="value" type="text">
-		<select id="tableSelect" name="table">
+	{*<div id="searchForm" class="noView">
+		<input id="searchText" type="text">
+		<select id="tableSelect">
 			<!--<option value="">Actor</option>-->
-			<option value="cargo">Cargo</option>
-			<option value="vessel">Transport</option>
-			<option value="subvoyage">Subvoyage</option>
-			<option value="voyage">Voyage</option>
+			<option value="">Cargo</option>
+			<option value="">Transport</option>
+			<option value="">Subvoyage</option>
+			<option value="">Voyage</option>
 		</select>
-		<button id="searchBtn" onclick="checkSearch()">OK</button>
+		<button id="searchBtn">OK</button>
 		<input type="hidden" id="browserStatus" value="{$status}"/>
-	</form>
+	</div>*}
 	<table id="voyageList" class="resultTable">
 		<tr>
 			<th>ID</th>
@@ -30,7 +28,7 @@
 			<th></th>
 			<th></th>
 		</tr>
-		{foreach from=$voyages item=voyage}
+        {foreach from=$voyages item=voyage}
 			<tr class="voyageRow">
 				<td>{$voyage.voyage_id}</td>
 				<td>{$voyage.summary}</td>
@@ -42,7 +40,7 @@
 								src="{$home_path}img/edit.png" height="16px" width="16px"></a></td>
 				<td>{if $user == $voyage.created_by}<img class="withPointer" title="Delete voyage" src="{$home_path}img/bin.png" height="16px" width="16px" onclick="delete_voyage('{$voyage.voyage_id}')">{/if}</td>
 			</tr>
-			{foreach from=$voyage.subvoyages item=subvoyage}
+            {foreach from=$voyage.subvoyages item=subvoyage}
 				<tr class="subVoyageRow">
 					<td>{$subvoyage.subvoyage_id}</td>
 					<td>{$subvoyage.sub_dept_date_year}</td>
@@ -53,20 +51,20 @@
 					<td></td>
 					<td></td>
 				</tr>
-			{/foreach}
-		{/foreach}
-		<tr id="voyageBrowser">
+            {/foreach}
+        {/foreach}
+		{*<tr id="voyageBrowser">
 			<td colspan="3" id="voyageBrowserPrev">
-				{if $page > 1}<a href="{$home_path}workspace/{if $range == "myRecs"}my{/if}voyages/{$page-1}">previous</a>{else}&nbsp;{/if}
+                {if $page > 1}<a href="{$home_path}workspace/{if $range == "myRecs"}my{/if}voyages/{$page-1}">previous</a>{else}&nbsp;{/if}
 			</td>
-			<td colspan="3" id="voyageBrowserPage"><select onchange="gotopage(this, '{$range}')">
-					{for $i=1 to $pages}
+			<td colspan="3" id="voyageBrowserPage"><select onchange="goto_result_page(this, '{$range}')">
+                    {for $i=1 to $pages}
 						<option value="{$i}" {if $i == $page}selected{/if}>{$i}</option>
-					{/for}
+                    {/for}
 				</select></td>
 			<td colspan="3" id="voyageBrowserNext">
-				{if $page < $pages}<a href="{$home_path}workspace/{if $range == "myRecs"}my{/if}voyages/{$page+1}">next</a>{else}&nbsp;{/if}
+                {if $page < $pages}<a href="{$home_path}workspace/{if $range == "myRecs"}my{/if}voyages/{$page+1}">next</a>{else}&nbsp;{/if}
 			</td>
-		</tr>
+		</tr>*}
 	</table>
 {/block}

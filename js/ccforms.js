@@ -1394,3 +1394,10 @@ function gotopage(obj, range) {
 	}
 }
 
+function checkSearch() {
+	if ($("#searchText").val().trim() !== "") {
+		$("#searchForm").submit();
+		console.log("OK");
+	}
+}
+
