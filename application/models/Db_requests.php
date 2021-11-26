@@ -10,7 +10,7 @@ class Db_requests extends CI_Model
 	{
 		switch ($table) {
 			case 'actor':
-				return "";
+				return "SELECT s.voyage_id FROM actor AS a, free_actors AS f, subvoyage AS s WHERE MATCH(actor_name, actor_alias, actor_description, actor_notes) AGAINST (?) AND a.actor_id = f.actor_id AND s.subvoyage_id = f.type_id AND f.type = 'voyage'";
 			case "subvoyage":
 				return "SELECT DISTINCT voyage_id FROM subvoyage WHERE MATCH(sub_dept_location, sub_dept_location_standardized, sub_dept_date_as_source, sub_arrival_location, sub_arrival_location_standardized, sub_arrival_date_as_source, subvoyage_notes, sub_source) AGAINST (?)";
 			case "voyage":
@@ -23,14 +23,14 @@ class Db_requests extends CI_Model
 
 	}
 
-	function search($table, $value) {
+	function search($table, $value, $page, $offset) {
 		$retArray = array();
 		$sub_query = $this->get_ft_query($table);
-
+		$start = $page -1;
 		$params = array($value);
 		$results = $this->db->query($sub_query, $params);
 		$retArray["count"] = $results->num_rows();
-		$query = "SELECT v.voyage_id, v.summary,  v.created_by, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier FROM voyage as v, users as u, users as us WHERE voyage_id IN ($sub_query) AND v.created_by = u.id AND v.modified_by = us.id ORDER BY v.voyage_id";
+		$query = "SELECT v.voyage_id, v.summary,  v.created_by, v.year, DATE_FORMAT(`last_mutation`, \"%d-%m-%Y\") as last_mutation, CONCAT(u.chr_name, ' ', u.name) as creator, CONCAT(us.chr_name, ' ', us.name) AS modifier FROM voyage as v, users as u, users as us WHERE voyage_id IN ($sub_query) AND v.created_by = u.id AND v.modified_by = us.id ORDER BY v.voyage_id LIMIT $start, $offset";
 		$results = $this->getSubvoyages($this->db->query($query, $params)->result_array());
 		$retArray["voyages"] = $results;
 		return $retArray;

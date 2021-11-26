@@ -1,22 +1,16 @@
 {extends file="standardPage.tpl"}
 {block name="content"}
-	<h2>Voyages: {$count}</h2>
+	<h2>Voyages: page {$page} of {$pages} ({$count})</h2>
+	<p><strong>Search value: {$value}</strong></p>
 	<ul id="voyagesMenu">
 		<li class="appBtn" id="vmCollapser">Expand</li>
 		<li class="appBtn" onclick="location.href='{$home_path}/workspace/voyages'">Browse</li>
 	</ul>
-	{*<div id="searchForm" class="noView">
-		<input id="searchText" type="text">
-		<select id="tableSelect">
-			<!--<option value="">Actor</option>-->
-			<option value="">Cargo</option>
-			<option value="">Transport</option>
-			<option value="">Subvoyage</option>
-			<option value="">Voyage</option>
-		</select>
-		<button id="searchBtn">OK</button>
-		<input type="hidden" id="browserStatus" value="{$status}"/>
-	</div>*}
+	<form id="searchForm" class="noView" method="GET" action="{$home_path}/workspace/search">
+		<input id="searchText" name="value" type="hidden" value="{$value}">
+		<input type="hidden" name="table" value="{$table}" />
+		<input type="hidden" id="sr_page" name="page" value="1" />
+	</form>
 	<table id="voyageList" class="resultTable">
 		<tr>
 			<th>ID</th>
@@ -53,18 +47,18 @@
 				</tr>
             {/foreach}
         {/foreach}
-		{*<tr id="voyageBrowser">
+		<tr id="voyageBrowser">
 			<td colspan="3" id="voyageBrowserPrev">
-                {if $page > 1}<a href="{$home_path}workspace/{if $range == "myRecs"}my{/if}voyages/{$page-1}">previous</a>{else}&nbsp;{/if}
+                {if $page > 1}<div class="browserBtn"  onclick="goto_search_result('{$page+1}')">previous</div>{else}&nbsp;{/if}
 			</td>
-			<td colspan="3" id="voyageBrowserPage"><select onchange="goto_result_page(this, '{$range}')">
+			<td colspan="3" id="voyageBrowserPage"><select onchange="goto_search_result(this.value)">
                     {for $i=1 to $pages}
 						<option value="{$i}" {if $i == $page}selected{/if}>{$i}</option>
                     {/for}
 				</select></td>
 			<td colspan="3" id="voyageBrowserNext">
-                {if $page < $pages}<a href="{$home_path}workspace/{if $range == "myRecs"}my{/if}voyages/{$page+1}">next</a>{else}&nbsp;{/if}
+                {if $page < $pages}<div class="browserBtn"   onclick="goto_search_result('{$page+1}')">next</div>{else}&nbsp;{/if}
 			</td>
-		</tr>*}
+		</tr>
 	</table>
 {/block}

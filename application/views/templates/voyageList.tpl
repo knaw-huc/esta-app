@@ -10,14 +10,14 @@
 	<form id="searchForm" class="noView" method="GET" action="{$home_path}/workspace/search">
 		<input id="searchText" name="value" type="text">
 		<select id="tableSelect" name="table">
-			<!--<option value="">Actor</option>-->
+			<option value="actor">Actor</option>
 			<option value="cargo">Cargo</option>
 			<option value="vessel">Transport</option>
 			<option value="subvoyage">Subvoyage</option>
 			<option value="voyage">Voyage</option>
 		</select>
 		<button id="searchBtn" onclick="checkSearch()">OK</button>
-		<input type="hidden" id="browserStatus" value="{$status}"/>
+		<input type="hidden" name="page" value="1" />
 	</form>
 	<table id="voyageList" class="resultTable">
 		<tr>

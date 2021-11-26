@@ -1401,3 +1401,8 @@ function checkSearch() {
 	}
 }
 
+function goto_search_result(page_nr) {
+	$("#sr_page").val(page_nr);
+	$("#searchForm").submit();
+}
+

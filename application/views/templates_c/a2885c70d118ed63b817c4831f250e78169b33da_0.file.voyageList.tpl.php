@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2021-11-15 14:23:37
+/* Smarty version 3.1.32, created on 2021-11-26 11:40:23
   from '/Library/WebServer/Documents/esta/application/views/templates/voyageList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_61926d695ef706_05638649',
+  'unifunc' => 'content_61a0b997762f76_61913996',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'a2885c70d118ed63b817c4831f250e78169b33da' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/voyageList.tpl',
-      1 => 1636986207,
+      1 => 1637923218,
       2 => 'file',
     ),
   ),
@@ -20,24 +20,24 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61926d695ef706_05638649 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61a0b997762f76_61913996 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2575868261926d695e6025_12885500', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_13053295561a0b9977279e1_07875922', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_2575868261926d695e6025_12885500 extends Smarty_Internal_Block
+class Block_13053295561a0b9977279e1_07875922 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_2575868261926d695e6025_12885500',
+    0 => 'Block_13053295561a0b9977279e1_07875922',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
@@ -58,15 +58,14 @@ public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 /workspace/search">
 		<input id="searchText" name="value" type="text">
 		<select id="tableSelect" name="table">
-			<!--<option value="">Actor</option>-->
+			<option value="actor">Actor</option>
 			<option value="cargo">Cargo</option>
 			<option value="vessel">Transport</option>
 			<option value="subvoyage">Subvoyage</option>
 			<option value="voyage">Voyage</option>
 		</select>
 		<button id="searchBtn" onclick="checkSearch()">OK</button>
-		<input type="hidden" id="browserStatus" value="<?php echo $_smarty_tpl->tpl_vars['status']->value;?>
-"/>
+		<input type="hidden" name="page" value="1" />
 	</form>
 	<table id="voyageList" class="resultTable">
 		<tr>

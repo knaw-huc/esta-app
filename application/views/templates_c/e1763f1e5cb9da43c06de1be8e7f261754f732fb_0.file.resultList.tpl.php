@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32, created on 2021-11-15 14:29:28
+/* Smarty version 3.1.32, created on 2021-11-26 12:20:06
   from '/Library/WebServer/Documents/esta/application/views/templates/resultList.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32',
-  'unifunc' => 'content_61926ec8a83337_91845960',
+  'unifunc' => 'content_61a0c2e6109ba6_09679381',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e1763f1e5cb9da43c06de1be8e7f261754f732fb' => 
     array (
       0 => '/Library/WebServer/Documents/esta/application/views/templates/resultList.tpl',
-      1 => 1636986554,
+      1 => 1637925602,
       2 => 'file',
     ),
   ),
@@ -20,37 +20,49 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_61926ec8a83337_91845960 (Smarty_Internal_Template $_smarty_tpl) {
+function content_61a0c2e6109ba6_09679381 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_150075505161926ec8a7ceb3_91575183', "content");
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_53387174061a0c2e60da8a6_56002986', "content");
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild($_smarty_tpl, "standardPage.tpl");
 }
 /* {block "content"} */
-class Block_150075505161926ec8a7ceb3_91575183 extends Smarty_Internal_Block
+class Block_53387174061a0c2e60da8a6_56002986 extends Smarty_Internal_Block
 {
 public $subBlocks = array (
   'content' => 
   array (
-    0 => 'Block_150075505161926ec8a7ceb3_91575183',
+    0 => 'Block_53387174061a0c2e60da8a6_56002986',
   ),
 );
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-	<h2>Voyages: <?php echo $_smarty_tpl->tpl_vars['count']->value;?>
-</h2>
+	<h2>Voyages: page <?php echo $_smarty_tpl->tpl_vars['page']->value;?>
+ of <?php echo $_smarty_tpl->tpl_vars['pages']->value;?>
+ (<?php echo $_smarty_tpl->tpl_vars['count']->value;?>
+)</h2>
+	<p><strong>Search value: <?php echo $_smarty_tpl->tpl_vars['value']->value;?>
+</strong></p>
 	<ul id="voyagesMenu">
 		<li class="appBtn" id="vmCollapser">Expand</li>
 		<li class="appBtn" onclick="location.href='<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
 /workspace/voyages'">Browse</li>
 	</ul>
-		<table id="voyageList" class="resultTable">
+	<form id="searchForm" class="noView" method="GET" action="<?php echo $_smarty_tpl->tpl_vars['home_path']->value;?>
+/workspace/search">
+		<input id="searchText" name="value" type="hidden" value="<?php echo $_smarty_tpl->tpl_vars['value']->value;?>
+">
+		<input type="hidden" name="table" value="<?php echo $_smarty_tpl->tpl_vars['table']->value;?>
+" />
+		<input type="hidden" id="sr_page" name="page" value="1" />
+	</form>
+	<table id="voyageList" class="resultTable">
 		<tr>
 			<th>ID</th>
 			<th>Summary</th>
@@ -117,7 +129,30 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 }
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-			</table>
+		<tr id="voyageBrowser">
+			<td colspan="3" id="voyageBrowserPrev">
+                <?php if ($_smarty_tpl->tpl_vars['page']->value > 1) {?><div class="browserBtn"  onclick="goto_search_result('<?php echo $_smarty_tpl->tpl_vars['page']->value+1;?>
+')">previous</div><?php } else { ?>&nbsp;<?php }?>
+			</td>
+			<td colspan="3" id="voyageBrowserPage"><select onchange="goto_search_result(this.value)">
+                    <?php
+$_smarty_tpl->tpl_vars['i'] = new Smarty_Variable(null, $_smarty_tpl->isRenderingCache);$_smarty_tpl->tpl_vars['i']->step = 1;$_smarty_tpl->tpl_vars['i']->total = (int) ceil(($_smarty_tpl->tpl_vars['i']->step > 0 ? $_smarty_tpl->tpl_vars['pages']->value+1 - (1) : 1-($_smarty_tpl->tpl_vars['pages']->value)+1)/abs($_smarty_tpl->tpl_vars['i']->step));
+if ($_smarty_tpl->tpl_vars['i']->total > 0) {
+for ($_smarty_tpl->tpl_vars['i']->value = 1, $_smarty_tpl->tpl_vars['i']->iteration = 1;$_smarty_tpl->tpl_vars['i']->iteration <= $_smarty_tpl->tpl_vars['i']->total;$_smarty_tpl->tpl_vars['i']->value += $_smarty_tpl->tpl_vars['i']->step, $_smarty_tpl->tpl_vars['i']->iteration++) {
+$_smarty_tpl->tpl_vars['i']->first = $_smarty_tpl->tpl_vars['i']->iteration === 1;$_smarty_tpl->tpl_vars['i']->last = $_smarty_tpl->tpl_vars['i']->iteration === $_smarty_tpl->tpl_vars['i']->total;?>
+						<option value="<?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+" <?php if ($_smarty_tpl->tpl_vars['i']->value == $_smarty_tpl->tpl_vars['page']->value) {?>selected<?php }?>><?php echo $_smarty_tpl->tpl_vars['i']->value;?>
+</option>
+                    <?php }
+}
+?>
+				</select></td>
+			<td colspan="3" id="voyageBrowserNext">
+                <?php if ($_smarty_tpl->tpl_vars['page']->value < $_smarty_tpl->tpl_vars['pages']->value) {?><div class="browserBtn"   onclick="goto_search_result('<?php echo $_smarty_tpl->tpl_vars['page']->value+1;?>
+')">next</div><?php } else { ?>&nbsp;<?php }?>
+			</td>
+		</tr>
+	</table>
 <?php
 }
 }

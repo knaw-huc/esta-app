@@ -43,10 +43,16 @@ class Workspace extends CI_Controller
 	function search() {
 		$table = $this->input->get("table");
 		$value = $this->input->get("value");
-		$result = $this->fetch->search($table, $value);
+		$page  = $this->input->get("page");
+		$result = $this->fetch->search($table, $value, $page, $this->pageLength);
+		$pages = ceil($result["count"] / $this->pageLength);
 		$this->mysmarty->assign("user", $this->session->id);
 		$this->mysmarty->assign("count", $result["count"]);
 		$this->mysmarty->assign("voyages", $result["voyages"]);
+		$this->mysmarty->assign("page", $page);
+		$this->mysmarty->assign("pages", $pages);
+		$this->mysmarty->assign("value", $value);
+		$this->mysmarty->assign("table", $table);
 		$this->mysmarty->view('resultList');
 	}
 
