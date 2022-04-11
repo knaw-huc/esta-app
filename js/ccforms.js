@@ -16,7 +16,8 @@ var currentFormChanged = false;
 
 var activeTab = "profileXML";
 
-var home = 'https://esta.sd.di.huc.knaw.nl/';
+//var home = 'https://esta.sd.di.huc.knaw.nl/';
+var home = 'http://www.huc.localhost/esta/';
 var subVoyageSwapped = false;
 
 var hucForms = {
